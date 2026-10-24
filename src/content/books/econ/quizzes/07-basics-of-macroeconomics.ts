@@ -73,7 +73,7 @@ const quiz: QuizData = {
     {
       "prompt": "7. A prolonged fall in the general price level is:",
       "options": [
-        "Deflation — potentially as damaging as inflation",
+        "Deflation: potentially as damaging as inflation",
         "Hyperinflation",
         "Creeping inflation",
         "Reflation"

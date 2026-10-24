@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "10-final-practice-exam",
     "number": 10,
-    "title": "Final Practice Exam",
+    "title": "Final practice exam",
     "subtitle": "15 mixed questions · all topics · exam conditions",
     "kind": "exam",
     "words": 32,
@@ -15,11 +15,11 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Before you begin",
-      "html": "Give yourself <b>25 minutes</b>, no notes, no going back. Aim for <b>12+/15</b> (80%) before the real exam. Every question maps to a topic section — revisit any topic where you slip."
+      "html": "Give yourself <b>25 minutes</b>, no notes, no going back. Aim for <b>12+/15</b> (80%) before the real exam. Every question maps to a topic section, revisit any topic where you slip."
     },
     {
       "type": "quiz",
-      "title": "TCS 2112 Practice Exam",
+      "title": "TCS 2112 practice exam",
       "count": 15,
       "quizSlug": "10-final-practice-exam"
     }

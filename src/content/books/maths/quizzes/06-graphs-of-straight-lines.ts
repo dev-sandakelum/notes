@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "06-graphs-of-straight-lines",
-  "title": "Topic 6 Quiz — Straight Lines",
+  "title": "Topic 6 Quiz: Straight Lines",
   "questions": [
     {
       "prompt": "1. The point (−3, 5) lies in quadrant:",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "the origin"
       ],
       "answer": 0,
-      "explanation": "Setting x = 0 gives y = c — where the line crosses the y-axis."
+      "explanation": "Setting x = 0 gives y = c, where the line crosses the y-axis."
     },
     {
       "prompt": "4. The slope of a horizontal line is:",

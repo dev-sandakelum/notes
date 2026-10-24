@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "10-file-handling",
-  "title": "Topic 10 Quiz — File Handling",
+  "title": "Topic 10 Quiz: File Handling",
   "questions": [
     {
       "prompt": "1. A stream is…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q10a\" value=\"3\">A database connection"
       ],
       "answer": 1,
-      "explanation": "Streams move data between the program and console/printer/file/another program — with no idea of the data's meaning."
+      "explanation": "Streams move data between the program and console/printer/file/another program, with no idea of the data's meaning."
     },
     {
       "prompt": "2. The correct chain for reading a TEXT file is…",
@@ -68,12 +68,12 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q10f\" value=\"3\">Checking file.length()"
       ],
       "answer": 2,
-      "explanation": "DataInputStream's read methods throw EOFException when the data runs out — catch it to stop the loop."
+      "explanation": "DataInputStream's read methods throw EOFException when the data runs out, catch it to stop the loop."
     },
     {
       "prompt": "7. Why does BufferedReader wrap FileReader?",
       "options": [
-        "<input type=\"radio\" name=\"q10g\" value=\"0\">To read in large chunks instead of one character at a time — more efficient, and it can read whole lines",
+        "<input type=\"radio\" name=\"q10g\" value=\"0\">To read in large chunks instead of one character at a time, more efficient, and it can read whole lines",
         "<input type=\"radio\" name=\"q10g\" value=\"1\">To encrypt the file",
         "<input type=\"radio\" name=\"q10g\" value=\"2\">Because FileReader cannot open files",
         "<input type=\"radio\" name=\"q10g\" value=\"3\">To convert text to binary"

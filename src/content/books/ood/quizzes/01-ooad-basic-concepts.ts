@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "01-ooad-basic-concepts",
-  "title": "Topic 1 Quiz — OOAD Basic Concepts",
+  "title": "Topic 1 Quiz: OOAD Basic Concepts",
   "questions": [
     {
       "prompt": "1. What is the key focus of Object-Oriented <b>Analysis</b> (OOA)?",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Deploying the system to a cloud platform"
       ],
       "answer": 1,
-      "explanation": "OOA asks \"What exists in the problem domain?\" — it identifies objects, concepts, classes, relationships and requirements. OOD defines software classes; OOP implements them."
+      "explanation": "OOA asks \"What exists in the problem domain?\": it identifies objects, concepts, classes, relationships and requirements. OOD defines software classes; OOP implements them."
     },
     {
       "prompt": "2. \"A class is a blueprint; an object is an actual instance created from that class.\" Which analogy matches this?",
@@ -62,10 +62,10 @@ const quiz: QuizData = {
     {
       "prompt": "6. A <code>UserManager</code> class contains <code>createUser()</code>, <code>sendWelcomeEmail()</code>, <code>generateReport()</code>, <code>calculateTax()</code> and <code>playMusic()</code>. What is the problem and the fix?",
       "options": [
-        "High coupling — merge it into one system class",
-        "Low cohesion — split it into focused classes like UserService, EmailService, ReportService",
-        "High cohesion — keep it because it manages users",
-        "Low coupling — connect it to more interfaces"
+        "High coupling: merge it into one system class",
+        "Low cohesion: split it into focused classes like UserService, EmailService, ReportService",
+        "High cohesion: keep it because it manages users",
+        "Low coupling: connect it to more interfaces"
       ],
       "answer": 1,
       "explanation": "The class does too many unrelated things (no single clear purpose) = low cohesion. The fix is to split it into UserService, EmailService, ReportService, TaxService, MusicService."
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "lawrence"
       ],
       "answer": 3,
-      "explanation": "A message has three components: object reference (lawrence — who receives it), method name (takeOrder — what to do) and parameters (\"sofa\", \"1 Robinson Rd\", 120799 — input values)."
+      "explanation": "A message has three components: object reference (lawrence: who receives it), method name (takeOrder, what to do) and parameters (\"sofa\", \"1 Robinson Rd\", 120799, input values)."
     },
     {
       "prompt": "8. Which combination characterizes a good object-oriented design?",

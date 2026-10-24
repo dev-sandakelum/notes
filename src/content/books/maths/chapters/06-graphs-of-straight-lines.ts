@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "06-graphs-of-straight-lines",
     "number": 6,
-    "title": "Graphs of Straight Lines",
+    "title": "Graphs of straight lines",
     "subtitle": "Cartesian plane · Slope · Equations of a line · Parallel & perpendicular lines",
     "kind": "topic",
     "words": 535,
@@ -15,7 +15,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "the-cartesian-x-y-plane",
-      "text": "The Cartesian X-Y plane"
+      "text": "The cartesian X-Y plane"
     },
     {
       "type": "paragraph",
@@ -25,7 +25,7 @@ const chapter: ChapterData = {
       "type": "figure",
       "svg": "<svg class=\"fig\" viewBox=\"0 0 460 320\" role=\"img\" aria-label=\"Cartesian plane quadrants\">\n    <line x1=\"20\" y1=\"160\" x2=\"440\" y2=\"160\" class=\"axisln\"></line><polygon points=\"440,160 431,156 431,164\" fill=\"var(--axis)\"></polygon>\n    <line x1=\"230\" y1=\"300\" x2=\"230\" y2=\"20\" class=\"axisln\"></line><polygon points=\"230,20 226,29 234,29\" fill=\"var(--axis)\"></polygon>\n    <text x=\"425\" y=\"178\" class=\"axl\">x</text><text x=\"242\" y=\"32\" class=\"axl\">y</text><text x=\"222\" y=\"176\" text-anchor=\"end\">O</text>\n    <text x=\"130\" y=\"80\" class=\"lbl\">Quadrant II</text><text x=\"122\" y=\"98\" font-size=\"11\">( −x , +y )</text>\n    <text x=\"300\" y=\"80\" class=\"lbl\">Quadrant I</text><text x=\"298\" y=\"98\" font-size=\"11\">( +x , +y )</text>\n    <text x=\"130\" y=\"250\" class=\"lbl\">Quadrant III</text><text x=\"122\" y=\"268\" font-size=\"11\">( −x , −y )</text>\n    <text x=\"300\" y=\"250\" class=\"lbl\">Quadrant IV</text><text x=\"298\" y=\"268\" font-size=\"11\">( +x , −y )</text>\n    <circle cx=\"290\" cy=\"100\" r=\"4.5\" fill=\"var(--primary)\"></circle><text x=\"298\" y=\"96\" font-size=\"11\">(3, 2)</text>\n    <circle cx=\"170\" cy=\"100\" r=\"4.5\" fill=\"var(--accent)\"></circle><text x=\"128\" y=\"118\" font-size=\"11\">(−2, 3)</text>\n    <circle cx=\"170\" cy=\"220\" r=\"4.5\" fill=\"var(--warn)\"></circle><text x=\"126\" y=\"240\" font-size=\"11\">(−3, −2)</text>\n    <circle cx=\"290\" cy=\"220\" r=\"4.5\" fill=\"var(--success)\"></circle><text x=\"298\" y=\"216\" font-size=\"11\">(2, −2)</text>\n  </svg>",
       "alt": "Cartesian plane quadrants",
-      "caption": "The four quadrants — the signs of the coordinates identify each one."
+      "caption": "The four quadrants: the signs of the coordinates identify each one."
     },
     {
       "type": "heading",
@@ -51,9 +51,9 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>m &gt; 0</b> — line rises left to right; <b>m &lt; 0</b> — line falls.",
-        "<b>m = 0</b> — horizontal line (equation <span class=\"m\">y = k</span>).",
-        "<b>undefined m</b> — vertical line (equation <span class=\"m\">x = k</span>): the run is 0, so the fraction is undefined."
+        "<b>m &gt; 0</b>: line rises left to right; <b>m &lt; 0</b>: line falls.",
+        "<b>m = 0</b>: horizontal line (equation <span class=\"m\">y = k</span>).",
+        "<b>undefined m</b>: vertical line (equation <span class=\"m\">x = k</span>): the run is 0, so the fraction is undefined."
       ]
     },
     {
@@ -75,7 +75,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — building line equations",
+      "title": "Worked example: building line equations",
       "bodyHtml": "<p>(1) Find the equation of the line with slope 4 through (2, 3).<br>(2) Find the line through (1, 2) and (3, 8).<br>(3) Find the slope and y-intercept of <span class=\"m\">3x + 2y − 6 = 0</span>.</p>",
       "solutionHtml": "<p><b>(1)</b> Point–slope: <span class=\"m\">y − 3 = 4(x − 2)</span> → <span class=\"m\">y = 4x − 5</span>.</p>\n      <p><b>(2)</b> <span class=\"m\">m = <span class=\"frac\"><span>8 − 2</span><span>3 − 1</span></span> = 3</span>, so <span class=\"m\">y − 2 = 3(x − 1)</span> → <span class=\"m\">y = 3x − 1</span>.</p>\n      <p><b>(3)</b> Rearrange: <span class=\"m\">2y = −3x + 6</span> → <span class=\"m\">y = −<span class=\"frac\"><span>3</span><span>2</span></span>x + 3</span>. Slope <span class=\"m\">m = −3/2</span>, y-intercept <span class=\"m\">c = 3</span>.</p>"
     },
@@ -87,7 +87,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "To sketch <span class=\"m\">y = mx + c</span> you only need two points, but three is safer (a mistake shows up as a non-collinear point). The fastest method: mark the y-intercept c, then use the slope to step to a second point — for <span class=\"m\">y = 2x + 1</span>, start at (0, 1) and step 1 right, 2 up to reach (1, 3). Alternatively, build a small table of values (e.g. x = −1, 0, 1), plot, and join with a ruler."
+      "html": "To sketch <span class=\"m\">y = mx + c</span> you only need two points, but three is safer (a mistake shows up as a non-collinear point). The fastest method: mark the y-intercept c, then use the slope to step to a second point, for <span class=\"m\">y = 2x + 1</span>, start at (0, 1) and step 1 right, 2 up to reach (1, 3). Alternatively, build a small table of values (e.g. x = −1, 0, 1), plot, and join with a ruler."
     },
     {
       "type": "heading",
@@ -103,7 +103,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — parallel & perpendicular slopes",
+      "title": "Worked example: parallel & perpendicular slopes",
       "bodyHtml": "<p>For the line <span class=\"m\">2x + 3y − 6 = 0</span>, find the slope of (a) a parallel line and (b) a perpendicular line.</p>",
       "solutionHtml": "<p>Rewrite: <span class=\"m\">y = −<span class=\"frac\"><span>2</span><span>3</span></span>x + 2</span>, so <span class=\"m\">m = −2/3</span>.</p>\n      <p>(a) Parallel: same slope <span class=\"m\">−2/3</span>. (b) Perpendicular: negative reciprocal <span class=\"m\"><span class=\"frac\"><span>3</span><span>2</span></span></span>, since <span class=\"m\">(−<span class=\"frac\"><span>2</span><span>3</span></span>) × <span class=\"frac\"><span>3</span><span>2</span></span> = −1</span>.</p>"
     },
@@ -111,11 +111,11 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "exam",
       "title": "Exam tip",
-      "html": "When a question gives you two points and asks for a line, always compute m first — then any form of the equation is one substitution away. If asked whether a point lies on a line, substitute it: both sides must match exactly."
+      "html": "When a question gives you two points and asks for a line, always compute m first, then any form of the equation is one substitution away. If asked whether a point lies on a line, substitute it: both sides must match exactly."
     },
     {
       "type": "quiz",
-      "title": "Topic 6 Quiz — Straight Lines",
+      "title": "Topic 6 Quiz: Straight Lines",
       "count": 7,
       "quizSlug": "06-graphs-of-straight-lines"
     }

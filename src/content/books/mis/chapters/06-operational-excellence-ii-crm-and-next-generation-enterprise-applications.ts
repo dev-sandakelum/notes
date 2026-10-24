@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "06-operational-excellence-ii-crm-and-next-generation-enterprise-applications",
     "number": 6,
-    "title": "Operational Excellence II: CRM & Next-Generation Enterprise Applications",
+    "title": "Operational excellence II: CRM & next-generation enterprise applications",
     "subtitle": "Lecture 06 · CRM software & value, operational vs analytical CRM, social CRM, business intelligence",
     "kind": "topic",
     "words": 973,
@@ -15,11 +15,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "customer-relationship-management-systems-crm",
-      "text": "Customer Relationship Management Systems (CRM)"
+      "text": "Customer relationship management systems (CRM)"
     },
     {
       "type": "paragraph",
-      "html": "To build and nurture strong, long-lasting customer relationships, a firm needs to know exactly <b>who its customers are</b>, <b>how to contact them</b>, <b>whether they are costly</b> to service and sell to, <b>what products and services they are interested in</b>, and <b>how much they spend</b> with the company. In large businesses there are too many customers and too many ways for customers to interact with the firm to track this by hand. <b>CRM systems</b> solve the problem: they <b>capture and integrate customer data from all over the organization</b>, <b>consolidate and analyze</b> that data, <b>distribute</b> customer information to systems and <b>customer touch points</b> across the enterprise, and provide a <b>single enterprise view of customers</b>. CRM systems examine customers from a <b>multifaceted perspective</b>, using a set of integrated applications to address all aspects of the customer relationship — <b>customer service, sales and marketing</b>."
+      "html": "To build and nurture strong, long-lasting customer relationships, a firm needs to know exactly <b>who its customers are</b>, <b>how to contact them</b>, <b>whether they are costly</b> to service and sell to, <b>what products and services they are interested in</b>, and <b>how much they spend</b> with the company. In large businesses there are too many customers and too many ways for customers to interact with the firm to track this by hand. <b>CRM systems</b> solve the problem: they <b>capture and integrate customer data from all over the organization</b>, <b>consolidate and analyze</b> that data, <b>distribute</b> customer information to systems and <b>customer touch points</b> across the enterprise, and provide a <b>single enterprise view of customers</b>. CRM systems examine customers from a <b>multifaceted perspective</b>, using a set of integrated applications to address all aspects of the customer relationship. <b>customer service, sales and marketing</b>."
     },
     {
       "type": "heading",
@@ -29,7 +29,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "CRM packages range from niche tools to large-scale enterprise applications. The more comprehensive packages include two major modules. <b>Partner Relationship Management (PRM)</b> enhances collaboration between a company and its selling partners: it provides the ability to trade information, distribute leads and customer data, and integrate <b>lead generation, pricing, promotions, order configurations and availability</b>; it also provides tools to assess partners' performances. <b>Employee Relationship Management (ERM)</b> deals with employee issues closely related to CRM — setting objectives, employee performance management, performance-based compensation and employee training."
+      "html": "CRM packages range from niche tools to large-scale enterprise applications. The more comprehensive packages include two major modules. <b>Partner Relationship Management (PRM)</b> enhances collaboration between a company and its selling partners: it provides the ability to trade information, distribute leads and customer data, and integrate <b>lead generation, pricing, promotions, order configurations and availability</b>; it also provides tools to assess partners' performances. <b>Employee Relationship Management (ERM)</b> deals with employee issues closely related to CRM, setting objectives, employee performance management, performance-based compensation and employee training."
     },
     {
       "type": "paragraph",
@@ -50,15 +50,15 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "operational-vs-analytical-crm",
-      "text": "Operational vs Analytical CRM"
+      "text": "Operational vs analytical CRM"
     },
     {
       "type": "paragraph",
-      "html": "The single most examinable distinction in this lecture. <b>Operational CRM</b> includes the <b>customer-facing applications</b> — the tools employees and customers directly use: sales force automation, call center and customer service support, and marketing automation. <b>Analytical CRM</b> includes applications that <b>analyze the customer data generated by operational CRM</b> to provide information for improving business performance — including the crucial <b>Customer Lifetime Value (CLTV)</b>, which estimates the total worth of a customer relationship over its whole life. Operational CRM captures the interactions; analytical CRM learns from them."
+      "html": "The single most examinable distinction in this lecture. <b>Operational CRM</b> includes the <b>customer-facing applications</b>; the tools employees and customers directly use: sales force automation, call center and customer service support, and marketing automation. <b>Analytical CRM</b> includes applications that <b>analyze the customer data generated by operational CRM</b> to provide information for improving business performance, including the crucial <b>Customer Lifetime Value (CLTV)</b>, which estimates the total worth of a customer relationship over its whole life. Operational CRM captures the interactions; analytical CRM learns from them."
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"flow\">\n    <div class=\"fstep\"><b>Operational CRM</b><small>Customer-facing: SFA · call centers · marketing automation — generates data</small></div>\n    <div class=\"farrow\">→</div>\n    <div class=\"fstep\"><b>Analytical CRM</b><small>Analyzes that data — insights, CLTV — improves business performance</small></div>\n  </div>",
+      "html": "<div class=\"flow\">\n    <div class=\"fstep\"><b>Operational CRM</b><small>Customer-facing: SFA · call centers · marketing automation, generates data</small></div>\n    <div class=\"farrow\">→</div>\n    <div class=\"fstep\"><b>Analytical CRM</b><small>Analyzes that data, insights, CLTV, improves business performance</small></div>\n  </div>",
       "alt": "Diagram from the original notes"
     },
     {
@@ -76,24 +76,24 @@ const chapter: ChapterData = {
         "<b>More effective marketing</b>",
         "<b>Lower costs</b> for customer acquisition and retention",
         "<b>Increased sales revenue</b>",
-        "<b>Reduced churn rate</b> — the number of customers who <b>stop using or purchasing</b> products or services from a company; an <b>indicator of the growth or decline</b> of the firm's customer base"
+        "<b>Reduced churn rate</b>: the number of customers who <b>stop using or purchasing</b> products or services from a company; an <b>indicator of the growth or decline</b> of the firm's customer base"
       ]
     },
     {
       "type": "callout",
       "variant": "exam",
-      "title": "Definition to memorize — churn rate",
-      "html": "\"The number of customers who stop using or purchasing products or services from a company — an indicator of the growth or decline of the firm's customer base.\" CRM aims to reduce it; analytical CRM flags at-risk customers early."
+      "title": "Definition to memorize: churn rate",
+      "html": "\"The number of customers who stop using or purchasing products or services from a company, an indicator of the growth or decline of the firm's customer base.\" CRM aims to reduce it; analytical CRM flags at-risk customers early."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "enterprise-applications-new-opportunities-and-challenges",
-      "text": "Enterprise Applications: New Opportunities and Challenges"
+      "text": "Enterprise applications: new opportunities and challenges"
     },
     {
       "type": "paragraph",
-      "html": "Enterprise applications are powerful but demanding. They are <b>highly expensive to purchase and implement</b> — typically <mark>$3.5 million to over $12 million over 16 months</mark> (for mid-size firms). Beyond cost, firms face <b>technological changes, business process changes, and organizational changes</b>; high <b>switching costs</b> and dependence on software vendors; and the unglamorous but essential work of <b>data standardization, management and cleansing</b> — dirty data in, dirty results out."
+      "html": "Enterprise applications are powerful but demanding. They are <b>highly expensive to purchase and implement</b>, typically <mark>$3.5 million to over $12 million over 16 months</mark> (for mid-size firms). Beyond cost, firms face <b>technological changes, business process changes, and organizational changes</b>; high <b>switching costs</b> and dependence on software vendors; and the unglamorous but essential work of <b>data standardization, management and cleansing</b>, dirty data in, dirty results out."
     },
     {
       "type": "heading",
@@ -103,7 +103,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The industry is moving to make applications more <b>flexible, Web-enabled, and integrated</b> with other systems. Key directions include <b>enterprise suites</b> — software that enables CRM, SCM and enterprise systems to work together and with supplier/client systems using <b>Web services and SOA</b>; <b>open-source and on-demand (SaaS) solutions</b>; <b>mobile-compatible</b> software with <b>Web 2.0 capabilities</b>; complementary <b>analytics products</b>; and <b>cloud-based software/services</b>. A <b>service platform</b> integrates multiple applications to deliver a <b>seamless experience</b> for all parties — e.g. the <b>order-to-cash process</b>. <b>Portal software</b> integrates information from enterprise applications and legacy systems and presents it <b>as if coming from a single source</b>."
+      "html": "The industry is moving to make applications more <b>flexible, Web-enabled, and integrated</b> with other systems. Key directions include <b>enterprise suites</b>: software that enables CRM, SCM and enterprise systems to work together and with supplier/client systems using <b>Web services and SOA</b>; <b>open-source and on-demand (SaaS) solutions</b>; <b>mobile-compatible</b> software with <b>Web 2.0 capabilities</b>; complementary <b>analytics products</b>; and <b>cloud-based software/services</b>. A <b>service platform</b> integrates multiple applications to deliver a <b>seamless experience</b> for all parties, e.g. the <b>order-to-cash process</b>. <b>Portal software</b> integrates information from enterprise applications and legacy systems and presents it <b>as if coming from a single source</b>."
     },
     {
       "type": "heading",
@@ -113,27 +113,27 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Social CRM</b> enables a business to <b>connect customer conversations and relationships from social networking sites to CRM processes</b>. Its capabilities include <b>linking data from social networks, social media analytics, campaign management</b> and social marketing. Where traditional CRM records transactions the firm controls, social CRM listens and responds where the customers actually talk — turning public conversations into relationship intelligence."
+      "html": "<b>Social CRM</b> enables a business to <b>connect customer conversations and relationships from social networking sites to CRM processes</b>. Its capabilities include <b>linking data from social networks, social media analytics, campaign management</b> and social marketing. Where traditional CRM records transactions the firm controls, social CRM listens and responds where the customers actually talk, turning public conversations into relationship intelligence."
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "business-intelligence-for-enterprise-applications",
-      "text": "Business Intelligence (for enterprise applications)"
+      "text": "Business intelligence (for enterprise applications)"
     },
     {
       "type": "paragraph",
-      "html": "To help managers obtain <b>more meaningful information from the massive amounts of data generated by enterprise systems</b>, business intelligence tools provide <b>flexible reporting, ad-hoc analysis, interactive dashboards, \"what-if\" scenario analysis</b> and <b>data visualization</b> techniques. BI comes both embedded in enterprise suites and as standalone products — see Topic 8 for the full BI framework."
+      "html": "To help managers obtain <b>more meaningful information from the massive amounts of data generated by enterprise systems</b>, business intelligence tools provide <b>flexible reporting, ad-hoc analysis, interactive dashboards, \"what-if\" scenario analysis</b> and <b>data visualization</b> techniques. BI comes both embedded in enterprise suites and as standalone products, see Topic 8 for the full BI framework."
     },
     {
       "type": "example",
-      "title": "Worked example — operational or analytical?",
+      "title": "Worked example: operational or analytical?",
       "bodyHtml": "<p>Classify each capability as operational or analytical CRM: (a) a self-service web portal where customers log complaints; (b) a model scoring each customer's likelihood to leave next quarter; (c) automatic assignment of service tickets to agents; (d) a report ranking customers by lifetime value.</p>",
-      "solutionHtml": "<ul>\n        <li><b>(a) Operational</b> — customer-facing self-service (customer service tool).</li>\n        <li><b>(b) Analytical</b> — analyzes operational data to predict churn and improve performance.</li>\n        <li><b>(c) Operational</b> — customer service request management is a customer-facing application.</li>\n        <li><b>(d) Analytical</b> — CLTV analysis is the classic analytical CRM output.</li>\n      </ul>"
+      "solutionHtml": "<ul>\n        <li><b>(a) Operational</b>: customer-facing self-service (customer service tool).</li>\n        <li><b>(b) Analytical</b>: analyzes operational data to predict churn and improve performance.</li>\n        <li><b>(c) Operational</b>: customer service request management is a customer-facing application.</li>\n        <li><b>(d) Analytical</b>. CLTV analysis is the classic analytical CRM output.</li>\n      </ul>"
     },
     {
       "type": "quiz",
-      "title": "Topic 6 Quiz — CRM & Next-Gen Applications",
+      "title": "Topic 6 Quiz: CRM & Next-Gen Applications",
       "count": 9,
       "quizSlug": "06-operational-excellence-ii-crm-and-next-generation-enterprise-applications"
     }

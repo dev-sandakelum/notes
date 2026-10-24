@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "13-hashing",
-  "title": "Topic 12 Quiz — Hashing",
+  "title": "Topic 12 Quiz: Hashing",
   "questions": [
     {
       "prompt": "1. The primary goal of hashing is to…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Balancing trees"
       ],
       "answer": 2,
-      "explanation": "A hash function jumps straight to the index where a value lives — one probe."
+      "explanation": "A hash function jumps straight to the index where a value lives, one probe."
     },
     {
       "prompt": "2. The Division-Remainder hash of 42200 with table size 125 is…",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Guaranteed uniqueness of every output"
       ],
       "answer": 3,
-      "explanation": "Outputs are NOT guaranteed unique — finite output space with huge input space forces collisions (pigeonhole principle)."
+      "explanation": "Outputs are NOT guaranteed unique: finite output space with huge input space forces collisions (pigeonhole principle)."
     }
   ]
 };

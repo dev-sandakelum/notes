@@ -19,7 +19,7 @@ export function MarkComplete({
   if (!hydrated) {
     // avoid layout shift: render the final size immediately
     return (
-      <span className="inline-flex h-9 items-center rounded-md border border-hairline px-4 opacity-0">
+      <span className="inline-flex h-9 items-center rounded-[10px] border border-hairline px-4 opacity-0">
         Mark as complete
       </span>
     );
@@ -30,10 +30,10 @@ export function MarkComplete({
       type="button"
       onClick={() => toggle(chapterSlug)}
       aria-pressed={done}
-      className={`inline-flex h-9 items-center gap-2 rounded-md px-4 text-sm font-medium transition-colors no-print ${
+      className={`inline-flex h-9 items-center gap-2 rounded-[10px] border-2 px-4 text-sm font-bold transition-colors no-print ${
         done
-          ? "border border-ok bg-ok-soft text-ok"
-          : "border border-hairline text-ink hover:border-hairline-strong"
+          ? "border-ok bg-ok-soft text-ok"
+          : "border-(--node-edge) bg-transparent text-ink-muted hover:border-ink hover:text-ink"
       }`}
     >
       {done ? (

@@ -7,8 +7,8 @@ const PREVIEW_TAGS = 3;
 
 /**
  * A single book in the gallery grid. The whole card is one link to
- * `/notes/{slug}` — hover lifts it by 2px and strengthens the hairline
- * (transform + border-color only, 150ms).
+ * `/notes/{slug}`; hover lifts it by 2px and deepens the shadow
+ * (reference card look, 200ms).
  */
 export function BookCard({ book }: { book: BookMeta }) {
   const minutes = book.chapters.reduce((sum, chapter) => sum + chapter.minutes, 0);
@@ -19,22 +19,22 @@ export function BookCard({ book }: { book: BookMeta }) {
   return (
     <Link
       href={`/notes/${book.slug}`}
-      aria-label={`${book.code} ${book.title} — ${book.chapters.length} chapters, ${book.questionCount} questions`}
-      className="group flex h-full flex-col rounded-md border border-hairline bg-paper-raised p-4 transition-[border-color,transform] duration-150 ease-out hover:-translate-y-0.5 hover:border-hairline-strong sm:p-5"
+      aria-label={`${book.code} ${book.title}: ${book.chapters.length} chapters, ${book.questionCount} questions`}
+      className="group flex h-full flex-col rounded-2xl border border-hairline bg-paper-raised p-4 shadow-card transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-hairline-strong hover:shadow-card-lg sm:p-5"
     >
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-hairline px-2 py-0.5 font-mono text-caption text-ink">
+        <span className="rounded-full bg-(--accent-soft) px-2.5 py-0.5 font-mono text-caption font-semibold text-(--accent-ink)">
           {book.code}
         </span>
         {book.department ? (
-          <span className="rounded-full border border-hairline px-2 py-0.5 text-caption text-ink-muted">
+          <span className="rounded-full border border-hairline px-2.5 py-0.5 text-caption text-ink-muted">
             {book.department}
           </span>
         ) : null}
         <span className="ml-auto text-caption text-ink-muted">{book.subject}</span>
       </div>
 
-      <h3 className="mt-3 font-display text-section text-ink">{book.title}</h3>
+      <h3 className="mt-3 font-display text-section font-bold text-ink">{book.title}</h3>
       <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-ink-muted">{book.tagline}</p>
 
       <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-caption text-ink-muted">

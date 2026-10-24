@@ -3,9 +3,9 @@ import type { BookMeta } from "@/content/types";
 const book: BookMeta = {
   "slug": "dsa",
   "code": "ICT2113",
-  "title": "Data Structures & Algorithms",
-  "tagline": "Every lecture, lab and diagram from the course — stacks to hashing, with live visualizers.",
-  "description": "Every lecture, lab and diagram from the course folder — rebuilt as one self-contained, interactive, exam-ready study note. Flip flashcards, run visualizers, answer quizzes, track your progress. Works fully offline.",
+  "title": "Data structures & algorithms",
+  "tagline": "Every lecture, lab and diagram from the course, stacks to hashing, with live visualizers.",
+  "description": "Every lecture, lab and diagram from the course folder, rebuilt as one self-contained, interactive, exam-ready study note. Flip flashcards, run visualizers, answer quizzes, track your progress. Works fully offline.",
   "subject": "Computer Science",
   "department": "DICT",
   "tags": [
@@ -37,7 +37,7 @@ const book: BookMeta = {
     {
       "slug": "03-algorithms-and-complexity",
       "number": 3,
-      "title": "Algorithms & Complexity",
+      "title": "Algorithms & complexity",
       "subtitle": "Lecture 10 (Part I) · Algorithms & Sorting techniques",
       "kind": "topic",
       "words": 623,
@@ -64,7 +64,7 @@ const book: BookMeta = {
     {
       "slug": "06-linked-lists",
       "number": 6,
-      "title": "Linked Lists",
+      "title": "Linked lists",
       "subtitle": "Lecture 4 · Lecture 5 · Labs 4–5",
       "kind": "topic",
       "words": 1189,
@@ -73,7 +73,7 @@ const book: BookMeta = {
     {
       "slug": "07-trees-and-binary-trees",
       "number": 7,
-      "title": "Trees & Binary Trees",
+      "title": "Trees & binary trees",
       "subtitle": "Lecture 6 · Lab 6",
       "kind": "topic",
       "words": 2192,
@@ -82,7 +82,7 @@ const book: BookMeta = {
     {
       "slug": "08-tree-traversals",
       "number": 8,
-      "title": "Tree Traversals",
+      "title": "Tree traversals",
       "subtitle": "Lecture 7 (Trees part 2) · Labs 6–7",
       "kind": "topic",
       "words": 2763,
@@ -91,7 +91,7 @@ const book: BookMeta = {
     {
       "slug": "09-binary-search-trees",
       "number": 9,
-      "title": "Binary Search Trees",
+      "title": "Binary search trees",
       "subtitle": "Lecture 7 (Trees part 2) · Lab 7",
       "kind": "topic",
       "words": 2157,
@@ -100,7 +100,7 @@ const book: BookMeta = {
     {
       "slug": "10-avl-trees-and-balanced-trees",
       "number": 10,
-      "title": "AVL Trees & Balanced Trees",
+      "title": "AVL trees & balanced trees",
       "subtitle": "Lecture 8/9 · AVL trees 2026",
       "kind": "topic",
       "words": 1582,
@@ -109,7 +109,7 @@ const book: BookMeta = {
     {
       "slug": "11-heaps-and-heap-sort",
       "number": 11,
-      "title": "Heaps & Heap Sort",
+      "title": "Heaps & heap sort",
       "subtitle": "Lecture 15 · Heap & Heap sort",
       "kind": "topic",
       "words": 786,
@@ -118,7 +118,7 @@ const book: BookMeta = {
     {
       "slug": "12-sorting-algorithms",
       "number": 12,
-      "title": "Sorting Algorithms",
+      "title": "Sorting algorithms",
       "subtitle": "Lecture 10 (I & II) · Labs 8–9",
       "kind": "topic",
       "words": 977,
@@ -136,8 +136,8 @@ const book: BookMeta = {
     {
       "slug": "14-master-cheat-sheet",
       "number": 14,
-      "title": "Master Cheat Sheet",
-      "subtitle": "Everything on one page — the night-before summary",
+      "title": "Master cheat sheet",
+      "subtitle": "Everything on one page: the night-before summary",
       "kind": "cheatsheet",
       "words": 544,
       "minutes": 3
@@ -145,7 +145,7 @@ const book: BookMeta = {
     {
       "slug": "15-final-practice-exam",
       "number": 15,
-      "title": "Final Practice Exam",
+      "title": "Final practice exam",
       "subtitle": "20 mixed questions across all 12 topics · exam conditions",
       "kind": "exam",
       "words": 73,

@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "03-demand-supply-and-market-equilibrium",
     "number": 3,
-    "title": "Demand, Supply & Market Equilibrium",
+    "title": "Demand, supply & market equilibrium",
     "subtitle": "Lesson 03 · Tutorial 03 · Chathuranga Adhikari",
     "kind": "topic",
     "words": 1812,
@@ -15,14 +15,14 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "the-basic-decision-making-units",
-      "text": "The Basic Decision-Making Units"
+      "text": "The basic decision-making units"
     },
     {
       "type": "list",
       "ordered": false,
       "items": [
         "<b>Firm:</b> an organization that transforms resources (inputs) into products (outputs); firms are the primary producing units in a market economy.",
-        "<b>Entrepreneur:</b> a person who organizes, manages and assumes the risks of a firm — taking a new idea or product and turning it into a successful business.",
+        "<b>Entrepreneur:</b> a person who organizes, manages and assumes the risks of a firm, taking a new idea or product and turning it into a successful business.",
         "<b>Household:</b> the consuming units in an economy."
       ]
     },
@@ -30,7 +30,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "the-circular-flow-of-economic-activity",
-      "text": "The Circular Flow of Economic Activity"
+      "text": "The circular flow of economic activity"
     },
     {
       "type": "paragraph",
@@ -41,7 +41,7 @@ const chapter: ChapterData = {
       "ordered": false,
       "items": [
         "<b>Output (product) markets:</b> markets in which <b>goods and services</b> are exchanged.",
-        "<b>Input (factor) markets:</b> markets in which <b>resources</b> — labour, capital and land — are exchanged."
+        "<b>Input (factor) markets:</b> markets in which <b>resources</b>: labour, capital and land, are exchanged."
       ]
     },
     {
@@ -54,7 +54,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Input markets include",
-      "html": "<b>Labour market</b> — households supply work for wages; <b>capital market</b> — households supply savings for interest or claims to future profits; <b>land market</b> — households supply land or real property in exchange for rent."
+      "html": "<b>Labour market</b>: households supply work for wages; <b>capital market</b>: households supply savings for interest or claims to future profits; <b>land market</b>: households supply land or real property in exchange for rent."
     },
     {
       "type": "heading",
@@ -69,8 +69,8 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "warn",
-      "title": "The Law of Demand",
-      "html": "There is a <b>negative (inverse) relationship</b> between price and quantity demanded — <b>demand curves slope downward</b>. When price rises, quantity demanded falls; when price falls, quantity demanded rises (ceteris paribus)."
+      "title": "The law of demand",
+      "html": "There is a <b>negative (inverse) relationship</b> between price and quantity demanded. <b>demand curves slope downward</b>. When price rises, quantity demanded falls; when price falls, quantity demanded rises (ceteris paribus)."
     },
     {
       "type": "paragraph",
@@ -82,7 +82,28 @@ const chapter: ChapterData = {
         "Price per unit ($)",
         "Quantity demanded"
       ],
-      "rows": []
+      "rows": [
+        [
+          "5",
+          "50"
+        ],
+        [
+          "4",
+          "60"
+        ],
+        [
+          "3",
+          "70"
+        ],
+        [
+          "2",
+          "80"
+        ],
+        [
+          "1",
+          "90"
+        ]
+      ]
     },
     {
       "type": "paragraph",
@@ -96,7 +117,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Deriving demand equations — Worked example",
+      "title": "Deriving demand equations: worked example",
       "bodyHtml": "<p><b>(a)</b> Pizza slices: at $0.50 quantity = 8; price rises $0.25 per step and quantity falls 1 each step (to 2 at $2.00). Derive the demand equation.<br>\n    <b>(b)</b> At P = 0, Q = 100; at P = 5, Q = 0. Derive the equation.<br>\n    <b>(c)</b> A demand curve has intercepts P = 280 (Q=0) and Q = 28 (P=0). Derive equation and schedule.<br>\n    <b>(d)</b> Intercepts: P = 50, Q = 150.</p>",
       "solutionHtml": "<p><b>(a)</b> Slope = ΔQ/ΔP = (2−8)/(2.00−0.50) = −6/1.5 = <b>−4</b>. Using point ($0.50, 8): Q = a − 4P → 8 = a − 2 → a = 10. &nbsp;<b>Q<sub>d</sub> = 10 − 4P</b> &nbsp;(check P=2: Q=2 ✓)</p>\n      <p><b>(b)</b> Slope = (0−100)/(5−0) = −20. &nbsp;<b>Q<sub>d</sub> = 100 − 20P</b></p>\n      <p><b>(c)</b> Slope = ΔQ/ΔP = (0−28)/(280−0) = −0.1. &nbsp;<b>Q<sub>d</sub> = 28 − 0.1P</b>. Schedule: P=0→28, P=70→21, P=140→14, P=210→7, P=280→0.</p>\n      <p><b>(d)</b> Slope = (0−150)/(50−0) = −3. &nbsp;<b>Q<sub>d</sub> = 150 − 3P</b></p>\n      <p><b>Method:</b> pick two points from the schedule/graph, compute slope b = ΔQ/ΔP, then substitute one point to find intercept a.</p>"
     },
@@ -104,7 +125,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "the-demand-function-full-determinants",
-      "text": "The Demand Function (full determinants)"
+      "text": "The demand function (full determinants)"
     },
     {
       "type": "paragraph",
@@ -112,18 +133,18 @@ const chapter: ChapterData = {
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"grid2\">\n    <div class=\"card\"><h4>Income vs Wealth</h4><p><b>Income</b> — the sum of wages, salaries, profits, interest, rents and other earnings <b>in a given period</b>; a <b>flow</b> measure. <b>Wealth (net worth)</b> — total value of what a household owns minus what it owes; a <b>stock</b> measure.</p></div>\n    <div class=\"card\"><h4>Normal vs Inferior goods</h4><p><b>Normal goods:</b> demand rises when income rises, falls when income falls. <b>Inferior goods:</b> demand <i>falls</i> when income rises (e.g. used cars, public transport for some consumers).</p></div>\n    <div class=\"card\"><h4>Substitutes</h4><p>Goods that serve as <b>replacements</b> for one another; when the price of one rises, demand for the other <b>rises</b>. Perfect substitutes are identical products. Ex: Dominos vs Pizza Hut, Nike vs Reebok, tea vs coffee, IBM vs Apple computers.</p></div>\n    <div class=\"card\"><h4>Complements</h4><p>Goods that <b>go together</b>; a decrease in the price of one <b>increases</b> demand for the other. Ex: bread &amp; butter, PlayStation &amp; games, vehicles &amp; fuel, cereal &amp; milk, dress shirts &amp; ties.</p></div>\n  </div>",
+      "html": "<div class=\"grid2\">\n    <div class=\"card\"><h4>Income vs Wealth</h4><p><b>Income</b>; the sum of wages, salaries, profits, interest, rents and other earnings <b>in a given period</b>; a <b>flow</b> measure. <b>Wealth (net worth)</b>: total value of what a household owns minus what it owes; a <b>stock</b> measure.</p></div>\n    <div class=\"card\"><h4>Normal vs Inferior goods</h4><p><b>Normal goods:</b> demand rises when income rises, falls when income falls. <b>Inferior goods:</b> demand <i>falls</i> when income rises (e.g. used cars, public transport for some consumers).</p></div>\n    <div class=\"card\"><h4>Substitutes</h4><p>Goods that serve as <b>replacements</b> for one another; when the price of one rises, demand for the other <b>rises</b>. Perfect substitutes are identical products. Ex: Dominos vs Pizza Hut, Nike vs Reebok, tea vs coffee, IBM vs Apple computers.</p></div>\n    <div class=\"card\"><h4>Complements</h4><p>Goods that <b>go together</b>; a decrease in the price of one <b>increases</b> demand for the other. Ex: bread &amp; butter, PlayStation &amp; games, vehicles &amp; fuel, cereal &amp; milk, dress shirts &amp; ties.</p></div>\n  </div>",
       "alt": "Diagram from the original notes"
     },
     {
       "type": "callout",
       "variant": "warn",
-      "title": "Shift vs Movement — the most tested idea in this topic",
+      "title": "Shift vs movement: the most tested idea in this topic",
       "html": "<ul>\n    <li>Change in the <b>own price</b> of the good → <b>change in quantity demanded</b> = <b>movement along</b> the same demand curve.</li>\n    <li>Change in <b>income, preferences, prices of related goods, expectations, social factors</b> → <b>change in demand</b> = <b>shift of the whole curve</b> (right = increase, left = decrease).</li>\n    <li>Higher income <b>increases</b> demand for normal goods but <b>decreases</b> demand for inferior goods.</li>\n    <li>Price of hamburgers rises → demand for substitute (chicken) shifts <b>right</b>; demand for complement (ketchup) shifts <b>left</b>.</li>\n  </ul>"
     },
     {
       "type": "paragraph",
-      "html": "<b>Market demand</b> is the sum of all quantities demanded per period by <b>all households</b> in the market — the horizontal summation of individual demand curves (add quantities at each price)."
+      "html": "<b>Market demand</b> is the sum of all quantities demanded per period by <b>all households</b> in the market; the horizontal summation of individual demand curves (add quantities at each price)."
     },
     {
       "type": "heading",
@@ -138,28 +159,28 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "warn",
-      "title": "The Law of Supply",
-      "html": "There is a <b>positive relationship</b> between price and quantity supplied — <b>supply curves slope upward</b>."
+      "title": "The law of supply",
+      "html": "There is a <b>positive relationship</b> between price and quantity supplied. <b>supply curves slope upward</b>."
     },
     {
       "type": "paragraph",
-      "html": "Q<sub>s</sub> = a + bP &nbsp;(in tutorial problems often Q<sub>s</sub> = −c + dP, c &gt; 0)<small>Supply function: Q<sub>sx</sub> = f (P<sub>x</sub>, P<sub>f</sub>, P<sub>1</sub>…P<sub>n−1</sub>, T, E, G) — own price, factor prices, related-goods prices, technology, supplier expectations, government policies</small>"
+      "html": "Q<sub>s</sub> = a + bP &nbsp;(in tutorial problems often Q<sub>s</sub> = −c + dP, c &gt; 0)<small>Supply function: Q<sub>sx</sub> = f (P<sub>x</sub>, P<sub>f</sub>, P<sub>1</sub>…P<sub>n−1</sub>, T, E, G), own price, factor prices, related-goods prices, technology, supplier expectations, government policies</small>"
     },
     {
       "type": "paragraph",
-      "html": "<b>Market supply</b> is the horizontal summation of individual firms’ supply curves — the sum of all quantities supplied per period by all firms selling in the market."
+      "html": "<b>Market supply</b> is the horizontal summation of individual firms’ supply curves; the sum of all quantities supplied per period by all firms selling in the market."
     },
     {
       "type": "callout",
       "variant": "warn",
-      "title": "Shift vs Movement for supply",
+      "title": "Shift vs movement for supply",
       "html": "Change in the good’s own price → <b>movement along</b> the supply curve (change in quantity supplied). Change in <b>costs, input prices, technology, prices of related goods, expectations, government policy</b> → <b>shift of the supply curve</b> (change in supply)."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "market-equilibrium",
-      "text": "Market Equilibrium"
+      "text": "Market equilibrium"
     },
     {
       "type": "paragraph",
@@ -202,27 +223,27 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Lesson 03 exercises — Worked example",
+      "title": "Lesson 03 exercises: worked example",
       "bodyHtml": "<p><b>Exercise 1.</b> Schedule for product X: at P = 2…10, Qd = 16…0 (falls 2 per Re 1) and Qs = −6…10 (rises 2 per Re 1). Compute both equations, the equilibrium price and quantity, and verify graphically.</p>\n    \n    \n    <p style=\"margin-top:12px\"><b>Exercise 2.</b> Qd = 3300 − 2P and Qs = 500 + 8P. Compute the equilibrium price and quantity.</p>",
       "solutionHtml": "<p><b>Demand:</b> slope = ΔQ/ΔP = (0−16)/(10−2) = −2; using (10, 0): 0 = a − 20 → a = 20. &nbsp;<b>Q<sub>d</sub> = 20 − 2P</b></p>\n      <p><b>Supply:</b> slope = (10−(−6))/(10−2) = +2; using (10, 10): 10 = a + 20 → a = −10. &nbsp;<b>Q<sub>s</sub> = −10 + 2P</b></p>\n      <p><b>Equilibrium:</b> 20 − 2P = −10 + 2P → 30 = 4P → <b>P = 7.5</b>, <b>Q = 5</b>. (Matches the schedule: at P = 7.5 both demand and supply equal 5.) Graph: downward D through (2,16) and (10,0); upward S through (2,−6) and (10,10); they cross at (5, 7.5).</p>"
     },
     {
       "type": "example",
-      "title": "Classify the goods — Worked example",
+      "title": "Classify the goods: worked example",
       "bodyHtml": "<p>Classify as normal/inferior: chocolate, public transportation, used cars, mobile phone, computers, bicycle, movie theatres, dog shows, organic food, pizza, legal services. Then classify the pairs as substitutes/complements: bread &amp; butter, PlayStation &amp; games, Nike &amp; Reebok, IBM &amp; Apple computers, dress shirts &amp; ties, Dominos &amp; Pizza Hut, vehicle &amp; fuel, beer &amp; wine, faxes &amp; e-mail, cereal &amp; milk.</p>",
-      "solutionHtml": "<p><b>Typically normal:</b> chocolate, mobile phones, computers, movie theatres, dog shows, organic food, pizza, legal services (demand rises with income). <b>Typically inferior:</b> public transportation, used cars, (for many consumers) basic bicycles — demand falls as income rises and consumers switch to cars/taxis/new vehicles. Context matters — justify your reasoning!</p>\n      <p><b>Substitutes:</b> Nike &amp; Reebok, IBM &amp; Apple computers, Dominos &amp; Pizza Hut, beer &amp; wine, faxes &amp; e-mail (also cereal brands). <b>Complements:</b> bread &amp; butter, PlayStation &amp; games, dress shirts &amp; ties, vehicle &amp; fuel, cereal &amp; milk.</p>"
+      "solutionHtml": "<p><b>Typically normal:</b> chocolate, mobile phones, computers, movie theatres, dog shows, organic food, pizza, legal services (demand rises with income). <b>Typically inferior:</b> public transportation, used cars, (for many consumers) basic bicycles, demand falls as income rises and consumers switch to cars/taxis/new vehicles. Context matters: justify your reasoning.</p>\n      <p><b>Substitutes:</b> Nike &amp; Reebok, IBM &amp; Apple computers, Dominos &amp; Pizza Hut, beer &amp; wine, faxes &amp; e-mail (also cereal brands). <b>Complements:</b> bread &amp; butter, PlayStation &amp; games, dress shirts &amp; ties, vehicle &amp; fuel, cereal &amp; milk.</p>"
     },
     {
       "type": "example",
-      "title": "Lesson 03 exercise — pizza demand scenarios — Worked example",
+      "title": "Lesson 03 exercise: pizza demand scenarios: worked example",
       "bodyHtml": "<p>Explain what happens to pizza demand in each case: (1) increase in household income; (2) increase in the price of pizza; (3) increase in the price of cheese; (4) decrease in the price of burgers; (5) customers’ preference for pizza reduced.</p>",
-      "solutionHtml": "<ol>\n        <li>Income → D shifts <b>right</b> (pizza is a normal good).</li>\n        <li>Own price → <b>movement up along</b> the demand curve; quantity demanded falls (no shift).</li>\n        <li>Cheese is an input/complement (cheese pizza) — its price rise makes pizza more expensive to produce/serve and complements costlier: demand for pizza shifts <b>left</b>.</li>\n        <li>Burgers are a substitute — cheaper burgers → some consumers switch: pizza demand shifts <b>left</b>.</li>\n        <li>Tastes fall → D shifts <b>left</b>.</li>\n      </ol>"
+      "solutionHtml": "<ol>\n        <li>Income → D shifts <b>right</b> (pizza is a normal good).</li>\n        <li>Own price → <b>movement up along</b> the demand curve; quantity demanded falls (no shift).</li>\n        <li>Cheese is an input/complement (cheese pizza); its price rise makes pizza more expensive to produce/serve and complements costlier: demand for pizza shifts <b>left</b>.</li>\n        <li>Burgers are a substitute: cheaper burgers → some consumers switch: pizza demand shifts <b>left</b>.</li>\n        <li>Tastes fall → D shifts <b>left</b>.</li>\n      </ol>"
     },
     {
       "type": "example",
-      "title": "Tutorial 03 — Demand & Supply — full solutions",
+      "title": "Tutorial 03. demand & supply, full solutions",
       "bodyHtml": "<p><b>Q1.</b> Identify the effect on the <b>demand</b> curve (torches): (i) decrease in consumer preferences for torches; (ii) torch is a normal good and consumer income rises; (iii) torch is an inferior good and income rises; (iv) price of batteries falls; (v) price of electric torches rises.</p>\n    \n    \n    \n\n    <p style=\"margin-top:14px\"><b>Q2.</b> What happens to <b>coffee supply</b> in each case (use graphs)? (i) price of coffee increases; (ii) government subsidises coffee farmers; (iii) fertiliser price increases; (iv) new tax on coffee producers; (v) price of tea increases.</p>\n    \n    \n    \n\n    <p style=\"margin-top:14px\"><b>Q3.</b> Rice market in a small town: <b>Q<sub>d</sub> = 350 − 10P, Q<sub>s</sub> = −40 + 5P</b>. (i) Calculate the equilibrium price. (ii) Calculate the equilibrium quantity. (iii) Draw demand and supply and illustrate the equilibrium.</p>\n    \n    \n    \n\n    <p style=\"margin-top:14px\"><b>Q4.</b> A market has <b>80 identical consumers</b> each with Q<sub>d</sub> = 60 − 5P, and <b>40 identical producers</b> each with Q<sub>s</sub> = −4 + 3P. Derive the market demand, market supply and the equilibrium price.</p>\n    \n    \n    \n\n    <p style=\"margin-top:14px\"><b>Q5.</b> Given the schedule below: (i) derive the demand equation; (ii) derive the supply equation; (iii) find equilibrium price and quantity; (iv) illustrate graphically; (v) at market price Rs. 35, is there a shortage or surplus?</p>\n    <div class=\"tbl-wrap\"><table class=\"tbl\">\n      <tbody><tr><th>Price</th><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr>\n      <tr><th>Q<sub>d</sub></th><td>500</td><td>475</td><td>450</td><td>425</td><td>300</td></tr>\n      <tr><th>Q<sub>s</sub></th><td>200</td><td>260</td><td>320</td><td>380</td><td>440</td></tr>\n    </tbody></table></div>",
-      "solutionHtml": "<ol>\n        <li><b>Preferences fall</b> → demand curve shifts <b>left</b> (decrease in demand).</li>\n        <li><b>Normal good + income →</b> demand shifts <b>right</b>.</li>\n        <li><b>Inferior good + income →</b> demand shifts <b>left</b>.</li>\n        <li><b>Batteries are a complement</b> — cheaper batteries → torch demand shifts <b>right</b>.</li>\n        <li><b>Electric torches are a substitute</b> — their price rises → consumers switch to (non-electric) torches: demand shifts <b>right</b>.</li>\n      </ol>"
+      "solutionHtml": "<ol>\n        <li><b>Preferences fall</b> → demand curve shifts <b>left</b> (decrease in demand).</li>\n        <li><b>Normal good + income →</b> demand shifts <b>right</b>.</li>\n        <li><b>Inferior good + income →</b> demand shifts <b>left</b>.</li>\n        <li><b>Batteries are a complement</b>: cheaper batteries → torch demand shifts <b>right</b>.</li>\n        <li><b>Electric torches are a substitute</b>, their price rises → consumers switch to (non-electric) torches: demand shifts <b>right</b>.</li>\n      </ol>"
     },
     {
       "type": "quiz",

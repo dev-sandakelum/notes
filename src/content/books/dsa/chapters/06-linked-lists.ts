@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "06-linked-lists",
     "number": 6,
-    "title": "Linked Lists",
+    "title": "Linked lists",
     "subtitle": "Lecture 4 · Lecture 5 · Labs 4–5",
     "kind": "topic",
     "words": 1189,
@@ -48,7 +48,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "exam",
       "title": "Exam alert",
-      "html": "Linked list advantages over arrays: <b>1) dynamic size</b> (grows/shrinks at run time), <b>2) easy insertion/deletion</b> (no shifting). Drawbacks: no random access (must traverse sequentially from the first node — so <b>no binary search</b>), extra space per node for a pointer, and arrays have better cache locality."
+      "html": "Linked list advantages over arrays: <b>1) dynamic size</b> (grows/shrinks at run time), <b>2) easy insertion/deletion</b> (no shifting). Drawbacks: no random access (must traverse sequentially from the first node, so <b>no binary search</b>), extra space per node for a pointer, and arrays have better cache locality."
     },
     {
       "type": "heading",
@@ -65,11 +65,11 @@ const chapter: ChapterData = {
     {
       "type": "code",
       "language": "c",
-      "html": "<span class=\"tok-kw\">struct</span> Node {\n    <span class=\"tok-kw\">int</span>          data;     <span class=\"tok-cm\">/* the payload — any type      */</span>\n    <span class=\"tok-kw\">struct</span> Node *next;     <span class=\"tok-cm\">/* self-referencing pointer    */</span>\n};                           <span class=\"tok-cm\">/* head: pointer to first node  */</span>"
+      "html": "<span class=\"tok-kw\">struct</span> Node {\n    <span class=\"tok-kw\">int</span>          data;     <span class=\"tok-cm\">/* the payload: any type      */</span>\n    <span class=\"tok-kw\">struct</span> Node *next;     <span class=\"tok-cm\">/* self-referencing pointer    */</span>\n};                           <span class=\"tok-cm\">/* head: pointer to first node  */</span>"
     },
     {
       "type": "paragraph",
-      "html": "Nodes are created <b>dynamically</b> with <code>malloc()</code>, which requests a block of memory from the <b>heap</b>: <code>struct node *np = (struct node*) malloc(sizeof(struct node));</code>. Because memory comes from anywhere, the <b>address of every node is stored in the previous node</b> — that is why pointers are essential."
+      "html": "Nodes are created <b>dynamically</b> with <code>malloc()</code>, which requests a block of memory from the <b>heap</b>: <code>struct node *np = (struct node*) malloc(sizeof(struct node));</code>. Because memory comes from anywhere, the <b>address of every node is stored in the previous node</b>; that is why pointers are essential."
     },
     {
       "type": "example",
@@ -81,13 +81,13 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "insertion-the-three-positions",
-      "text": "Insertion — the three positions"
+      "text": "Insertion: the three positions"
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "1-insert-at-the-beginning-4-steps",
-      "text": "1 · Insert at the beginning (4 steps)"
+      "text": "1 · insert at the beginning (4 steps)"
     },
     {
       "type": "code",
@@ -98,7 +98,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "2-insert-after-a-given-node",
-      "text": "2 · Insert after a given node"
+      "text": "2 · insert after a given node"
     },
     {
       "type": "code",
@@ -109,7 +109,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "3-insert-at-the-end-append",
-      "text": "3 · Insert at the end (append)"
+      "text": "3 · insert at the end (append)"
     },
     {
       "type": "code",
@@ -120,7 +120,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "deletion-always-3-steps",
-      "text": "Deletion — always 3 steps"
+      "text": "Deletion: always 3 steps"
     },
     {
       "type": "callout",
@@ -141,7 +141,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A DLL links nodes in <b>both directions</b>. Every node has <b>three fields: prev pointer, data, next pointer</b>. Motivation: many applications need quick access to the <b>predecessor</b> of a node — impossible in O(1) with a singly list."
+      "html": "A DLL links nodes in <b>both directions</b>. Every node has <b>three fields: prev pointer, data, next pointer</b>. Motivation: many applications need quick access to the <b>predecessor</b> of a node, impossible in O(1) with a singly list."
     },
     {
       "type": "htmlFigure",
@@ -153,16 +153,16 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Advantages over singly:</b> traverse both ways; quick updates at both ends and the middle; deleting a given node is efficient (the prev pointer hands you the previous node — no traversal).",
+        "<b>Advantages over singly:</b> traverse both ways; quick updates at both ends and the middle; deleting a given node is efficient (the prev pointer hands you the previous node, no traversal).",
         "<b>Disadvantages:</b> every node needs <b>extra space</b> for prev; every operation maintains one more pointer.",
-        "<b>Sentinels:</b> head/tail dummy nodes simplify edge cases — header has null-prev, trailer has null-next; a size-counter tracks node count (excluding sentinels)."
+        "<b>Sentinels:</b> head/tail dummy nodes simplify edge cases, header has null-prev, trailer has null-next; a size-counter tracks node count (excluding sentinels)."
       ]
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "dll-insert-at-the-middle-4-pointer-updates",
-      "text": "DLL — insert at the middle (4 pointer updates)"
+      "text": "DLL: insert at the middle (4 pointer updates)"
     },
     {
       "type": "code",
@@ -173,7 +173,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "dll-delete-node-pcur",
-      "text": "DLL — delete node pCur"
+      "text": "DLL: delete node pCur"
     },
     {
       "type": "code",
@@ -190,15 +190,15 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Definition",
-      "html": "A circular linked list has <b>no beginning and no end</b>: the last node's <b>next stores the address of the first node</b>. The structure definition is identical to a singly list — only the last link differs (head instead of NULL)."
+      "html": "A circular linked list has <b>no beginning and no end</b>: the last node's <b>next stores the address of the first node</b>. The structure definition is identical to a singly list, only the last link differs (head instead of NULL)."
     },
     {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Any node can be a starting point</b> — traverse the whole list from anywhere; stop when the first visited node appears again.",
-        "<b>Queue-friendly:</b> only <b>one pointer</b> is needed (to the last node) — front is always next of last.",
-        "<b>OS round-robin:</b> running applications are kept in a circular list and cycled through, each getting a CPU time slice — reaching the end wraps to the front automatically.",
+        "<b>Any node can be a starting point</b>, traverse the whole list from anywhere; stop when the first visited node appears again.",
+        "<b>Queue-friendly:</b> only <b>one pointer</b> is needed (to the last node), front is always next of last.",
+        "<b>OS round-robin:</b> running applications are kept in a circular list and cycled through, each getting a CPU time slice, reaching the end wraps to the front automatically.",
         "Multiplayer games: players are kept in a circular list; the pointer advances as each turn ends."
       ]
     },
@@ -206,7 +206,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "types-of-linked-list-summary",
-      "text": "Types of linked list — summary"
+      "text": "Types of linked list: summary"
     },
     {
       "type": "table",
@@ -237,18 +237,18 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "stack-and-queue-via-linked-lists-lecture-5",
-      "text": "Stack & queue via linked lists (Lecture 5)"
+      "text": "Stack & queue via linked lists (lecture 5)"
     },
     {
       "type": "paragraph",
-      "html": "The array versions are limited to a <b>fixed number of values</b> — unsuitable when the size is unknown. Linked versions organize <b>as many values as wanted</b> with no size fixed in advance:"
+      "html": "The array versions are limited to a <b>fixed number of values</b>, unsuitable when the size is unknown. Linked versions organize <b>as many values as wanted</b> with no size fixed in advance:"
     },
     {
       "type": "list",
       "ordered": false,
       "items": [
         "<b>Stack:</b> every push inserts a node as the new <b>top</b> (<code>n-&gt;next = top; top = n;</code>); pop reads and frees the top.",
-        "<b>Queue:</b> enqueue adds at the rear, dequeue removes the front — using the count/front/rear struct shown in Topic 4."
+        "<b>Queue:</b> enqueue adds at the rear, dequeue removes the front, using the count/front/rear struct shown in Topic 4."
       ]
     },
     {
@@ -261,7 +261,7 @@ const chapter: ChapterData = {
         },
         {
           "front": "<span class=\"fc-q\">Can you binary search a linked list?</span>",
-          "back": "<div class=\"fc-a\">No — no random access; access is sequential from the first node</div>",
+          "back": "<div class=\"fc-a\">No: no random access; access is sequential from the first node</div>",
           "category": "Rule"
         },
         {
@@ -278,7 +278,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 5 Quiz — Linked Lists",
+      "title": "Topic 5 Quiz: Linked Lists",
       "count": 8,
       "quizSlug": "06-linked-lists"
     }

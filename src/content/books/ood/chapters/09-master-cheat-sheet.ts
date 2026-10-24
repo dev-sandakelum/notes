@@ -4,8 +4,8 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "09-master-cheat-sheet",
     "number": 9,
-    "title": "Master Cheat Sheet",
-    "subtitle": "Click any card to flip it — perfect for last-minute revision",
+    "title": "Master cheat sheet",
+    "subtitle": "Click any card to flip it, perfect for last-minute revision",
     "kind": "cheatsheet",
     "words": 802,
     "minutes": 4
@@ -20,7 +20,7 @@ const chapter: ChapterData = {
       "cards": [
         {
           "front": "<b>Object Orientation</b><small>the one-line definition</small>",
-          "back": "Viewing a system as a set of interacting, interrelated objects — each object encapsulating its data and behavior.",
+          "back": "Viewing a system as a set of interacting, interrelated objects, each object encapsulating its data and behavior.",
           "category": "Basics"
         },
         {
@@ -75,16 +75,16 @@ const chapter: ChapterData = {
         },
         {
           "front": "<b>Cohesion vs Coupling</b><small>the golden rule</small>",
-          "back": "Cohesion = internal relatedness of ONE class (want HIGH — one clear purpose). Coupling = dependency BETWEEN classes (want LOW — depend on abstractions). High cohesion + low coupling = good OO design.",
+          "back": "Cohesion = internal relatedness of ONE class (want HIGH, one clear purpose). Coupling = dependency BETWEEN classes (want LOW, depend on abstractions). High cohesion + low coupling = good OO design.",
           "category": "Design quality"
         },
         {
           "front": "<b>Model vs Diagram</b><small>WHAT vs HOW</small>",
-          "back": "Model = simplified/abstract representation of the whole system (the blueprint, WHAT). Diagram = one particular view of the model (floor plan, electrical, plumbing — HOW). Several diagrams represent one model.",
+          "back": "Model = simplified/abstract representation of the whole system (the blueprint, WHAT). Diagram = one particular view of the model (floor plan, electrical, plumbing. HOW). Several diagrams represent one model.",
           "category": "Modelling"
         },
         {
-          "front": "<b>UML — building blocks &amp; categories</b><small>3 blocks, 2 categories</small>",
+          "front": "<b>UML: building blocks &amp; categories</b><small>3 blocks, 2 categories</small>",
           "back": "Building blocks: Things, Relationships, Diagrams. Structural: Class, Object, Component, Deployment. Behavioral: Use Case, Sequence, Activity, State Machine.",
           "category": "Modelling"
         },

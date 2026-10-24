@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "12-sorting-algorithms",
     "number": 12,
-    "title": "Sorting Algorithms",
+    "title": "Sorting algorithms",
     "subtitle": "Lecture 10 (I & II) · Labs 8–9",
     "kind": "topic",
     "words": 977,
@@ -25,7 +25,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "sorting-visualizer-see-all-five-algorithms-race",
-      "text": "Sorting visualizer — see all five algorithms race"
+      "text": "Sorting visualizer: see all five algorithms race"
     },
     {
       "type": "viz",
@@ -50,7 +50,7 @@ const chapter: ChapterData = {
       "type": "example",
       "title": "Bubble sort (5 1 4 2 8)",
       "bodyHtml": "",
-      "solutionHtml": "<p><b>Pass 1:</b> (5,1)→swap→1 5 4 2 8 · (5,4)→swap→1 4 5 2 8 · (5,2)→swap→1 4 2 5 8 · (5,8)→ok.<br>\n      <b>Pass 2:</b> (1,4)ok · (4,2)→swap→1 2 4 5 8 · rest ok.<br>\n      <b>Pass 3:</b> no swaps — but the algorithm needs this whole clean pass to <i>know</i> it is sorted.<br>\n      Comparisons for 6 elements worst case: 5+4+3+2+1; for N: N(N+1)/2 ≈ N² → <b>O(n²)</b>.</p>"
+      "solutionHtml": "<p><b>Pass 1:</b> (5,1)→swap→1 5 4 2 8 · (5,4)→swap→1 4 5 2 8 · (5,2)→swap→1 4 2 5 8 · (5,8)→ok.<br>\n      <b>Pass 2:</b> (1,4)ok · (4,2)→swap→1 2 4 5 8 · rest ok.<br>\n      <b>Pass 3:</b> no swaps, but the algorithm needs this whole clean pass to <i>know</i> it is sorted.<br>\n      Comparisons for 6 elements worst case: 5+4+3+2+1; for N: N(N+1)/2 ≈ N² → <b>O(n²)</b>.</p>"
     },
     {
       "type": "heading",
@@ -76,7 +76,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Maintain a <b>sorted lower part</b> of the array; take the next element (the “hole”), shift larger elements right, and drop it into its place — exactly how you sort playing cards in your hand."
+      "html": "Maintain a <b>sorted lower part</b> of the array; take the next element (the “hole”), shift larger elements right, and drop it into its place, exactly how you sort playing cards in your hand."
     },
     {
       "type": "code",
@@ -87,7 +87,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Why keep insertion sort?",
-      "html": "It is O(n²) in the worst case but <b>brilliant on nearly-sorted data</b> (approaching O(n)) — and it is the natural choice for small inputs."
+      "html": "It is O(n²) in the worst case but <b>brilliant on nearly-sorted data</b> (approaching O(n)), and it is the natural choice for small inputs."
     },
     {
       "type": "heading",
@@ -97,38 +97,38 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Selection, insertion and bubble are all proportional to <b>n²</b>. Other sorts achieve <b>n log n</b>: merge sort, quick sort, heap sort. Since log n ≪ n, an n log n sort wins massively as n grows — e.g. n = 1,000,000: n² = 10¹² vs n log n ≈ 2×10⁷."
+      "html": "Selection, insertion and bubble are all proportional to <b>n²</b>. Other sorts achieve <b>n log n</b>: merge sort, quick sort, heap sort. Since log n ≪ n, an n log n sort wins massively as n grows, e.g. n = 1,000,000: n² = 10¹² vs n log n ≈ 2×10⁷."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "merge-sort-divide-and-conquer",
-      "text": "Merge sort — divide & conquer"
+      "text": "Merge sort: divide & conquer"
     },
     {
       "type": "paragraph",
-      "html": "Merge sort is recursive and needs <b>one extra array</b> in memory. The divide-and-conquer template: <b>1) Divide</b> the input into two halves (solve directly if tiny); <b>2) Recur</b> on each half; <b>3) Conquer</b> — merge the two sorted halves."
+      "html": "Merge sort is recursive and needs <b>one extra array</b> in memory. The divide-and-conquer template: <b>1) Divide</b> the input into two halves (solve directly if tiny); <b>2) Recur</b> on each half; <b>3) Conquer</b>: merge the two sorted halves."
     },
     {
       "type": "code",
       "language": "c",
-      "html": "<span class=\"tok-kw\">void</span> <span class=\"tok-fn\">mergesort</span>(<span class=\"tok-kw\">int</span> a[], <span class=\"tok-kw\">int</span> i, <span class=\"tok-kw\">int</span> j) {\n    <span class=\"tok-kw\">if</span> (i &lt; j) {\n        <span class=\"tok-kw\">int</span> mid = (i + j) / <span class=\"tok-num\">2</span>;\n        <span class=\"tok-fn\">mergesort</span>(a, i, mid);          <span class=\"tok-cm\">/* left recursion  */</span>\n        <span class=\"tok-fn\">mergesort</span>(a, mid+<span class=\"tok-num\">1</span>, j);        <span class=\"tok-cm\">/* right recursion */</span>\n        <span class=\"tok-fn\">merge</span>(a, i, mid, mid+<span class=\"tok-num\">1</span>, j);     <span class=\"tok-cm\">/* merge two runs  */</span>\n    }\n}\n<span class=\"tok-cm\">/* merge: repeatedly copy the smaller front element of the two\n   sorted lists into temp[], then copy back — O(n) per merge */</span>"
+      "html": "<span class=\"tok-kw\">void</span> <span class=\"tok-fn\">mergesort</span>(<span class=\"tok-kw\">int</span> a[], <span class=\"tok-kw\">int</span> i, <span class=\"tok-kw\">int</span> j) {\n    <span class=\"tok-kw\">if</span> (i &lt; j) {\n        <span class=\"tok-kw\">int</span> mid = (i + j) / <span class=\"tok-num\">2</span>;\n        <span class=\"tok-fn\">mergesort</span>(a, i, mid);          <span class=\"tok-cm\">/* left recursion  */</span>\n        <span class=\"tok-fn\">mergesort</span>(a, mid+<span class=\"tok-num\">1</span>, j);        <span class=\"tok-cm\">/* right recursion */</span>\n        <span class=\"tok-fn\">merge</span>(a, i, mid, mid+<span class=\"tok-num\">1</span>, j);     <span class=\"tok-cm\">/* merge two runs  */</span>\n    }\n}\n<span class=\"tok-cm\">/* merge: repeatedly copy the smaller front element of the two\n   sorted lists into temp[], then copy back: O(n) per merge */</span>"
     },
     {
       "type": "example",
       "title": "Merge sort (10, 5, 8, 2, 12, 6, 3, 4)",
       "bodyHtml": "",
-      "solutionHtml": "<p><b>Split:</b> [10 5 8 2 12 6 3 4] → [10 5 8 2] [12 6 3 4] → [10 5][8 2] [12 6][3 4] → [10][5] [8][2] [12][6] [3][4].<br>\n      <b>Merge:</b> [5 10] · [2 8] · [6 12] · [3 4] → [2 5 8 10] · [3 4 6 12] → <b>[2 3 4 5 6 8 10 12]</b>.<br>\n      Complexity: <b>O(N·log N)</b> — log N levels of splitting, N work merging each level.</p>"
+      "solutionHtml": "<p><b>Split:</b> [10 5 8 2 12 6 3 4] → [10 5 8 2] [12 6 3 4] → [10 5][8 2] [12 6][3 4] → [10][5] [8][2] [12][6] [3][4].<br>\n      <b>Merge:</b> [5 10] · [2 8] · [6 12] · [3 4] → [2 5 8 10] · [3 4 6 12] → <b>[2 3 4 5 6 8 10 12]</b>.<br>\n      Complexity: <b>O(N·log N)</b>: log N levels of splitting, N work merging each level.</p>"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "quick-sort-partition-and-recurse",
-      "text": "Quick sort — partition & recurse"
+      "text": "Quick sort: partition & recurse"
     },
     {
       "type": "paragraph",
-      "html": "Pick a <b>pivot</b> p; move all values <b>less than p</b> to its left and all values ≥ p to its right; then quicksort each side. It is a comparison sort, <b>in-place</b> (tiny extra memory), and usually the <b>fastest</b> in practice — but <b>not stable</b> (equal elements may reorder)."
+      "html": "Pick a <b>pivot</b> p; move all values <b>less than p</b> to its left and all values ≥ p to its right; then quicksort each side. It is a comparison sort, <b>in-place</b> (tiny extra memory), and usually the <b>fastest</b> in practice, but <b>not stable</b> (equal elements may reorder)."
     },
     {
       "type": "code",
@@ -192,7 +192,7 @@ const chapter: ChapterData = {
         },
         {
           "front": "<span class=\"fc-q\">Why is selection often faster than bubble?</span>",
-          "back": "<div class=\"fc-a\">At most n−1 swaps — far fewer writes</div>",
+          "back": "<div class=\"fc-a\">At most n−1 swaps: far fewer writes</div>",
           "category": "Selection"
         },
         {
@@ -209,7 +209,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 11 Quiz — Sorting Algorithms",
+      "title": "Topic 11 Quiz: Sorting Algorithms",
       "count": 9,
       "quizSlug": "12-sorting-algorithms"
     }

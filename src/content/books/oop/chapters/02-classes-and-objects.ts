@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "02-classes-and-objects",
     "number": 2,
-    "title": "Classes & Objects",
+    "title": "Classes & objects",
     "subtitle": "Lesson 02 (Part 1) · Declarations, fields, methods, access modifiers, constructors",
     "kind": "topic",
     "words": 1407,
@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Object-oriented programming simplifies software development and maintenance by providing six core concepts: <b>Object, Class, Inheritance, Polymorphism, Abstraction and Encapsulation</b>. Topics 1–3 cover objects and classes; topics 4–7 cover the remaining four — often called the <b>four pillars of OOP</b>. Keep this list in mind: many exam questions ask you to name or define all six."
+      "html": "Object-oriented programming simplifies software development and maintenance by providing six core concepts: <b>Object, Class, Inheritance, Polymorphism, Abstraction and Encapsulation</b>. Topics 1–3 cover objects and classes; topics 4–7 cover the remaining four, often called the <b>four pillars of OOP</b>. Keep this list in mind: many exam questions ask you to name or define all six."
     },
     {
       "type": "heading",
@@ -45,7 +45,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "All classes must be defined by a <b>class declaration</b> — lines of code that provide the name for the class and the body of the class:"
+      "html": "All classes must be defined by a <b>class declaration</b>, lines of code that provide the name for the class and the body of the class:"
     },
     {
       "type": "code",
@@ -83,7 +83,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A <b>field</b> is a variable defined in the body of a class, <b>outside any of the class’s methods</b>. Fields (also called class variables or instance variables) are available to <b>all methods</b> of the class. A <b>method</b> is a collection of statements grouped together to perform an operation — and a method <b>only runs when it is called</b>."
+      "html": "A <b>field</b> is a variable defined in the body of a class, <b>outside any of the class’s methods</b>. Fields (also called class variables or instance variables) are available to <b>all methods</b> of the class. A <b>method</b> is a collection of statements grouped together to perform an operation, and a method <b>only runs when it is called</b>."
     },
     {
       "type": "code",
@@ -126,7 +126,7 @@ const chapter: ChapterData = {
         [
           "<b>default</b> (package-private)",
           "Only classes in the <b>same package</b>",
-          "<i>none — just omit the modifier</i>"
+          "<i>none: just omit the modifier</i>"
         ]
       ]
     },
@@ -134,7 +134,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "warn",
       "title": "Watch out",
-      "html": "Default access is tricky because <b>there is no keyword for it</b> — you simply <b>omit</b> the access modifier. Examiners love asking “which modifier has no keyword?”"
+      "html": "Default access is tricky because <b>there is no keyword for it</b>, you simply <b>omit</b> the access modifier. Examiners love asking “which modifier has no keyword?”"
     },
     {
       "type": "heading",
@@ -157,7 +157,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Objects can be created <b>within the same class</b> (as above) or from a separate <b>driver class</b> — a class that contains <code class=\"inl\">main</code> and uses other classes:"
+      "html": "Objects can be created <b>within the same class</b> (as above) or from a separate <b>driver class</b>, a class that contains <code class=\"inl\">main</code> and uses other classes:"
     },
     {
       "type": "code",
@@ -178,7 +178,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "1-by-reference-variable",
-      "text": "1. By reference variable"
+      "text": "1. by reference variable"
     },
     {
       "type": "code",
@@ -193,7 +193,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "2-by-method",
-      "text": "2. By method"
+      "text": "2. by method"
     },
     {
       "type": "code",
@@ -208,16 +208,16 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "3-by-constructor",
-      "text": "3. By constructor"
+      "text": "3. by constructor"
     },
     {
       "type": "paragraph",
-      "html": "A <b>constructor</b> is a block of code similar to a method that is <b>called when a new instance of an object is created</b> — in fact, it’s the <code class=\"inl\">new</code> keyword that calls the constructor. After the object is created, <b>you can’t call the constructor again</b>. It is a special method used to <b>initialize the object</b>."
+      "html": "A <b>constructor</b> is a block of code similar to a method that is <b>called when a new instance of an object is created</b>, in fact, it’s the <code class=\"inl\">new</code> keyword that calls the constructor. After the object is created, <b>you can’t call the constructor again</b>. It is a special method used to <b>initialize the object</b>."
     },
     {
       "type": "callout",
       "variant": "exam",
-      "title": "Constructor rules — memorize",
+      "title": "Constructor rules: memorize",
       "html": "1. The constructor name <b>must be the same</b> as its class name. &nbsp;2. It must have <b>no explicit return type</b> (they implicitly return an object of their class). &nbsp;3. Every time an object is created with <code class=\"inl\">new</code>, at least one constructor is called. &nbsp;4. If you don’t write any constructor, the <b>Java compiler creates a default constructor</b> for you. &nbsp;5. Two types: <b>default (no-arg)</b> and <b>parameterized</b>."
     },
     {
@@ -244,22 +244,22 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — spot the bug (exam trap)",
+      "title": "Worked example: spot the bug (exam trap)",
       "bodyHtml": "<p>The lecture set this as homework. Predict the output before revealing:</p>\n    <div class=\"cb\">\n      <div class=\"cb-head\"><span>Account.java</span><span class=\"lang\">Java</span></div>\n      <pre class=\"code\"><code>class Account\n{\n    int a, b;\n    public void setData(int a, int b)\n    {\n        a = a;          // ???\n        b = b;          // ???\n    }\n    public void showData()\n    {\n        System.out.println(\"Value of A = \" + a);\n        System.out.println(\"Value of B = \" + b);\n    }\n    public static void main(String[] args)\n    {\n        Account myAccount = new Account();\n        myAccount.setData(2, 3);\n        myAccount.showData();\n    }\n}</code></pre>\n    </div>",
-      "solutionHtml": "<p>Output: <b>Value of A = 0 &nbsp;and&nbsp; Value of B = 0</b>.</p>\n      <p>Why? Inside <code class=\"inl\">setData</code>, the <b>parameter names shadow the instance variables</b>. The statement <code class=\"inl\">a = a;</code> assigns the parameter <code class=\"inl\">a</code> to itself — the instance variable <code class=\"inl\">a</code> is never touched and keeps its default value 0. The fix is the <code class=\"inl\">this</code> keyword: <code class=\"inl\">this.a = a; this.b = b;</code> — covered fully in Topic 3.</p>"
+      "solutionHtml": "<p>Output: <b>Value of A = 0 &nbsp;and&nbsp; Value of B = 0</b>.</p>\n      <p>Why? Inside <code class=\"inl\">setData</code>, the <b>parameter names shadow the instance variables</b>. The statement <code class=\"inl\">a = a;</code> assigns the parameter <code class=\"inl\">a</code> to itself; the instance variable <code class=\"inl\">a</code> is never touched and keeps its default value 0. The fix is the <code class=\"inl\">this</code> keyword: <code class=\"inl\">this.a = a; this.b = b;</code>: covered fully in Topic 3.</p>"
     },
     {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set B — classes, objects & constructors ▾",
-          "html": "<ol>\n        <li>List the five kinds of members that can appear in a class body.</li>\n        <li>Write the extended form of a class declaration (with package, imports, extends and implements).</li>\n        <li>A field vs a local variable — where is each declared?</li>\n        <li>Which access modifier would you use so that only classes in the same package and subclasses can access a method?</li>\n        <li>Name the three parts of creating an object and state which keyword performs instantiation.</li>\n        <li>State the two constructor rules and the two types of constructors.</li>\n        <li>Write a class <code class=\"inl\">Book</code> with fields <code class=\"inl\">title</code> and <code class=\"inl\">price</code>, a default constructor that prints \"Book created\", and a parameterized constructor that initializes both fields.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>Fields, initializers, constructors, methods, and other classes/interfaces (nested/inner).</li>\n          <li><code class=\"inl\">[access] class Name extends Super implements Iface1, Iface2 { fields; initializers; constructors; methods; nested types }</code> — preceded by package declaration and import statements.</li>\n          <li>A field is declared in the class body outside any method (available to all methods); a local variable is declared inside a method and only lives there.</li>\n          <li><code class=\"inl\">protected</code>.</li>\n          <li>Declaration (associate variable with type), instantiation (new allocates memory), initialization (constructor call follows new).</li>\n          <li>Same name as the class; no explicit return type. Types: default (no-arg) and parameterized.</li>\n          <li>\n<code class=\"inl\">public class Book { String title; double price; Book(){ System.out.println(\"Book created\"); } Book(String t, double p){ title=t; price=p; } }</code>\n          </li>\n        </ol>\n      </div>"
+          "title": "Exercise set B: classes, objects & constructors",
+          "html": "<ol>\n        <li>List the five kinds of members that can appear in a class body.</li>\n        <li>Write the extended form of a class declaration (with package, imports, extends and implements).</li>\n        <li>A field vs a local variable, where is each declared?</li>\n        <li>Which access modifier would you use so that only classes in the same package and subclasses can access a method?</li>\n        <li>Name the three parts of creating an object and state which keyword performs instantiation.</li>\n        <li>State the two constructor rules and the two types of constructors.</li>\n        <li>Write a class <code class=\"inl\">Book</code> with fields <code class=\"inl\">title</code> and <code class=\"inl\">price</code>, a default constructor that prints \"Book created\", and a parameterized constructor that initializes both fields.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>Fields, initializers, constructors, methods, and other classes/interfaces (nested/inner).</li>\n          <li><code class=\"inl\">[access] class Name extends Super implements Iface1, Iface2 { fields; initializers; constructors; methods; nested types }</code>: preceded by package declaration and import statements.</li>\n          <li>A field is declared in the class body outside any method (available to all methods); a local variable is declared inside a method and only lives there.</li>\n          <li><code class=\"inl\">protected</code>.</li>\n          <li>Declaration (associate variable with type), instantiation (new allocates memory), initialization (constructor call follows new).</li>\n          <li>Same name as the class; no explicit return type. Types: default (no-arg) and parameterized.</li>\n          <li>\n<code class=\"inl\">public class Book { String title; double price; Book(){ System.out.println(\"Book created\"); } Book(String t, double p){ title=t; price=p; } }</code>\n          </li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 2 Quiz — Classes & Objects",
+      "title": "Topic 2 Quiz: Classes & Objects",
       "count": 8,
       "quizSlug": "02-classes-and-objects"
     }

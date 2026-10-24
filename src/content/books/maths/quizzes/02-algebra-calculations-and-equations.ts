@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "02-algebra-calculations-and-equations",
-  "title": "Topic 2 Quiz — Algebra",
+  "title": "Topic 2 Quiz: Algebra",
   "questions": [
     {
       "prompt": "1. 2 + 3 × 4 = ?",

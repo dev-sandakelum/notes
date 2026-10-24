@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "12-trigonometry",
-  "title": "Topic 12 Quiz — Trigonometry",
+  "title": "Topic 12 Quiz: Trigonometry",
   "questions": [
     {
       "prompt": "1. In a right triangle with legs 5 and 12, the hypotenuse is:",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Quadrant I"
       ],
       "answer": 3,
-      "explanation": "The “A” of CAST — All positive in the first quadrant."
+      "explanation": "The “A” of CAST. All positive in the first quadrant."
     },
     {
       "prompt": "5. cos 150° equals:",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "sec²θ"
       ],
       "answer": 1,
-      "explanation": "The Pythagorean identity — true for every angle θ."
+      "explanation": "The Pythagorean identity: true for every angle θ."
     },
     {
       "prompt": "7. sin(A + B) expands to:",

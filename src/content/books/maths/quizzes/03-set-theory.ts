@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "03-set-theory",
-  "title": "Topic 3 Quiz — Set Theory",
+  "title": "Topic 3 Quiz: Set Theory",
   "questions": [
     {
       "prompt": "1. Which symbol denotes the empty (null) set?",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "{x ∈ ℤ | x ≤ 10}"
       ],
       "answer": 2,
-      "explanation": "It is the even natural numbers from 2 to 10 inclusive — the bound matters."
+      "explanation": "It is the even natural numbers from 2 to 10 inclusive; the bound matters."
     },
     {
       "prompt": "3. If A = {1, 2, 3, 3} and B = {3, 2, 1}, then:",
@@ -63,8 +63,8 @@ const quiz: QuizData = {
       "prompt": "6. X = {x | x &gt; 9} and Y = {x | x ≤ 10}. Are X and Y disjoint?",
       "options": [
         "Yes, X ∩ Y = ∅",
-        "No — they share the element 10",
-        "No — they share the element 9",
+        "No: they share the element 10",
+        "No: they share the element 9",
         "Cannot be determined"
       ],
       "answer": 1,

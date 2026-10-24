@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "06-activity-diagrams",
-  "title": "Topic 6 Quiz — Activity Diagrams",
+  "title": "Topic 6 Quiz: Activity Diagrams",
   "questions": [
     {
       "prompt": "1. Activity diagrams are best described as:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Timelines of object lifetimes"
       ],
       "answer": 2,
-      "explanation": "Activity diagrams are \"OO flowcharts\" showing data flow and control flow — a process modeled as a collection of activities and transitions between them."
+      "explanation": "Activity diagrams are \"OO flowcharts\" showing data flow and control flow, a process modeled as a collection of activities and transitions between them."
     },
     {
       "prompt": "2. Which node terminates only one specific flow, leaving the rest of the activity running?",
@@ -31,7 +31,7 @@ const quiz: QuizData = {
       "options": [
         "Sequence numbers like 2.1",
         "Activation bars",
-        "Nothing — all paths run in parallel",
+        "Nothing: all paths run in parallel",
         "Guard conditions in square brackets, e.g. [is junk]"
       ],
       "answer": 3,
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Forks use guards; decisions do not"
       ],
       "answer": 0,
-      "explanation": "Both have one flow in and multiple out — but a decision selects a single guarded path, while a fork results in multiple outbound flows occurring concurrently."
+      "explanation": "Both have one flow in and multiple out, but a decision selects a single guarded path, while a fork results in multiple outbound flows occurring concurrently."
     },
     {
       "prompt": "5. A join node lets the outbound flow begin when:",

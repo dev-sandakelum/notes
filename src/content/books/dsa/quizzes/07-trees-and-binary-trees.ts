@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "07-trees-and-binary-trees",
-  "title": "Topic 6 Quiz — Trees & Binary Trees",
+  "title": "Topic 6 Quiz: Trees & Binary Trees",
   "questions": [
     {
       "prompt": "1. A tree is a ______ data structure.",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Homogeneous"
       ],
       "answer": 1,
-      "explanation": "Trees and graphs are non-linear — data items are not arranged in a sequence."
+      "explanation": "Trees and graphs are non-linear: data items are not arranged in a sequence."
     },
     {
       "prompt": "2. The maximum number of nodes at level 3 of a binary tree is…",

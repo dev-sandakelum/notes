@@ -4,8 +4,8 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "14-master-cheat-sheet",
     "number": 14,
-    "title": "Master Cheat Sheet",
-    "subtitle": "Everything on one page — the night-before summary",
+    "title": "Master cheat sheet",
+    "subtitle": "Everything on one page: the night-before summary",
     "kind": "cheatsheet",
     "words": 544,
     "minutes": 3
@@ -15,7 +15,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "complexity-table-everything-you-must-know",
-      "text": "Complexity table — everything you must know"
+      "text": "Complexity table: everything you must know"
     },
     {
       "type": "table",
@@ -61,7 +61,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "data-structures-one-line-identities",
-      "text": "Data structures — one-line identities"
+      "text": "Data structures: one-line identities"
     },
     {
       "type": "htmlFigure",
@@ -72,7 +72,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "traversals-and-notations-one-glance",
-      "text": "Traversals & notations — one glance"
+      "text": "Traversals & notations: one glance"
     },
     {
       "type": "table",

@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "01-numbers",
-  "title": "Topic 1 Quiz — Numbers",
+  "title": "Topic 1 Quiz: Numbers",
   "questions": [
     {
       "prompt": "1. Which of the following is <b>NOT</b> a natural number?",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "0"
       ],
       "answer": 3,
-      "explanation": "Natural numbers start from 1 — 0 is a whole number but not a natural number."
+      "explanation": "Natural numbers start from 1: 0 is a whole number but not a natural number."
     },
     {
       "prompt": "2. Which statement about integers is <b>FALSE</b>?",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "20"
       ],
       "answer": 1,
-      "explanation": "2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 — fifteen primes."
+      "explanation": "2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, fifteen primes."
     },
     {
       "prompt": "7. (−3) × (−7) + 2 = ?",

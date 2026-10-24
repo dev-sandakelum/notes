@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "12-master-cheat-sheet",
     "number": 12,
-    "title": "Master Cheat Sheet",
+    "title": "Master cheat sheet",
     "subtitle": "Rapid revision · tap any card to flip it",
     "kind": "cheatsheet",
     "words": 791,
@@ -65,7 +65,7 @@ const chapter: ChapterData = {
         },
         {
           "front": "<b>Types of inheritance</b><small>tap to flip</small>",
-          "back": "Single · Multilevel · Hierarchical · Hybrid — supported. <b>Multiple: NOT supported</b> (diamond problem) — solved with interfaces.",
+          "back": "Single · Multilevel · Hierarchical · Hybrid, supported. <b>Multiple: NOT supported</b> (diamond problem): solved with interfaces.",
           "category": "Inheritance"
         },
         {
@@ -75,7 +75,7 @@ const chapter: ChapterData = {
         },
         {
           "front": "<b>Dynamic binding</b><small>tap to flip</small>",
-          "back": "<code class=\"inl\">Vehicle v = new Car(); v.start();</code> → <b>Car’s</b> start runs — the <b>object type</b> decides. Exceptions: private methods, constructors, super calls, final methods. <b>Fields</b> bind statically (reference type decides).",
+          "back": "<code class=\"inl\">Vehicle v = new Car(); v.start();</code> → <b>Car’s</b> start runs: the <b>object type</b> decides. Exceptions: private methods, constructors, super calls, final methods. <b>Fields</b> bind statically (reference type decides).",
           "category": "Polymorphism"
         },
         {
@@ -95,7 +95,7 @@ const chapter: ChapterData = {
         },
         {
           "front": "<b>Default &amp; static methods</b><small>tap to flip</small>",
-          "back": "Java 8+. <b>default</b> methods carry a body used as a fallback implementation — lets interfaces evolve without breaking implementers. <b>static</b> interface methods are utility methods called on the interface name.",
+          "back": "Java 8+. <b>default</b> methods carry a body used as a fallback implementation, lets interfaces evolve without breaking implementers. <b>static</b> interface methods are utility methods called on the interface name.",
           "category": "Interfaces"
         },
         {
@@ -130,12 +130,12 @@ const chapter: ChapterData = {
         },
         {
           "front": "<b>Drivers &amp; execute methods</b><small>tap to flip</small>",
-          "back": "4 driver types: JDBC-ODBC bridge, Native-API, Network Protocol, <b>Thin (best, Type 4 — Connector/J)</b>. executeQuery → ResultSet (SELECT only); executeUpdate → int rows (INSERT/UPDATE/DELETE); execute → boolean.",
+          "back": "4 driver types: JDBC-ODBC bridge, Native-API, Network Protocol, <b>Thin (best, Type 4. Connector/J)</b>. executeQuery → ResultSet (SELECT only); executeUpdate → int rows (INSERT/UPDATE/DELETE); execute → boolean.",
           "category": "JDBC"
         },
         {
           "front": "<b>ResultSet &amp; PreparedStatement</b><small>tap to flip</small>",
-          "back": "ResultSet: cursor + <code class=\"inl\">next()</code>; get by name or index — <b>indices start at 1</b>. PreparedStatement: precompiled once, <code class=\"inl\">?</code> placeholders, better performance + prevents SQL injection.",
+          "back": "ResultSet: cursor + <code class=\"inl\">next()</code>; get by name or index. <b>indices start at 1</b>. PreparedStatement: precompiled once, <code class=\"inl\">?</code> placeholders, better performance + prevents SQL injection.",
           "category": "JDBC"
         }
       ]

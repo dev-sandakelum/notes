@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "05-operational-excellence-i-enterprise-systems-and-supply-chain-management",
     "number": 5,
-    "title": "Operational Excellence I: Enterprise Systems & Supply Chain Management",
+    "title": "Operational excellence I: enterprise systems & supply chain management",
     "subtitle": "Lecture 05 · ERP characteristics & value, supply chains, the bullwhip effect, push/pull models",
     "kind": "topic",
     "words": 1133,
@@ -15,15 +15,15 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "enterprise-systems-erp",
-      "text": "Enterprise Systems (ERP)"
+      "text": "Enterprise systems (ERP)"
     },
     {
       "type": "paragraph",
-      "html": "Enterprise systems — also called <b>Enterprise Resource Planning (ERP) systems</b> — are a <b>suite of integrated software modules and a common central database</b>. They collect data from many divisions of the firm for use in nearly all of the firm's internal business activities, and information entered in one process is <b>immediately available</b> for other processes. ERP resolves the problem of <b>fragmented, redundant data sets and systems</b> by storing everything once, in one place."
+      "html": "Enterprise systems: also called <b>Enterprise Resource Planning (ERP) systems</b>, are a <b>suite of integrated software modules and a common central database</b>. They collect data from many divisions of the firm for use in nearly all of the firm's internal business activities, and information entered in one process is <b>immediately available</b> for other processes. ERP resolves the problem of <b>fragmented, redundant data sets and systems</b> by storing everything once, in one place."
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">ERP characteristic 1</div><div class=\"f-b\"><b>Real-time operations</b> — data is captured and made available instantly</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">ERP characteristic 2</div><div class=\"f-b\"><b>Integration of all business activities</b> — one suite across the firm</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">ERP characteristic 3</div><div class=\"f-b\"><b>Flow of information</b> — output of one process feeds the others immediately</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">ERP characteristic 1</div><div class=\"f-b\"><b>Real-time operations</b>, data is captured and made available instantly</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">ERP characteristic 2</div><div class=\"f-b\"><b>Integration of all business activities</b>, one suite across the firm</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">ERP characteristic 3</div><div class=\"f-b\"><b>Flow of information</b>, output of one process feeds the others immediately</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
@@ -46,7 +46,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "supply-chain-management-systems",
-      "text": "Supply Chain Management Systems"
+      "text": "Supply chain management systems"
     },
     {
       "type": "paragraph",
@@ -54,7 +54,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"flow\">\n    <div class=\"fstep\"><b>Upstream</b><small>Suppliers &amp; suppliers' suppliers — raw materials</small></div>\n    <div class=\"farrow\">→</div>\n    <div class=\"fstep\"><b>The firm</b><small>Transform materials into products</small></div>\n    <div class=\"farrow\">→</div>\n    <div class=\"fstep\"><b>Downstream</b><small>Distributors &amp; deliverers — products to customers</small></div>\n  </div>",
+      "html": "<div class=\"flow\">\n    <div class=\"fstep\"><b>Upstream</b><small>Suppliers &amp; suppliers' suppliers: raw materials</small></div>\n    <div class=\"farrow\">→</div>\n    <div class=\"fstep\"><b>The firm</b><small>Transform materials into products</small></div>\n    <div class=\"farrow\">→</div>\n    <div class=\"fstep\"><b>Downstream</b><small>Distributors &amp; deliverers: products to customers</small></div>\n  </div>",
       "alt": "Diagram from the original notes"
     },
     {
@@ -65,13 +65,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Supply chain inefficiencies are enormous — they can waste <mark>as much as 25 percent of a company's operating costs</mark>. Three concepts describe how companies cope. Under a <b>just-in-time (JIT) strategy</b>, components arrive exactly when they are needed and finished goods are shipped as they leave the assembly line — minimizing inventory. <b>Safety stock</b> acts as a <b>buffer for the lack of flexibility</b> in the supply chain, protecting against uncertainty at the cost of holding inventory. The <b>bullwhip effect</b> occurs when <b>information about product demand gets distorted as it passes from one entity to the next</b> along the supply chain — small changes in customer demand amplify into wild swings in orders upstream, causing over- and under-stocking."
+      "html": "Supply chain inefficiencies are enormous: they can waste <mark>as much as 25 percent of a company's operating costs</mark>. Three concepts describe how companies cope. Under a <b>just-in-time (JIT) strategy</b>, components arrive exactly when they are needed and finished goods are shipped as they leave the assembly line, minimizing inventory. <b>Safety stock</b> acts as a <b>buffer for the lack of flexibility</b> in the supply chain, protecting against uncertainty at the cost of holding inventory. The <b>bullwhip effect</b> occurs when <b>information about product demand gets distorted as it passes from one entity to the next</b> along the supply chain, small changes in customer demand amplify into wild swings in orders upstream, causing over- and under-stocking."
     },
     {
       "type": "callout",
       "variant": "exam",
-      "title": "Exam favourite — bullwhip effect",
-      "html": "Definition to reproduce: \"Information about product demand gets distorted as it passes from one entity to the next across the supply chain.\" It is caused by delayed, distorted information; the cure is <b>immediate, shared information</b> across supply chain partners — exactly what SCM systems provide."
+      "title": "Exam favourite: bullwhip effect",
+      "html": "Definition to reproduce: \"Information about product demand gets distorted as it passes from one entity to the next across the supply chain.\" It is caused by delayed, distorted information; the cure is <b>immediate, shared information</b> across supply chain partners, exactly what SCM systems provide."
     },
     {
       "type": "heading",
@@ -101,7 +101,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Supply chain planning systems</b> model the existing supply chain and optimize sourcing and manufacturing plans. They establish inventory levels (raw, intermediate, finished), decide where to store finished products, identify transportation modes, and facilitate <b>demand planning</b> — matching supply forecasts with actual orders. <b>Supply chain execution systems</b> manage the <b>flow of products</b> through distribution centers and warehouses to ensure that products are delivered to the right locations in the most efficient manner. Planning = decide; execution = deliver."
+      "html": "<b>Supply chain planning systems</b> model the existing supply chain and optimize sourcing and manufacturing plans. They establish inventory levels (raw, intermediate, finished), decide where to store finished products, identify transportation modes, and facilitate <b>demand planning</b>, matching supply forecasts with actual orders. <b>Supply chain execution systems</b> manage the <b>flow of products</b> through distribution centers and warehouses to ensure that products are delivered to the right locations in the most efficient manner. Planning = decide; execution = deliver."
     },
     {
       "type": "heading",
@@ -111,7 +111,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The Internet helps companies manage many aspects of global supply chains — sourcing, transportation, communications, international finance. But global chains bring their own issues: they span <b>greater geographic distances and time differences</b>; they create <b>more complex pricing issues</b> (local taxes, transportation); they must respect <b>foreign government regulations</b>; and they must bridge <b>cultural differences</b>. Globalization multiplies both the value of SCM systems and the difficulty of running them."
+      "html": "The Internet helps companies manage many aspects of global supply chains, sourcing, transportation, communications, international finance. But global chains bring their own issues: they span <b>greater geographic distances and time differences</b>; they create <b>more complex pricing issues</b> (local taxes, transportation); they must respect <b>foreign government regulations</b>; and they must bridge <b>cultural differences</b>. Globalization multiplies both the value of SCM systems and the difficulty of running them."
     },
     {
       "type": "heading",
@@ -128,11 +128,11 @@ const chapter: ChapterData = {
       "rows": [
         [
           "<b>1 · Push-based (build-to-stock)</b>",
-          "Schedules are based on <b>best guesses of demand</b> — produce first, then push to market"
+          "Schedules are based on <b>best guesses of demand</b>, produce first, then push to market"
         ],
         [
           "<b>2 · Pull-based (demand-driven)</b>",
-          "<b>Customer orders trigger</b> events in the supply chain — build only what is ordered"
+          "<b>Customer orders trigger</b> events in the supply chain, build only what is ordered"
         ],
         [
           "<b>3 · Sequential supply chains</b>",
@@ -164,21 +164,21 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "the-emerging-internet-driven-supply-chain",
-      "text": "The emerging Internet-driven supply chain"
+      "text": "The emerging internet-driven supply chain"
     },
     {
       "type": "paragraph",
-      "html": "The emerging Internet-driven supply chain operates like a <b>digital logistics nervous system</b>. It provides <b>multidirectional communication</b> among firms, networks of firms and e-marketplaces so that entire networks of supply chain partners can <b>immediately adjust inventories, orders and capacities</b>. When demand shifts anywhere in the network, the whole chain can respond in real time — the practical realization of the concurrent model at global scale."
+      "html": "The emerging Internet-driven supply chain operates like a <b>digital logistics nervous system</b>. It provides <b>multidirectional communication</b> among firms, networks of firms and e-marketplaces so that entire networks of supply chain partners can <b>immediately adjust inventories, orders and capacities</b>. When demand shifts anywhere in the network, the whole chain can respond in real time; the practical realization of the concurrent model at global scale."
     },
     {
       "type": "example",
-      "title": "Worked example — diagnose the supply chain problem",
+      "title": "Worked example: diagnose the supply chain problem",
       "bodyHtml": "<p>A furniture retailer sees a 10% rise in demand for a sofa. Its distributor orders 30% more from the factory \"to be safe\"; the factory orders 50% more fabric. Three months later the chain is drowning in unsold stock. Name the effect, explain it, and recommend two IS-based remedies.</p>",
-      "solutionHtml": "<p>This is the <b>bullwhip effect</b>: information about product demand got distorted as it passed from one entity to the next — each layer exaggerated the order to protect itself (and held <b>safety stock</b> as a buffer for inflexibility).</p>\n      <p><b>Remedies:</b> (1) A shared SCM system giving all partners <b>visibility of actual customer demand</b> (point-of-sale data) so production is planned on real orders — a <b>pull-based</b> approach; (2) Use <b>supply chain planning software</b> for demand planning, and <b>execution systems</b> to track inventory and shipments, reducing the need for each layer to over-order. JIT delivery scheduling would further cut buffer stock.</p>"
+      "solutionHtml": "<p>This is the <b>bullwhip effect</b>: information about product demand got distorted as it passed from one entity to the next, each layer exaggerated the order to protect itself (and held <b>safety stock</b> as a buffer for inflexibility).</p>\n      <p><b>Remedies:</b> (1) A shared SCM system giving all partners <b>visibility of actual customer demand</b> (point-of-sale data) so production is planned on real orders, a <b>pull-based</b> approach; (2) Use <b>supply chain planning software</b> for demand planning, and <b>execution systems</b> to track inventory and shipments, reducing the need for each layer to over-order. JIT delivery scheduling would further cut buffer stock.</p>"
     },
     {
       "type": "quiz",
-      "title": "Topic 5 Quiz — Enterprise Systems & SCM",
+      "title": "Topic 5 Quiz: Enterprise Systems & SCM",
       "count": 9,
       "quizSlug": "05-operational-excellence-i-enterprise-systems-and-supply-chain-management"
     }

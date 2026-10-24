@@ -144,13 +144,13 @@ export function StackViz({ caption }: { caption?: string }) {
 
   const doPush = () => {
     if (busy.current) {
-      setMsg({ text: "One moment — lifting the top element out…", tone: "warn" });
+      setMsg({ text: "One moment: lifting the top element out…", tone: "warn" });
       return;
     }
     if (stack.length >= MAX) {
       triggerShake();
       setMsg({
-        text: `Stack overflow — capacity ${MAX} reached`,
+        text: `Stack overflow: capacity ${MAX} reached`,
         tone: "danger",
       });
       return;
@@ -171,12 +171,12 @@ export function StackViz({ caption }: { caption?: string }) {
 
   const doPop = () => {
     if (busy.current) {
-      setMsg({ text: "One moment — lifting the top element out…", tone: "warn" });
+      setMsg({ text: "One moment: lifting the top element out…", tone: "warn" });
       return;
     }
     if (stack.length === 0) {
       triggerShake();
-      setMsg({ text: "Stack underflow — nothing to pop", tone: "danger" });
+      setMsg({ text: "Stack underflow: nothing to pop", tone: "danger" });
       return;
     }
     const cell = stack[stack.length - 1];
@@ -196,12 +196,12 @@ export function StackViz({ caption }: { caption?: string }) {
 
   const doPeek = () => {
     if (busy.current) {
-      setMsg({ text: "One moment — lifting the top element out…", tone: "warn" });
+      setMsg({ text: "One moment: lifting the top element out…", tone: "warn" });
       return;
     }
     if (stack.length === 0) {
       triggerShake();
-      setMsg({ text: "Stack underflow — nothing to peek", tone: "danger" });
+      setMsg({ text: "Stack underflow: nothing to peek", tone: "danger" });
       return;
     }
     setPeeking(true);
@@ -229,7 +229,7 @@ export function StackViz({ caption }: { caption?: string }) {
 
       <div className="no-print flex flex-wrap items-center justify-center gap-2">
         <label htmlFor={inputId} className="sr-only">
-          Value to push — leave blank for a random number 0–99
+          Value to push; leave blank for a random number 0–99
         </label>
         <input
           id={inputId}

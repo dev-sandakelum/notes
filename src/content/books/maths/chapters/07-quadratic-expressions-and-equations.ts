@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "07-quadratic-expressions-and-equations",
     "number": 7,
-    "title": "Quadratic Expressions & Equations",
+    "title": "Quadratic expressions & equations",
     "subtitle": "Factorising · Completing the square · The quadratic formula · Discriminant",
     "kind": "topic",
     "words": 906,
@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A <b>quadratic expression</b> has the general form <span class=\"m\">ax² + bx + c</span> where <span class=\"m\">a ≠ 0</span>. The three key components are: <b>a — the quadratic coefficient</b>, <b>b — the linear coefficient</b> and <b>c — the constant term</b>. Examples include <span class=\"m\">x² + 5x + 6</span> (a=1, b=5, c=6), <span class=\"m\">5x² − 7x + 2</span> and <span class=\"m\">x² − 4</span> (b = 0). Setting the expression equal to zero gives a <b>quadratic equation</b>: <span class=\"m\">ax² + bx + c = 0</span>."
+      "html": "A <b>quadratic expression</b> has the general form <span class=\"m\">ax² + bx + c</span> where <span class=\"m\">a ≠ 0</span>. The three key components are: <b>a: the quadratic coefficient</b>, <b>b; the linear coefficient</b> and <b>c; the constant term</b>. Examples include <span class=\"m\">x² + 5x + 6</span> (a=1, b=5, c=6), <span class=\"m\">5x² − 7x + 2</span> and <span class=\"m\">x² − 4</span> (b = 0). Setting the expression equal to zero gives a <b>quadratic equation</b>: <span class=\"m\">ax² + bx + c = 0</span>."
     },
     {
       "type": "heading",
@@ -37,23 +37,23 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Therefore <b>(x + 3) and (x + 4) are factors of x² + 7x + 12</b>. When factorising <span class=\"m\">x² + bx + c</span>, look for two numbers that <b>multiply to c</b> and <b>add to b</b> — here 3 × 4 = 12 and 3 + 4 = 7."
+      "html": "Therefore <b>(x + 3) and (x + 4) are factors of x² + 7x + 12</b>. When factorising <span class=\"m\">x² + bx + c</span>, look for two numbers that <b>multiply to c</b> and <b>add to b</b>, here 3 × 4 = 12 and 3 + 4 = 7."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "method-1-solving-by-factorising",
-      "text": "Method 1 — Solving by factorising"
+      "text": "Method 1: solving by factorising"
     },
     {
       "type": "example",
-      "title": "Worked example — factorising method",
+      "title": "Worked example: factorising method",
       "bodyHtml": "<p>Solve <span class=\"m\">x² − 5x + 6 = 0</span>.</p>",
       "solutionHtml": "<p>Find two numbers that multiply to 6 and add to −5: they are <b>(−2, −3)</b>.</p>\n      <div class=\"eq\">(x − 2)(x − 3) = 0</div>\n      <p>A product equals zero only when a factor is zero, so <span class=\"m\">x − 2 = 0</span> or <span class=\"m\">x − 3 = 0</span>, giving <b>x = 2 or x = 3</b>.</p>"
     },
     {
       "type": "example",
-      "title": "Worked example — when a ≠ 1",
+      "title": "Worked example: when a ≠ 1",
       "bodyHtml": "<p>Solve (1) <span class=\"m\">2x² − 7x − 4 = 0</span> &nbsp; (2) <span class=\"m\">3x² + 18x + 15 = 0</span></p>",
       "solutionHtml": "<p><b>(1)</b> <span class=\"m\">2x² − 7x − 4</span>: look for factors of 2×(−4) = −8 that add to −7: (−8, +1).</p>\n      <div class=\"eq\">2x² − 8x + x − 4 = 2x(x − 4) + 1(x − 4) = (2x + 1)(x − 4) = 0</div>\n      <p><span class=\"m\">x = −<span class=\"frac\"><span>1</span><span>2</span></span></span> &nbsp;or&nbsp; <span class=\"m\">x = 4</span>.</p>\n      <p><b>(2)</b> Take out the common factor 3 first: <span class=\"m\">3(x² + 6x + 5) = 0</span> → <span class=\"m\">(x + 1)(x + 5) = 0</span> → <b>x = −1 or x = −5</b>.</p>"
     },
@@ -61,13 +61,13 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "warn",
       "title": "When factorising fails",
-      "html": "Equations like <span class=\"m\">2x² − 5x + 1 = 0</span> or <span class=\"m\">5x² − x − 2 = 0</span> do not factorise with whole numbers — you must use <b>completing the square</b> or the <b>quadratic formula</b>."
+      "html": "Equations like <span class=\"m\">2x² − 5x + 1 = 0</span> or <span class=\"m\">5x² − x − 2 = 0</span> do not factorise with whole numbers, you must use <b>completing the square</b> or the <b>quadratic formula</b>."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "method-2-completing-the-square",
-      "text": "Method 2 — Completing the square"
+      "text": "Method 2: completing the square"
     },
     {
       "type": "paragraph",
@@ -75,13 +75,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — completing the square",
+      "title": "Worked example: completing the square",
       "bodyHtml": "<p>Solve <span class=\"m\">x² + 6x + 5 = 0</span>.</p>",
       "solutionHtml": "<div class=\"eq\">x² + 6x = −5</div>\n      <p>Half of 6 is 3, and 3² = 9. <b>Add 9 to both sides:</b></p>\n      <div class=\"eq\">x² + 6x + 9 = −5 + 9 &nbsp;→&nbsp; (x + 3)² = 4</div>\n      <p>Take the square root of both sides (remember ±):</p>\n      <div class=\"eq\">x + 3 = ±2 &nbsp;→&nbsp; x = −3 + 2 = −1 &nbsp;&nbsp;or&nbsp;&nbsp; x = −3 − 2 = −5</div>"
     },
     {
       "type": "example",
-      "title": "Worked example — with a ≠ 1",
+      "title": "Worked example: with a ≠ 1",
       "bodyHtml": "<p>Solve by completing the square: (1) <span class=\"m\">x² − 4x − 5 = 0</span> &nbsp; (2) <span class=\"m\">2x² + 8x + 3 = 0</span></p>",
       "solutionHtml": "<p><b>(1)</b> <span class=\"m\">x² − 4x = 5</span>; half of −4 is −2, add 4: <span class=\"m\">(x − 2)² = 9</span> → <span class=\"m\">x − 2 = ±3</span> → <b>x = 5 or x = −1</b>.</p>\n      <p><b>(2)</b> <b>Divide by the coefficient of x² first</b>: <span class=\"m\">x² + 4x + <span class=\"frac\"><span>3</span><span>2</span></span> = 0</span> → <span class=\"m\">x² + 4x = −<span class=\"frac\"><span>3</span><span>2</span></span></span>; add (4/2)² = 4:</p>\n      <div class=\"eq\">(x + 2)² = <span class=\"frac\"><span>5</span><span>2</span></span> &nbsp;→&nbsp; x = −2 ± <span class=\"sqrt\"><span class=\"r\"><span class=\"frac\"><span>5</span><span>2</span></span></span></span> ≈ −0.42 or −3.58</div>"
     },
@@ -89,7 +89,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "method-3-the-quadratic-formula",
-      "text": "Method 3 — The quadratic formula"
+      "text": "Method 3: the quadratic formula"
     },
     {
       "type": "paragraph",
@@ -101,13 +101,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — quadratic formula",
+      "title": "Worked example: quadratic formula",
       "bodyHtml": "<p>Solve <span class=\"m\">2x² − 3x − 2 = 0</span>.</p>",
       "solutionHtml": "<p>Here a = 2, b = −3, c = −2. Substitute:</p>\n      <div class=\"eq\">x = <span class=\"frac\"><span>3 ± <span class=\"sqrt\"><span class=\"r\">(−3)² − 4(2)(−2)</span></span></span><span>2(2)</span></span> = <span class=\"frac\"><span>3 ± <span class=\"sqrt\"><span class=\"r\">9 + 16</span></span></span><span>4</span></span> = <span class=\"frac\"><span>3 ± 5</span><span>4</span></span></div>\n      <p><span class=\"m\">x = <span class=\"frac\"><span>8</span><span>4</span></span> = 2</span> &nbsp;&nbsp;or&nbsp;&nbsp; <span class=\"m\">x = <span class=\"frac\"><span>−2</span><span>4</span></span> = −<span class=\"frac\"><span>1</span><span>2</span></span></span>.</p>"
     },
     {
       "type": "example",
-      "title": "Worked example — irrational roots",
+      "title": "Worked example: irrational roots",
       "bodyHtml": "<p>Solve <span class=\"m\">2x² − 5x + 1 = 0</span> (this one does not factorise).</p>",
       "solutionHtml": "<div class=\"eq\">x = <span class=\"frac\"><span>5 ± <span class=\"sqrt\"><span class=\"r\">25 − 8</span></span></span><span>4</span></span> = <span class=\"frac\"><span>5 ± <span class=\"sqrt\"><span class=\"r\">17</span></span></span><span>4</span></span></div>\n      <p><span class=\"m\">x ≈ 2.28</span> or <span class=\"m\">x ≈ 0.22</span> (2 d.p.).</p>"
     },
@@ -119,7 +119,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The quantity under the square root, <b><span class=\"m\">b² − 4ac</span></b>, is called the <b>discriminant</b>. It predicts the nature of the roots <i>before</i> you solve — a favourite short exam question."
+      "html": "The quantity under the square root, <b><span class=\"m\">b² − 4ac</span></b>, is called the <b>discriminant</b>. It predicts the nature of the roots <i>before</i> you solve, a favourite short exam question."
     },
     {
       "type": "table",
@@ -151,13 +151,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — using the discriminant",
+      "title": "Worked example: using the discriminant",
       "bodyHtml": "<p>Without solving, describe the roots of (1) <span class=\"m\">x² − 6x + 9 = 0</span> &nbsp; (2) <span class=\"m\">x² + x + 1 = 0</span></p>",
       "solutionHtml": "<p><b>(1)</b> <span class=\"m\">b² − 4ac = 36 − 36 = 0</span> → one repeated root (x = 3, twice).</p>\n      <p><b>(2)</b> <span class=\"m\">b² − 4ac = 1 − 4 = −3 &lt; 0</span> → no real roots.</p>"
     },
     {
       "type": "quiz",
-      "title": "Topic 7 Quiz — Quadratic Expressions & Equations",
+      "title": "Topic 7 Quiz: Quadratic Expressions & Equations",
       "count": 7,
       "quizSlug": "07-quadratic-expressions-and-equations"
     }

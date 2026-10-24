@@ -8,6 +8,7 @@ import {
   type TreeGraphNode,
   type TreeGraphNodeState,
 } from "./tree-graph";
+import { btnGhost } from "./viz-ui";
 
 /**
  * BST traversal trainer (rebuilt on the shared <TreeGraph /> renderer:
@@ -46,9 +47,6 @@ const SPEED_MIN = 150;
 const SPEED_MAX = 900;
 const SPEED_DEFAULT = 450; // ms per visited node
 
-const btnGhost =
-  "inline-flex items-center gap-1.5 rounded-md border border-hairline text-ink px-3 h-9 text-sm hover:border-hairline-strong transition-colors disabled:opacity-50 disabled:pointer-events-none";
-
 /* ---------- pure helpers ---------- */
 
 function insertTree(node: TNode | null, key: number): TNode {
@@ -85,11 +83,13 @@ function traverse(root: TNode, order: Order): number[] {
   return res;
 }
 
-function toGraph(n: TNode): TreeGraphNode {
+function toGraph(n: TNode, side?: "left" | "right"): TreeGraphNode {
   const kids: TreeGraphNode[] = [];
-  if (n.left) kids.push(toGraph(n.left));
-  if (n.right) kids.push(toGraph(n.right));
-  return { key: String(n.key), label: String(n.key), children: kids };
+  if (n.left) kids.push(toGraph(n.left, "left"));
+  if (n.right) kids.push(toGraph(n.right, "right"));
+  const node: TreeGraphNode = { key: String(n.key), label: String(n.key), side };
+  if (kids.length) node.children = kids;
+  return node;
 }
 
 function randomTreeFrom(rand: () => number): TNode | null {
@@ -113,7 +113,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
   const [outVals, setOutVals] = useState<number[]>([]);
   const [curKey, setCurKey] = useState<string | null>(null);
   const [status, setStatus] = useState(
-    "Press an order — each key lights up as the walk reaches it."
+    "Press an order. Each key lights up as the walk reaches it."
   );
   const [running, setRunning] = useState(false);
   const [lastOrder, setLastOrder] = useState<Order | null>(null);
@@ -174,8 +174,8 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
       setCurKey(null);
       setStatus(
         order === "in"
-          ? `${label} complete — sorted, as always!`
-          : `${label} complete — ${keys.length} nodes visited.`
+          ? `${label} complete. Sorted, as always.`
+          : `${label} complete. ${keys.length} nodes visited.`
       );
       runningRef.current = false;
       setRunning(false);
@@ -189,7 +189,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
     setStates({});
     setOutVals([]);
     setCurKey(null);
-    setStatus("New tree — press an order to traverse it.");
+    setStatus("New tree. Press an order to traverse it.");
   };
 
   const chipCls = (cur: boolean) =>
@@ -204,7 +204,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
   const nodeCount = tree ? countTree(tree) : 0;
 
   return (
-    <figure className="print-avoid-break my-6 rounded-md border border-hairline bg-paper-raised p-4 viz-shell">
+    <figure className="print-avoid-break my-6 border border-hairline p-4 viz-shell">
       <div className="no-print flex flex-wrap items-center justify-center gap-2">
         {ORDERS.map((o) => (
           <button
@@ -248,7 +248,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
         <span className="w-16 text-right font-mono text-sm text-ink-muted">{speed} ms</span>
       </div>
 
-      <div className="mt-3">
+      <div className="tree-wrap mt-3">
         {tree ? (
           <TreeGraph
             root={toGraph(tree)}
@@ -256,7 +256,6 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
             ariaLabel={`Binary search tree with ${nodeCount} nodes${
               running ? ", traversal running" : ""
             }`}
-            className="mx-auto h-auto w-full max-h-[320px]"
           />
         ) : (
           <div className="rounded-md border border-dashed border-hairline py-12 text-center text-sm text-ink-faint">
@@ -267,7 +266,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
 
       <div
         aria-live="polite"
-        className="mt-3 min-h-[1.5rem] text-center text-sm text-ink-muted"
+        className="viz-status default mt-3 text-center"
       >
         {status}
       </div>

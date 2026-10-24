@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "03-algorithms-and-complexity",
-  "title": "Topic 2 Quiz — Algorithms & Complexity",
+  "title": "Topic 2 Quiz: Algorithms & Complexity",
   "questions": [
     {
       "prompt": "1. Big-O notation defines the…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Average of best and worst cases"
       ],
       "answer": 2,
-      "explanation": "<b>Upper bound</b> — Big-O gives the maximum time for all input values, i.e. the worst case."
+      "explanation": "<b>Upper bound</b>. Big-O gives the maximum time for all input values, i.e. the worst case."
     },
     {
       "prompt": "2. The property requiring an algorithm to have a finite number of steps is…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "Output"
       ],
       "answer": 1,
-      "explanation": "<b>Finiteness</b> — an algorithm must terminate after finitely many steps."
+      "explanation": "<b>Finiteness</b>: an algorithm must terminate after finitely many steps."
     },
     {
       "prompt": "3. What is the time complexity of accessing a single array element by index?",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "O(n²)"
       ],
       "answer": 0,
-      "explanation": "<b>O(1)</b> — constant time: one operation regardless of array size."
+      "explanation": "<b>O(1)</b>: constant time: one operation regardless of array size."
     },
     {
       "prompt": "4. Nested loops <code>for i&lt;n { for j&lt;n { … } }</code> give…",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "O(n²)"
       ],
       "answer": 3,
-      "explanation": "<b>O(n²)</b> — the inner loop runs n times for each of the n outer iterations: n × n."
+      "explanation": "<b>O(n²)</b>: the inner loop runs n times for each of the n outer iterations: n × n."
     },
     {
       "prompt": "5. In asymptotic notation, which terms do we keep?",
@@ -57,18 +57,18 @@ const quiz: QuizData = {
         "Constants only"
       ],
       "answer": 2,
-      "explanation": "<b>Most significant only</b> — for large n the dominant term swamps the rest, so 5n²+2n+1 ≈ n²."
+      "explanation": "<b>Most significant only</b>: for large n the dominant term swamps the rest, so 5n²+2n+1 ≈ n²."
     },
     {
       "prompt": "6. Space complexity of <code>int cal(int b){ return b*b; }</code> (int = 2 bytes) is…",
       "options": [
-        "Linear — O(n)",
-        "Constant — 4 bytes fixed",
+        "Linear: O(n)",
+        "Constant: 4 bytes fixed",
         "Quadratic in b",
         "Depends on the compiler only"
       ],
       "answer": 1,
-      "explanation": "<b>Constant</b> — 2 bytes for b + 2 bytes for the return value = 4 bytes for any input."
+      "explanation": "<b>Constant</b>: 2 bytes for b + 2 bytes for the return value = 4 bytes for any input."
     },
     {
       "prompt": "7. Binary search runs in…",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "O(N log N)"
       ],
       "answer": 0,
-      "explanation": "<b>O(log N)</b> — each comparison halves the remaining search space."
+      "explanation": "<b>O(log N)</b>: each comparison halves the remaining search space."
     },
     {
       "prompt": "8. Insertion into an <b>ordered</b> array requires shifting elements, giving…",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "O(n²)"
       ],
       "answer": 2,
-      "explanation": "<b>O(N)</b> — existing elements must be shifted over to make room (unordered insertion is O(1) at the end)."
+      "explanation": "<b>O(N)</b>: existing elements must be shifted over to make room (unordered insertion is O(1) at the end)."
     }
   ]
 };

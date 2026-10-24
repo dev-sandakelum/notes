@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "06-abstraction",
-  "title": "Topic 6 Quiz — Abstraction",
+  "title": "Topic 6 Quiz: Abstraction",
   "questions": [
     {
       "prompt": "1. An abstract method…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q6a\" value=\"3\">Can only exist in interfaces"
       ],
       "answer": 1,
-      "explanation": "abstract void printStatus(); — no body; abstract methods can live in abstract classes too."
+      "explanation": "abstract void printStatus();, no body; abstract methods can live in abstract classes too."
     },
     {
       "prompt": "2. An abstract class…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q6b\" value=\"3\">Cannot have constructors"
       ],
       "answer": 0,
-      "explanation": "Abstract classes can't be instantiated (new Bike() is illegal) but exist precisely to be extended — and they CAN have constructors."
+      "explanation": "Abstract classes can't be instantiated (new Bike() is illegal) but exist precisely to be extended, and they CAN have constructors."
     },
     {
       "prompt": "3. If a class contains one abstract method, the class…",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q6c\" value=\"3\">Becomes an interface"
       ],
       "answer": 2,
-      "explanation": "Any abstract method forces the whole class to be abstract — a compile error otherwise."
+      "explanation": "Any abstract method forces the whole class to be abstract, a compile error otherwise."
     },
     {
       "prompt": "4. A concrete subclass of an abstract class must…",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q6d\" value=\"3\">Extend Object instead"
       ],
       "answer": 1,
-      "explanation": "Concrete (non-abstract) subclasses must provide implementations for ALL abstract methods — or they too must be abstract."
+      "explanation": "Concrete (non-abstract) subclasses must provide implementations for ALL abstract methods, or they too must be abstract."
     },
     {
       "prompt": "5. Abstraction in Java is achieved through…",
@@ -65,7 +65,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q6f\" value=\"0\">bike is created",
         "<input type=\"radio\" name=\"q6f\" value=\"1\">running safely..",
         "<input type=\"radio\" name=\"q6f\" value=\"2\">gear changed",
-        "<input type=\"radio\" name=\"q6f\" value=\"3\">Nothing — abstract classes can't run constructors"
+        "<input type=\"radio\" name=\"q6f\" value=\"3\">Nothing: abstract classes can't run constructors"
       ],
       "answer": 0,
       "explanation": "The abstract Bike's constructor runs first (via the constructor chain), proving abstract classes CAN have constructors."

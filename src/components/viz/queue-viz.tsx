@@ -72,8 +72,8 @@ export function QueueViz({ caption }: { caption?: string }) {
       setMsg({
         text:
           free > 0
-            ? `⚠ rear = ${SIZE - 1} (SIZE−1): insert impossible although ${free} free cell(s) sit before FRONT — the "false full" problem. This is why circular queues exist!`
-            : `⚠ rear = ${SIZE - 1} (SIZE−1): queue genuinely full — all ${SIZE} cells are used.`,
+            ? `⚠ rear = ${SIZE - 1} (SIZE−1): insert impossible although ${free} free cell(s) sit before FRONT: the "false full" problem. This is why circular queues exist.`
+            : `⚠ rear = ${SIZE - 1} (SIZE−1): queue genuinely full: all ${SIZE} cells are used.`,
         tone: "warn",
       });
       return;
@@ -97,7 +97,7 @@ export function QueueViz({ caption }: { caption?: string }) {
   const dequeue = () => {
     if (front > rear) {
       setMsg({
-        text: "⚠ UNDERFLOW — queue is empty (front > rear). Dequeue rejected.",
+        text: "⚠ UNDERFLOW: queue is empty (front > rear). Dequeue rejected.",
         tone: "danger",
       });
       return;
@@ -119,7 +119,7 @@ export function QueueViz({ caption }: { caption?: string }) {
 
   const peek = () => {
     if (front > rear) {
-      setMsg({ text: "Front: queue is empty — nothing at the front.", tone: "default" });
+      setMsg({ text: "Front: the queue is empty, so there is nothing at the front.", tone: "default" });
       return;
     }
     pulse(front);

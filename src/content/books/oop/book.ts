@@ -3,9 +3,9 @@ import type { BookMeta } from "@/content/types";
 const book: BookMeta = {
   "slug": "oop",
   "code": "ICT2122",
-  "title": "Object Oriented Programming",
-  "tagline": "Classes to JDBC — the full OOP course with worked Java examples and flashcards.",
-  "description": "Classes to JDBC — the full OOP course with worked Java examples and flashcards.",
+  "title": "Object oriented programming",
+  "tagline": "Classes to JDBC: the full OOP course with worked Java examples and flashcards.",
+  "description": "Classes to JDBC: the full OOP course with worked Java examples and flashcards.",
   "subject": "Computer Science",
   "department": "DICT",
   "tags": [
@@ -29,7 +29,7 @@ const book: BookMeta = {
     {
       "slug": "02-classes-and-objects",
       "number": 2,
-      "title": "Classes & Objects",
+      "title": "Classes & objects",
       "subtitle": "Lesson 02 (Part 1) · Declarations, fields, methods, access modifiers, constructors",
       "kind": "topic",
       "words": 1407,
@@ -38,7 +38,7 @@ const book: BookMeta = {
     {
       "slug": "03-this-static-and-memory",
       "number": 3,
-      "title": "this, static & Memory",
+      "title": "this, static & memory",
       "subtitle": "Lesson 02 (Part 2) · this, constructor chaining, anonymous objects, GC, static members",
       "kind": "topic",
       "words": 1310,
@@ -92,7 +92,7 @@ const book: BookMeta = {
     {
       "slug": "09-exception-handling",
       "number": 9,
-      "title": "Exception Handling",
+      "title": "Exception handling",
       "subtitle": "Lesson 05 · try/catch/finally, checked vs unchecked, throw vs throws, custom exceptions",
       "kind": "topic",
       "words": 1370,
@@ -101,7 +101,7 @@ const book: BookMeta = {
     {
       "slug": "10-file-handling",
       "number": 10,
-      "title": "File Handling",
+      "title": "File handling",
       "subtitle": "Lesson 06 · Streams, character & binary I/O, reader/writer chains",
       "kind": "topic",
       "words": 982,
@@ -110,7 +110,7 @@ const book: BookMeta = {
     {
       "slug": "11-database-connectivity-jdbc",
       "number": 11,
-      "title": "Database Connectivity (JDBC)",
+      "title": "Database connectivity (JDBC)",
       "subtitle": "Lesson 07 · JDBC architecture, driver types, the 5 steps, ResultSet, MySQL example",
       "kind": "topic",
       "words": 1417,
@@ -119,7 +119,7 @@ const book: BookMeta = {
     {
       "slug": "12-master-cheat-sheet",
       "number": 12,
-      "title": "Master Cheat Sheet",
+      "title": "Master cheat sheet",
       "subtitle": "Rapid revision · tap any card to flip it",
       "kind": "cheatsheet",
       "words": 791,
@@ -128,7 +128,7 @@ const book: BookMeta = {
     {
       "slug": "13-final-practice-exam",
       "number": 13,
-      "title": "Final Practice Exam",
+      "title": "Final practice exam",
       "subtitle": "16 mixed questions · all topics · aim for 80%+ before the real exam",
       "kind": "exam",
       "words": 0,

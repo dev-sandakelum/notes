@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A <b>vector</b> is an object that has both a <b>magnitude and a direction</b>. Geometrically, we picture a vector as a <b>directed line segment</b> whose length is the magnitude and whose arrow indicates the direction — the direction runs from its <b>tail to its head</b>. Two vectors are the <b>same if they have the same magnitude and direction</b>, no matter where they are drawn. Classic examples are <b>force</b> and <b>velocity</b>: both act in a particular direction, and the magnitude gives the strength of the force or the speed of the motion. Quantities with only a size (mass, time, temperature) are called <b>scalars</b>."
+      "html": "A <b>vector</b> is an object that has both a <b>magnitude and a direction</b>. Geometrically, we picture a vector as a <b>directed line segment</b> whose length is the magnitude and whose arrow indicates the direction; the direction runs from its <b>tail to its head</b>. Two vectors are the <b>same if they have the same magnitude and direction</b>, no matter where they are drawn. Classic examples are <b>force</b> and <b>velocity</b>: both act in a particular direction, and the magnitude gives the strength of the force or the speed of the motion. Quantities with only a size (mass, time, temperature) are called <b>scalars</b>."
     },
     {
       "type": "heading",
@@ -32,7 +32,7 @@ const chapter: ChapterData = {
       "ordered": false,
       "items": [
         "Lowercase bold or with an arrow: <b>a</b> or <span class=\"m\">a⃗</span>; by endpoints: <span class=\"m\">AB⃗</span> (tail A, head B).",
-        "Magnitude (length): <span class=\"m\">|a|</span> or <span class=\"m\">‖a‖</span> — always a non-negative scalar.",
+        "Magnitude (length): <span class=\"m\">|a|</span> or <span class=\"m\">‖a‖</span>: always a non-negative scalar.",
         "Component form in the plane: <span class=\"m\">a = (x, y)</span>, meaning x units right and y units up from the tail."
       ]
     },
@@ -44,7 +44,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Moving vs changing a vector",
-      "html": "Translating a vector (moving it without turning or stretching) does <b>not</b> change it — position is irrelevant. But stretching or turning it by moving just its head or tail <b>does</b> change the magnitude or direction."
+      "html": "Translating a vector (moving it without turning or stretching) does <b>not</b> change it, position is irrelevant. But stretching or turning it by moving just its head or tail <b>does</b> change the magnitude or direction."
     },
     {
       "type": "figure",
@@ -62,7 +62,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "1-addition",
-      "text": "1. Addition"
+      "text": "1. addition"
     },
     {
       "type": "paragraph",
@@ -77,7 +77,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "2-subtraction",
-      "text": "2. Subtraction"
+      "text": "2. subtraction"
     },
     {
       "type": "paragraph",
@@ -87,11 +87,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "3-multiplication-by-a-scalar",
-      "text": "3. Multiplication by a scalar"
+      "text": "3. multiplication by a scalar"
     },
     {
       "type": "paragraph",
-      "html": "Given a vector a and a real number (scalar) <span class=\"m\">λ</span>, the vector <b>λa</b> is built as follows. If <span class=\"m\">λ &gt; 0</span>, then λa points in the <b>same direction</b> as a with length λ times the length of a — multiplication <b>stretches</b> (if λ &gt; 1) or <b>compresses</b> (if 0 &lt; λ &lt; 1) the vector. If <span class=\"m\">λ &lt; 0</span>, λa points in the <b>opposite direction</b>, with length scaled by |λ|. Whatever the sign of λ:"
+      "html": "Given a vector a and a real number (scalar) <span class=\"m\">λ</span>, the vector <b>λa</b> is built as follows. If <span class=\"m\">λ &gt; 0</span>, then λa points in the <b>same direction</b> as a with length λ times the length of a, multiplication <b>stretches</b> (if λ &gt; 1) or <b>compresses</b> (if 0 &lt; λ &lt; 1) the vector. If <span class=\"m\">λ &lt; 0</span>, λa points in the <b>opposite direction</b>, with length scaled by |λ|. Whatever the sign of λ:"
     },
     {
       "type": "paragraph",
@@ -105,13 +105,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — component arithmetic",
+      "title": "Worked example: component arithmetic",
       "bodyHtml": "<p>Let <span class=\"m\">a = (2, 3)</span> and <span class=\"m\">b = (−1, 4)</span>. Find (1) a + b, (2) a − b, (3) 2a, (4) ‖a‖, (5) the unit vector in the direction of a.</p>",
-      "solutionHtml": "<ol>\n        <li><span class=\"m\">a + b = (2 + (−1), 3 + 4) = <b>(1, 7)</b></span></li>\n        <li><span class=\"m\">a − b = (2 − (−1), 3 − 4) = <b>(3, −1)</b></span></li>\n        <li><span class=\"m\">2a = <b>(4, 6)</b></span> — every component is doubled.</li>\n        <li><span class=\"m\">‖a‖ = <span class=\"sqrt\"><span class=\"r\">2² + 3²</span></span> = <span class=\"sqrt\"><span class=\"r\">13</span></span> ≈ <b>3.61</b></span></li>\n        <li>Unit vector: <span class=\"m\">â = <span class=\"frac\"><span>a</span><span>‖a‖</span></span> = <span class=\"bigp\">(</span><span class=\"frac\"><span>2</span><span><span class=\"sqrt\"><span class=\"r\">13</span></span></span></span>, <span class=\"frac\"><span>3</span><span><span class=\"sqrt\"><span class=\"r\">13</span></span></span></span><span class=\"bigp\">)</span></span> — it has length 1.</li>\n      </ol>"
+      "solutionHtml": "<ol>\n        <li><span class=\"m\">a + b = (2 + (−1), 3 + 4) = <b>(1, 7)</b></span></li>\n        <li><span class=\"m\">a − b = (2 − (−1), 3 − 4) = <b>(3, −1)</b></span></li>\n        <li><span class=\"m\">2a = <b>(4, 6)</b></span>, every component is doubled.</li>\n        <li><span class=\"m\">‖a‖ = <span class=\"sqrt\"><span class=\"r\">2² + 3²</span></span> = <span class=\"sqrt\"><span class=\"r\">13</span></span> ≈ <b>3.61</b></span></li>\n        <li>Unit vector: <span class=\"m\">â = <span class=\"frac\"><span>a</span><span>‖a‖</span></span> = <span class=\"bigp\">(</span><span class=\"frac\"><span>2</span><span><span class=\"sqrt\"><span class=\"r\">13</span></span></span></span>, <span class=\"frac\"><span>3</span><span><span class=\"sqrt\"><span class=\"r\">13</span></span></span></span><span class=\"bigp\">)</span></span>; it has length 1.</li>\n      </ol>"
     },
     {
       "type": "example",
-      "title": "Worked example — geometry with vectors",
+      "title": "Worked example: geometry with vectors",
       "bodyHtml": "<p>A boat sails 30 km east and then 40 km north. Express the displacement as a vector and find its magnitude and the straight-line distance from the start.</p>",
       "solutionHtml": "<p>Displacement vector: <span class=\"m\">d = (30, 40)</span> km.</p>\n      <div class=\"eq\">‖d‖ = <span class=\"sqrt\"><span class=\"r\">30² + 40²</span></span> = <span class=\"sqrt\"><span class=\"r\">2500</span></span> = 50 km</div>\n      <p>The boat is <b>50 km</b> from its starting point (a 3-4-5 triangle scaled by 10). This is why vector components plus Pythagoras solve navigation problems instantly.</p>"
     },
@@ -123,7 +123,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 13 Quiz — Vectors",
+      "title": "Topic 13 Quiz: Vectors",
       "count": 6,
       "quizSlug": "13-vectors"
     }

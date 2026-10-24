@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "03-using-is-to-achieve-competitive-advantage",
-  "title": "Topic 3 Quiz — Competitive Advantage",
+  "title": "Topic 3 Quiz: Competitive Advantage",
   "questions": [
     {
       "prompt": "1. The behavioral definition of an organization describes it as:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "A legal entity that maximizes shareholder value"
       ],
       "answer": 1,
-      "explanation": "The technical definition is option 1. The behavioral definition — rights, privileges, obligations and responsibilities delicately balanced over time through conflict and conflict resolution — is option 2."
+      "explanation": "The technical definition is option 1. The behavioral definition: rights, privileges, obligations and responsibilities delicately balanced over time through conflict and conflict resolution, is option 2."
     },
     {
       "prompt": "2. Precise rules, procedures and practices developed to cope with virtually all expected situations are called:",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "Operations (primary)"
       ],
       "answer": 0,
-      "explanation": "Inbound logistics = receiving/storing/stock control of raw materials. Outbound = storing, testing, packaging, distributing finished goods. Procurement (support) = purchasing inputs — related but distinct!"
+      "explanation": "Inbound logistics = receiving/storing/stock control of raw materials. Outbound = storing, testing, packaging, distributing finished goods. Procurement (support) = purchasing inputs: related but distinct."
     },
     {
       "prompt": "8. Which pair of activities are <b>both support activities</b> in Porter's value chain?",

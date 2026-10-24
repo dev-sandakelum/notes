@@ -25,7 +25,7 @@ const chapter: ChapterData = {
       "type": "figure",
       "svg": "<svg class=\"fig\" viewBox=\"0 0 640 300\" role=\"img\" aria-label=\"Number system diagram\">\n    <ellipse cx=\"320\" cy=\"150\" rx=\"305\" ry=\"140\" fill=\"var(--accent)\" opacity=\".10\"></ellipse>\n    <ellipse cx=\"290\" cy=\"155\" rx=\"235\" ry=\"112\" fill=\"var(--accent)\" opacity=\".12\"></ellipse>\n    <ellipse cx=\"255\" cy=\"160\" rx=\"170\" ry=\"86\" fill=\"var(--primary)\" opacity=\".12\"></ellipse>\n    <ellipse cx=\"215\" cy=\"165\" rx=\"110\" ry=\"62\" fill=\"var(--primary)\" opacity=\".14\"></ellipse>\n    <ellipse cx=\"185\" cy=\"170\" rx=\"55\" ry=\"38\" fill=\"var(--primary)\" opacity=\".18\"></ellipse>\n    <text x=\"320\" y=\"34\" class=\"lbl\" text-anchor=\"middle\" fill=\"var(--accent)\">ℝ Real numbers</text>\n    <text x=\"300\" y=\"66\" class=\"lbl\" text-anchor=\"middle\" fill=\"var(--primary)\">ℚ Rational (p/q, q ≠ 0)</text>\n    <text x=\"288\" y=\"102\" class=\"lbl\" text-anchor=\"middle\">ℤ Integers</text>\n    <text x=\"255\" y=\"140\" class=\"lbl\" text-anchor=\"middle\">W Whole</text>\n    <text x=\"192\" y=\"172\" class=\"lbl\" text-anchor=\"middle\">ℕ Natural</text>\n    <text x=\"470\" y=\"180\" class=\"lbl\" text-anchor=\"middle\" fill=\"var(--warn)\">Irrational</text>\n    <text x=\"470\" y=\"200\" text-anchor=\"middle\" fill=\"var(--warn)\">π, √2, √3 …</text>\n    <text x=\"470\" y=\"220\" text-anchor=\"middle\" fill=\"var(--muted)\">(infinite decimals)</text>\n    <text x=\"192\" y=\"188\" text-anchor=\"middle\" font-size=\"11\">1, 2, 3…</text>\n    <text x=\"255\" y=\"156\" text-anchor=\"middle\" font-size=\"11\">0, 1, 2…</text>\n    <text x=\"288\" y=\"118\" text-anchor=\"middle\" font-size=\"11\">…−2, −1, 0…</text>\n    <text x=\"300\" y=\"84\" text-anchor=\"middle\" font-size=\"11\">3/4, 0.25, −2</text>\n    <text x=\"320\" y=\"272\" text-anchor=\"middle\" class=\"lbl\" fill=\"var(--accent)\">ℕ ⊂ W ⊂ ℤ ⊂ ℚ ⊂ ℝ</text>\n  </svg>",
       "alt": "Number system diagram",
-      "caption": "The number system hierarchy — each set sits inside the next."
+      "caption": "The number system hierarchy: each set sits inside the next."
     },
     {
       "type": "heading",
@@ -63,7 +63,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Integers include all whole numbers, <b>both positive and negative, and zero</b>: …, −3, −2, −1, 0, 1, 2, 3, … Integers are <b>closed under addition, subtraction and multiplication</b> — the answer is always another integer (e.g. 5 + (−3) = 2, −4 × 3 = −12). They are <b>not closed under division</b>, since 5 ÷ 2 = 2.5 is not an integer."
+      "html": "Integers include all whole numbers, <b>both positive and negative, and zero</b>: …, −3, −2, −1, 0, 1, 2, 3, … Integers are <b>closed under addition, subtraction and multiplication</b>; the answer is always another integer (e.g. 5 + (−3) = 2, −4 × 3 = −12). They are <b>not closed under division</b>, since 5 ÷ 2 = 2.5 is not an integer."
     },
     {
       "type": "paragraph",
@@ -81,7 +81,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — decimals to fractions",
+      "title": "Worked example: decimals to fractions",
       "bodyHtml": "<p>Write 0.5, −0.75 and 1.2 as fractions in lowest terms.</p>",
       "solutionHtml": "<p><span class=\"m\">0.5 = 5/10 = <span class=\"frac\"><span>1</span><span>2</span></span></span> &nbsp;&nbsp;·&nbsp;&nbsp; <span class=\"m\">−0.75 = −75/100 = −<span class=\"frac\"><span>3</span><span>4</span></span></span> &nbsp;&nbsp;·&nbsp;&nbsp; <span class=\"m\">1.2 = 12/10 = <span class=\"frac\"><span>6</span><span>5</span></span></span></p>\n      <p>Method: count decimal places (1 place → divide by 10, 2 places → divide by 100), then cancel the common factor.</p>"
     },
@@ -97,9 +97,9 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — spot the irrationals",
+      "title": "Worked example: spot the irrationals",
       "bodyHtml": "<p>Identify the irrational numbers among: √4, π, √3, 0.333…, 2</p>",
-      "solutionHtml": "<ul>\n        <li><span class=\"m\">√4 = 2</span> — rational (it equals the integer 2 = 2/1).</li>\n        <li><span class=\"m\">π</span> — <b>irrational</b> (never terminates or repeats).</li>\n        <li><span class=\"m\">√3 ≈ 1.732…</span> — <b>irrational</b> (non-perfect square).</li>\n        <li><span class=\"m\">0.333… = 1/3</span> — rational (repeating decimal).</li>\n        <li><span class=\"m\">2 = 2/1</span> — rational.</li>\n      </ul>"
+      "solutionHtml": "<ul>\n        <li><span class=\"m\">√4 = 2</span>: rational (it equals the integer 2 = 2/1).</li>\n        <li><span class=\"m\">π</span>. <b>irrational</b> (never terminates or repeats).</li>\n        <li><span class=\"m\">√3 ≈ 1.732…</span>. <b>irrational</b> (non-perfect square).</li>\n        <li><span class=\"m\">0.333… = 1/3</span>: rational (repeating decimal).</li>\n        <li><span class=\"m\">2 = 2/1</span>: rational.</li>\n      </ul>"
     },
     {
       "type": "heading",
@@ -115,7 +115,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Memorise",
-      "html": "Primes below 50: <b>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47</b> — 15 numbers. Primes just after 50: <b>53, 59, 61, 67, 71</b>."
+      "html": "Primes below 50: <b>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47</b>: 15 numbers. Primes just after 50: <b>53, 59, 61, 67, 71</b>."
     },
     {
       "type": "heading",
@@ -137,14 +137,14 @@ const chapter: ChapterData = {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set A — classification & conversions ▾",
+          "title": "Exercise set A: classification & conversions",
           "html": "<ol>\n        <li>Classify −7, 0, 3.14, √5, 8 as natural / integer / rational / irrational.</li>\n        <li>Write 0.333… as a fraction.</li>\n        <li>Find the next five prime numbers after 50.</li>\n        <li>Evaluate: (−8) + 5, (−4) × 6, (−3) × (−7) + 2.</li>\n        <li>Arrange in ascending order: −2, 3, −8, 0, −5.</li>\n        <li>Simplify <span class=\"m\"><span class=\"frac\"><span>2</span><span>3</span></span> + <span class=\"frac\"><span>3</span><span>4</span></span></span>.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li><b>−7</b>: integer and rational (−7/1). <b>0</b>: integer, rational (0/1). <b>3.14</b>: rational (terminating decimal). <b>√5</b>: irrational (non-perfect square → non-terminating, non-repeating). <b>8</b>: natural, integer, rational.</li>\n          <li><span class=\"m\">0.333… = <span class=\"frac\"><span>1</span><span>3</span></span></span></li>\n          <li>53, 59, 61, 67, 71.</li>\n          <li>(−8) + 5 = <b>−3</b>; (−4) × 6 = <b>−24</b>; (−3) × (−7) + 2 = 21 + 2 = <b>23</b>.</li>\n          <li>−8 &lt; −5 &lt; −2 &lt; 0 &lt; 3.</li>\n          <li>LCM of 3 and 4 is 12: <span class=\"m\"><span class=\"frac\"><span>8</span><span>12</span></span> + <span class=\"frac\"><span>9</span><span>12</span></span> = <span class=\"frac\"><span>17</span><span>12</span></span> = 1<span class=\"frac\"><span>5</span><span>12</span></span></span>.</li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 1 Quiz — Numbers",
+      "title": "Topic 1 Quiz: Numbers",
       "count": 7,
       "quizSlug": "01-numbers"
     }

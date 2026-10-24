@@ -19,13 +19,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Trigonometry is the branch of mathematics that deals with the <b>measurement of the sides and angles of triangles</b>, and the relationships between them. There are many applications in engineering where knowledge of trigonometry is needed — forces, waves, navigation and circuits all reduce to triangles."
+      "html": "Trigonometry is the branch of mathematics that deals with the <b>measurement of the sides and angles of triangles</b>, and the relationships between them. There are many applications in engineering where knowledge of trigonometry is needed, forces, waves, navigation and circuits all reduce to triangles."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "the-theorem-of-pythagoras",
-      "text": "The theorem of Pythagoras"
+      "text": "The theorem of pythagoras"
     },
     {
       "type": "paragraph",
@@ -39,11 +39,11 @@ const chapter: ChapterData = {
       "type": "figure",
       "svg": "<svg class=\"fig sm\" viewBox=\"0 0 320 230\" role=\"img\" aria-label=\"Right triangle with labels\">\n    <path d=\"M 40 190 L 280 190 L 40 40 Z\" fill=\"var(--primary)\" opacity=\".08\" stroke=\"var(--primary)\" stroke-width=\"2.4\"></path>\n    <path d=\"M 40 172 h 18 v 18\" fill=\"none\" stroke=\"var(--text)\" stroke-width=\"2\"></path>\n    <text x=\"150\" y=\"212\" text-anchor=\"middle\">adjacent (b)</text>\n    <text x=\"24\" y=\"115\" text-anchor=\"middle\" transform=\"rotate(-90 24 115)\">opposite (a)</text>\n    <text x=\"175\" y=\"105\" text-anchor=\"middle\" transform=\"rotate(-45 175 105)\">hypotenuse (c)</text>\n    <path d=\"M 262 190 A 36 36 0 0 0 254 168\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\"></path>\n    <text x=\"268\" y=\"172\" fill=\"var(--accent)\" font-weight=\"700\">θ</text>\n  </svg>",
       "alt": "Right triangle with labels",
-      "caption": "The right triangle — every trigonometric definition starts here."
+      "caption": "The right triangle: every trigonometric definition starts here."
     },
     {
       "type": "example",
-      "title": "Worked example — Pythagoras",
+      "title": "Worked example: pythagoras",
       "bodyHtml": "<p>(1) Legs 3 and 4: find the hypotenuse. (2) Hypotenuse 13, one leg 5: find the other leg.</p>",
       "solutionHtml": "<p><b>(1)</b> <span class=\"m\">c² = 3² + 4² = 25 → c = 5</span> (the famous 3-4-5 triangle).</p>\n      <p><b>(2)</b> <span class=\"m\">b² = 13² − 5² = 169 − 25 = 144 → b = 12</span> (the 5-12-13 triangle).</p>"
     },
@@ -64,7 +64,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — ratios in a 3-4-5 triangle",
+      "title": "Worked example: ratios in a 3-4-5 triangle",
       "bodyHtml": "<p>For the triangle above with opposite = 3, adjacent = 4, hypotenuse = 5, write sin θ, cos θ and tan θ.</p>",
       "solutionHtml": "<div class=\"eq\">sin θ = <span class=\"frac\"><span>3</span><span>5</span></span> &nbsp;&nbsp; cos θ = <span class=\"frac\"><span>4</span><span>5</span></span> &nbsp;&nbsp; tan θ = <span class=\"frac\"><span>3</span><span>4</span></span></div>\n      <p>Sanity check: <span class=\"m\">sin²θ + cos²θ = <span class=\"frac\"><span>9</span><span>25</span></span> + <span class=\"frac\"><span>16</span><span>25</span></span> = 1</span> ✓</p>"
     },
@@ -72,13 +72,13 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "special-angles-exact-values",
-      "text": "Special angles — exact values"
+      "text": "Special angles: exact values"
     },
     {
       "type": "figure",
       "svg": "<svg class=\"fig\" viewBox=\"0 0 620 190\" role=\"img\" aria-label=\"Special triangles\">\n    <path d=\"M 60 150 L 200 150 L 60 40 Z\" fill=\"var(--primary)\" opacity=\".08\" stroke=\"var(--primary)\" stroke-width=\"2.2\"></path>\n    <path d=\"M 60 134 h 16 v 16\" fill=\"none\" stroke=\"var(--text)\" stroke-width=\"1.8\"></path>\n    <text x=\"130\" y=\"170\" text-anchor=\"middle\">1</text>\n    <text x=\"42\" y=\"98\" text-anchor=\"middle\" transform=\"rotate(-90 42 98)\">√3</text>\n    <text x=\"140\" y=\"86\" text-anchor=\"middle\">2</text>\n    <text x=\"84\" y=\"142\" font-size=\"12\">60°</text><text x=\"168\" y=\"142\" font-size=\"12\">30°</text>\n    <text x=\"130\" y=\"188\" text-anchor=\"middle\" font-size=\"12\">30–60–90 triangle</text>\n    <path d=\"M 320 150 L 440 150 L 440 40 Z\" fill=\"var(--accent)\" opacity=\".1\" stroke=\"var(--accent)\" stroke-width=\"2.2\"></path>\n    <path d=\"M 424 150 h 16 v -16\" fill=\"none\" stroke=\"var(--text)\" stroke-width=\"1.8\"></path>\n    <text x=\"380\" y=\"170\" text-anchor=\"middle\">1</text>\n    <text x=\"458\" y=\"98\" text-anchor=\"middle\">1</text>\n    <text x=\"392\" y=\"86\" text-anchor=\"middle\">√2</text>\n    <text x=\"344\" y=\"142\" font-size=\"12\">45°</text><text x=\"416\" y=\"142\" font-size=\"12\">45°</text>\n    <text x=\"380\" y=\"188\" text-anchor=\"middle\" font-size=\"12\">45–45–90 triangle (isosceles)</text>\n  </svg>",
       "alt": "Special triangles",
-      "caption": "Memorise these two triangles — they generate every exact value in the table below."
+      "caption": "Memorise these two triangles: they generate every exact value in the table below."
     },
     {
       "type": "table",
@@ -88,18 +88,40 @@ const chapter: ChapterData = {
         "30°",
         "45°",
         "60°",
-        "90°",
-        "sin θ",
-        "cos θ",
-        "tan θ"
+        "90°"
       ],
-      "rows": []
+      "rows": [
+        [
+          "sin θ",
+          "0",
+          "1/2",
+          "√2/2",
+          "√3/2",
+          "1"
+        ],
+        [
+          "cos θ",
+          "1",
+          "√3/2",
+          "√2/2",
+          "1/2",
+          "0"
+        ],
+        [
+          "tan θ",
+          "0",
+          "1/√3",
+          "1",
+          "√3",
+          "undefined"
+        ]
+      ]
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "angles-of-any-magnitude-the-cast-rule",
-      "text": "Angles of any magnitude — the CAST rule"
+      "text": "Angles of any magnitude: the CAST rule"
     },
     {
       "type": "paragraph",
@@ -109,11 +131,11 @@ const chapter: ChapterData = {
       "type": "figure",
       "svg": "<svg class=\"fig\" viewBox=\"0 0 420 340\" role=\"img\" aria-label=\"CAST diagram\">\n    <line x1=\"30\" y1=\"170\" x2=\"390\" y2=\"170\" class=\"axisln\"></line><line x1=\"210\" y1=\"320\" x2=\"210\" y2=\"20\" class=\"axisln\"></line>\n    <circle cx=\"210\" cy=\"170\" r=\"120\" fill=\"none\" stroke=\"var(--axis)\" stroke-width=\"1.2\" stroke-dasharray=\"4 4\"></circle>\n    <path d=\"M 210 50 A 120 120 0 0 1 330 170\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.6\"></path>\n    <polygon points=\"330,170 322,164 322,176\" fill=\"var(--primary)\"></polygon>\n    <text x=\"270\" y=\"95\" class=\"lbl\" fill=\"var(--primary)\">90°→180°</text>\n    <text x=\"305\" y=\"135\" text-anchor=\"middle\" class=\"lbl\" fill=\"var(--danger)\">S</text>\n    <text x=\"120\" y=\"135\" text-anchor=\"middle\" class=\"lbl\" fill=\"var(--success)\">A</text>\n    <text x=\"120\" y=\"215\" text-anchor=\"middle\" class=\"lbl\" fill=\"var(--warn)\">T</text>\n    <text x=\"305\" y=\"215\" text-anchor=\"middle\" class=\"lbl\" fill=\"var(--accent)\">C</text>\n    <text x=\"118\" y=\"103\" font-size=\"11\">All positive</text>\n    <text x=\"268\" y=\"247\" font-size=\"11\">Cos positive</text>\n    <text x=\"30\" y=\"250\" font-size=\"11\">Tan positive</text>\n    <text x=\"240\" y=\"103\" font-size=\"11\">Sin positive</text>\n    <text x=\"285\" y=\"160\" font-size=\"11\">180°</text><text x=\"120\" y=\"160\" font-size=\"11\">0°/360°</text>\n    <text x=\"55\" y=\"290\" font-size=\"11.5\">Quadrants numbered anticlockwise: I (top-right), II (top-left), III, IV</text>\n  </svg>",
       "alt": "CAST diagram",
-      "caption": "CAST — starting in quadrant IV and moving anticlockwise: Cos, All, Sin, Tan."
+      "caption": "CAST: starting in quadrant IV and moving anticlockwise: Cos, All, Sin, Tan."
     },
     {
       "type": "example",
-      "title": "Worked example — evaluating in other quadrants",
+      "title": "Worked example: evaluating in other quadrants",
       "bodyHtml": "<p>Given sin 30° = 1/2 and cos 30° = √3/2, evaluate sin 150°, cos 150°, sin 210° and cos 330°.</p>",
       "solutionHtml": "<ul>\n        <li><b>150° (Quadrant II, S)</b>: sin positive, cos negative → <span class=\"m\">sin 150° = +<span class=\"frac\"><span>1</span><span>2</span></span></span>, <span class=\"m\">cos 150° = −<span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">3</span></span></span><span>2</span></span></span>.</li>\n        <li><b>210° (Quadrant III, T)</b>: sine is negative → <span class=\"m\">sin 210° = −<span class=\"frac\"><span>1</span><span>2</span></span></span> (tan would be positive).</li>\n        <li><b>330° (Quadrant IV, C)</b>: cosine is positive → <span class=\"m\">cos 330° = +<span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">3</span></span></span><span>2</span></span></span>.</li>\n      </ul>\n      <p>Method: subtract the acute angle the arm makes with the x-axis (the “reference angle”), evaluate as usual, then attach the CAST sign.</p>"
     },
@@ -121,7 +143,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "special-formulas-fundamental-identities",
-      "text": "Special formulas — fundamental identities"
+      "text": "Special formulas: fundamental identities"
     },
     {
       "type": "htmlFigure",
@@ -141,7 +163,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — compound angle",
+      "title": "Worked example: compound angle",
       "bodyHtml": "<p>Use the addition formula with 45° and 30° to show that <span class=\"m\">sin 75° = <span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">6</span></span> + <span class=\"sqrt\"><span class=\"r\">2</span></span></span><span>4</span></span></span>.</p>",
       "solutionHtml": "<div class=\"eq\">sin 75° = sin(45° + 30°) = sin 45° cos 30° + cos 45° sin 30°</div>\n      <div class=\"eq\">= <span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">2</span></span></span><span>2</span></span>·<span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">3</span></span></span><span>2</span></span> + <span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">2</span></span></span><span>2</span></span>·<span class=\"frac\"><span>1</span><span>2</span></span> = <span class=\"frac\"><span><span class=\"sqrt\"><span class=\"r\">6</span></span> + <span class=\"sqrt\"><span class=\"r\">2</span></span></span><span>4</span></span> ✓</div>"
     },
@@ -158,7 +180,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Set B = A in the compound formulas to derive all three — examiners often ask you to <i>derive</i> rather than recall."
+      "html": "Set B = A in the compound formulas to derive all three, examiners often ask you to <i>derive</i> rather than recall."
     },
     {
       "type": "heading",
@@ -185,7 +207,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 12 Quiz — Trigonometry",
+      "title": "Topic 12 Quiz: Trigonometry",
       "count": 8,
       "quizSlug": "12-trigonometry"
     }

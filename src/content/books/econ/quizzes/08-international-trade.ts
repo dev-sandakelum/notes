@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Differences in opportunity costs"
       ],
       "answer": 3,
-      "explanation": "Ricardo's insight: comparative advantage — differing OC ratios create mutual gains."
+      "explanation": "Ricardo's insight: comparative advantage: differing OC ratios create mutual gains."
     },
     {
       "prompt": "5. The rate at which the goods and services of different countries can be exchanged is the:",

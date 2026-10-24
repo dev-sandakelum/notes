@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "09-systems-of-linear-equations",
-  "title": "Topic 9 Quiz — Systems of Linear Equations",
+  "title": "Topic 9 Quiz: Systems of Linear Equations",
   "questions": [
     {
       "prompt": "1. The solution of a pair of linear simultaneous equations is:",

@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "07-class-diagrams",
-  "title": "Topic 7 Quiz — Class Diagrams",
+  "title": "Topic 7 Quiz: Class Diagrams",
   "questions": [
     {
       "prompt": "1. What is the main difference between a domain class diagram and a design class diagram?",
@@ -29,10 +29,10 @@ const quiz: QuizData = {
     {
       "prompt": "3. What does the visibility modifier <code>#</code> mean?",
       "options": [
-        "Public — accessible from any class",
-        "Private — accessible only within the class",
-        "Protected — accessible within the class and its subclasses",
-        "Package — accessible within the same package"
+        "Public: accessible from any class",
+        "Private: accessible only within the class",
+        "Protected: accessible within the class and its subclasses",
+        "Package: accessible within the same package"
       ],
       "answer": 2,
       "explanation": "+ public, - private, # protected (class + subclasses), ~ package (same package only)."
@@ -52,7 +52,7 @@ const quiz: QuizData = {
       "prompt": "5. Multiplicity <code>0..1</code> on an association end means:",
       "options": [
         "At least one, possibly more",
-        "Zero or one — the relationship is optional",
+        "Zero or one: the relationship is optional",
         "Exactly two",
         "Zero or more"
       ],
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "The actors of the system"
       ],
       "answer": 0,
-      "explanation": "CRC = Class, Responsibilities, Collaborators. Collaborators are other classes the class works with — recording the relationships between classes."
+      "explanation": "CRC = Class, Responsibilities, Collaborators. Collaborators are other classes the class works with, recording the relationships between classes."
     },
     {
       "prompt": "7. Which relationship is drawn with a <b>dashed arrow</b> from the client to the supplier?",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "A reflexive association from Employee to itself"
       ],
       "answer": 3,
-      "explanation": "A class can have an association with itself — a reflexive association: Employee 1 manages 0..* Employee (each employee reports to one manager)."
+      "explanation": "A class can have an association with itself, a reflexive association: Employee 1 manages 0..* Employee (each employee reports to one manager)."
     }
   ]
 };

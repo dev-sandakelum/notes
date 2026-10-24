@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "04-use-case-modeling",
     "number": 4,
-    "title": "Use Case Modeling",
+    "title": "Use case modeling",
     "subtitle": "Week 4 · Use Case Modeling + Case Study Sheet 1",
     "kind": "topic",
     "words": 2175,
@@ -15,23 +15,23 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "4-1-what-is-use-case-modeling",
-      "text": "4.1 What is use case modeling?"
+      "text": "4.1 what is use case modeling?"
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Definition",
-      "html": "<b>Use Case Modeling</b> is a <b>requirements engineering technique</b> used to <b>identify, elicit and document the functional requirements</b> of a system. It describes <b>how users interact with a system to achieve their goals</b> — the system described from the <b>user's perspective</b>."
+      "html": "<b>Use Case Modeling</b> is a <b>requirements engineering technique</b> used to <b>identify, elicit and document the functional requirements</b> of a system. It describes <b>how users interact with a system to achieve their goals</b>; the system described from the <b>user's perspective</b>."
     },
     {
       "type": "paragraph",
-      "html": "Use cases are <b>primarily written descriptions, not diagrams</b>. A Use Case Diagram in UML visually shows actors, use cases and their relationships — but the real content of a use case is its text."
+      "html": "Use cases are <b>primarily written descriptions, not diagrams</b>. A Use Case Diagram in UML visually shows actors, use cases and their relationships, but the real content of a use case is its text."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-2-functional-vs-non-functional-requirements",
-      "text": "4.2 Functional vs non-functional requirements"
+      "text": "4.2 functional vs non-functional requirements"
     },
     {
       "type": "table",
@@ -68,37 +68,37 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "4-3-use-case-vs-scenario",
-      "text": "4.3 Use case vs scenario"
+      "text": "4.3 use case vs scenario"
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Definitions",
-      "html": "<b>Use case</b> — a <b>story</b> describing how an actor uses a system to achieve a goal; a <b>collection of related scenarios</b>.<br>\n    <b>Scenario</b> — <b>one specific path</b> through that use case."
+      "html": "<b>Use case</b>: a <b>story</b> describing how an actor uses a system to achieve a goal; a <b>collection of related scenarios</b>.<br>\n    <b>Scenario</b>. <b>one specific path</b> through that use case."
     },
     {
       "type": "paragraph",
-      "html": "<b>Example — Withdraw Cash:</b> the customer inserts the ATM card, enters the PIN, selects \"Withdraw Cash\", enters the amount, the system checks the account and dispenses cash. That whole interaction is the use case <i>Withdraw Cash</i>. Its scenarios include:"
+      "html": "<b>Example. Withdraw Cash:</b> the customer inserts the ATM card, enters the PIN, selects \"Withdraw Cash\", enters the amount, the system checks the account and dispenses cash. That whole interaction is the use case <i>Withdraw Cash</i>. Its scenarios include:"
     },
     {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Scenario 1 — Successful withdrawal:</b> correct PIN, withdraws Rs. 10,000.",
-        "<b>Scenario 2 — Wrong PIN:</b> the customer enters an incorrect PIN.",
-        "<b>Scenario 3 — Insufficient balance:</b> requests Rs. 50,000 but has only Rs. 20,000.",
-        "<b>Scenario 4 — Daily limit exceeded:</b> already withdrawn the maximum allowed amount."
+        "<b>Scenario 1. Successful withdrawal:</b> correct PIN, withdraws Rs. 10,000.",
+        "<b>Scenario 2. Wrong PIN:</b> the customer enters an incorrect PIN.",
+        "<b>Scenario 3. Insufficient balance:</b> requests Rs. 50,000 but has only Rs. 20,000.",
+        "<b>Scenario 4. Daily limit exceeded:</b> already withdrawn the maximum allowed amount."
       ]
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-4-actors-primary-supporting-offstage",
-      "text": "4.4 Actors — primary, supporting, offstage"
+      "text": "4.4 actors: primary, supporting, offstage"
     },
     {
       "type": "paragraph",
-      "html": "An <b>actor</b> interacts with the system to achieve a goal. An actor can be a <b>person</b>, an <b>organization</b>, or <b>another computer system</b>. The key point: an actor is identified by its <b>role, not its name</b> — \"Student\", not \"Kamal\", because many different people can perform the same role."
+      "html": "An <b>actor</b> interacts with the system to achieve a goal. An actor can be a <b>person</b>, an <b>organization</b>, or <b>another computer system</b>. The key point: an actor is identified by its <b>role, not its name</b>, \"Student\", not \"Kamal\", because many different people can perform the same role."
     },
     {
       "type": "table",
@@ -110,12 +110,12 @@ const chapter: ChapterData = {
       "rows": [
         [
           "<b>Primary actor</b>",
-          "Has a <b>goal that is fulfilled by using the system</b> — directly uses the system.",
+          "Has a <b>goal that is fulfilled by using the system</b>, directly uses the system.",
           "Customer (goal: Purchase Product / Place Order)"
         ],
         [
           "<b>Supporting actor</b>",
-          "<b>Provides a service to the system</b> — it is not using the system for its own goal.",
+          "<b>Provides a service to the system</b>; it is not using the system for its own goal.",
           "Bank / Payment Gateway (authorizes payment for the system)"
         ],
         [
@@ -164,7 +164,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "one-scenario-showing-all-actor-types-restaurant-pos",
-      "text": "One scenario showing all actor types — Restaurant POS"
+      "text": "One scenario showing all actor types: restaurant POS"
     },
     {
       "type": "paragraph",
@@ -207,35 +207,35 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — Online University Course Registration",
+      "title": "Worked example. online university course registration",
       "bodyHtml": "<p><i>Students view/register/drop courses and view registered courses. Academic staff manage course information and approve special requests. The system connects to the University Payment System (verify fees) and the Student Information System (retrieve records). The University Academic Administration wants registration to follow rules but does not directly use the system.</i> Identify at least 2 primary, 2 supporting and 2 offstage actors.</p>",
-      "solutionHtml": "<ul>\n        <li><b>Student — Primary:</b> uses the system to register/drop courses and view courses.</li>\n        <li><b>Academic Staff — Primary:</b> manages courses and handles registration requests.</li>\n        <li><b>University Payment System — Supporting:</b> provides payment verification services to the system.</li>\n        <li><b>Student Information System — Supporting:</b> provides student and academic information.</li>\n        <li><b>Academic Administration — Offstage:</b> has an interest in correct registration and university rules.</li>\n        <li><b>University Management — Offstage:</b> has an interest in registration reports and academic planning.</li>\n      </ul>\n      <p><b>Method:</b> who has a goal fulfilled by the system → primary; who provides a service <i>to</i> the system → supporting; who cares about the outcome but doesn't use the system → offstage.</p>"
+      "solutionHtml": "<ul>\n        <li><b>Student. Primary:</b> uses the system to register/drop courses and view courses.</li>\n        <li><b>Academic Staff. Primary:</b> manages courses and handles registration requests.</li>\n        <li><b>University Payment System. Supporting:</b> provides payment verification services to the system.</li>\n        <li><b>Student Information System. Supporting:</b> provides student and academic information.</li>\n        <li><b>Academic Administration. Offstage:</b> has an interest in correct registration and university rules.</li>\n        <li><b>University Management. Offstage:</b> has an interest in registration reports and academic planning.</li>\n      </ul>\n      <p><b>Method:</b> who has a goal fulfilled by the system → primary; who provides a service <i>to</i> the system → supporting; who cares about the outcome but doesn't use the system → offstage.</p>"
     },
     {
       "type": "example",
-      "title": "Worked example — Hospital Appointment & Prescription System",
+      "title": "Worked example. hospital appointment & prescription system",
       "bodyHtml": "<p><i>Patients search doctors, book/cancel appointments and view history. Doctors view appointments and issue e-prescriptions. The system communicates with the Hospital Payment System and an SMS Notification Service. Hospital Administration and the Ministry of Health have interests but don't directly use the system.</i> Identify the actor types.</p>",
-      "solutionHtml": "<ul>\n        <li><b>Patient — Primary:</b> books/cancels appointments and views appointment information.</li>\n        <li><b>Doctor — Primary:</b> manages appointments and issues prescriptions.</li>\n        <li><b>Hospital Payment System — Supporting:</b> processes appointment payments.</li>\n        <li><b>SMS Notification Service — Supporting:</b> sends appointment reminders.</li>\n        <li><b>Hospital Administration — Offstage:</b> interest in proper appointment management and policies.</li>\n        <li><b>Ministry of Health — Offstage:</b> interest in regulatory compliance.</li>\n      </ul>"
+      "solutionHtml": "<ul>\n        <li><b>Patient. Primary:</b> books/cancels appointments and views appointment information.</li>\n        <li><b>Doctor. Primary:</b> manages appointments and issues prescriptions.</li>\n        <li><b>Hospital Payment System. Supporting:</b> processes appointment payments.</li>\n        <li><b>SMS Notification Service. Supporting:</b> sends appointment reminders.</li>\n        <li><b>Hospital Administration. Offstage:</b> interest in proper appointment management and policies.</li>\n        <li><b>Ministry of Health. Offstage:</b> interest in regulatory compliance.</li>\n      </ul>"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-5-system-boundary",
-      "text": "4.5 System boundary"
+      "text": "4.5 system boundary"
     },
     {
       "type": "paragraph",
-      "html": "The <b>system boundary</b> defines <b>what is inside the system and what is outside</b>. The <b>use cases are inside</b> the boundary; the <b>actors are outside</b> it. Example — Online Shopping System: inside are Search Products, Place Order, Make Payment, Track Order; outside are the Customer, Payment Gateway and Delivery Company."
+      "html": "The <b>system boundary</b> defines <b>what is inside the system and what is outside</b>. The <b>use cases are inside</b> the boundary; the <b>actors are outside</b> it. Example. Online Shopping System: inside are Search Products, Place Order, Make Payment, Track Order; outside are the Customer, Payment Gateway and Delivery Company."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-6-actor-goal-list-and-identifying-actors",
-      "text": "4.6 Actor-goal list and identifying actors"
+      "text": "4.6 actor-goal list and identifying actors"
     },
     {
       "type": "paragraph",
-      "html": "After identifying actors, record each actor's goals in an <b>actor-goal list</b> — it is recommended to record <b>primary actors and their user goals</b>. Example for a University Library System:"
+      "html": "After identifying actors, record each actor's goals in an <b>actor-goal list</b>; it is recommended to record <b>primary actors and their user goals</b>. Example for a University Library System:"
     },
     {
       "type": "table",
@@ -279,7 +279,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "4-7-from-goals-to-use-cases",
-      "text": "4.7 From goals to use cases"
+      "text": "4.7 from goals to use cases"
     },
     {
       "type": "callout",
@@ -290,14 +290,14 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "warn",
-      "title": "Exception — CRUD",
+      "title": "Exception: CRUD",
       "html": "Sometimes several goals can be combined. <b>CRUD</b> = Create, Read, Update, Delete. Instead of Create User, View User, Update User, Delete User → use a single use case <b>Manage Users</b>."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-8-naming-a-use-case-verb-object",
-      "text": "4.8 Naming a use case — verb + object"
+      "text": "4.8 naming a use case: verb + object"
     },
     {
       "type": "table",
@@ -320,7 +320,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "4-9-main-success-scenario-and-extensions",
-      "text": "4.9 Main success scenario and extensions"
+      "text": "4.9 main success scenario and extensions"
     },
     {
       "type": "paragraph",
@@ -328,7 +328,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Main success scenario — Borrow Book",
+      "title": "Main success scenario: borrow book",
       "bodyHtml": "<ol>\n      <li>Student searches for a book.</li>\n      <li>System displays available books.</li>\n      <li>Student selects a book.</li>\n      <li>System checks availability.</li>\n      <li>System records the borrowing.</li>\n      <li>System displays the due date.</li>\n    </ol>",
       "solutionHtml": null
     },
@@ -340,16 +340,16 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Extension 1 — Book unavailable:</b> system finds the book is unavailable and displays \"Book currently unavailable.\"",
-        "<b>Extension 2 — Student has unpaid fine:</b> system checks the account, finds an unpaid fine, and prevents borrowing.",
-        "<b>Extension 3 — Borrowing limit reached:</b> system informs the student the limit has been reached."
+        "<b>Extension 1. Book unavailable:</b> system finds the book is unavailable and displays \"Book currently unavailable.\"",
+        "<b>Extension 2. Student has unpaid fine:</b> system checks the account, finds an unpaid fine, and prevents borrowing.",
+        "<b>Extension 3. Borrowing limit reached:</b> system informs the student the limit has been reached."
       ]
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-10-use-case-formats-brief-casual-fully-dressed",
-      "text": "4.10 Use case formats — brief, casual, fully dressed"
+      "text": "4.10 use case formats: brief, casual, fully dressed"
     },
     {
       "type": "htmlFigure",
@@ -365,7 +365,7 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "info",
-      "title": "Use Case: Borrow Book (brief)",
+      "title": "Use case: borrow book (brief)",
       "html": "A student searches for a book, selects an available book and borrows it. The system records the borrowing and displays the due date."
     },
     {
@@ -377,19 +377,19 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "info",
-      "title": "Use Case: Handle Return (casual)",
+      "title": "Use case: handle return (casual)",
       "html": "A customer arrives at the checkout with items to return. The cashier records the returned items using the POS system. If the refund is approved, the system processes the refund. If the refund is rejected, the cashier uses another refund method. If the item cannot be identified, the system asks the cashier to enter the item code manually."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-11-the-fully-dressed-use-case",
-      "text": "4.11 The fully dressed use case"
+      "text": "4.11 the fully dressed use case"
     },
     {
       "type": "callout",
       "variant": "exam",
-      "title": "Template — memorize the fields",
+      "title": "Template: memorize the fields",
       "html": "A fully dressed use case contains: <b>Use Case Name · Primary Actor · Stakeholders and Interests · Preconditions · Main Success Scenario · Extensions · Postconditions (Success Guarantees)</b>."
     },
     {
@@ -431,7 +431,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "stakeholders-and-interests-place-order-example",
-      "text": "Stakeholders and interests — Place Order example"
+      "text": "Stakeholders and interests: place order example"
     },
     {
       "type": "table",
@@ -466,25 +466,25 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "4-12-worked-example-fully-dressed-use-case",
-      "text": "4.12 Worked example — fully dressed use case"
+      "text": "4.12 worked example: fully dressed use case"
     },
     {
       "type": "example",
-      "title": "Fully dressed — Use Case: Withdraw Cash (ATM)",
+      "title": "Fully dressed: use case: withdraw cash (ATM)",
       "bodyHtml": "<p><i>An ATM System allows customers to withdraw cash. The customer inserts an ATM card and enters a PIN. If the PIN is correct, the customer enters the amount. The system checks balance and daily limit. If valid, the ATM dispenses cash and updates the balance. Wrong PIN → error, and after three incorrect attempts the card is blocked. Insufficient funds or exceeded daily limit → withdrawal rejected.</i></p>",
-      "solutionHtml": "<ul style=\"list-style:none;margin-left:0\">\n        <li><b>Use Case Name:</b> Withdraw Cash</li>\n        <li><b>Primary Actor:</b> Customer</li>\n        <li><b>Stakeholders and Interests:</b> Customer — wants cash quickly and safely; Bank — wants only valid withdrawals, correct balance updates, and protection from fraud.</li>\n        <li><b>Preconditions:</b> ATM is operational; customer has inserted a valid ATM card.</li>\n        <li><b>Main Success Scenario:</b>\n          <ol>\n            <li>Customer inserts the ATM card.</li>\n            <li>System reads the card and asks for the PIN.</li>\n            <li>Customer enters the PIN.</li>\n            <li>System validates the PIN.</li>\n            <li>System displays transaction options; customer selects \"Withdraw Cash\".</li>\n            <li>Customer enters the amount.</li>\n            <li>System checks the account balance and the daily withdrawal limit.</li>\n            <li>System dispenses the cash.</li>\n            <li>System updates the account balance.</li>\n            <li>System returns/ejects the card and prints the receipt.</li>\n          </ol>\n        </li>\n        <li><b>Extensions:</b>\n          <ul>\n            <li><b>4a. Incorrect PIN:</b> system displays an error and allows another attempt; after <b>three</b> incorrect attempts the card is <b>blocked</b>.</li>\n            <li><b>7a. Insufficient balance:</b> system informs the customer and rejects the withdrawal.</li>\n            <li><b>7b. Daily limit exceeded:</b> system informs the customer the daily limit has been exceeded and rejects the withdrawal.</li>\n          </ul>\n        </li>\n        <li><b>Postconditions:</b> cash is dispensed; account balance is updated; transaction is recorded.</li>\n      </ul>"
+      "solutionHtml": "<ul style=\"list-style:none;margin-left:0\">\n        <li><b>Use Case Name:</b> Withdraw Cash</li>\n        <li><b>Primary Actor:</b> Customer</li>\n        <li><b>Stakeholders and Interests:</b> Customer: wants cash quickly and safely; Bank: wants only valid withdrawals, correct balance updates, and protection from fraud.</li>\n        <li><b>Preconditions:</b> ATM is operational; customer has inserted a valid ATM card.</li>\n        <li><b>Main Success Scenario:</b>\n          <ol>\n            <li>Customer inserts the ATM card.</li>\n            <li>System reads the card and asks for the PIN.</li>\n            <li>Customer enters the PIN.</li>\n            <li>System validates the PIN.</li>\n            <li>System displays transaction options; customer selects \"Withdraw Cash\".</li>\n            <li>Customer enters the amount.</li>\n            <li>System checks the account balance and the daily withdrawal limit.</li>\n            <li>System dispenses the cash.</li>\n            <li>System updates the account balance.</li>\n            <li>System returns/ejects the card and prints the receipt.</li>\n          </ol>\n        </li>\n        <li><b>Extensions:</b>\n          <ul>\n            <li><b>4a. Incorrect PIN:</b> system displays an error and allows another attempt; after <b>three</b> incorrect attempts the card is <b>blocked</b>.</li>\n            <li><b>7a. Insufficient balance:</b> system informs the customer and rejects the withdrawal.</li>\n            <li><b>7b. Daily limit exceeded:</b> system informs the customer the daily limit has been exceeded and rejects the withdrawal.</li>\n          </ul>\n        </li>\n        <li><b>Postconditions:</b> cash is dispensed; account balance is updated; transaction is recorded.</li>\n      </ul>"
     },
     {
       "type": "example",
-      "title": "Practice — write fully dressed use cases",
-      "bodyHtml": "<p>The lecture's activity sheet contains 12 scenarios. Attempt any of these, then compare with the structure of the worked example above:</p>\n    <ol>\n      <li><b>Search Book</b> (Online Library — login, title/author/ISBN search, invalid details, no results)</li>\n      <li><b>Withdraw Cash</b> (ATM — solved above)</li>\n      <li><b>Place Order</b> (Online Shopping — cart, checkout, payment failure → choose another method, out of stock)</li>\n      <li><b>Register for Course</b> (University — prerequisites, seat availability)</li>\n      <li><b>Book Appointment</b> (Hospital — doctor, date, slots, slot becomes unavailable)</li>\n      <li><b>Login to Online Banking</b> (3 failed attempts → account locked; Forgot Password via email/SMS)</li>\n      <li><b>Place Food Order</b> (item unavailable → remove/replace; payment fails → order not confirmed)</li>\n      <li><b>Book Hotel Room</b> (dates, rooms, payment; no rooms available)</li>\n      <li><b>Request Prescription Refill</b> (validity, refill limit, doctor approval)</li>\n      <li><b>Book Cinema Ticket</b> (movie, date, show time, seats; seats already booked → reselect; payment fails)</li>\n      <li><b>Register for Examination</b> (eligibility, deadline, already registered)</li>\n      <li><b>Transfer Money</b> (source account, recipient, amount; insufficient balance, invalid recipient, extra authentication fails)</li>\n    </ol>",
-      "solutionHtml": "<ol>\n        <li><b>Find the system</b> — what system are we studying?</li>\n        <li><b>Find actors</b> — who uses it?</li>\n        <li><b>Find goals</b> — what does each actor want to achieve?</li>\n        <li><b>Convert goals into use cases</b> — use Verb + Object naming.</li>\n        <li><b>Find scenarios</b> — what normally happens? (main success scenario)</li>\n        <li><b>Find exceptions</b> — what can go wrong? (extensions)</li>\n        <li><b>Choose the required format</b> — Brief (short paragraph) / Casual (informal scenarios) / Fully dressed (structured template).</li>\n      </ol>"
+      "title": "Practice: write fully dressed use cases",
+      "bodyHtml": "<p>The lecture's activity sheet contains 12 scenarios. Attempt any of these, then compare with the structure of the worked example above:</p>\n    <ol>\n      <li><b>Search Book</b> (Online Library, login, title/author/ISBN search, invalid details, no results)</li>\n      <li><b>Withdraw Cash</b> (ATM, solved above)</li>\n      <li><b>Place Order</b> (Online Shopping, cart, checkout, payment failure → choose another method, out of stock)</li>\n      <li><b>Register for Course</b> (University, prerequisites, seat availability)</li>\n      <li><b>Book Appointment</b> (Hospital, doctor, date, slots, slot becomes unavailable)</li>\n      <li><b>Login to Online Banking</b> (3 failed attempts → account locked; Forgot Password via email/SMS)</li>\n      <li><b>Place Food Order</b> (item unavailable → remove/replace; payment fails → order not confirmed)</li>\n      <li><b>Book Hotel Room</b> (dates, rooms, payment; no rooms available)</li>\n      <li><b>Request Prescription Refill</b> (validity, refill limit, doctor approval)</li>\n      <li><b>Book Cinema Ticket</b> (movie, date, show time, seats; seats already booked → reselect; payment fails)</li>\n      <li><b>Register for Examination</b> (eligibility, deadline, already registered)</li>\n      <li><b>Transfer Money</b> (source account, recipient, amount; insufficient balance, invalid recipient, extra authentication fails)</li>\n    </ol>",
+      "solutionHtml": "<ol>\n        <li><b>Find the system</b>: what system are we studying?</li>\n        <li><b>Find actors</b>: who uses it?</li>\n        <li><b>Find goals</b>: what does each actor want to achieve?</li>\n        <li><b>Convert goals into use cases</b>, use Verb + Object naming.</li>\n        <li><b>Find scenarios</b>: what normally happens? (main success scenario)</li>\n        <li><b>Find exceptions</b>: what can go wrong? (extensions)</li>\n        <li><b>Choose the required format</b>. Brief (short paragraph) / Casual (informal scenarios) / Fully dressed (structured template).</li>\n      </ol>"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "4-13-quick-comparison-table-revision-gold",
-      "text": "4.13 Quick comparison table (revision gold)"
+      "text": "4.13 quick comparison table (revision gold)"
     },
     {
       "type": "table",
@@ -578,7 +578,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 4 Quiz — Use Case Modeling",
+      "title": "Topic 4 Quiz: Use Case Modeling",
       "count": 8,
       "quizSlug": "04-use-case-modeling"
     }

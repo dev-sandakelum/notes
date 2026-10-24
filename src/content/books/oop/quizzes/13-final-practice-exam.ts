@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "13-final-practice-exam",
-  "title": "ICT 2122 — Final Practice Exam",
+  "title": "ICT 2122: final practice exam",
   "questions": [
     {
       "prompt": "1. OOP bundles ____ and ____ into objects constructed from classes.",
@@ -27,12 +27,12 @@ const quiz: QuizData = {
       "explanation": "new = instantiation (memory allocation) + initialization (constructor call). (Topic 2)"
     },
     {
-      "prompt": "3. In class Account { int a,b; void setData(int a,int b){ a=a; b=b; } } — the fields remain 0 because…",
+      "prompt": "3. In class Account { int a,b; void setData(int a,int b){ a=a; b=b; } }: the fields remain 0 because…",
       "options": [
         "<input type=\"radio\" name=\"fx3\" value=\"0\">int fields can't be set in methods",
         "<input type=\"radio\" name=\"fx3\" value=\"1\">setData must be static",
         "<input type=\"radio\" name=\"fx3\" value=\"2\">The fields are private",
-        "<input type=\"radio\" name=\"fx3\" value=\"3\">Parameters shadow the instance variables — fix with this.a = a;"
+        "<input type=\"radio\" name=\"fx3\" value=\"3\">Parameters shadow the instance variables, fix with this.a = a;"
       ],
       "answer": 3,
       "explanation": "The classic this-keyword trap. (Topics 2–3)"
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"fx4\" value=\"3\">Instance initializers → constructor → static initializers → superclass"
       ],
       "answer": 0,
-      "explanation": "Memorize this exact order — a recurring exam question. (Topic 3)"
+      "explanation": "Memorize this exact order: a recurring exam question. (Topic 3)"
     },
     {
       "prompt": "5. Java does not support multiple inheritance of classes because of…",
@@ -60,7 +60,7 @@ const quiz: QuizData = {
       "explanation": "Ambiguity when two parents provide the same member; interfaces are the workaround. (Topic 4)"
     },
     {
-      "prompt": "6. class B extends A { B(){ super(); System.out.println(\"B\"); } } — if A's constructor prints \"A\", what does new B() print?",
+      "prompt": "6. class B extends A { B(){ super(); System.out.println(\"B\"); } }: if A's constructor prints \"A\", what does new B() print?",
       "options": [
         "<input type=\"radio\" name=\"fx6\" value=\"0\">B then A",
         "<input type=\"radio\" name=\"fx6\" value=\"1\">A then B",
@@ -93,10 +93,10 @@ const quiz: QuizData = {
       "explanation": "instanceof tests the actual object type, including subclasses (up to Object). (Topic 4)"
     },
     {
-      "prompt": "9. Vehicle v = new Car(); &nbsp;v.color — where Vehicle has color=\"White\" and Car redeclares color=\"Red\" — prints…",
+      "prompt": "9. Vehicle v = new Car(); &nbsp;v.color: where Vehicle has color=\"White\" and Car redeclares color=\"Red\", prints…",
       "options": [
-        "<input type=\"radio\" name=\"fx9\" value=\"0\">Red — object type decides",
-        "<input type=\"radio\" name=\"fx9\" value=\"1\">White — fields bind statically to the reference type",
+        "<input type=\"radio\" name=\"fx9\" value=\"0\">Red: object type decides",
+        "<input type=\"radio\" name=\"fx9\" value=\"1\">White: fields bind statically to the reference type",
         "<input type=\"radio\" name=\"fx9\" value=\"2\">A compile error",
         "<input type=\"radio\" name=\"fx9\" value=\"3\">Both values"
       ],
@@ -112,7 +112,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"fx10\" value=\"3\">The sequence of parameter types"
       ],
       "answer": 2,
-      "explanation": "Return type alone cannot distinguish overloads — it causes ambiguity. (Topic 5)"
+      "explanation": "Return type alone cannot distinguish overloads; it causes ambiguity. (Topic 5)"
     },
     {
       "prompt": "11. Which statement about abstract classes is TRUE?",
@@ -137,7 +137,7 @@ const quiz: QuizData = {
       "explanation": "Encapsulation = HOW (implementation level); abstraction = WHAT (design level). (Topic 7)"
     },
     {
-      "prompt": "13. interface Foo { int BAR = 42; void go(); } — which is TRUE?",
+      "prompt": "13. interface Foo { int BAR = 42; void go(); }: which is TRUE?",
       "options": [
         "<input type=\"radio\" name=\"fx13\" value=\"0\">BAR can be reassigned inside implementing classes",
         "<input type=\"radio\" name=\"fx13\" value=\"1\">BAR is implicitly public static final; go() is implicitly public abstract",
@@ -145,18 +145,18 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"fx13\" value=\"3\">go() may be declared private in Foo"
       ],
       "answer": 1,
-      "explanation": "Interface fields are constants; interface methods are public abstract — always. (Topic 8)"
+      "explanation": "Interface fields are constants; interface methods are public abstract: always. (Topic 8)"
     },
     {
-      "prompt": "14. try { int x = 25/0; } catch (NullPointerException e) { ... } finally { System.out.println(\"A\"); } — what happens?",
+      "prompt": "14. try { int x = 25/0; } catch (NullPointerException e) { ... } finally { System.out.println(\"A\"); }: what happens?",
       "options": [
         "<input type=\"radio\" name=\"fx14\" value=\"0\">NullPointerException is caught, then A prints",
-        "<input type=\"radio\" name=\"fx14\" value=\"1\">Nothing prints — the program stops at line 1",
-        "<input type=\"radio\" name=\"fx14\" value=\"2\">A compile error — wrong exception type",
+        "<input type=\"radio\" name=\"fx14\" value=\"1\">Nothing prints: the program stops at line 1",
+        "<input type=\"radio\" name=\"fx14\" value=\"2\">A compile error, wrong exception type",
         "<input type=\"radio\" name=\"fx14\" value=\"3\">A prints, then ArithmeticException terminates the program (not caught)"
       ],
       "answer": 3,
-      "explanation": "The catch type doesn't match, so the exception is unhandled — but finally ALWAYS runs first. (Topic 9)"
+      "explanation": "The catch type doesn't match, so the exception is unhandled, but finally ALWAYS runs first. (Topic 9)"
     },
     {
       "prompt": "15. To read a text file line by line you use… and detect the end when…",

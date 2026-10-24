@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "11-database-connectivity-jdbc",
-  "title": "Topic 11 Quiz — JDBC",
+  "title": "Topic 11 Quiz: JDBC",
   "questions": [
     {
       "prompt": "1. JDBC stands for…",
@@ -13,13 +13,13 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q11a\" value=\"3\">Joined Database Java Classes"
       ],
       "answer": 2,
-      "explanation": "Java Database Connectivity — the standard Java API for database-independent connectivity."
+      "explanation": "Java Database Connectivity: the standard Java API for database-independent connectivity."
     },
     {
       "prompt": "2. Why did Java define JDBC instead of using ODBC?",
       "options": [
         "<input type=\"radio\" name=\"q11b\" value=\"0\">ODBC was too old to run",
-        "<input type=\"radio\" name=\"q11b\" value=\"1\">ODBC drivers are written in C — platform dependent and unsecured; JDBC drivers are written in Java",
+        "<input type=\"radio\" name=\"q11b\" value=\"1\">ODBC drivers are written in C, platform dependent and unsecured; JDBC drivers are written in Java",
         "<input type=\"radio\" name=\"q11b\" value=\"2\">ODBC could not run SQL",
         "<input type=\"radio\" name=\"q11b\" value=\"3\">JDBC needs no database at all"
       ],
@@ -29,13 +29,13 @@ const quiz: QuizData = {
     {
       "prompt": "3. Which driver type gives the best performance and needs no client-side software?",
       "options": [
-        "<input type=\"radio\" name=\"q11c\" value=\"0\">Type 4 — Thin driver (fully Java)",
-        "<input type=\"radio\" name=\"q11c\" value=\"1\">Type 1 — JDBC-ODBC bridge",
-        "<input type=\"radio\" name=\"q11c\" value=\"2\">Type 2 — Native-API driver",
-        "<input type=\"radio\" name=\"q11c\" value=\"3\">Type 3 — Network Protocol driver"
+        "<input type=\"radio\" name=\"q11c\" value=\"0\">Type 4: Thin driver (fully Java)",
+        "<input type=\"radio\" name=\"q11c\" value=\"1\">Type 1: JDBC-ODBC bridge",
+        "<input type=\"radio\" name=\"q11c\" value=\"2\">Type 2: Native-API driver",
+        "<input type=\"radio\" name=\"q11c\" value=\"3\">Type 3: Network Protocol driver"
       ],
       "answer": 0,
-      "explanation": "Thin drivers convert JDBC calls directly into the vendor protocol — pure Java, nothing to install either side. MySQL Connector/J is Type 4."
+      "explanation": "Thin drivers convert JDBC calls directly into the vendor protocol, pure Java, nothing to install either side. MySQL Connector/J is Type 4."
     },
     {
       "prompt": "4. Class.forName(\"com.mysql.cj.jdbc.Driver\") does what?",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q11d\" value=\"3\">Dynamically loads the driver class, which registers itself with the DriverManager"
       ],
       "answer": 3,
-      "explanation": "Step 1 of the 5 steps: load the driver into memory — registration with DriverManager happens automatically."
+      "explanation": "Step 1 of the 5 steps: load the driver into memory: registration with DriverManager happens automatically."
     },
     {
       "prompt": "5. executeQuery() is used for ____ and returns ____.",
@@ -60,7 +60,7 @@ const quiz: QuizData = {
       "explanation": "executeQuery = SELECT only, returns ResultSet. executeUpdate returns an int row count. execute returns boolean."
     },
     {
-      "prompt": "6. In the URL jdbc:mysql://localhost:3306/tecruh — what is 3306?",
+      "prompt": "6. In the URL jdbc:mysql://localhost:3306/tecruh: what is 3306?",
       "options": [
         "<input type=\"radio\" name=\"q11f\" value=\"0\">The table name",
         "<input type=\"radio\" name=\"q11f\" value=\"1\">The port number",

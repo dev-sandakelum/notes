@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "11-database-connectivity-jdbc",
     "number": 11,
-    "title": "Database Connectivity (JDBC)",
+    "title": "Database connectivity (JDBC)",
     "subtitle": "Lesson 07 · JDBC architecture, driver types, the 5 steps, ResultSet, MySQL example",
     "kind": "topic",
     "words": 1417,
@@ -19,13 +19,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>API</b> stands for <b>Application Programming Interface</b>. The <b>Java SE APIs</b> define the core Java platform for general-purpose computing, organized in modules whose names start with <code class=\"inl\">java</code>. An API is also the <b>document that describes all the features</b> of a product — it represents the classes and interfaces that software programs follow to communicate with each other, and can be created for applications, libraries, operating systems, and so on."
+      "html": "<b>API</b> stands for <b>Application Programming Interface</b>. The <b>Java SE APIs</b> define the core Java platform for general-purpose computing, organized in modules whose names start with <code class=\"inl\">java</code>. An API is also the <b>document that describes all the features</b> of a product; it represents the classes and interfaces that software programs follow to communicate with each other, and can be created for applications, libraries, operating systems, and so on."
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Scale of the Java API",
-      "html": "The Java language has only about <b>50 keywords</b>, but the Java API has <b>several thousand classes</b> with tens of thousands of methods. The real challenge of mastering Java isn’t the language — it’s mastering the API. The class library is as much a part of Java as the language itself."
+      "html": "The Java language has only about <b>50 keywords</b>, but the Java API has <b>several thousand classes</b> with tens of thousands of methods. The real challenge of mastering Java isn’t the language, it’s mastering the API. The class library is as much a part of Java as the language itself."
     },
     {
       "type": "heading",
@@ -39,7 +39,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Before JDBC there was <b>ODBC</b> (Open Database Connectivity) — but the ODBC driver is written in <b>C</b>, making it <b>platform dependent and unsecured</b>. Java therefore defined its own API (JDBC) with drivers <b>written in Java</b>."
+      "html": "Before JDBC there was <b>ODBC</b> (Open Database Connectivity), but the ODBC driver is written in <b>C</b>, making it <b>platform dependent and unsecured</b>. Java therefore defined its own API (JDBC) with drivers <b>written in Java</b>."
     },
     {
       "type": "heading",
@@ -133,7 +133,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>MySQL Connector/J</b> — the driver used in the practicals — is a <b>Type 4</b> driver: a pure-Java implementation of the MySQL protocol that requires <b>no native MySQL client libraries</b>."
+      "html": "<b>MySQL Connector/J</b>: the driver used in the practicals, is a <b>Type 4</b> driver: a pure-Java implementation of the MySQL protocol that requires <b>no native MySQL client libraries</b>."
     },
     {
       "type": "heading",
@@ -143,7 +143,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">Step 1 — Register the driver</div><div class=\"f-b\"><code class=\"inl\">Class.forName(\"com.mysql.cj.jdbc.Driver\");</code> loads the driver class into memory; loading it <b>automatically registers</b> it with the DriverManager.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 2 — Create a connection</div><div class=\"f-b\"><code class=\"inl\">Connection con = DriverManager.getConnection(url, user, password);</code> e.g. <code class=\"inl\">jdbc:mysql://localhost:3306/testdb</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 3 — Create a statement</div><div class=\"f-b\"><code class=\"inl\">Statement stmt = con.createStatement();</code> responsible for sending SQL to the database.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 4 — Execute queries</div><div class=\"f-b\"><code class=\"inl\">execute()</code>, <code class=\"inl\">executeUpdate()</code> or <code class=\"inl\">executeQuery()</code> run the SQL and return results / row counts.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 5 — Close the connection</div><div class=\"f-b\"><code class=\"inl\">con.close();</code> frees resources — it also closes the Statement and ResultSet created from it.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">URL anatomy</div><div class=\"f-b\"><code class=\"inl\">jdbc:mysql://localhost:3306/tecruh</code> → jdbc = API, mysql = database, localhost = server, 3306 = port, tecruh = database name.</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">Step 1: Register the driver</div><div class=\"f-b\"><code class=\"inl\">Class.forName(\"com.mysql.cj.jdbc.Driver\");</code> loads the driver class into memory; loading it <b>automatically registers</b> it with the DriverManager.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 2: Create a connection</div><div class=\"f-b\"><code class=\"inl\">Connection con = DriverManager.getConnection(url, user, password);</code> e.g. <code class=\"inl\">jdbc:mysql://localhost:3306/testdb</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 3: Create a statement</div><div class=\"f-b\"><code class=\"inl\">Statement stmt = con.createStatement();</code> responsible for sending SQL to the database.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 4: Execute queries</div><div class=\"f-b\"><code class=\"inl\">execute()</code>, <code class=\"inl\">executeUpdate()</code> or <code class=\"inl\">executeQuery()</code> run the SQL and return results / row counts.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Step 5: Close the connection</div><div class=\"f-b\"><code class=\"inl\">con.close();</code> frees resources: it also closes the Statement and ResultSet created from it.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">URL anatomy</div><div class=\"f-b\"><code class=\"inl\">jdbc:mysql://localhost:3306/tecruh</code> → jdbc = API, mysql = database, localhost = server, 3306 = port, tecruh = database name.</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
@@ -192,12 +192,12 @@ const chapter: ChapterData = {
         [
           "<code class=\"inl\">execute(sql)</code>",
           "Any SQL statement",
-          "<code class=\"inl\">boolean</code> — true if the result is a ResultSet"
+          "<code class=\"inl\">boolean</code>: true if the result is a ResultSet"
         ],
         [
           "<code class=\"inl\">executeUpdate(sql)</code>",
           "INSERT, DELETE, UPDATE, CREATE TABLE…",
-          "<code class=\"inl\">int</code> — the number of rows affected"
+          "<code class=\"inl\">int</code>: the number of rows affected"
         ],
         [
           "<code class=\"inl\">executeQuery(sql)</code>",
@@ -210,7 +210,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "preparedstatement-safe-and-fast",
-      "text": "PreparedStatement — safe & fast"
+      "text": "PreparedStatement: safe & fast"
     },
     {
       "type": "paragraph",
@@ -223,13 +223,13 @@ const chapter: ChapterData = {
         "file": "InsertExample.java",
         "tag": "Java"
       },
-      "html": "<code>String sql = \"INSERT INTO emp VALUES (?, ?, ?)\";\nPreparedStatement ps = con.prepareStatement(sql);\n\n// set values for the placeholders — indices start at 1\nps.setInt(1, 101);\nps.setString(2, \"John\");\nps.setDouble(3, 5000.0);\n\nps.executeUpdate();</code>"
+      "html": "<code>String sql = \"INSERT INTO emp VALUES (?, ?, ?)\";\nPreparedStatement ps = con.prepareStatement(sql);\n\n// set values for the placeholders, indices start at 1\nps.setInt(1, 101);\nps.setString(2, \"John\");\nps.setDouble(3, 5000.0);\n\nps.executeUpdate();</code>"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "resultset-processing-query-data",
-      "text": "ResultSet — processing query data"
+      "text": "ResultSet: processing query data"
     },
     {
       "type": "paragraph",
@@ -248,13 +248,13 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "full-example-connect-to-mysql",
-      "text": "Full example — connect to MySQL"
+      "text": "Full example: connect to MySQL"
     },
     {
       "type": "code",
       "language": "sql",
       "header": {
-        "file": "Setup — create the database and table first",
+        "file": "Setup: create the database and table first",
         "tag": "SQL"
       },
       "html": "<code>CREATE DATABASE tecruh;\n\nCREATE TABLE student(\n    id int(10) PRIMARY KEY,\n    name varchar(40),\n    age int(3)\n);</code>"
@@ -272,20 +272,20 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Error handling in JDBC",
-      "html": "Exceptions may occur during any database operation. Wrap the steps in <b>try-catch-finally</b> so the program recovers gracefully and the database stays consistent — e.g. <b>rollback transactions</b> or <b>close resources</b> (connection, statement, result set) in the finally block when an exception occurs."
+      "html": "Exceptions may occur during any database operation. Wrap the steps in <b>try-catch-finally</b> so the program recovers gracefully and the database stays consistent, e.g. <b>rollback transactions</b> or <b>close resources</b> (connection, statement, result set) in the finally block when an exception occurs."
     },
     {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set K — JDBC ▾",
-          "html": "<ol>\n        <li>What does API stand for, and why is mastering Java mostly about the API?</li>\n        <li>What does JDBC stand for and what three things does it allow?</li>\n        <li>Why did Java define JDBC instead of using ODBC?</li>\n        <li>Describe the two layers of the JDBC architecture and the role of DriverManager.</li>\n        <li>Name the four JDBC driver types. Which performs best and why? Which type is MySQL Connector/J?</li>\n        <li>Write the five basic steps for using a database in Java (with the key method call for each).</li>\n        <li>Differentiate Statement, PreparedStatement and CallableStatement.</li>\n        <li>Compare execute(), executeUpdate() and executeQuery() — what does each return?</li>\n        <li>Break the URL jdbc:mysql://localhost:3306/tecruh into its five parts.</li>\n        <li>What does rs.next() do, and at what number do column indices start?</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>Application Programming Interface — the description of classes/interfaces programs use to communicate. Java has ~50 keywords but thousands of API classes with tens of thousands of methods.</li>\n          <li>Java Database Connectivity — establish a connection, send SQL commands, process results.</li>\n          <li>ODBC drivers are written in C (platform dependent, unsecured); JDBC drivers are written in Java.</li>\n          <li>JDBC API (application ↔ DriverManager) + JDBC Driver API (DriverManager ↔ drivers). DriverManager picks the correct driver, establishes connections, supports multiple drivers.</li>\n          <li>JDBC-ODBC Bridge, Native-API, Network Protocol, Thin. Thin (Type 4) is best — pure Java, converts directly to the vendor protocol, nothing to install on client/server. Connector/J is Type 4.</li>\n          <li>1. Class.forName(\"com.mysql.cj.jdbc.Driver\") &nbsp;2. DriverManager.getConnection(url,user,pass) &nbsp;3. con.createStatement() &nbsp;4. stmt.executeQuery/executeUpdate &nbsp;5. con.close()</li>\n          <li>Statement: simple SQL, no parameters. PreparedStatement: precompiled with ? inputs. CallableStatement: stored procedures with input/output parameters.</li>\n          <li>execute → boolean (true if ResultSet); executeUpdate → int row count (INSERT/UPDATE/DELETE/CREATE); executeQuery → ResultSet (SELECT only).</li>\n          <li>jdbc = API, mysql = database, localhost = server name, 3306 = port, tecruh = database name.</li>\n          <li>next() moves the cursor to the next row (false when done); column indices start at 1.</li>\n        </ol>\n      </div>"
+          "title": "Exercise set K: JDBC",
+          "html": "<ol>\n        <li>What does API stand for, and why is mastering Java mostly about the API?</li>\n        <li>What does JDBC stand for and what three things does it allow?</li>\n        <li>Why did Java define JDBC instead of using ODBC?</li>\n        <li>Describe the two layers of the JDBC architecture and the role of DriverManager.</li>\n        <li>Name the four JDBC driver types. Which performs best and why? Which type is MySQL Connector/J?</li>\n        <li>Write the five basic steps for using a database in Java (with the key method call for each).</li>\n        <li>Differentiate Statement, PreparedStatement and CallableStatement.</li>\n        <li>Compare execute(), executeUpdate() and executeQuery(), what does each return?</li>\n        <li>Break the URL jdbc:mysql://localhost:3306/tecruh into its five parts.</li>\n        <li>What does rs.next() do, and at what number do column indices start?</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>Application Programming Interface; the description of classes/interfaces programs use to communicate. Java has ~50 keywords but thousands of API classes with tens of thousands of methods.</li>\n          <li>Java Database Connectivity: establish a connection, send SQL commands, process results.</li>\n          <li>ODBC drivers are written in C (platform dependent, unsecured); JDBC drivers are written in Java.</li>\n          <li>JDBC API (application ↔ DriverManager) + JDBC Driver API (DriverManager ↔ drivers). DriverManager picks the correct driver, establishes connections, supports multiple drivers.</li>\n          <li>JDBC-ODBC Bridge, Native-API, Network Protocol, Thin. Thin (Type 4) is best: pure Java, converts directly to the vendor protocol, nothing to install on client/server. Connector/J is Type 4.</li>\n          <li>1. Class.forName(\"com.mysql.cj.jdbc.Driver\") &nbsp;2. DriverManager.getConnection(url,user,pass) &nbsp;3. con.createStatement() &nbsp;4. stmt.executeQuery/executeUpdate &nbsp;5. con.close()</li>\n          <li>Statement: simple SQL, no parameters. PreparedStatement: precompiled with ? inputs. CallableStatement: stored procedures with input/output parameters.</li>\n          <li>execute → boolean (true if ResultSet); executeUpdate → int row count (INSERT/UPDATE/DELETE/CREATE); executeQuery → ResultSet (SELECT only).</li>\n          <li>jdbc = API, mysql = database, localhost = server name, 3306 = port, tecruh = database name.</li>\n          <li>next() moves the cursor to the next row (false when done); column indices start at 1.</li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 11 Quiz — JDBC",
+      "title": "Topic 11 Quiz: JDBC",
       "count": 8,
       "quizSlug": "11-database-connectivity-jdbc"
     }

@@ -3,9 +3,9 @@ import type { BookMeta } from "@/content/types";
 const book: BookMeta = {
   "slug": "maths",
   "code": "TMS1113",
-  "title": "Foundation of Mathematics",
-  "tagline": "Numbers to vectors — every foundation topic with worked examples and formula cards.",
-  "description": "Numbers to vectors — every foundation topic with worked examples and formula cards.",
+  "title": "Foundation of mathematics",
+  "tagline": "Numbers to vectors: every foundation topic with worked examples and formula cards.",
+  "description": "Numbers to vectors: every foundation topic with worked examples and formula cards.",
   "subject": "Mathematics",
   "tags": [
     "algebra",
@@ -28,7 +28,7 @@ const book: BookMeta = {
     {
       "slug": "02-algebra-calculations-and-equations",
       "number": 2,
-      "title": "Algebra: Calculations & Equations",
+      "title": "Algebra: calculations & equations",
       "subtitle": "Brackets · Factorisation · BODMAS · Solving equations · Word problems",
       "kind": "topic",
       "words": 1378,
@@ -37,7 +37,7 @@ const book: BookMeta = {
     {
       "slug": "03-set-theory",
       "number": 3,
-      "title": "Set Theory",
+      "title": "Set theory",
       "subtitle": "Notation · Operations · Venn diagrams · Cartesian product",
       "kind": "topic",
       "words": 1477,
@@ -46,7 +46,7 @@ const book: BookMeta = {
     {
       "slug": "04-indices-and-logarithms",
       "number": 4,
-      "title": "Indices & Logarithms",
+      "title": "Indices & logarithms",
       "subtitle": "Laws of indices · Scientific notation · Laws of logarithms · Indicial equations",
       "kind": "topic",
       "words": 1028,
@@ -55,7 +55,7 @@ const book: BookMeta = {
     {
       "slug": "05-introduction-to-functions",
       "number": 5,
-      "title": "Introduction to Functions",
+      "title": "Introduction to functions",
       "subtitle": "Definition · Arrow diagrams · Vertical line test · Domain & range · Types of functions",
       "kind": "topic",
       "words": 579,
@@ -64,7 +64,7 @@ const book: BookMeta = {
     {
       "slug": "06-graphs-of-straight-lines",
       "number": 6,
-      "title": "Graphs of Straight Lines",
+      "title": "Graphs of straight lines",
       "subtitle": "Cartesian plane · Slope · Equations of a line · Parallel & perpendicular lines",
       "kind": "topic",
       "words": 535,
@@ -73,7 +73,7 @@ const book: BookMeta = {
     {
       "slug": "07-quadratic-expressions-and-equations",
       "number": 7,
-      "title": "Quadratic Expressions & Equations",
+      "title": "Quadratic expressions & equations",
       "subtitle": "Factorising · Completing the square · The quadratic formula · Discriminant",
       "kind": "topic",
       "words": 906,
@@ -82,7 +82,7 @@ const book: BookMeta = {
     {
       "slug": "08-quadratic-graphs",
       "number": 8,
-      "title": "Quadratic Graphs",
+      "title": "Quadratic graphs",
       "subtitle": "Parabola features · Plotting · Maximum & minimum values · Sketching",
       "kind": "topic",
       "words": 629,
@@ -91,7 +91,7 @@ const book: BookMeta = {
     {
       "slug": "09-systems-of-linear-equations",
       "number": 9,
-      "title": "Systems of Linear Equations",
+      "title": "Systems of linear equations",
       "subtitle": "Graphical solutions · Substitution · Elimination · Linear–quadratic systems",
       "kind": "topic",
       "words": 703,
@@ -100,7 +100,7 @@ const book: BookMeta = {
     {
       "slug": "10-introduction-to-matrix-algebra",
       "number": 10,
-      "title": "Introduction to Matrix Algebra",
+      "title": "Introduction to matrix algebra",
       "subtitle": "Order & types · Addition, subtraction, transpose · Scalar & matrix multiplication",
       "kind": "topic",
       "words": 982,
@@ -109,7 +109,7 @@ const book: BookMeta = {
     {
       "slug": "11-inverse-of-a-matrix",
       "number": 11,
-      "title": "Inverse of a Matrix",
+      "title": "Inverse of a matrix",
       "subtitle": "Determinants · Minors & cofactors · Adjoint · Computing A⁻¹ · Solving systems",
       "kind": "topic",
       "words": 744,
@@ -136,8 +136,8 @@ const book: BookMeta = {
     {
       "slug": "14-master-formula-sheet",
       "number": 14,
-      "title": "Master Formula Sheet",
-      "subtitle": "Click any card to flip it — perfect for last-minute revision",
+      "title": "Master formula sheet",
+      "subtitle": "Click any card to flip it, perfect for last-minute revision",
       "kind": "cheatsheet",
       "words": 525,
       "minutes": 3
@@ -145,8 +145,8 @@ const book: BookMeta = {
     {
       "slug": "15-final-practice-exam",
       "number": 15,
-      "title": "Final Practice Exam",
-      "subtitle": "15 mixed questions from all 13 topics — attempt everything before checking",
+      "title": "Final practice exam",
+      "subtitle": "15 mixed questions from all 13 topics, attempt everything before checking",
       "kind": "exam",
       "words": 64,
       "minutes": 1

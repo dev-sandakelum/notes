@@ -24,7 +24,7 @@ export function Reveal({ label = "Show solution", children }: RevealProps) {
         aria-expanded={open}
         aria-controls={contentId}
         onClick={() => setOpen((o) => !o)}
-        className="inline-flex min-h-[40px] items-center gap-2 rounded-md border border-hairline bg-paper-raised px-3.5 py-2 text-sm font-medium text-ink hover:border-hairline-strong"
+        className="btn btn-ghost"
       >
         {label}
         <ChevronDown

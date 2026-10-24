@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "10-final-practice-exam",
-  "title": "TCS 2112 Practice Exam",
+  "title": "TCS 2112 practice exam",
   "questions": [
     {
       "prompt": "1. The foundation concept of economics is:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Trade-off"
       ],
       "answer": 1,
-      "explanation": "Scarcity → choice → trade-off → opportunity cost — the chain starts with scarcity."
+      "explanation": "Scarcity → choice → trade-off → opportunity cost; the chain starts with scarcity."
     },
     {
       "prompt": "2. Which of these is a normative statement?",
@@ -24,18 +24,18 @@ const quiz: QuizData = {
         "Minimum wages should be increased"
       ],
       "answer": 3,
-      "explanation": "“Should” signals a value judgement — normative."
+      "explanation": "“Should” signals a value judgement: normative."
     },
     {
       "prompt": "3. An economy operating at a point inside its PPC is:",
       "options": [
         "Unattainable",
         "Efficient",
-        "Inefficient — resources unemployed",
+        "Inefficient: resources unemployed",
         "Beyond its production capacity"
       ],
       "answer": 2,
-      "explanation": "Inside the frontier: both goods can still be increased — unemployment/inefficiency."
+      "explanation": "Inside the frontier: both goods can still be increased, unemployment/inefficiency."
     },
     {
       "prompt": "4. Using the rice-clothes PPC (A: 0/150, B: 20/140, C: 40/125, D: 60/105, E: 80/70, F: 100/0), the opportunity cost of moving D→E is:",
@@ -52,7 +52,7 @@ const quiz: QuizData = {
       "prompt": "5. If good X is inferior, a rise in consumer income shifts the demand for X:",
       "options": [
         "Right",
-        "Nowhere — income never shifts demand",
+        "Nowhere: income never shifts demand",
         "Left",
         "Along the curve upward"
       ],
@@ -76,7 +76,7 @@ const quiz: QuizData = {
         "Create a shortage",
         "Create a surplus",
         "Create a black market",
-        "Have no effect — it is not binding"
+        "Have no effect: it is not binding"
       ],
       "answer": 3,
       "explanation": "A non-binding ceiling: the market clears below it at the equilibrium price."
@@ -123,7 +123,7 @@ const quiz: QuizData = {
         "Raw material purchases"
       ],
       "answer": 3,
-      "explanation": "Materials vary with output — a prime/variable cost."
+      "explanation": "Materials vary with output: a prime/variable cost."
     },
     {
       "prompt": "12. Kamal (Rs. 12, Px = 2, Py = 1) maximizes utility at approximately:",

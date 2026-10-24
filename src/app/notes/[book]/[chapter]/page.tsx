@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { books, getBook, getChapter, getQuiz } from "@/content";
 import type { HeadingBlock, QuizRefBlock } from "@/content/types";
 import { BlockRenderer } from "@/components/book/block-renderer";
-import { QuizDrawer } from "@/components/book/quiz-drawer";
+import { QuizDrawer, QuizRailLauncher } from "@/components/book/quiz-drawer";
 import { MarkComplete } from "@/components/book/mark-complete";
 import { TableOfContents } from "@/components/book/table-of-contents";
 import { ClipboardList, Clock, ArrowLeft, ArrowRight, ScrollText } from "lucide-react";
@@ -28,7 +28,7 @@ export async function generateMetadata({
   const chapterData = getChapter(book, chapter);
   if (!bookMeta || !chapterData) return {};
   return {
-    title: `${chapterData.meta.title} — ${bookMeta.code}`,
+    title: `${chapterData.meta.title}: ${bookMeta.code}`,
     description: chapterData.meta.subtitle ?? bookMeta.tagline,
   };
 }
@@ -73,7 +73,9 @@ export default async function ChapterPage({
         : null;
 
   return (
-    <main className="mx-auto w-full max-w-[1280px] px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto w-full max-w-[1280px] px-4 pt-8 pb-24 sm:px-6 lg:px-8">
+      {/* pb-24: bottom clearance so the last content (prev/next cards) can
+          scroll clear of the mobile quiz FAB (fixed bottom-right, xl:hidden). */}
       <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_220px]">
         <article className="min-w-0">
           {/* Chapter header */}
@@ -135,15 +137,17 @@ export default async function ChapterPage({
             />
           </div>
 
-          {/* Prev / next */}
+          {/* Prev / next — grid-cols-1 (minmax(0,1fr)) base so the cards can
+              shrink at mobile width; the truncate titles need a shrinkable
+              track, otherwise the nowrap min-content width forces overflow. */}
           <nav
             aria-label="Chapter navigation"
-            className="mt-14 grid gap-3 border-t border-hairline pt-8 sm:grid-cols-2 no-print"
+            className="mt-14 grid grid-cols-1 gap-3 border-t border-hairline pt-8 sm:grid-cols-2 no-print"
           >
             {prev ? (
               <Link
                 href={`/notes/${book.slug}/${prev.slug}`}
-                className="group flex items-center gap-3 rounded-md border border-hairline bg-paper-raised px-4 py-3 transition-colors hover:border-hairline-strong"
+                className="group flex min-w-0 items-center gap-3 rounded-xl border border-hairline bg-paper-raised px-4 py-3 shadow-card transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-card-lg"
               >
                 <ArrowLeft
                   className="h-4 w-4 flex-none text-ink-faint transition-transform group-hover:-translate-x-0.5"
@@ -164,7 +168,7 @@ export default async function ChapterPage({
             {next ? (
               <Link
                 href={`/notes/${book.slug}/${next.slug}`}
-                className="group flex items-center justify-end gap-3 rounded-md border border-hairline bg-paper-raised px-4 py-3 text-right transition-colors hover:border-hairline-strong"
+                className="group flex min-w-0 items-center justify-end gap-3 rounded-xl border border-hairline bg-paper-raised px-4 py-3 text-right shadow-card transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-card-lg"
               >
                 <span className="min-w-0">
                   <span className="block text-caption text-ink-faint">
@@ -183,8 +187,15 @@ export default async function ChapterPage({
           </nav>
         </article>
 
-        {/* Sticky TOC rail */}
-        <TableOfContents headings={headings} />
+        {/* Sticky TOC rail — the desktop quiz launcher lives at its top,
+            inside this column, so it can never overlap the TOC links or
+            the reading column (the floating FAB is xl:hidden). */}
+        <div className="min-w-0">
+          {quiz && !isExam ? (
+            <QuizRailLauncher count={quiz.questions.length} />
+          ) : null}
+          <TableOfContents headings={headings} />
+        </div>
       </div>
 
       {/* Topic-chapter quiz lives in the right-side drawer (C5) */}

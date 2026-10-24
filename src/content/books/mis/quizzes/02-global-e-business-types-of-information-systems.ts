@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "02-global-e-business-types-of-information-systems",
-  "title": "Topic 2 Quiz — Global E-Business",
+  "title": "Topic 2 Quiz: Global E-Business",
   "questions": [
     {
       "prompt": "1. Which of the following is a <b>cross-functional</b> business process?",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Evaluating employees' job performance"
       ],
       "answer": 1,
-      "explanation": "Fulfilling a customer order spans sales, warehouse, production, shipping and accounting — cross-functional. The others are tied to a single functional area (HR, finance)."
+      "explanation": "Fulfilling a customer order spans sales, warehouse, production, shipping and accounting, cross-functional. The others are tied to a single functional area (HR, finance)."
     },
     {
       "prompt": "2. Which statement about Transaction Processing Systems is <b>FALSE</b>?",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "They are a major source of data for other systems"
       ],
       "answer": 2,
-      "explanation": "TPS handle predefined, structured goals and decisions — powerful analytics and non-routine support belong to DSS/ESS. The rest are true of TPS."
+      "explanation": "TPS handle predefined, structured goals and decisions, powerful analytics and non-routine support belong to DSS/ESS. The rest are true of TPS."
     },
     {
       "prompt": "3. MIS serve ______ management and typically have ______.",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "External events plus summarized information from internal MIS and DSS"
       ],
       "answer": 3,
-      "explanation": "ESS address non-routine decisions (judgment, evaluation, insight) and combine data about external events (e.g. new tax laws, competitors) with summarized internal MIS/DSS information — e.g. a digital dashboard of the firm's financial performance."
+      "explanation": "ESS address non-routine decisions (judgment, evaluation, insight) and combine data about external events (e.g. new tax laws, competitors) with summarized internal MIS/DSS information, e.g. a digital dashboard of the firm's financial performance."
     },
     {
       "prompt": "5. Which HRIS module would an employee use directly to update personal details or request leave?",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Is accessible externally to vendors and suppliers"
       ],
       "answer": 3,
-      "explanation": "Intranet = internal site, employees only. Extranet = company site accessible externally only to vendors and suppliers — often used to coordinate the supply chain."
+      "explanation": "Intranet = internal site, employees only. Extranet = company site accessible externally only to vendors and suppliers, often used to coordinate the supply chain."
     },
     {
       "prompt": "9. Which statement is correct?",
@@ -112,7 +112,7 @@ const quiz: QuizData = {
         "Making all processes sequential"
       ],
       "answer": 2,
-      "explanation": "The two ways: (1) increase efficiency of existing processes by automating manual steps; (2) enable new processes — change information flow, replace sequential with parallel steps, eliminate decision delays, support new business models (e.g. Kindle e-book, buying a computer online at Best Buy)."
+      "explanation": "The two ways: (1) increase efficiency of existing processes by automating manual steps; (2) enable new processes: change information flow, replace sequential with parallel steps, eliminate decision delays, support new business models (e.g. Kindle e-book, buying a computer online at Best Buy)."
     }
   ]
 };

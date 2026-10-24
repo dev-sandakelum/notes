@@ -15,15 +15,15 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "what-is-object-oriented-programming",
-      "text": "What is Object Oriented Programming?"
+      "text": "What is object oriented programming?"
     },
     {
       "type": "paragraph",
-      "html": "Object-oriented programming (OOP) is a <b>paradigm</b> — a way of thinking about and structuring programs. It is based on the concept of wrapping pieces of <b>data</b>, and <b>behavior related to that data</b>, into special bundles called <b>objects</b>. Objects are constructed from a set of “blueprints”, defined by a programmer, called <b>classes</b>. Instead of thinking about a program as a sequence of instructions, an OO developer thinks about it as a collection of collaborating objects."
+      "html": "Object-oriented programming (OOP) is a <b>paradigm</b>, a way of thinking about and structuring programs. It is based on the concept of wrapping pieces of <b>data</b>, and <b>behavior related to that data</b>, into special bundles called <b>objects</b>. Objects are constructed from a set of “blueprints”, defined by a programmer, called <b>classes</b>. Instead of thinking about a program as a sequence of instructions, an OO developer thinks about it as a collection of collaborating objects."
     },
     {
       "type": "paragraph",
-      "html": "The fundamentals of object orientation view a program as a <b>collection of objects</b> that <b>pass messages to each other</b>. Each object decides for itself what to do with a received message. In fact, it is more meaningful to talk about an <b>object-oriented system</b> than a program — an object-oriented system is a set of interacting objects organized into classes. Crucially, the focus is on <b>data and not on function</b>: the definition of data, its attributes and how it will be manipulated is the primary concern, while the exact mechanism of manipulation (procedure or algorithm) is not."
+      "html": "The fundamentals of object orientation view a program as a <b>collection of objects</b> that <b>pass messages to each other</b>. Each object decides for itself what to do with a received message. In fact, it is more meaningful to talk about an <b>object-oriented system</b> than a program, an object-oriented system is a set of interacting objects organized into classes. Crucially, the focus is on <b>data and not on function</b>: the definition of data, its attributes and how it will be manipulated is the primary concern, while the exact mechanism of manipulation (procedure or algorithm) is not."
     },
     {
       "type": "figure",
@@ -43,14 +43,14 @@ const chapter: ChapterData = {
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">Modularity</div><div class=\"f-b\">The source code for an object can be written and maintained <b>independently</b> of the source code for other objects. Once created, an object can be easily passed around inside the system.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Information-hiding</div><div class=\"f-b\">By interacting only with an object's <b>methods</b>, the details of its internal implementation remain <b>hidden</b> from the outside world.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Code re-use</div><div class=\"f-b\">If an object already exists (perhaps written by another developer), you can use it in your program. Specialists implement/test/debug complex, task-specific objects you can trust.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pluggability &amp; debugging ease</div><div class=\"f-b\">If an object is problematic, simply <b>remove it and plug in a replacement</b> — like replacing a broken bolt, not the entire machine.</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">Modularity</div><div class=\"f-b\">The source code for an object can be written and maintained <b>independently</b> of the source code for other objects. Once created, an object can be easily passed around inside the system.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Information-hiding</div><div class=\"f-b\">By interacting only with an object's <b>methods</b>, the details of its internal implementation remain <b>hidden</b> from the outside world.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Code re-use</div><div class=\"f-b\">If an object already exists (perhaps written by another developer), you can use it in your program. Specialists implement/test/debug complex, task-specific objects you can trust.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pluggability &amp; debugging ease</div><div class=\"f-b\">If an object is problematic, simply <b>remove it and plug in a replacement</b>, like replacing a broken bolt, not the entire machine.</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "procedural-vs-object-oriented-the-bank-scenario",
-      "text": "Procedural vs Object-Oriented: the bank scenario"
+      "text": "Procedural vs object-oriented: the bank scenario"
     },
     {
       "type": "paragraph",
@@ -71,7 +71,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The problems: focus is on <b>procedures</b>; <b>all data is shared</b> (no protection); it is <b>more difficult to modify</b>; and it is <b>hard to manage complexity</b>. In the <b>object-oriented approach</b>, data and the operations that belong to it are <b>grouped together</b> — an <code class=\"inl\">Account</code> class owns its balance and exposes <code class=\"inl\">deposit()</code>, <code class=\"inl\">withdraw()</code> and <code class=\"inl\">transfer()</code> methods. Objects in the problem domain are mapped directly to objects in software, which is why OO modelling feels natural."
+      "html": "The problems: focus is on <b>procedures</b>; <b>all data is shared</b> (no protection); it is <b>more difficult to modify</b>; and it is <b>hard to manage complexity</b>. In the <b>object-oriented approach</b>, data and the operations that belong to it are <b>grouped together</b>, an <code class=\"inl\">Account</code> class owns its balance and exposes <code class=\"inl\">deposit()</code>, <code class=\"inl\">withdraw()</code> and <code class=\"inl\">transfer()</code> methods. Objects in the problem domain are mapped directly to objects in software, which is why OO modelling feels natural."
     },
     {
       "type": "table",
@@ -125,9 +125,9 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Object</b> — an instance of a class.",
-        "<b>Instance</b> — a specific realization of any object; each realized variation of an object is an instance.",
-        "<b>Instantiation</b> — the creation of a real instance (a realized object) from a class."
+        "<b>Object</b>: an instance of a class.",
+        "<b>Instance</b>: a specific realization of any object; each realized variation of an object is an instance.",
+        "<b>Instantiation</b>: the creation of a real instance (a realized object) from a class."
       ]
     },
     {
@@ -168,7 +168,7 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "info",
-      "title": "Alan Kay's five rules (exam favourite)",
+      "title": "Alan kay's five rules (exam favourite)",
       "html": "1. Everything is an object. &nbsp;2. A program is a bunch of objects telling each other what to do by <b>sending messages</b>. &nbsp;3. Each object has its own memory, made up of other objects. &nbsp;4. Every object has a <b>type</b>. &nbsp;5. All objects of a particular type can receive the <b>same messages</b> (invoke the same methods)."
     },
     {
@@ -185,14 +185,14 @@ const chapter: ChapterData = {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set A — OOP fundamentals ▾",
-          "html": "<ol>\n        <li>Define <b>object-oriented programming</b> in one sentence, mentioning classes and objects.</li>\n        <li>List the four reasons for using object orientation and explain each in one line.</li>\n        <li>In your own words, explain the difference between a class and an object, using a bicycle example.</li>\n        <li>A dog has name, color, breed, can bark and wag its tail. Identify its state, behavior and a possible identity.</li>\n        <li>State Alan Kay's rule about how objects interact with each other.</li>\n        <li>Give two disadvantages of the procedural approach highlighted in the lecture.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>OOP is a paradigm based on wrapping data and behavior related to that data into objects, which are constructed from blueprints called classes.</li>\n          <li><b>Modularity</b> — code written/maintained independently; <b>Information-hiding</b> — internal details hidden behind methods; <b>Code re-use</b> — existing trusted objects used anywhere; <b>Pluggability &amp; debugging ease</b> — swap a bad object like replacing a broken bolt.</li>\n          <li>A class is the blueprint from which individual objects are created; thousands of bicycles of the same make and model are built from the same blueprint — your bicycle is an <b>instance</b> of the class of objects known as bicycles.</li>\n          <li>State: name, color, breed. Behavior: barking, wagging tail. Identity: a serial number / registration id.</li>\n          <li>A program is a bunch of objects telling each other what to do by sending messages.</li>\n          <li>All data is shared (no protection); hard to manage complexity / more difficult to modify.</li>\n        </ol>\n      </div>"
+          "title": "Exercise set A: OOP fundamentals",
+          "html": "<ol>\n        <li>Define <b>object-oriented programming</b> in one sentence, mentioning classes and objects.</li>\n        <li>List the four reasons for using object orientation and explain each in one line.</li>\n        <li>In your own words, explain the difference between a class and an object, using a bicycle example.</li>\n        <li>A dog has name, color, breed, can bark and wag its tail. Identify its state, behavior and a possible identity.</li>\n        <li>State Alan Kay's rule about how objects interact with each other.</li>\n        <li>Give two disadvantages of the procedural approach highlighted in the lecture.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>OOP is a paradigm based on wrapping data and behavior related to that data into objects, which are constructed from blueprints called classes.</li>\n          <li><b>Modularity</b>: code written/maintained independently; <b>Information-hiding</b>: internal details hidden behind methods; <b>Code re-use</b>: existing trusted objects used anywhere; <b>Pluggability &amp; debugging ease</b>: swap a bad object like replacing a broken bolt.</li>\n          <li>A class is the blueprint from which individual objects are created; thousands of bicycles of the same make and model are built from the same blueprint, your bicycle is an <b>instance</b> of the class of objects known as bicycles.</li>\n          <li>State: name, color, breed. Behavior: barking, wagging tail. Identity: a serial number / registration id.</li>\n          <li>A program is a bunch of objects telling each other what to do by sending messages.</li>\n          <li>All data is shared (no protection); hard to manage complexity / more difficult to modify.</li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 1 Quiz — Introduction to OOP",
+      "title": "Topic 1 Quiz: Introduction to OOP",
       "count": 7,
       "quizSlug": "01-introduction-to-oop"
     }

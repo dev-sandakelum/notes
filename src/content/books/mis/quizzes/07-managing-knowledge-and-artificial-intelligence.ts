@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "07-managing-knowledge-and-artificial-intelligence",
-  "title": "Topic 7 Quiz — Knowledge Management & AI",
+  "title": "Topic 7 Quiz: Knowledge Management & AI",
   "questions": [
     {
       "prompt": "1. The correct order of the knowledge hierarchy is:",
@@ -16,7 +16,7 @@ const quiz: QuizData = {
       "explanation": "DIKW: data become information when contextualized; information becomes knowledge with experience and judgment; knowledge matures into wisdom."
     },
     {
-      "prompt": "2. Knowledge that resides in employees' heads — expertise and experience that is hard to write down — is called:",
+      "prompt": "2. Knowledge that resides in employees' heads, expertise and experience that is hard to write down, is called:",
       "options": [
         "Explicit knowledge",
         "Tacit knowledge",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "Semi-structured knowledge"
       ],
       "answer": 1,
-      "explanation": "Tacit = human expertise/experience. Explicit = codified (documents, rules). AI-generated = machine-assisted insights — a third form highlighted in the lecture."
+      "explanation": "Tacit = human expertise/experience. Explicit = codified (documents, rules). AI-generated = machine-assisted insights: a third form highlighted in the lecture."
     },
     {
       "prompt": "3. The four stages of the knowledge management value chain are:",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "99%"
       ],
       "answer": 2,
-      "explanation": "80% of business content is semi-structured (e-mails, videos) or unstructured/tacit — the core challenge for enterprise-wide KM systems."
+      "explanation": "80% of business content is semi-structured (e-mails, videos) or unstructured/tacit; the core challenge for enterprise-wide KM systems."
     },
     {
       "prompt": "6. In an expert system, the component that searches the knowledge base and \"fires\" rules triggered by user-supplied facts is the:",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Fuzzy logic"
       ],
       "answer": 3,
-      "explanation": "Fuzzy logic — used in camera autofocus and detecting medical fraud — translates linguistic terms into ranges via membership functions."
+      "explanation": "Fuzzy logic: used in camera autofocus and detecting medical fraud, translates linguistic terms into ranges via membership functions."
     },
     {
       "prompt": "9. \"Deep learning\" neural networks are characterized by:",
@@ -112,7 +112,7 @@ const quiz: QuizData = {
         "Digital asset management system"
       ],
       "answer": 1,
-      "explanation": "Intelligent agents carry out specific, repetitive, predictable tasks using a limited built-in or learned knowledge base — some capable of self-adjustment (e.g. Siri)."
+      "explanation": "Intelligent agents carry out specific, repetitive, predictable tasks using a limited built-in or learned knowledge base, some capable of self-adjustment (e.g. Siri)."
     }
   ]
 };

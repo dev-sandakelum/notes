@@ -71,7 +71,7 @@ export function ParabolaViz({ caption }: { caption?: string }) {
         }
       : Math.abs(disc) <= 0.000001
         ? {
-            text: `Δ = b² − 4ac = 0 → one repeated root (x = ${fmt(h)}) — the curve touches the x-axis`,
+            text: `Δ = b² − 4ac = 0 → one repeated root (x = ${fmt(h)}); the curve touches the x-axis`,
             tone: "text-warn",
           }
         : {
@@ -87,7 +87,7 @@ export function ParabolaViz({ caption }: { caption?: string }) {
     <figure className="border border-hairline rounded-md bg-paper-raised p-4 print-avoid-break viz-shell">
       <div className="no-print mx-auto flex w-full max-w-md flex-col gap-2">
         <div className="flex items-center gap-3">
-          <span className="w-36 shrink-0 text-caption text-ink-muted">a — curvature, direction</span>
+          <span className="w-36 shrink-0 text-caption text-ink-muted">a: curvature, direction</span>
           <Slider
             className="flex-1"
             value={[a]}
@@ -100,7 +100,7 @@ export function ParabolaViz({ caption }: { caption?: string }) {
           <span className="w-10 text-right font-mono text-sm">{a.toFixed(1)}</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="w-36 shrink-0 text-caption text-ink-muted">b — linear shift</span>
+          <span className="w-36 shrink-0 text-caption text-ink-muted">b: linear shift</span>
           <Slider
             className="flex-1"
             value={[b]}
@@ -113,7 +113,7 @@ export function ParabolaViz({ caption }: { caption?: string }) {
           <span className="w-10 text-right font-mono text-sm">{b.toFixed(1)}</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="w-36 shrink-0 text-caption text-ink-muted">c — y-intercept</span>
+          <span className="w-36 shrink-0 text-caption text-ink-muted">c: y-intercept</span>
           <Slider
             className="flex-1"
             value={[c]}

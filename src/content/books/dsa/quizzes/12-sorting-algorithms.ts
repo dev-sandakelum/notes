@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "12-sorting-algorithms",
-  "title": "Topic 11 Quiz — Sorting Algorithms",
+  "title": "Topic 11 Quiz: Sorting Algorithms",
   "questions": [
     {
       "prompt": "1. Bubble sort compares and swaps…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "6"
       ],
       "answer": 2,
-      "explanation": "One swap per position: n − 1 = 5. Comparisons are 5+4+3+2+1 = 15 though — O(n²)."
+      "explanation": "One swap per position: n − 1 = 5. Comparisons are 5+4+3+2+1 = 15 though. O(n²)."
     },
     {
       "prompt": "3. Which sort builds a sorted region at the bottom of the array by shifting bigger elements right?",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "Heap sort"
       ],
       "answer": 1,
-      "explanation": "Insertion sort inserts each new element into the sorted lower part — like sorting cards by hand."
+      "explanation": "Insertion sort inserts each new element into the sorted lower part, like sorting cards by hand."
     },
     {
       "prompt": "4. Merge sort's time complexity is…",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "Insertion sort"
       ],
       "answer": 1,
-      "explanation": "Quicksort may reorder equal elements — not stable. It is also called partition-exchange sort."
+      "explanation": "Quicksort may reorder equal elements: not stable. It is also called partition-exchange sort."
     },
     {
       "prompt": "8. For N elements, bubble sort's worst-case comparison count is…",
@@ -101,7 +101,7 @@ const quiz: QuizData = {
         "Recursive-free · O(1) always · not comparison-based"
       ],
       "answer": 0,
-      "explanation": "Quick sort is the in-place, randomized speed king for large n — just beware the O(n²) worst case."
+      "explanation": "Quick sort is the in-place, randomized speed king for large n, but beware the O(n²) worst case."
     }
   ]
 };

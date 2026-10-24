@@ -121,6 +121,44 @@ export interface HtmlFigureBlock {
   caption?: string;
 }
 
+/** Node of a static tree diagram (reusable <TreeDiagram /> figure) */
+export interface TreeDiagramNodeData {
+  id: string;
+  label: string;
+  /** Explicit center position in diagram units */
+  x: number;
+  y: number;
+  /** Optional per-node radius (default 21) */
+  r?: number;
+  /** Optional short annotation drawn under the label */
+  note?: string;
+}
+
+/** Static tree figure rendered by the shared <TreeDiagram /> component.
+ *  The viewBox is computed from the actual node positions + radii + padding,
+ *  so nodes can never be clipped. */
+export interface TreeDiagramBlock {
+  type: "treeDiagram";
+  nodes: TreeDiagramNodeData[];
+  /** Edges as [fromId, toId] pairs */
+  edges: [string, string][];
+  alt: string;
+  caption?: string;
+  /** Optional max rendered width in px (default 560) */
+  maxWidth?: number;
+  /** Optional free-floating panel labels (e.g. dual-panel figures) */
+  labels?: { text: string; x: number; y: number }[];
+}
+
+/** Pre-formatted ASCII-art diagram rendered as a styled <pre> figure with
+ *  preserved line breaks and horizontal scroll on narrow screens. */
+export interface AsciiBlock {
+  type: "ascii";
+  lines: string[];
+  alt: string;
+  caption?: string;
+}
+
 export type VizKind =
   | "stack"
   | "queue"
@@ -133,7 +171,14 @@ export type VizKind =
   | "terminology"
   | "avlTree"
   | "avlRotations"
-  | "avlInsert";
+  | "avlInsert"
+  | "bstDelete"
+  | "avlCases"
+  | "avlCompare"
+  | "traversalPlayer"
+  | "notationPlayer"
+  | "postfixEval"
+  | "infixPostfix";
 
 export interface VizBlock {
   type: "viz";
@@ -148,7 +193,7 @@ export interface FlashcardsBlock {
 
 export interface QuizRefBlock {
   type: "quiz";
-  /** Title shown above the quiz, e.g. "Topic 3 Quiz — Stacks" */
+  /** Title shown above the quiz, e.g. "Topic 3 Quiz: Stacks" */
   title: string;
   /** Number of questions (for the subtitle) */
   count: number;
@@ -167,6 +212,8 @@ export type Block =
   | AccordionBlock
   | FigureBlock
   | HtmlFigureBlock
+  | TreeDiagramBlock
+  | AsciiBlock
   | VizBlock
   | FlashcardsBlock
   | QuizRefBlock;

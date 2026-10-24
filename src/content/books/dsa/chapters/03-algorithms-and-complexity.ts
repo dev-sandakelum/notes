@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "03-algorithms-and-complexity",
     "number": 3,
-    "title": "Algorithms & Complexity",
+    "title": "Algorithms & complexity",
     "subtitle": "Lecture 10 (Part I) · Algorithms & Sorting techniques",
     "kind": "topic",
     "words": 623,
@@ -43,7 +43,7 @@ const chapter: ChapterData = {
         [
           "4",
           "<b>Finiteness</b>",
-          "Finitely many steps — it must terminate"
+          "Finitely many steps: it must terminate"
         ],
         [
           "5",
@@ -72,8 +72,8 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Space complexity</b> — total memory needed: program instructions, constants, variables (plus recursion stack). E.g. <code>return b*b;</code> needs 2 bytes for <code>b</code> + 2 bytes for the return value = a fixed 4 bytes → <b>constant space complexity</b>.",
-        "<b>Time complexity</b> — computer time to execute. Depends on machine, compiler, algorithm and input; we therefore analyze the <b>number of elementary steps</b> as a function of input size n, and usually report the <b>worst case</b>."
+        "<b>Space complexity</b>: total memory needed: program instructions, constants, variables (plus recursion stack). E.g. <code>return b*b;</code> needs 2 bytes for <code>b</code> + 2 bytes for the return value = a fixed 4 bytes → <b>constant space complexity</b>.",
+        "<b>Time complexity</b>: computer time to execute. Depends on machine, compiler, algorithm and input; we therefore analyze the <b>number of elementary steps</b> as a function of input size n, and usually report the <b>worst case</b>."
       ]
     },
     {
@@ -103,17 +103,17 @@ const chapter: ChapterData = {
         [
           "<b>Big-O &nbsp;O(g(n))</b>",
           "<b>Upper</b>",
-          "Maximum time for all inputs — the <b>worst case</b>. f(n) ≤ c·g(n) for all n ≥ n₀, c &gt; 0"
+          "Maximum time for all inputs: the <b>worst case</b>. f(n) ≤ c·g(n) for all n ≥ n₀, c &gt; 0"
         ],
         [
           "<b>Big-Ω &nbsp;Ω(g(n))</b>",
           "<b>Lower</b>",
-          "Minimum time — the <b>best case</b> lower bound"
+          "Minimum time: the <b>best case</b> lower bound"
         ],
         [
           "<b>Big-Θ &nbsp;Θ(g(n))</b>",
           "<b>Tight</b>",
-          "Both bounds — the <b>average</b> / exact growth rate"
+          "Both bounds: the <b>average</b> / exact growth rate"
         ]
       ],
       "highlightRows": [
@@ -122,14 +122,14 @@ const chapter: ChapterData = {
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">O(1) — constant</div><div class=\"f-b\">Printing <code>arr[0]</code>. Size of input is irrelevant.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(log n) — logarithmic</div><div class=\"f-b\">Binary search. Halving each step.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(n) — linear</div><div class=\"f-b\">One loop printing all n elements.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(n²) — quadratic</div><div class=\"f-b\">Nested loops: all ordered pairs. O(3n²+3n+7) = O(n²).</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(n log n)</div><div class=\"f-b\">Merge sort, quick sort (expected), heap sort.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Balanced tree search</div><div class=\"f-b\">log₂(N+1) levels → O(log n) — vs O(n) for a linked list.</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">O(1): constant</div><div class=\"f-b\">Printing <code>arr[0]</code>. Size of input is irrelevant.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(log n): logarithmic</div><div class=\"f-b\">Binary search. Halving each step.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(n): linear</div><div class=\"f-b\">One loop printing all n elements.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(n²): quadratic</div><div class=\"f-b\">Nested loops: all ordered pairs. O(3n²+3n+7) = O(n²).</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">O(n log n)</div><div class=\"f-b\">Merge sort, quick sort (expected), heap sort.</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Balanced tree search</div><div class=\"f-b\">log₂(N+1) levels → O(log n), vs O(n) for a linked list.</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "counting-steps-a-worked-example",
-      "text": "Counting steps — a worked example"
+      "text": "Counting steps: a worked example"
     },
     {
       "type": "example",
@@ -147,10 +147,10 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Worst case</b> — longest running time for any input of size n; an upper-bound guarantee. Sorting data that is in reverse order.",
-        "<b>Best case</b> — e.g. sorting data that is already sorted.",
-        "<b>Average case</b> — may be difficult to define what “average” means.",
-        "The worst case <i>can occur fairly often</i> — e.g. searching a database for a missing record."
+        "<b>Worst case</b>: longest running time for any input of size n; an upper-bound guarantee. Sorting data that is in reverse order.",
+        "<b>Best case</b>, e.g. sorting data that is already sorted.",
+        "<b>Average case</b>: may be difficult to define what “average” means.",
+        "The worst case <i>can occur fairly often</i>, e.g. searching a database for a missing record."
       ]
     },
     {
@@ -196,7 +196,7 @@ const chapter: ChapterData = {
       "cards": [
         {
           "front": "<span class=\"fc-q\">Big-O describes which case?</span>",
-          "back": "<div class=\"fc-a\">Worst case — the upper bound on running time</div>",
+          "back": "<div class=\"fc-a\">Worst case: the upper bound on running time</div>",
           "category": "Notation"
         },
         {
@@ -206,19 +206,19 @@ const chapter: ChapterData = {
         },
         {
           "front": "<span class=\"fc-q\">Big-Θ means…?</span>",
-          "back": "<div class=\"fc-a\">Tight bound — upper and lower bounds coincide</div>",
+          "back": "<div class=\"fc-a\">Tight bound: upper and lower bounds coincide</div>",
           "category": "Notation"
         },
         {
           "front": "<span class=\"fc-q\">O(3n² + 3n + 7) = ?</span>",
-          "back": "<div class=\"fc-a\">O(n²) — polynomials of the same degree are equivalent</div>",
+          "back": "<div class=\"fc-a\">O(n²): polynomials of the same degree are equivalent</div>",
           "category": "Rule"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 2 Quiz — Algorithms & Complexity",
+      "title": "Topic 2 Quiz: Algorithms & Complexity",
       "count": 8,
       "quizSlug": "03-algorithms-and-complexity"
     }

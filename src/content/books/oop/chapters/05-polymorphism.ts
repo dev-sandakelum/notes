@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Poly-morphism</b> means the ability to have <b>multiple forms (shapes) of the same thing</b>. In Java, polymorphism is <b>the capability of an action or method to do different things based on the object it is acting upon</b>. Inheritance supplies the machinery (subclass objects can stand in for superclass references), and polymorphism supplies the payoff — the same method call produces different behavior depending on the actual object."
+      "html": "<b>Poly-morphism</b> means the ability to have <b>multiple forms (shapes) of the same thing</b>. In Java, polymorphism is <b>the capability of an action or method to do different things based on the object it is acting upon</b>. Inheritance supplies the machinery (subclass objects can stand in for superclass references), and polymorphism supplies the payoff; the same method call produces different behavior depending on the actual object."
     },
     {
       "type": "figure",
@@ -35,11 +35,11 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Method overloading</b> is creating multiple methods with the <b>same name within the same class</b>, as long as they have <b>different parameter lists</b>. It lets one method name serve many contexts, making code more concise and readable — the same idea as constructor overloading. There are exactly <b>three ways</b> to overload:"
+      "html": "<b>Method overloading</b> is creating multiple methods with the <b>same name within the same class</b>, as long as they have <b>different parameter lists</b>. It lets one method name serve many contexts, making code more concise and readable; the same idea as constructor overloading. There are exactly <b>three ways</b> to overload:"
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">1. Different number of arguments</div><div class=\"f-b\"><code class=\"inl\">sum(int a, int b)</code><br><code class=\"inl\">sum(int a, int b, int c)</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">2. Different data types</div><div class=\"f-b\"><code class=\"inl\">sum(int a, int b)</code><br><code class=\"inl\">sum(double a, double b)</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">3. Different sequence of types</div><div class=\"f-b\"><code class=\"inl\">sum(double a, int b)</code><br><code class=\"inl\">sum(int a, double b)</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">NOT by return type</div><div class=\"f-b\">Changing only the return type <b>does not</b> overload a method — it causes ambiguity and won’t compile.</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">1. Different number of arguments</div><div class=\"f-b\"><code class=\"inl\">sum(int a, int b)</code><br><code class=\"inl\">sum(int a, int b, int c)</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">2. Different data types</div><div class=\"f-b\"><code class=\"inl\">sum(int a, int b)</code><br><code class=\"inl\">sum(double a, double b)</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">3. Different sequence of types</div><div class=\"f-b\"><code class=\"inl\">sum(double a, int b)</code><br><code class=\"inl\">sum(int a, double b)</code></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">NOT by return type</div><div class=\"f-b\">Changing only the return type <b>does not</b> overload a method; it causes ambiguity and won’t compile.</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
@@ -53,7 +53,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Which overload runs is decided at <b>compile time</b> from the number and types of the arguments — that is why it is called <i>static</i> or <i>early-bound</i> polymorphism. (Homework thread: <b>type promotion</b> — when no exact match exists, Java promotes smaller types, e.g. <code class=\"inl\">int</code> → <code class=\"inl\">long</code> → <code class=\"inl\">double</code>, to find a compatible overload.)"
+      "html": "Which overload runs is decided at <b>compile time</b> from the number and types of the arguments; that is why it is called <i>static</i> or <i>early-bound</i> polymorphism. (Homework thread: <b>type promotion</b>: when no exact match exists, Java promotes smaller types, e.g. <code class=\"inl\">int</code> → <code class=\"inl\">long</code> → <code class=\"inl\">double</code>, to find a compatible overload.)"
     },
     {
       "type": "heading",
@@ -82,7 +82,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Because any derived class object can be assigned to a base class variable (<code class=\"inl\">Vehicle v = new Car();</code>), Java supports <b>polymorphic behavior</b>: if <code class=\"inl\">Car</code> overrides <code class=\"inl\">start()</code>, then <code class=\"inl\">v.start()</code> calls <b>Car’s version</b> — even though the variable is declared as <code class=\"inl\">Vehicle</code>. The <b>type of the object</b> assigned to the variable determines the method that is called."
+      "html": "Because any derived class object can be assigned to a base class variable (<code class=\"inl\">Vehicle v = new Car();</code>), Java supports <b>polymorphic behavior</b>: if <code class=\"inl\">Car</code> overrides <code class=\"inl\">start()</code>, then <code class=\"inl\">v.start()</code> calls <b>Car’s version</b>: even though the variable is declared as <code class=\"inl\">Vehicle</code>. The <b>type of the object</b> assigned to the variable determines the method that is called."
     },
     {
       "type": "code",
@@ -91,11 +91,11 @@ const chapter: ChapterData = {
         "file": "DynamicBindingDemo.java",
         "tag": "Java"
       },
-      "html": "<code>// Vehicle.start() prints \"Starting ....\"\n// Car.start()    prints \"Car is Starting ....\"\n\nCar c = new Car();\nc.start();        // Car is Starting ....\n\nVehicle v = new Car();\nv.start();        // Car is Starting ....  &lt;-- Car's version, not Vehicle's!</code>"
+      "html": "<code>// Vehicle.start() prints \"Starting ....\"\n// Car.start()    prints \"Car is Starting ....\"\n\nCar c = new Car();\nc.start();        // Car is Starting ....\n\nVehicle v = new Car();\nv.start();        // Car is Starting ....  &lt;-- Car's version, not Vehicle's</code>"
     },
     {
       "type": "paragraph",
-      "html": "When the compiler sees <code class=\"inl\">v.start();</code> it knows <code class=\"inl\">v</code> is of type <code class=\"inl\">Vehicle</code>, but it also knows <code class=\"inl\">v</code> could reference <b>any class derived from Vehicle</b> — so the compiler <b>cannot know</b> which version to call. Only when the assignment <code class=\"inl\">Vehicle v = new Car();</code> executes at <b>runtime</b> is the correct version determined. This is <b>dynamic binding / late binding</b>: deciding at run time which method to invoke. In Java, instance methods are dynamically bound — with a few exceptions: <b>private methods, constructors (&lt;init&gt;), super invocations, and final methods</b>."
+      "html": "When the compiler sees <code class=\"inl\">v.start();</code> it knows <code class=\"inl\">v</code> is of type <code class=\"inl\">Vehicle</code>, but it also knows <code class=\"inl\">v</code> could reference <b>any class derived from Vehicle</b>, so the compiler <b>cannot know</b> which version to call. Only when the assignment <code class=\"inl\">Vehicle v = new Car();</code> executes at <b>runtime</b> is the correct version determined. This is <b>dynamic binding / late binding</b>: deciding at run time which method to invoke. In Java, instance methods are dynamically bound, with a few exceptions: <b>private methods, constructors (&lt;init&gt;), super invocations, and final methods</b>."
     },
     {
       "type": "heading",
@@ -105,7 +105,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Static binding</b> occurs when the compiler can determine the correct version <b>during compile time</b>, before the program runs. All <b>static method calls</b> are resolved at compile time, and — a favourite exam fact — <b>member variables also have static binding</b>, because Java does not support dynamic binding for fields:"
+      "html": "<b>Static binding</b> occurs when the compiler can determine the correct version <b>during compile time</b>, before the program runs. All <b>static method calls</b> are resolved at compile time, and, a favourite exam fact. <b>member variables also have static binding</b>, because Java does not support dynamic binding for fields:"
     },
     {
       "type": "code",
@@ -114,7 +114,7 @@ const chapter: ChapterData = {
         "file": "FieldBinding.java",
         "tag": "Java"
       },
-      "html": "<code>// Vehicle declares:  String color = \"White\";\n// Car declares:       String color = \"Red\";\n\nCar c = new Car();\nSystem.out.println(c.color);     // Red   (c is declared as Car)\n\nVehicle v = new Car();           // the object is still a Car...\nSystem.out.println(v.color);     // White &lt;-- but fields bind to the REFERENCE type!\n</code>"
+      "html": "<code>// Vehicle declares:  String color = \"White\";\n// Car declares:       String color = \"Red\";\n\nCar c = new Car();\nSystem.out.println(c.color);     // Red   (c is declared as Car)\n\nVehicle v = new Car();           // the object is still a Car...\nSystem.out.println(v.color);     // White &lt;-- but fields bind to the REFERENCE type\n</code>"
     },
     {
       "type": "paragraph",
@@ -159,14 +159,14 @@ const chapter: ChapterData = {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set E — polymorphism ▾",
-          "html": "<ol>\n        <li>Define polymorphism in one sentence.</li>\n        <li>Name the two types of polymorphism in Java, their alternative names, and which mechanism implements each.</li>\n        <li>List the three valid ways to overload a method and the one invalid way.</li>\n        <li>For <code class=\"inl\">Vehicle v = new Car();</code> — which version of <code class=\"inl\">start()</code> runs and why?</li>\n        <li>Which four kinds of methods are NOT dynamically bound?</li>\n        <li>If both Vehicle and Car declare a field <code class=\"inl\">color</code>, what does <code class=\"inl\">v.color</code> print after <code class=\"inl\">Vehicle v = new Car();</code>? Why?</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>The capability of a method/action to do different things based on the object it acts upon (many forms of the same thing).</li>\n          <li>Compile-time (static, early binding) = method overloading; run-time (dynamic, late binding) = method overriding.</li>\n          <li>Change the number of arguments / the data types / the sequence of data types. Invalid: changing only the return type.</li>\n          <li>Car's version — the type of the object assigned to the variable determines the method called (dynamic binding).</li>\n          <li>private methods, constructors (&lt;init&gt;), super invocations, final methods.</li>\n          <li>Vehicle's value (\"White\") — member variables use static binding: the reference (declared) type decides at compile time.</li>\n        </ol>\n      </div>"
+          "title": "Exercise set E: polymorphism",
+          "html": "<ol>\n        <li>Define polymorphism in one sentence.</li>\n        <li>Name the two types of polymorphism in Java, their alternative names, and which mechanism implements each.</li>\n        <li>List the three valid ways to overload a method and the one invalid way.</li>\n        <li>For <code class=\"inl\">Vehicle v = new Car();</code>: which version of <code class=\"inl\">start()</code> runs and why?</li>\n        <li>Which four kinds of methods are NOT dynamically bound?</li>\n        <li>If both Vehicle and Car declare a field <code class=\"inl\">color</code>, what does <code class=\"inl\">v.color</code> print after <code class=\"inl\">Vehicle v = new Car();</code>? Why?</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>The capability of a method/action to do different things based on the object it acts upon (many forms of the same thing).</li>\n          <li>Compile-time (static, early binding) = method overloading; run-time (dynamic, late binding) = method overriding.</li>\n          <li>Change the number of arguments / the data types / the sequence of data types. Invalid: changing only the return type.</li>\n          <li>Car's version: the type of the object assigned to the variable determines the method called (dynamic binding).</li>\n          <li>private methods, constructors (&lt;init&gt;), super invocations, final methods.</li>\n          <li>Vehicle's value (\"White\"): member variables use static binding: the reference (declared) type decides at compile time.</li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 5 Quiz — Polymorphism",
+      "title": "Topic 5 Quiz: Polymorphism",
       "count": 7,
       "quizSlug": "05-polymorphism"
     }

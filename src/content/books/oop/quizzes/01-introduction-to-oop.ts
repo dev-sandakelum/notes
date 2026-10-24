@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "01-introduction-to-oop",
-  "title": "Topic 1 Quiz — Introduction to OOP",
+  "title": "Topic 1 Quiz: Introduction to OOP",
   "questions": [
     {
       "prompt": "1. Object-oriented programming is best described as…",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q1c\" value=\"3\">A special kind of variable"
       ],
       "answer": 0,
-      "explanation": "\"A class is the blueprint from which individual objects are created\" — objects are instances of a class."
+      "explanation": "\"A class is the blueprint from which individual objects are created\", objects are instances of a class."
     },
     {
       "prompt": "4. Which is NOT one of the three characteristics of an object?",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q1f\" value=\"3\">The exact algorithm of manipulation"
       ],
       "answer": 2,
-      "explanation": "OO focuses on data and not on function — the exact mechanism of manipulation is not the primary focus."
+      "explanation": "OO focuses on data and not on function; the exact mechanism of manipulation is not the primary focus."
     },
     {
       "prompt": "7. Instantiation is…",

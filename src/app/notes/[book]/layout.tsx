@@ -1,56 +1,52 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getBook } from "@/content";
 import { ChapterNav } from "@/components/book/chapter-nav";
+import { Topbar } from "@/components/book/topbar";
 import { ReadingProgress } from "@/components/book/reading-progress";
-import { ThemeToggle } from "@/components/book/theme-toggle";
 
-/** Per-book accent color (F12): sidebar chips, progress bars, heading rules. */
-const BOOK_ACCENTS: Record<string, string> = {
-  dsa: "#0d9488", // teal
-  oop: "#7c3aed", // violet
-  ood: "#ea580c", // orange
-  mis: "#0891b2", // cyan
-  econ: "#e11d48", // rose
-  maths: "#d97706", // amber
-};
-
+/**
+ * Book shell — two siblings on desktop:
+ *
+ *   ┌─ <ChapterNav> (sticky aside, full viewport height, internal scroll) ─┐
+ *   │  All books › <book code>                                              │
+ *   │  <book title>                                                         │
+ *   │  0 of 15 read  ▓░░░░░                                                  │
+ *   │  ─── Chapters ───                                                      │
+ *   │  1 Introduction                                                        │
+ *   │  2 Stacks                       (active chapter highlighted)           │
+ *   │  ...                                                                    │
+ *   └────────────────────────────────────────────────────────────────────────┘
+ *   ┌─ <main column> ──────────────────────────────────────────────────────┐
+ *   │  <Topbar> Note Gallery / ICT2113 / Chapter 1   <ReadingProgress> ────│
+ *   │  <children/>                                                          │
+ *   └────────────────────────────────────────────────────────────────────────┘
+ *
+ * On mobile the aside collapses to a Sheet slide-over drawer opened from a
+ * menu button inside the topbar. The topbar never overlaps the sidebar
+ * because they live in separate grid tracks.
+ */
 export default async function BookLayout({
   children,
   params,
 }: {
-  children: ReactNode;
   params: Promise<{ book: string }>;
+  children: ReactNode;
 }) {
   const { book: bookSlug } = await params;
   const book = getBook(bookSlug);
   if (!book) notFound();
 
-  const accentStyle = {
-    "--accent": BOOK_ACCENTS[book.slug] ?? "#0d9488",
-  } as CSSProperties;
-
   return (
-    <div className="min-h-screen bg-paper" style={accentStyle}>
+    <div className="min-h-screen bg-paper">
+      {/* Sidebar column: sticky full-height, internal scroll.
+          Sibling of the main column — never nested inside the topbar. */}
+      <ChapterNav book={book} />
+
+      {/* Main column — left-padded on desktop to clear the fixed sidebar,
+          full-width on mobile. */}
       <div className="lg:pl-72">
-        <header className="sticky top-0 z-40 border-b border-hairline bg-paper no-print">
-          <div className="flex h-14 items-center gap-3 px-4 lg:px-8">
-            {/* renders the desktop fixed sidebar + the mobile menu trigger */}
-            <ChapterNav book={book} />
-            <div className="min-w-0 flex-1">
-              <p className="flex items-center gap-1.5 font-mono text-caption text-ink-faint">
-                <Link href="/" className="transition-colors hover:text-ink">
-                  Note Gallery
-                </Link>
-                <span aria-hidden>/</span>
-                <span className="text-ink-muted">{book.code}</span>
-              </p>
-            </div>
-            <ThemeToggle />
-          </div>
-          <ReadingProgress />
-        </header>
+        <Topbar book={book} />
         {children}
       </div>
     </div>

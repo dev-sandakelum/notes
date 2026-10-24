@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "04-indices-and-logarithms",
-  "title": "Topic 4 Quiz — Indices & Logarithms",
+  "title": "Topic 4 Quiz: Indices & Logarithms",
   "questions": [
     {
       "prompt": "1. Simplify <span class=\"m\">2³ × 2⁴</span>.",

@@ -45,7 +45,7 @@ export function Flashcards({ cards }: FlashcardsProps) {
           type="button"
           onClick={resetAll}
           disabled={flipped.every((f) => !f)}
-          className="inline-flex min-h-[36px] items-center gap-1.5 rounded-md border border-hairline bg-paper-raised px-3 py-1.5 text-caption font-medium text-ink hover:border-hairline-strong disabled:cursor-not-allowed disabled:opacity-50"
+          className="chip"
         >
           <RotateCw className="size-3.5" aria-hidden="true" />
           Reset all
@@ -74,7 +74,7 @@ export function Flashcards({ cards }: FlashcardsProps) {
                   {/* Front */}
                   <div
                     aria-hidden={faceUp}
-                    className="absolute inset-0 flex flex-col rounded-md border border-hairline bg-paper-raised p-4 text-left [backface-visibility:hidden] hover:border-hairline-strong"
+                    className="absolute inset-0 flex flex-col rounded-xl border border-hairline bg-paper-raised p-4 text-left shadow-card [backface-visibility:hidden] hover:border-hairline-strong"
                   >
                     {card.category && (
                       <span className="shrink-0 self-start rounded-full border border-hairline bg-paper-sunken px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-wider text-ink-muted">
@@ -97,7 +97,7 @@ export function Flashcards({ cards }: FlashcardsProps) {
                   {/* Back (pre-rotated 180deg) */}
                   <div
                     aria-hidden={!faceUp}
-                    className="absolute inset-0 flex flex-col rounded-md border border-hairline bg-paper-sunken p-4 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] hover:border-hairline-strong"
+                    className="absolute inset-0 flex flex-col rounded-xl border border-hairline bg-paper-sunken p-4 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] hover:border-hairline-strong"
                   >
                     <span className="shrink-0 font-mono text-[0.6875rem] uppercase tracking-wider text-ink-faint">
                       Answer

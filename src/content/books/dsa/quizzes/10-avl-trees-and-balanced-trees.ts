@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "10-avl-trees-and-balanced-trees",
-  "title": "Topic 9 Quiz — AVL Trees",
+  "title": "Topic 9 Quiz: AVL Trees",
   "questions": [
     {
       "prompt": "1. An AVL tree is a…",
@@ -43,7 +43,7 @@ const quiz: QuizData = {
         "Single right rotation",
         "Single left rotation",
         "No rotation needed",
-        "LR — left rotation on the child, then right rotation on the node"
+        "LR: left rotation on the child, then right rotation on the node"
       ],
       "answer": 3,
       "explanation": "Right-of-Left = LR case: first rotate the child left (making it LL), then rotate the node right."
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "Black → Red"
       ],
       "answer": 0,
-      "explanation": "Children of a red node must be black — no two consecutive red nodes."
+      "explanation": "Children of a red node must be black, no two consecutive red nodes."
     },
     {
       "prompt": "8. Inserting 1, 2, 3, 4 into an empty AVL tree leaves which node as the root?",
@@ -128,10 +128,10 @@ const quiz: QuizData = {
     {
       "prompt": "A node has BF = +2 and its left child has BF = −1. Which case is this?",
       "options": [
-        "LL — single right rotation",
-        "LR — left then right rotation",
-        "RR — single left rotation",
-        "RL — right then left rotation"
+        "LL: single right rotation",
+        "LR: left then right rotation",
+        "RR: single left rotation",
+        "RL: right then left rotation"
       ],
       "answer": 1,
       "explanation": "BF = +2 with a left child of BF = −1 is a zig-zag = LR case. Fix the bend first (left-rotate the left child), then right-rotate the unbalanced node."
@@ -142,16 +142,16 @@ const quiz: QuizData = {
         "It uses less memory",
         "It sorts data faster",
         "It needs no height information",
-        "Guaranteed O(log n) search — never degenerates"
+        "Guaranteed O(log n) search: never degenerates"
       ],
       "answer": 3,
-      "explanation": "Balancing keeps the height ≈ 1.44·log n, so search / insert / delete are guaranteed O(log n) — unlike a normal BST whose worst case is O(n)."
+      "explanation": "Balancing keeps the height ≈ 1.44·log n, so search / insert / delete are guaranteed O(log n), unlike a normal BST whose worst case is O(n)."
     },
     {
       "prompt": "When inserting, a new node is first colored…",
       "options": [
-        "RED — it may only break the red-red rule locally",
-        "BLACK — to keep paths equal",
+        "RED: it may only break the red-red rule locally",
+        "BLACK: to keep paths equal",
         "Randomly RED or BLACK",
         "The same color as its parent"
       ],
@@ -161,10 +161,10 @@ const quiz: QuizData = {
     {
       "prompt": "Which rule does a RED node with a RED child violate?",
       "options": [
-        "Rule 2 — root is black",
-        "Rule 3 — NILs are black",
-        "Rule 4 — no red-red pair",
-        "Rule 5 — equal black counts"
+        "Rule 2: root is black",
+        "Rule 3: NILs are black",
+        "Rule 4: no red-red pair",
+        "Rule 5: equal black counts"
       ],
       "answer": 2,
       "explanation": "Rule 4: a RED node can never have a RED child. This, combined with equal black counts (Rule 5), bounds the height at 2·log n."
@@ -178,18 +178,18 @@ const quiz: QuizData = {
         "Make the whole tree black"
       ],
       "answer": 1,
-      "explanation": "RED uncle → RECOLOR: parent & uncle become BLACK, grandparent becomes RED, then continue checking from the grandparent. No rotation needed!"
+      "explanation": "RED uncle → RECOLOR: parent & uncle become BLACK, grandparent becomes RED, then continue checking from the grandparent. No rotation needed."
     },
     {
       "prompt": "A red-red violation occurs and the uncle is BLACK (or NIL). The fix is…",
       "options": [
-        "Recolor only — same as red uncle",
+        "Recolor only: same as red uncle",
         "Move the node to the root",
         "Rotate (LL/RR/LR/RL) + recolor",
         "Rebuild the whole tree"
       ],
       "answer": 2,
-      "explanation": "BLACK uncle → rotate (LL/RR single, LR/RL double) + recolor. Unlike recoloring, a rotation fix ends the fix-up immediately — no cascade."
+      "explanation": "BLACK uncle → rotate (LL/RR single, LR/RL double) + recolor. Unlike recoloring, a rotation fix ends the fix-up immediately, no cascade."
     },
     {
       "prompt": "In a Red-Black tree, the longest root→leaf path is at most…",
@@ -211,7 +211,7 @@ const quiz: QuizData = {
         "They were replaced by arrays"
       ],
       "answer": 1,
-      "explanation": "Red-Black trees power C++ std::map/set, Java TreeMap/TreeSet, and the Linux kernel (e.g., the CFS scheduler) — chosen for reliably fast insert/delete."
+      "explanation": "Red-Black trees power C++ std::map/set, Java TreeMap/TreeSet, and the Linux kernel (e.g., the CFS scheduler): chosen for reliably fast insert/delete."
     }
   ]
 };

@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "03-modelling-concepts-and-uml",
-  "title": "Topic 3 Quiz — Modelling & UML",
+  "title": "Topic 3 Quiz: Modelling & UML",
   "questions": [
     {
       "prompt": "1. What is the difference between a model and a diagram?",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Sequence diagram"
       ],
       "answer": 3,
-      "explanation": "Sequence diagrams show the order of interactions between objects over time — exactly \"step by step collaboration\"."
+      "explanation": "Sequence diagrams show the order of interactions between objects over time, exactly \"step by step collaboration\"."
     },
     {
       "prompt": "5. Which is <b>NOT</b> one of the general rules of modeling given in the lecture?",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "State machine diagram"
       ],
       "answer": 2,
-      "explanation": "Use a Class Diagram when you want to show what the system is made of and how its elements are related — e.g. Patient → books → Appointment, Doctor → has → Appointments."
+      "explanation": "Use a Class Diagram when you want to show what the system is made of and how its elements are related, e.g. Patient → books → Appointment, Doctor → has → Appointments."
     }
   ]
 };

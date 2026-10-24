@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "At the supply intercept"
       ],
       "answer": 1,
-      "explanation": "A ceiling above equilibrium does nothing — the market just clears at the lower equilibrium price."
+      "explanation": "A ceiling above equilibrium does nothing; the market just clears at the lower equilibrium price."
     },
     {
       "prompt": "2. A binding minimum price in a market creates:",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "Above the demand curve"
       ],
       "answer": 0,
-      "explanation": "CS = what consumers were willing to pay minus what they paid — the triangle under D and above P."
+      "explanation": "CS = what consumers were willing to pay minus what they paid; the triangle under D and above P."
     },
     {
       "prompt": "4. Qd = 720 − 4P and Qs = −120 + 2P. The equilibrium price is:",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Perfectly vertical"
       ],
       "answer": 1,
-      "explanation": "A tax raises the cost of supplying each unit — supply shifts up by the tax."
+      "explanation": "A tax raises the cost of supplying each unit, supply shifts up by the tax."
     },
     {
       "prompt": "6. Qd = 200 − 10P, Qs = −100 + 20P, tax = Rs. 3. Government tax revenue is:",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Monopoly pricing"
       ],
       "answer": 2,
-      "explanation": "Buffer stocks buy in good harvests and release in bad ones — short-term, requires storability, agriculture."
+      "explanation": "Buffer stocks buy in good harvests and release in bad ones, short-term, requires storability, agriculture."
     }
   ]
 };

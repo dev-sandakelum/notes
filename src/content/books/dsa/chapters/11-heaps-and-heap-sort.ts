@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "11-heaps-and-heap-sort",
     "number": 11,
-    "title": "Heaps & Heap Sort",
+    "title": "Heaps & heap sort",
     "subtitle": "Lecture 15 · Heap & Heap sort",
     "kind": "topic",
     "words": 786,
@@ -21,7 +21,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Definition",
-      "html": "A heap is a <b>binary tree ADT</b> with two special properties: <b>1) Shape</b> — it must be a <b>complete binary tree</b> (all levels full except possibly the last, which is filled <b>strictly left to right</b>); <b>2) Order</b> — every parent is ≤ all of its children (<b>min-heap</b>) or ≥ all of its children (<b>max-heap</b>)."
+      "html": "A heap is a <b>binary tree ADT</b> with two special properties: <b>1) Shape</b>: it must be a <b>complete binary tree</b> (all levels full except possibly the last, which is filled <b>strictly left to right</b>); <b>2) Order</b>: every parent is ≤ all of its children (<b>min-heap</b>) or ≥ all of its children (<b>max-heap</b>)."
     },
     {
       "type": "table",
@@ -47,10 +47,44 @@ const chapter: ChapterData = {
       ]
     },
     {
-      "type": "figure",
-      "svg": "<svg class=\"treesvg\" viewBox=\"0 0 540 230\" width=\"540\" role=\"img\" aria-label=\"Max heap and min heap\">\n      <line class=\"edge\" x1=\"130\" y1=\"44\" x2=\"70\" y2=\"104\"></line>\n      <line class=\"edge\" x1=\"130\" y1=\"44\" x2=\"190\" y2=\"104\"></line>\n      <line class=\"edge\" x1=\"70\" y1=\"104\" x2=\"40\" y2=\"164\"></line>\n      <line class=\"edge\" x1=\"70\" y1=\"104\" x2=\"100\" y2=\"164\"></line>\n      <line class=\"edge\" x1=\"190\" y1=\"104\" x2=\"160\" y2=\"164\"></line>\n      <line class=\"edge\" x1=\"190\" y1=\"104\" x2=\"220\" y2=\"164\"></line>\n      <circle class=\"vtx\" cx=\"130\" cy=\"44\" r=\"23\"></circle><text class=\"vlbl\" x=\"130\" y=\"44\">58</text>\n      <circle class=\"vtx\" cx=\"70\" cy=\"104\" r=\"23\"></circle><text class=\"vlbl\" x=\"70\" y=\"104\">31</text>\n      <circle class=\"vtx\" cx=\"190\" cy=\"104\" r=\"23\"></circle><text class=\"vlbl\" x=\"190\" y=\"104\">40</text>\n      <circle class=\"vtx\" cx=\"40\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"40\" y=\"164\">13</text>\n      <circle class=\"vtx\" cx=\"100\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"100\" y=\"164\">25</text>\n      <circle class=\"vtx\" cx=\"160\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"160\" y=\"164\">9</text>\n      <circle class=\"vtx\" cx=\"220\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"220\" y=\"164\">3</text>\n      <line class=\"edge\" x1=\"400\" y1=\"44\" x2=\"340\" y2=\"104\"></line>\n      <line class=\"edge\" x1=\"400\" y1=\"44\" x2=\"460\" y2=\"104\"></line>\n      <line class=\"edge\" x1=\"340\" y1=\"104\" x2=\"310\" y2=\"164\"></line>\n      <line class=\"edge\" x1=\"340\" y1=\"104\" x2=\"370\" y2=\"164\"></line>\n      <line class=\"edge\" x1=\"460\" y1=\"104\" x2=\"430\" y2=\"164\"></line>\n      <line class=\"edge\" x1=\"460\" y1=\"104\" x2=\"490\" y2=\"164\"></line>\n      <circle class=\"vtx\" cx=\"400\" cy=\"44\" r=\"23\"></circle><text class=\"vlbl\" x=\"400\" y=\"44\">5</text>\n      <circle class=\"vtx\" cx=\"340\" cy=\"104\" r=\"23\"></circle><text class=\"vlbl\" x=\"340\" y=\"104\">13</text>\n      <circle class=\"vtx\" cx=\"460\" cy=\"104\" r=\"23\"></circle><text class=\"vlbl\" x=\"460\" y=\"104\">12</text>\n      <circle class=\"vtx\" cx=\"310\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"310\" y=\"164\">20</text>\n      <circle class=\"vtx\" cx=\"370\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"370\" y=\"164\">25</text>\n      <circle class=\"vtx\" cx=\"430\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"430\" y=\"164\">16</text>\n      <circle class=\"vtx\" cx=\"490\" cy=\"164\" r=\"22\"></circle><text class=\"vlbl\" x=\"490\" y=\"164\">19</text>\n      <text x=\"130\" y=\"215\" style=\"font-size:12px;font-weight:800;fill:var(--muted)\" text-anchor=\"middle\">MAX-HEAP</text>\n      <text x=\"400\" y=\"215\" style=\"font-size:12px;font-weight:800;fill:var(--muted)\" text-anchor=\"middle\">MIN-HEAP</text>\n    </svg>",
+      "type": "treeDiagram",
       "alt": "Max heap and min heap",
-      "caption": "58 ≥ 31, 40 ≥ 13, 25, 9, 3 everywhere ✓ · 5 ≤ 13, 12 ≤ 20, 25, 16, 19 everywhere ✓"
+      "caption": "58 ≥ 31, 40 ≥ 13, 25, 9, 3 everywhere ✓ · 5 ≤ 13, 12 ≤ 20, 25, 16, 19 everywhere ✓",
+      "labels": [
+        { "text": "MAX-HEAP", "x": 130, "y": 215 },
+        { "text": "MIN-HEAP", "x": 400, "y": 215 }
+      ],
+      "maxWidth": 540,
+      "nodes": [
+        { "id": "n0", "label": "58", "x": 130, "y": 44, "r": 23 },
+        { "id": "n1", "label": "31", "x": 70, "y": 104, "r": 23 },
+        { "id": "n2", "label": "40", "x": 190, "y": 104, "r": 23 },
+        { "id": "n3", "label": "13", "x": 40, "y": 164, "r": 22 },
+        { "id": "n4", "label": "25", "x": 100, "y": 164, "r": 22 },
+        { "id": "n5", "label": "9", "x": 160, "y": 164, "r": 22 },
+        { "id": "n6", "label": "3", "x": 220, "y": 164, "r": 22 },
+        { "id": "n7", "label": "5", "x": 400, "y": 44, "r": 23 },
+        { "id": "n8", "label": "13", "x": 340, "y": 104, "r": 23 },
+        { "id": "n9", "label": "12", "x": 460, "y": 104, "r": 23 },
+        { "id": "n10", "label": "20", "x": 310, "y": 164, "r": 22 },
+        { "id": "n11", "label": "25", "x": 370, "y": 164, "r": 22 },
+        { "id": "n12", "label": "16", "x": 430, "y": 164, "r": 22 },
+        { "id": "n13", "label": "19", "x": 490, "y": 164, "r": 22 }
+      ],
+      "edges": [
+        ["n0", "n1"],
+        ["n0", "n2"],
+        ["n1", "n3"],
+        ["n1", "n4"],
+        ["n2", "n5"],
+        ["n2", "n6"],
+        ["n7", "n8"],
+        ["n7", "n9"],
+        ["n8", "n10"],
+        ["n8", "n11"],
+        ["n9", "n12"],
+        ["n9", "n13"]
+      ]
     },
     {
       "type": "heading",
@@ -62,7 +96,7 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Duplicates are allowed</b> — no restriction against them.",
+        "<b>Duplicates are allowed</b>: no restriction against them.",
         "A heap does <b>NOT</b> follow BST rules: the left child does not have to be smaller than the right child.",
         "Only the <b>parent-vs-children</b> ordering matters; ordering between siblings is irrelevant.",
         "A tree that is complete but violates order is <b>not</b> a heap; a heap-shaped tree that is not complete is not a heap either."
@@ -78,22 +112,22 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Insertion (growing)</b> — a new node can only be added at the <b>left-most available spot at the lowest level</b>; then bubble it up (swap with parent) if the order property is violated. After inserting 85 under a max-heap, sifting up restores the heap.",
-        "<b>Deletion (shrinking)</b> — heaps normally remove the <b>root</b> (the largest/smallest value). Move the <b>last node</b> to the root, then <b>sift down</b>.",
-        "<b>Find max/min</b> — it is always at the root: O(1)."
+        "<b>Insertion (growing)</b>: a new node can only be added at the <b>left-most available spot at the lowest level</b>; then bubble it up (swap with parent) if the order property is violated. After inserting 85 under a max-heap, sifting up restores the heap.",
+        "<b>Deletion (shrinking)</b>: heaps normally remove the <b>root</b> (the largest/smallest value). Move the <b>last node</b> to the root, then <b>sift down</b>.",
+        "<b>Find max/min</b>: it is always at the root: O(1)."
       ]
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "array-implementation-the-index-formulas",
-      "text": "Array implementation — the index formulas"
+      "text": "Array implementation: the index formulas"
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"cells\">\n      <div class=\"cell\"><span class=\"idx\">0</span>80</div>\n      <div class=\"cell\"><span class=\"idx\">1</span>18</div>\n      <div class=\"cell\"><span class=\"idx\">2</span>40</div>\n      <div class=\"cell\"><span class=\"idx\">3</span>13</div>\n      <div class=\"cell\"><span class=\"idx\">4</span>5</div>\n      <div class=\"cell\"><span class=\"idx\">5</span>25</div>\n      <div class=\"cell\"><span class=\"idx\">6</span>1</div>\n      <div class=\"cell\"><span class=\"idx\">7</span>2</div>\n      <div class=\"cell\"><span class=\"idx\">8</span>9</div>\n    </div>\n    <div class=\"dia-cap\">A max-heap stored as an array — 80's children live at 2(0)+1 = 1 and 2(0)+2 = 2</div>",
-      "alt": "A max-heap stored as an array — 80's children live at 2(0)+1 = 1 and 2(0)+2 = 2",
-      "caption": "A max-heap stored as an array — 80's children live at 2(0)+1 = 1 and 2(0)+2 = 2"
+      "html": "<div class=\"cells\">\n      <div class=\"cell\"><span class=\"idx\">0</span>80</div>\n      <div class=\"cell\"><span class=\"idx\">1</span>18</div>\n      <div class=\"cell\"><span class=\"idx\">2</span>40</div>\n      <div class=\"cell\"><span class=\"idx\">3</span>13</div>\n      <div class=\"cell\"><span class=\"idx\">4</span>5</div>\n      <div class=\"cell\"><span class=\"idx\">5</span>25</div>\n      <div class=\"cell\"><span class=\"idx\">6</span>1</div>\n      <div class=\"cell\"><span class=\"idx\">7</span>2</div>\n      <div class=\"cell\"><span class=\"idx\">8</span>9</div>\n    </div>\n    <div class=\"dia-cap\">A max-heap stored as an array: 80's children live at 2(0)+1 = 1 and 2(0)+2 = 2</div>",
+      "alt": "A max-heap stored as an array: 80's children live at 2(0)+1 = 1 and 2(0)+2 = 2",
+      "caption": "A max-heap stored as an array: 80's children live at 2(0)+1 = 1 and 2(0)+2 = 2"
     },
     {
       "type": "htmlFigure",
@@ -104,11 +138,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "heapify-build-heap-heap-sort",
-      "text": "Heapify, Build-Heap, Heap Sort"
+      "text": "Heapify, build-heap, heap sort"
     },
     {
       "type": "paragraph",
-      "html": "<b>Heapify(A, i)</b> — assume both subtrees of i are already heaps; pick the <b>largest child</b>, compare with the parent, swap if needed, and recurse: this “sift-down” makes i's subtree a heap."
+      "html": "<b>Heapify(A, i)</b>: assume both subtrees of i are already heaps; pick the <b>largest child</b>, compare with the parent, swap if needed, and recurse: this “sift-down” makes i's subtree a heap."
     },
     {
       "type": "code",
@@ -131,7 +165,7 @@ const chapter: ChapterData = {
       "type": "example",
       "title": "Heap sort on [19, 12, 16, 4, 1, 7] (from the built heap)",
       "bodyHtml": "",
-      "solutionHtml": "<p>1. Swap root 19 with last (7) → sorted {19} · heap [7,12,16,4,1] → heapify ⇒ [16,12,7,4,1].<br>\n      2. Swap 16 with last (1) → sorted {16,19} · heap [1,12,7,4] ⇒ [12,4,7,1] after heapify (swap 1↔12, then 1↔4… actually 12's children 4,7: 7 &gt; 4 ⇒ [12,4,7,1]→heapify root: 12 stays).<br>\n      3. Swap 12 with last (1) → sorted {12,16,19} · [1,4,7] ⇒ heapify ⇒ [7,4,1].<br>\n      4. Swap 7 with 1 ⇒ [4,1] heapify ⇒ [4,1]. Swap 4 with 1 ⇒ [1] ⇒ done.<br>\n      <b>Final sorted: 1, 4, 7, 12, 16, 19</b> — each extraction moves the current maximum to the end of the shrinking heap.</p>"
+      "solutionHtml": "<p>1. Swap root 19 with last (7) → sorted {19} · heap [7,12,16,4,1] → heapify ⇒ [16,12,7,4,1].<br>\n      2. Swap 16 with last (1) → sorted {16,19} · heap [1,12,7,4] ⇒ [12,4,7,1] after heapify (swap 1↔12, then 1↔4… actually 12's children 4,7: 7 &gt; 4 ⇒ [12,4,7,1]→heapify root: 12 stays).<br>\n      3. Swap 12 with last (1) → sorted {12,16,19} · [1,4,7] ⇒ heapify ⇒ [7,4,1].<br>\n      4. Swap 7 with 1 ⇒ [4,1] heapify ⇒ [4,1]. Swap 4 with 1 ⇒ [1] ⇒ done.<br>\n      <b>Final sorted: 1, 4, 7, 12, 16, 19</b>, each extraction moves the current maximum to the end of the shrinking heap.</p>"
     },
     {
       "type": "heading",
@@ -145,7 +179,7 @@ const chapter: ChapterData = {
       "items": [
         "Finding the <b>smallest/largest</b> element quickly; order statistics.",
         "Implementing <b>priority queues</b> (used inside graph algorithms).",
-        "Beating quick sort's worst case O(n²) — heap sort keeps O(n log n).",
+        "Beating quick sort's worst case O(n²), heap sort keeps O(n log n).",
         "Interval scheduling (maximize tasks with start/finish times); security &amp; embedded systems (Linux kernel)."
       ]
     },
@@ -154,7 +188,7 @@ const chapter: ChapterData = {
       "cards": [
         {
           "front": "<span class=\"fc-q\">A heap must be a ______ binary tree</span>",
-          "back": "<div class=\"fc-a\">Complete — full levels, last level filled left to right</div>",
+          "back": "<div class=\"fc-a\">Complete: full levels, last level filled left to right</div>",
           "category": "Shape"
         },
         {
@@ -176,7 +210,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 10 Quiz — Heaps & Heap Sort",
+      "title": "Topic 10 Quiz: Heaps & Heap Sort",
       "count": 8,
       "quizSlug": "11-heaps-and-heap-sort"
     }

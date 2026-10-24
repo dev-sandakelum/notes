@@ -4,8 +4,8 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "01-ooad-basic-concepts",
     "number": 1,
-    "title": "OOAD Basic Concepts",
-    "subtitle": "Week 1 · Object Oriented Analysis and Design — Basic Concepts + Activity 1",
+    "title": "OOAD basic concepts",
+    "subtitle": "Week 1 · Object Oriented Analysis and Design: Basic Concepts + Activity 1",
     "kind": "topic",
     "words": 2682,
     "minutes": 13
@@ -15,11 +15,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-1-where-analysis-and-design-fit-the-sdlc",
-      "text": "1.1 Where analysis and design fit: the SDLC"
+      "text": "1.1 where analysis and design fit: the SDLC"
     },
     {
       "type": "paragraph",
-      "html": "Before understanding Object-Oriented Analysis and Design, you need to understand where analysis and design fit into software development. A typical software development process moves through six phases, and modern development is often <b>iterative</b> — analysis, design, development and testing may happen repeatedly rather than once in a strict sequence."
+      "html": "Before understanding Object-Oriented Analysis and Design, you need to understand where analysis and design fit into software development. A typical software development process moves through six phases, and modern development is often <b>iterative</b>, analysis, design, development and testing may happen repeatedly rather than once in a strict sequence."
     },
     {
       "type": "htmlFigure",
@@ -70,17 +70,17 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-2-what-is-object-orientation",
-      "text": "1.2 What is Object Orientation?"
+      "text": "1.2 what is object orientation?"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Definition — exam version",
+      "title": "Definition: exam version",
       "html": "<b>Object Orientation (OO)</b> is a way of viewing a system as a set of <b>interacting and interrelated objects</b>, with each object <b>encapsulating its data and behavior</b>."
     },
     {
       "type": "paragraph",
-      "html": "Instead of asking only \"What functions should the program perform?\", OO also asks: <b>\"What objects exist in this system, what do they know, what can they do, and how do they interact?\"</b> In an object-oriented system, software is organized around objects: objects contain data, objects provide behavior, and objects interact with other objects. Objects may represent real-world entities, concepts, or software responsibilities — for example, in a Library Management System we may identify the objects <code>Book</code>, <code>Member</code>, <code>Librarian</code> and <code>Loan</code>."
+      "html": "Instead of asking only \"What functions should the program perform?\", OO also asks: <b>\"What objects exist in this system, what do they know, what can they do, and how do they interact?\"</b> In an object-oriented system, software is organized around objects: objects contain data, objects provide behavior, and objects interact with other objects. Objects may represent real-world entities, concepts, or software responsibilities, for example, in a Library Management System we may identify the objects <code>Book</code>, <code>Member</code>, <code>Librarian</code> and <code>Loan</code>."
     },
     {
       "type": "heading",
@@ -90,7 +90,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "An object is a relatively self-contained software component that (1) <b>has its own data</b> — e.g. a <code>Book</code> knows its title, author, ISBN and availability; (2) <b>has its own functionality</b> — e.g. <code>checkAvailability()</code> and <code>reserve()</code>; and (3) <b>interacts with other objects</b> — e.g. <code>Member → borrows → Book</code>. Because responsibilities are organized into objects, components can potentially be <b>reused</b>, <b>modified</b>, <b>replaced</b> and <b>tested independently</b>."
+      "html": "An object is a relatively self-contained software component that (1) <b>has its own data</b>, e.g. a <code>Book</code> knows its title, author, ISBN and availability; (2) <b>has its own functionality</b>, e.g. <code>checkAvailability()</code> and <code>reserve()</code>; and (3) <b>interacts with other objects</b>, e.g. <code>Member → borrows → Book</code>. Because responsibilities are organized into objects, components can potentially be <b>reused</b>, <b>modified</b>, <b>replaced</b> and <b>tested independently</b>."
     },
     {
       "type": "callout",
@@ -123,19 +123,19 @@ const chapter: ChapterData = {
       ],
       "rows": [
         [
-          "<b>OOA</b> — Object-Oriented Analysis",
+          "<b>OOA</b>: Object-Oriented Analysis",
           "What exists in the problem domain?",
-          "Identify objects, concepts, classes, relationships, requirements — from the perspective of the problem domain.",
+          "Identify objects, concepts, classes, relationships, requirements, from the perspective of the problem domain.",
           "Identify Book, Member, Librarian, Loan, Library"
         ],
         [
-          "<b>OOD</b> — Object-Oriented Design",
+          "<b>OOD</b>: Object-Oriented Design",
           "How should the software objects work together?",
           "Determine software classes, attributes, methods, relationships, object interactions, responsibilities.",
           "Book class with title/author/ISBN + checkAvailability() / reserve()"
         ],
         [
-          "<b>OOP</b> — Object-Oriented Programming",
+          "<b>OOP</b>: Object-Oriented Programming",
           "How do we implement the design?",
           "Implementation of the designed objects using a programming language.",
           "Code the classes in Java, C#, C++, Python, Kotlin, Swift or TypeScript"
@@ -152,11 +152,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-4-traditional-vs-object-oriented-development",
-      "text": "1.4 Traditional vs object-oriented development"
+      "text": "1.4 traditional vs object-oriented development"
     },
     {
       "type": "paragraph",
-      "html": "In a traditional (procedural) approach, we think primarily about <b>functions and data separately</b>. In OO development, we keep the <b>data and the behavior that operates on that data together</b> within appropriate objects/classes — this is the essence of encapsulation."
+      "html": "In a traditional (procedural) approach, we think primarily about <b>functions and data separately</b>. In OO development, we keep the <b>data and the behavior that operates on that data together</b> within appropriate objects/classes; this is the essence of encapsulation."
     },
     {
       "type": "table",
@@ -179,7 +179,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-5-why-object-orientation-8-benefits",
-      "text": "1.5 Why object orientation? — 8 benefits"
+      "text": "1.5 why object orientation?: 8 benefits"
     },
     {
       "type": "htmlFigure",
@@ -196,7 +196,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-6-objects-attributes-methods-state-and-behavior",
-      "text": "1.6 Objects, attributes, methods, state and behavior"
+      "text": "1.6 objects, attributes, methods, state and behavior"
     },
     {
       "type": "paragraph",
@@ -206,10 +206,10 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Attribute</b> — a piece of data or property of an object; attributes <b>describe the state</b> of an object. Different objects of the same class can have different attribute values (Car&nbsp;1: colour = Red, model = Toyota; Car&nbsp;2: colour = Blue, model = Honda).",
-        "<b>Method</b> — what an object can do; a method implements some behavior of the object.",
-        "<b>State</b> — what the object is/knows at a particular time, represented by attributes (e.g. colour = Red, manufacturer = Toyota, cost = 8,000,000).",
-        "<b>Behavior</b> — what the object can do, represented by methods (e.g. <code>drive()</code>, <code>stop()</code>, <code>openDoor()</code>)."
+        "<b>Attribute</b>: a piece of data or property of an object; attributes <b>describe the state</b> of an object. Different objects of the same class can have different attribute values (Car&nbsp;1: colour = Red, model = Toyota; Car&nbsp;2: colour = Blue, model = Honda).",
+        "<b>Method</b>: what an object can do; a method implements some behavior of the object.",
+        "<b>State</b>: what the object is/knows at a particular time, represented by attributes (e.g. colour = Red, manufacturer = Toyota, cost = 8,000,000).",
+        "<b>Behavior</b>: what the object can do, represented by methods (e.g. <code>drive()</code>, <code>stop()</code>, <code>openDoor()</code>)."
       ]
     },
     {
@@ -247,13 +247,13 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-7-classes-objects-and-instances",
-      "text": "1.7 Classes, objects and instances"
+      "text": "1.7 classes, objects and instances"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Definition — class",
-      "html": "A <b>class</b> is a template/blueprint that describes a group of similar objects — their shared <b>attributes</b>, <b>methods</b>, <b>relationships</b> and <b>common behavior</b>. A class does not represent one particular object; it describes what every object of that type should contain and be able to do."
+      "title": "Definition: class",
+      "html": "A <b>class</b> is a template/blueprint that describes a group of similar objects, their shared <b>attributes</b>, <b>methods</b>, <b>relationships</b> and <b>common behavior</b>. A class does not represent one particular object; it describes what every object of that type should contain and be able to do."
     },
     {
       "type": "htmlFigure",
@@ -264,41 +264,41 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "class-vs-object-the-house-analogy",
-      "text": "Class vs object — the house analogy"
+      "text": "Class vs object: the house analogy"
     },
     {
       "type": "paragraph",
-      "html": "<b>House blueprint = class. Actual house = object.</b> The class is the plan; the object is a real instance built from that plan. From one <code>Employee</code> class we can create many objects — <code>employee1</code> (John), <code>employee2</code> (Jane), <code>employee3</code> (Mark) — all belonging to the Employee class but holding different values."
+      "html": "<b>House blueprint = class. Actual house = object.</b> The class is the plan; the object is a real instance built from that plan. From one <code>Employee</code> class we can create many objects. <code>employee1</code> (John), <code>employee2</code> (Jane), <code>employee3</code> (Mark), all belonging to the Employee class but holding different values."
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Definition — instance",
-      "html": "An <b>instance</b> is a particular object created from a class — \"a single person, thing or concept in the application domain\" and another word for a single object. Each instance has <b>its own state</b>. Example: Peter (name = Peter, age = 15) is an instance of the <code>Student</code> class."
+      "title": "Definition: instance",
+      "html": "An <b>instance</b> is a particular object created from a class, \"a single person, thing or concept in the application domain\" and another word for a single object. Each instance has <b>its own state</b>. Example: Peter (name = Peter, age = 15) is an instance of the <code>Student</code> class."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "1-8-message-passing",
-      "text": "1.8 Message passing"
+      "text": "1.8 message passing"
     },
     {
       "type": "paragraph",
-      "html": "Objects need to communicate with one another — this communication is called <b>message passing</b>. A <b>message</b> is essentially a request to an object to perform some operation, e.g. <code>Customer → placeOrder() → OrderService</code>. The receiving object executes the appropriate method. Analogy: a person says \"Prepare the soup\" — the chef receives the request and performs <code>prepareSoup()</code>. Message = \"Prepare soup\", method = <code>prepareSoup()</code>."
+      "html": "Objects need to communicate with one another; this communication is called <b>message passing</b>. A <b>message</b> is essentially a request to an object to perform some operation, e.g. <code>Customer → placeOrder() → OrderService</code>. The receiving object executes the appropriate method. Analogy: a person says \"Prepare the soup\"; the chef receives the request and performs <code>prepareSoup()</code>. Message = \"Prepare soup\", method = <code>prepareSoup()</code>."
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "how-message-passing-works-three-steps",
-      "text": "How message passing works — three steps"
+      "text": "How message passing works: three steps"
     },
     {
       "type": "list",
       "ordered": true,
       "items": [
-        "<b>Sender</b> — one object sends a message.",
-        "<b>Receiver</b> — another object receives the message.",
-        "<b>Method execution</b> — the receiver executes the corresponding method; a result may then be returned."
+        "<b>Sender</b>: one object sends a message.",
+        "<b>Receiver</b>: another object receives the message.",
+        "<b>Method execution</b>: the receiver executes the corresponding method; a result may then be returned."
       ]
     },
     {
@@ -346,21 +346,21 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-9-method-signature",
-      "text": "1.9 Method signature"
+      "text": "1.9 method signature"
     },
     {
       "type": "paragraph",
-      "html": "A method has a <b>signature</b> that identifies the operation — the combination of the <b>method name</b> and the <b>parameter list</b>. For <code>getMyFundsFromBank(String bankName)</code> the signature is <code>getMyFundsFromBank(String)</code>. Exact rules for what constitutes a signature vary between programming languages, but the core idea is always name + parameters."
+      "html": "A method has a <b>signature</b> that identifies the operation; the combination of the <b>method name</b> and the <b>parameter list</b>. For <code>getMyFundsFromBank(String bankName)</code> the signature is <code>getMyFundsFromBank(String)</code>. Exact rules for what constitutes a signature vary between programming languages, but the core idea is always name + parameters."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "1-10-the-four-pillars-of-object-orientation",
-      "text": "1.10 The four pillars of object orientation"
+      "text": "1.10 the four pillars of object orientation"
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 1</div><div class=\"f-b\"><b>Abstraction</b> — focus on what, hide the how</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 2</div><div class=\"f-b\"><b>Encapsulation</b> — package data + behavior, control access</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 3</div><div class=\"f-b\"><b>Inheritance</b> — share and reuse via is-a hierarchies</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 4</div><div class=\"f-b\"><b>Polymorphism</b> — same operation, many forms</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 1</div><div class=\"f-b\"><b>Abstraction</b>, focus on what, hide the how</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 2</div><div class=\"f-b\"><b>Encapsulation</b>, package data + behavior, control access</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 3</div><div class=\"f-b\"><b>Inheritance</b>, share and reuse via is-a hierarchies</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Pillar 4</div><div class=\"f-b\"><b>Polymorphism</b>, same operation, many forms</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
@@ -377,14 +377,14 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Map example:</b> a map is an abstraction — a road map shows roads, cities, routes and distances, while a geological map of the same area shows rock types, geological structures and boundaries. The same geographical area is represented differently depending on what information is important.",
+        "<b>Map example:</b> a map is an abstraction, a road map shows roads, cities, routes and distances, while a geological map of the same area shows rock types, geological structures and boundaries. The same geographical area is represented differently depending on what information is important.",
         "<b>Smartphone call example:</b> the user sees only <code>[ Accept ] [ Reject ]</code>. They do not need to know how the network identifies the phone, how signalling works, how audio packets are transmitted, or how the OS manages the call. The complexity is hidden and the user interacts with a simple interface."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Definition — abstraction",
+      "title": "Definition: abstraction",
       "html": "Abstraction <b>hides unnecessary complexity and exposes the essential functionality</b>."
     },
     {
@@ -395,7 +395,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Encapsulation</b> means packaging the data and the operations that work on that data together inside an object/class, and controlling access to the object's internal state. Outside code should not normally manipulate internal data directly — instead, controlled operations enforce the rules."
+      "html": "<b>Encapsulation</b> means packaging the data and the operations that work on that data together inside an object/class, and controlling access to the object's internal state. Outside code should not normally manipulate internal data directly, instead, controlled operations enforce the rules."
     },
     {
       "type": "htmlFigure",
@@ -418,8 +418,8 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "exam",
-      "title": "Exam classic — Encapsulation vs Abstraction",
-      "html": "<b>Encapsulation</b>: \"How do we <b>package and protect</b> the data and implementation?\" (balance is protected from direct access).<br>\n    <b>Abstraction</b>: \"What should we <b>expose</b> and what unnecessary complexity should we <b>hide</b>?\" (the user only needs to know deposit/withdraw/getBalance — not how the bank internally updates the balance).<br>\n    Definitions to memorize: <b>Encapsulation</b> = separating an object's external interface from its hidden internal implementation. <b>Abstraction</b> = hiding unnecessary complexity and exposing essential functionality."
+      "title": "Exam classic: encapsulation vs abstraction",
+      "html": "<b>Encapsulation</b>: \"How do we <b>package and protect</b> the data and implementation?\" (balance is protected from direct access).<br>\n    <b>Abstraction</b>: \"What should we <b>expose</b> and what unnecessary complexity should we <b>hide</b>?\" (the user only needs to know deposit/withdraw/getBalance, not how the bank internally updates the balance).<br>\n    Definitions to memorize: <b>Encapsulation</b> = separating an object's external interface from its hidden internal implementation. <b>Abstraction</b> = hiding unnecessary complexity and exposing essential functionality."
     },
     {
       "type": "heading",
@@ -444,7 +444,7 @@ const chapter: ChapterData = {
     {
       "type": "callout",
       "variant": "warn",
-      "title": "Caution — when to use inheritance",
+      "title": "Caution: when to use inheritance",
       "html": "Inheritance is useful when there is a genuine <b>\"is-a\"</b> relationship (a Car <b>is a</b> Vehicle). Modern OO design often prefers <b>composition over inheritance</b> when appropriate, because excessive inheritance can create rigid class hierarchies."
     },
     {
@@ -469,7 +469,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "1-11-cohesion",
-      "text": "1.11 Cohesion"
+      "text": "1.11 cohesion"
     },
     {
       "type": "paragraph",
@@ -483,8 +483,8 @@ const chapter: ChapterData = {
       ],
       "rows": [
         [
-          "<b>EmailService</b>: <code>validateEmail()</code>, <code>sendEmail()</code>, <code>formatEmail()</code> — all operations are related to one clear purpose.<br><br><b>StudentService</b>: <code>registerStudent()</code>, <code>updateStudent()</code>, <code>removeStudent()</code>.",
-          "<b>UserManager</b>: <code>createUser()</code>, <code>deleteUser()</code>, <code>validateEmail()</code>, <code>sendWelcomeEmail()</code>, <code>generateReport()</code>, <code>printReport()</code>, <code>calculateTax()</code>, <code>playMusic()</code> — too many unrelated things.<br><small>Fix: split into UserService, EmailService, ReportService, TaxService, MusicService.</small>"
+          "<b>EmailService</b>: <code>validateEmail()</code>, <code>sendEmail()</code>, <code>formatEmail()</code>: all operations are related to one clear purpose.<br><br><b>StudentService</b>: <code>registerStudent()</code>, <code>updateStudent()</code>, <code>removeStudent()</code>.",
+          "<b>UserManager</b>: <code>createUser()</code>, <code>deleteUser()</code>, <code>validateEmail()</code>, <code>sendWelcomeEmail()</code>, <code>generateReport()</code>, <code>printReport()</code>, <code>calculateTax()</code>, <code>playMusic()</code>, too many unrelated things.<br><small>Fix: split into UserService, EmailService, ReportService, TaxService, MusicService.</small>"
         ]
       ]
     },
@@ -492,24 +492,24 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "exam",
       "title": "Quick test for any exam scenario",
-      "html": "Ask: <b>\"Does this class have one clear purpose?\"</b> If <b>YES → high cohesion</b>. If <b>NO → low cohesion</b> — split the class into focused services."
+      "html": "Ask: <b>\"Does this class have one clear purpose?\"</b> If <b>YES → high cohesion</b>. If <b>NO → low cohesion</b>: split the class into focused services."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "1-12-coupling",
-      "text": "1.12 Coupling"
+      "text": "1.12 coupling"
     },
     {
       "type": "paragraph",
-      "html": "<b>Coupling</b> refers to the <b>degree of dependency between software modules/classes</b> — the strength of the connections <b>between</b> classes. If two classes depend heavily on each other → high coupling. If they are relatively independent → low coupling."
+      "html": "<b>Coupling</b> refers to the <b>degree of dependency between software modules/classes</b>; the strength of the connections <b>between</b> classes. If two classes depend heavily on each other → high coupling. If they are relatively independent → low coupling."
     },
     {
       "type": "list",
       "ordered": false,
       "items": [
         "<b>High coupling:</b> a chain <code>A → B → C → D</code> where changing Class B requires changes in A, C and D. The system becomes difficult to maintain, test, modify, and more vulnerable to changes.",
-        "<b>Low (loose) coupling:</b> classes depend on an <b>abstraction/interface</b> rather than a specific implementation. If <code>Order</code> depends directly on <code>MySQLDatabase</code>, switching to MongoDB forces changes to Order (high coupling). Instead, let Order depend on a <code>Database</code> interface implemented by both MySQLDatabase and MongoDatabase — the Order class doesn't care which database is used."
+        "<b>Low (loose) coupling:</b> classes depend on an <b>abstraction/interface</b> rather than a specific implementation. If <code>Order</code> depends directly on <code>MySQLDatabase</code>, switching to MongoDB forces changes to Order (high coupling). Instead, let Order depend on a <code>Database</code> interface implemented by both MySQLDatabase and MongoDatabase; the Order class doesn't care which database is used."
       ]
     },
     {
@@ -552,23 +552,23 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "exam",
       "title": "Golden rule",
-      "html": "<b>High Cohesion + Low Coupling = Good OO Design</b> — memorize this formula; it appears in nearly every OOD exam."
+      "html": "<b>High Cohesion + Low Coupling = Good OO Design</b>, memorize this formula; it appears in nearly every OOD exam."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "1-13-worked-example-smart-parking-system-activity-1",
-      "text": "1.13 Worked example — Smart Parking System (Activity 1)"
+      "text": "1.13 worked example. smart parking system (activity 1)"
     },
     {
       "type": "example",
-      "title": "Worked example — apply all Week-1 concepts",
-      "bodyHtml": "<p><i>A smart parking system manages parking spaces in a shopping mall. When a vehicle enters, the system assigns an available parking slot. When the vehicle leaves, the system calculates the parking fee based on the duration. The system supports Cars, Bikes and Trucks.</i></p>\n    <p><b>Part A — Identify at least 7 classes; B — 3 attributes each; C — 2 methods each; D — inheritance hierarchy; E — encapsulation choices; F — polymorphism; G — high cohesion class; H — reduce coupling.</b></p>",
-      "solutionHtml": "<p><b>A + B + C — Classes with attributes and methods:</b></p>\n      <ul>\n        <li><code>ParkingSystem</code> — attrs: mallName, totalSlots, operatingHours; methods: assignSlot(), releaseSlot()</li>\n        <li><code>ParkingSlot</code> — attrs: slotID, slotType, isOccupied; methods: occupy(), vacate()</li>\n        <li><code>Vehicle</code> — attrs: vehicleNumber, vehicleType, entryTime; methods: getDuration(), getVehicleType()</li>\n        <li><code>Car</code> / <code>Bike</code> / <code>Truck</code> (subclasses of Vehicle)</li>\n        <li><code>Ticket</code> — attrs: ticketID, issueTime, exitTime; methods: calculateDuration(), printTicket()</li>\n        <li><code>Payment</code> — attrs: amount, paymentMethod, timestamp; methods: processPayment(), printReceipt()</li>\n        <li><code>FeeCalculator</code> — attrs: hourlyRateCar, hourlyRateBike, hourlyRateTruck; methods: calculateFee()</li>\n        <li><code>Driver</code> — attrs: name, licenceNo; methods: parkVehicle(), collectVehicle()</li>\n      </ul>\n      <p><b>D — Inheritance:</b> <code>Vehicle</code> is the parent; <code>Car</code>, <code>Bike</code>, <code>Truck</code> are children (each <i>is-a</i> Vehicle and inherits vehicleNumber, entryTime, getDuration()).</p>\n      <p><b>E — Encapsulation:</b> make <code>ParkingSlot.isOccupied</code> and <code>Payment.amount</code> private. Hiding <code>isOccupied</code> prevents outside code from marking a free slot as occupied without going through <code>assignSlot()</code> — the system keeps slot allocation consistent. Access is controlled via <code>occupy()</code>/<code>vacate()</code> and <code>processPayment()</code>, which can validate rules (e.g. payment only after exit time is known).</p>\n      <p><b>F — Polymorphism:</b> <code>calculateFee()</code> (or <code>calculateParkingFee()</code>) should behave differently for Car, Bike and Truck — same method name, different fee logic per vehicle type; the caller just calls <code>vehicle.calculateParkingFee()</code>.</p>\n      <p><b>G — Cohesion:</b> <code>FeeCalculator</code> has high cohesion — every method and attribute is about computing fees; it has one clear purpose.</p>\n      <p><b>H — Coupling:</b> if <code>ParkingSystem</code> directly constructs and calls a specific <code>CashPaymentProcessor</code>, replacing it with card payment requires editing ParkingSystem (unnecessary dependency). Reduce it by making ParkingSystem depend on a general <code>Payment</code> interface — the payment method becomes swappable.</p>"
+      "title": "Worked example: apply all week-1 concepts",
+      "bodyHtml": "<p><i>A smart parking system manages parking spaces in a shopping mall. When a vehicle enters, the system assigns an available parking slot. When the vehicle leaves, the system calculates the parking fee based on the duration. The system supports Cars, Bikes and Trucks.</i></p>\n    <p><b>Part A. Identify at least 7 classes; B: 3 attributes each; C: 2 methods each; D: inheritance hierarchy; E: encapsulation choices; F: polymorphism; G: high cohesion class; H: reduce coupling.</b></p>",
+      "solutionHtml": "<p><b>A + B + C. Classes with attributes and methods:</b></p>\n      <ul>\n        <li><code>ParkingSystem</code>: attrs: mallName, totalSlots, operatingHours; methods: assignSlot(), releaseSlot()</li>\n        <li><code>ParkingSlot</code>: attrs: slotID, slotType, isOccupied; methods: occupy(), vacate()</li>\n        <li><code>Vehicle</code>: attrs: vehicleNumber, vehicleType, entryTime; methods: getDuration(), getVehicleType()</li>\n        <li><code>Car</code> / <code>Bike</code> / <code>Truck</code> (subclasses of Vehicle)</li>\n        <li><code>Ticket</code>, attrs: ticketID, issueTime, exitTime; methods: calculateDuration(), printTicket()</li>\n        <li><code>Payment</code>: attrs: amount, paymentMethod, timestamp; methods: processPayment(), printReceipt()</li>\n        <li><code>FeeCalculator</code>: attrs: hourlyRateCar, hourlyRateBike, hourlyRateTruck; methods: calculateFee()</li>\n        <li><code>Driver</code>: attrs: name, licenceNo; methods: parkVehicle(), collectVehicle()</li>\n      </ul>\n      <p><b>D. Inheritance:</b> <code>Vehicle</code> is the parent; <code>Car</code>, <code>Bike</code>, <code>Truck</code> are children (each <i>is-a</i> Vehicle and inherits vehicleNumber, entryTime, getDuration()).</p>\n      <p><b>E. Encapsulation:</b> make <code>ParkingSlot.isOccupied</code> and <code>Payment.amount</code> private. Hiding <code>isOccupied</code> prevents outside code from marking a free slot as occupied without going through <code>assignSlot()</code>; the system keeps slot allocation consistent. Access is controlled via <code>occupy()</code>/<code>vacate()</code> and <code>processPayment()</code>, which can validate rules (e.g. payment only after exit time is known).</p>\n      <p><b>F. Polymorphism:</b> <code>calculateFee()</code> (or <code>calculateParkingFee()</code>) should behave differently for Car, Bike and Truck, same method name, different fee logic per vehicle type; the caller just calls <code>vehicle.calculateParkingFee()</code>.</p>\n      <p><b>G. Cohesion:</b> <code>FeeCalculator</code> has high cohesion: every method and attribute is about computing fees; it has one clear purpose.</p>\n      <p><b>H. Coupling:</b> if <code>ParkingSystem</code> directly constructs and calls a specific <code>CashPaymentProcessor</code>, replacing it with card payment requires editing ParkingSystem (unnecessary dependency). Reduce it by making ParkingSystem depend on a general <code>Payment</code> interface; the payment method becomes swappable.</p>"
     },
     {
       "type": "quiz",
-      "title": "Topic 1 Quiz — OOAD Basic Concepts",
+      "title": "Topic 1 Quiz: OOAD Basic Concepts",
       "count": 8,
       "quizSlug": "01-ooad-basic-concepts"
     }

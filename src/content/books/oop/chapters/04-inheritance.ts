@@ -25,20 +25,20 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "A derived class <b>automatically takes on all the behavior and attributes</b> of its base class — fields, methods, and nested classes are inherited.",
+        "A derived class <b>automatically takes on all the behavior and attributes</b> of its base class, fields, methods, and nested classes are inherited.",
         "A derived class can <b>add features</b> (its own methods and fields) and can also <b>change behavior</b> provided by the base class (overriding).",
-        "Inheritance is best used to implement <b>is-a</b> relationships — a Car <i>is a</i> Vehicle. This is why inheritance is sometimes referred to as <b>specialization</b>."
+        "Inheritance is best used to implement <b>is-a</b> relationships, a Car <i>is a</i> Vehicle. This is why inheritance is sometimes referred to as <b>specialization</b>."
       ]
     },
     {
       "type": "paragraph",
-      "html": "The <b>direct superclass</b> is the class the subclass explicitly extends; an <b>indirect superclass</b> is any class above it in the hierarchy. The Java class hierarchy begins with class <b><code class=\"inl\">Object</code></b> (in <code class=\"inl\">java.lang</code>) — <b>every class in Java directly or indirectly extends Object</b>. Java supports only <b>single inheritance</b> of classes: each class has exactly <b>one direct superclass</b>."
+      "html": "The <b>direct superclass</b> is the class the subclass explicitly extends; an <b>indirect superclass</b> is any class above it in the hierarchy. The Java class hierarchy begins with class <b><code class=\"inl\">Object</code></b> (in <code class=\"inl\">java.lang</code>). <b>every class in Java directly or indirectly extends Object</b>. Java supports only <b>single inheritance</b> of classes: each class has exactly <b>one direct superclass</b>."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "creating-subclasses-the-vehicle-car-example",
-      "text": "Creating subclasses — the Vehicle/Car example"
+      "text": "Creating subclasses: the vehicle/car example"
     },
     {
       "type": "code",
@@ -86,7 +86,7 @@ const chapter: ChapterData = {
       "rows": [
         [
           "<code class=\"inl\">public</code>",
-          "Yes — visible everywhere"
+          "Yes: visible everywhere"
         ],
         [
           "<code class=\"inl\">protected</code>",
@@ -98,7 +98,7 @@ const chapter: ChapterData = {
         ],
         [
           "<code class=\"inl\">private</code>",
-          "No — not even to subclasses; only inside Vehicle itself"
+          "No: not even to subclasses; only inside Vehicle itself"
         ]
       ]
     },
@@ -106,7 +106,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "warn",
       "title": "Key nuance",
-      "html": "Private members are still <b>inherited</b> (they exist inside the subclass object) but they are <b>not directly accessible</b> from subclass code — you need public/protected accessors to reach them."
+      "html": "Private members are still <b>inherited</b> (they exist inside the subclass object) but they are <b>not directly accessible</b> from subclass code, you need public/protected accessors to reach them."
     },
     {
       "type": "heading",
@@ -124,7 +124,7 @@ const chapter: ChapterData = {
       "type": "figure",
       "svg": "<svg class=\"fig sm\" viewBox=\"0 0 340 210\" role=\"img\" aria-label=\"Diamond problem\">\n    <rect x=\"120\" y=\"20\" width=\"100\" height=\"34\" rx=\"8\" class=\"boxp\"></rect><text x=\"170\" y=\"42\" text-anchor=\"middle\" class=\"lbl\">A</text>\n    <rect x=\"30\" y=\"95\" width=\"100\" height=\"34\" rx=\"8\" class=\"box\"></rect><text x=\"80\" y=\"117\" text-anchor=\"middle\">B</text>\n    <rect x=\"210\" y=\"95\" width=\"100\" height=\"34\" rx=\"8\" class=\"box\"></rect><text x=\"240\" y=\"117\" text-anchor=\"middle\">C</text>\n    <rect x=\"120\" y=\"170\" width=\"100\" height=\"34\" rx=\"8\" class=\"boxa\"></rect><text x=\"170\" y=\"192\" text-anchor=\"middle\">D ?</text>\n    <path d=\"M80 95 L140 54\" class=\"ln\"></path><polygon points=\"140,54 130,58 137,66\" fill=\"var(--axis)\"></polygon>\n    <path d=\"M240 95 L200 54\" class=\"ln\"></path><polygon points=\"200,54 203,66 210,58\" fill=\"var(--axis)\"></polygon>\n    <path d=\"M100 129 L130 170\" class=\"dashed\"></path><path d=\"M220 129 L195 170\" class=\"dashed\"></path>\n    <text x=\"170\" y=\"150\" text-anchor=\"middle\" fill=\"var(--danger)\" font-size=\"11\">which copy of A's members does D get?</text>\n  </svg>",
       "alt": "Diamond problem",
-      "caption": "The diamond problem — why Java refuses class D extends B, C. The workaround: interfaces (Topic 8)."
+      "caption": "The diamond problem: why Java refuses class D extends B, C. The workaround: interfaces (Topic 8)."
     },
     {
       "type": "heading",
@@ -140,8 +140,8 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Return type</b> — an overriding method may return a <b>covariant return type</b> (a subclass of the original return type).",
-        "<b>Access modifier</b> — the overriding method can allow <b>more, but not less</b>, access than the overridden method. A <code class=\"inl\">protected</code> superclass method can be made <code class=\"inl\">public</code> in the subclass (✓) but not <code class=\"inl\">private</code> (✗)."
+        "<b>Return type</b>: an overriding method may return a <b>covariant return type</b> (a subclass of the original return type).",
+        "<b>Access modifier</b>: the overriding method can allow <b>more, but not less</b>, access than the overridden method. A <code class=\"inl\">protected</code> superclass method can be made <code class=\"inl\">public</code> in the subclass (✓) but not <code class=\"inl\">private</code> (✗)."
       ]
     },
     {
@@ -161,7 +161,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "If a subclass defines a <b>static</b> method with the same signature as a static method in the superclass, the subclass method <b>hides</b> the superclass one (it does not override it). Similarly, a field with the same name as a superclass field <b>hides</b> it — even if their types differ — and the superclass field must be reached through <code class=\"inl\">super</code>. Hiding fields is generally <b>not recommended</b> because it makes code difficult to read."
+      "html": "If a subclass defines a <b>static</b> method with the same signature as a static method in the superclass, the subclass method <b>hides</b> the superclass one (it does not override it). Similarly, a field with the same name as a superclass field <b>hides</b> it, even if their types differ, and the superclass field must be reached through <code class=\"inl\">super</code>. Hiding fields is generally <b>not recommended</b> because it makes code difficult to read."
     },
     {
       "type": "table",
@@ -213,7 +213,7 @@ const chapter: ChapterData = {
       "type": "code",
       "language": "java",
       "header": {
-        "file": "Using super — fields and methods",
+        "file": "Using super: fields and methods",
         "tag": "Java"
       },
       "html": "<code>// In Vehicle:  public String color = \"White\";\n\npublic void printColor()          // inside Car\n{\n    color = \"Red\";                                   // this.color (Car's copy)\n    System.out.println(\"Car color : \" + color);\n    System.out.println(\"Vehicle color : \" + super.color);   // parent's field\n}</code>"
@@ -226,7 +226,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Instantiating a subclass object <b>begins a chain of constructor calls</b>. The subclass constructor, before performing its own tasks, explicitly uses <code class=\"inl\">super</code> to call one of its direct superclass constructors — or <b>implicitly calls the superclass’s default (no-arg) constructor</b>. Each superclass constructor in turn calls the one above it, and <b>the last constructor called in the chain is always Object’s constructor</b>. The original subclass constructor’s body finishes executing <b>last</b>."
+      "html": "Instantiating a subclass object <b>begins a chain of constructor calls</b>. The subclass constructor, before performing its own tasks, explicitly uses <code class=\"inl\">super</code> to call one of its direct superclass constructors, or <b>implicitly calls the superclass’s default (no-arg) constructor</b>. Each superclass constructor in turn calls the one above it, and <b>the last constructor called in the chain is always Object’s constructor</b>. The original subclass constructor’s body finishes executing <b>last</b>."
     },
     {
       "type": "code",
@@ -241,13 +241,13 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "exam",
       "title": "Things to remember about super()",
-      "html": "1. The <code class=\"inl\">super()</code> call must be the <b>very first statement</b> in the constructor. &nbsp;2. If you don’t explicitly call <code class=\"inl\">super</code>, the compiler inserts a call to the <b>default constructor of the base class</b> — so the base class <b>must have</b> a default constructor, otherwise the program <b>refuses to compile</b>. &nbsp;3. The chaining continues all the way up to <code class=\"inl\">Object</code>, which has no superclass."
+      "html": "1. The <code class=\"inl\">super()</code> call must be the <b>very first statement</b> in the constructor. &nbsp;2. If you don’t explicitly call <code class=\"inl\">super</code>, the compiler inserts a call to the <b>default constructor of the base class</b>, so the base class <b>must have</b> a default constructor, otherwise the program <b>refuses to compile</b>. &nbsp;3. The chaining continues all the way up to <code class=\"inl\">Object</code>, which has no superclass."
     },
     {
       "type": "example",
-      "title": "Worked example — with and without super",
-      "bodyHtml": "<div class=\"cb\">\n      <div class=\"cb-head\"><span>BoxWeight.java — WITHOUT super (won't compile)</span><span class=\"lang\">Java</span></div>\n      <pre class=\"code\"><code>public class BoxWeight extends Box\n{\n    double weight;\n\n    BoxWeight(double w, double h, double d, double m)\n    {\n        width = w;      // compiler still inserts super() as first statement —\n        height = h;     // but Box has NO default constructor (only Box(w,h,d))\n        depth = d;      // =&gt; compile error!\n        weight = m;\n    }\n}</code></pre>\n    </div>\n    <div class=\"cb\">\n      <div class=\"cb-head\"><span>BoxWeight.java — WITH super (correct)</span><span class=\"lang\">Java</span></div>\n      <pre class=\"code\"><code>public class BoxWeight extends Box\n{\n    double weight;\n\n    BoxWeight(double w, double h, double d, double m)\n    {\n        super(w, h, d);     // calls Box(double, double, double) — first statement\n        weight = m;\n    }\n}</code></pre>\n    </div>",
-      "solutionHtml": "<p>Because <code class=\"inl\">Box</code> defines only a parameterized constructor, it has <b>no default constructor</b>. The first version fails: Java silently inserts <code class=\"inl\">super()</code> before <code class=\"inl\">width = w;</code>, and there is no <code class=\"inl\">Box()</code> to call. The second version explicitly calls <code class=\"inl\">super(w, h, d)</code>, reusing the parent’s initialization logic — cleaner and it compiles.</p>"
+      "title": "Worked example: with and without super",
+      "bodyHtml": "<div class=\"cb\">\n      <div class=\"cb-head\"><span>BoxWeight.java. WITHOUT super (won't compile)</span><span class=\"lang\">Java</span></div>\n      <pre class=\"code\"><code>public class BoxWeight extends Box\n{\n    double weight;\n\n    BoxWeight(double w, double h, double d, double m)\n    {\n        width = w;      // compiler still inserts super() as first statement, \n        height = h;     // but Box has NO default constructor (only Box(w,h,d))\n        depth = d;      // =&gt; compile error\n        weight = m;\n    }\n}</code></pre>\n    </div>\n    <div class=\"cb\">\n      <div class=\"cb-head\"><span>BoxWeight.java. WITH super (correct)</span><span class=\"lang\">Java</span></div>\n      <pre class=\"code\"><code>public class BoxWeight extends Box\n{\n    double weight;\n\n    BoxWeight(double w, double h, double d, double m)\n    {\n        super(w, h, d);     // calls Box(double, double, double): first statement\n        weight = m;\n    }\n}</code></pre>\n    </div>",
+      "solutionHtml": "<p>Because <code class=\"inl\">Box</code> defines only a parameterized constructor, it has <b>no default constructor</b>. The first version fails: Java silently inserts <code class=\"inl\">super()</code> before <code class=\"inl\">width = w;</code>, and there is no <code class=\"inl\">Box()</code> to call. The second version explicitly calls <code class=\"inl\">super(w, h, d)</code>, reusing the parent’s initialization logic, cleaner and it compiles.</p>"
     },
     {
       "type": "heading",
@@ -265,7 +265,7 @@ const chapter: ChapterData = {
       "rows": [
         [
           "<b>variable</b>",
-          "A <b>constant</b> — value cannot change after initialization",
+          "A <b>constant</b>: value cannot change after initialization",
           "<code class=\"inl\">final double PI = 3.14;</code>"
         ],
         [
@@ -294,8 +294,8 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Implicit casting (upcasting)</b> — subclass to superclass, done automatically:\n      <code class=\"inl\">Object obj = new Car();</code> (Object is an indirect superclass) or <code class=\"inl\">Vehicle v = new Car();</code> (direct superclass).",
-        "<b>Explicit casting (downcasting)</b> — superclass to subclass, requires the parentheses syntax:\n      <code class=\"inl\">Car myCar = obj;</code> → compile-time error; <code class=\"inl\">Car myCar = (Car) obj;</code> → OK."
+        "<b>Implicit casting (upcasting)</b>: subclass to superclass, done automatically:\n      <code class=\"inl\">Object obj = new Car();</code> (Object is an indirect superclass) or <code class=\"inl\">Vehicle v = new Car();</code> (direct superclass).",
+        "<b>Explicit casting (downcasting)</b>: superclass to subclass, requires the parentheses syntax:\n      <code class=\"inl\">Car myCar = obj;</code> → compile-time error; <code class=\"inl\">Car myCar = (Car) obj;</code> → OK."
       ]
     },
     {
@@ -315,14 +315,14 @@ const chapter: ChapterData = {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set D — inheritance ▾",
-          "html": "<ol>\n        <li>Define subclass and superclass, listing the three alternative names for each.</li>\n        <li>Which relationship does inheritance best implement? Give an example.</li>\n        <li>What is the difference between a direct and an indirect superclass? Which class is at the top of every Java hierarchy?</li>\n        <li>Name the four supported types of inheritance and the one unsupported type. Why is it unsupported?</li>\n        <li>Write the two rules an overriding method must follow regarding return type and access modifier.</li>\n        <li>Complete the 2×2 table: subclass instance/static method vs superclass instance/static method.</li>\n        <li>List the three forms of the super keyword.</li>\n        <li>What happens if a subclass constructor does not explicitly call super() and the parent has no default constructor?</li>\n        <li>State the effect of final on a variable, a method, and a class.</li>\n        <li>Which of these compile: <code class=\"inl\">Vehicle v = new Car();</code> / <code class=\"inl\">Car c = v;</code> / <code class=\"inl\">Car c = (Car) v;</code> (with v of type Vehicle)?</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>Subclass (derived / extended / child class) inherits from superclass (base / parent class).</li>\n          <li>is-a relationships — e.g. a Car is a Vehicle.</li>\n          <li>Direct: explicitly extended. Indirect: any class higher up. Every class ultimately extends Object (java.lang).</li>\n          <li>Single, multilevel, hierarchical, hybrid. Multiple inheritance of classes is not supported — the diamond problem (ambiguity over which parent's members are inherited).</li>\n          <li>Same signature; may return a covariant (subclass) return type; access may widen (protected → public) but never narrow (→ private).</li>\n          <li>instance×instance = overrides; static×static = hides; mixed pairs = compile-time errors.</li>\n          <li><code class=\"inl\">super.field</code>, <code class=\"inl\">super.method()</code>, <code class=\"inl\">super(...)</code> (constructor call, first statement).</li>\n          <li>Compile error — the compiler inserts super() but there is no default constructor to call.</li>\n          <li>final variable = constant; final method = cannot be overridden; final class = cannot be extended.</li>\n          <li>First compiles (upcasting, implicit). Second fails (downcasting needs explicit cast). Third compiles (explicit downcast).</li>\n        </ol>\n      </div>"
+          "title": "Exercise set D: inheritance",
+          "html": "<ol>\n        <li>Define subclass and superclass, listing the three alternative names for each.</li>\n        <li>Which relationship does inheritance best implement? Give an example.</li>\n        <li>What is the difference between a direct and an indirect superclass? Which class is at the top of every Java hierarchy?</li>\n        <li>Name the four supported types of inheritance and the one unsupported type. Why is it unsupported?</li>\n        <li>Write the two rules an overriding method must follow regarding return type and access modifier.</li>\n        <li>Complete the 2×2 table: subclass instance/static method vs superclass instance/static method.</li>\n        <li>List the three forms of the super keyword.</li>\n        <li>What happens if a subclass constructor does not explicitly call super() and the parent has no default constructor?</li>\n        <li>State the effect of final on a variable, a method, and a class.</li>\n        <li>Which of these compile: <code class=\"inl\">Vehicle v = new Car();</code> / <code class=\"inl\">Car c = v;</code> / <code class=\"inl\">Car c = (Car) v;</code> (with v of type Vehicle)?</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li>Subclass (derived / extended / child class) inherits from superclass (base / parent class).</li>\n          <li>is-a relationships, e.g. a Car is a Vehicle.</li>\n          <li>Direct: explicitly extended. Indirect: any class higher up. Every class ultimately extends Object (java.lang).</li>\n          <li>Single, multilevel, hierarchical, hybrid. Multiple inheritance of classes is not supported; the diamond problem (ambiguity over which parent's members are inherited).</li>\n          <li>Same signature; may return a covariant (subclass) return type; access may widen (protected → public) but never narrow (→ private).</li>\n          <li>instance×instance = overrides; static×static = hides; mixed pairs = compile-time errors.</li>\n          <li><code class=\"inl\">super.field</code>, <code class=\"inl\">super.method()</code>, <code class=\"inl\">super(...)</code> (constructor call, first statement).</li>\n          <li>Compile error: the compiler inserts super() but there is no default constructor to call.</li>\n          <li>final variable = constant; final method = cannot be overridden; final class = cannot be extended.</li>\n          <li>First compiles (upcasting, implicit). Second fails (downcasting needs explicit cast). Third compiles (explicit downcast).</li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 4 Quiz — Inheritance",
+      "title": "Topic 4 Quiz: Inheritance",
       "count": 8,
       "quizSlug": "04-inheritance"
     }

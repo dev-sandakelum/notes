@@ -7,6 +7,7 @@ import {
   type TreeGraphNode,
   type TreeGraphNodeState,
 } from "./tree-graph";
+import { btnGhost } from "./viz-ui";
 
 /**
  * Interactive terminology explorer for the ch07 general tree.
@@ -168,10 +169,7 @@ const LEGEND: { label: string; dot: string; chip: string }[] = [
   },
 ];
 
-const btnGhost =
-  "inline-flex items-center gap-1.5 rounded-md border border-hairline text-ink px-3 h-9 text-sm hover:border-hairline-strong transition-colors disabled:opacity-50 disabled:pointer-events-none";
-
-const join = (xs: string[]) => (xs.length ? xs.join(", ") : "—");
+const join = (xs: string[]) => (xs.length ? xs.join(", ") : "none");
 
 /* ------------------------------------------------------------------ */
 /* Component                                                           */
@@ -189,21 +187,19 @@ export function TreeTerminologyViz({ caption }: { caption?: string }) {
   const facts = sel === null ? null : buildFacts(sel);
   const status =
     sel === null
-      ? "No node selected — click any node in the tree to read its full record."
-      : `Node ${sel} selected — parent ${joinOrDash(parentOf(sel))}, children ${join(childrenOf(sel)) || "—"}, subtree has ${1 + descendantsOf(sel).length} nodes.`;
+      ? "No node selected. Click any node in the tree to read its full record."
+      : `Node ${sel} selected. Parent ${joinOrDash(parentOf(sel))}, children ${join(childrenOf(sel)) || "none"}, subtree has ${1 + descendantsOf(sel).length} nodes.`;
 
   return (
-    <figure className="print-avoid-break my-6 rounded-md border border-hairline bg-paper-raised p-4 viz-shell">
-      <TreeGraph
-        root={tree}
-        nodeStates={sel === null ? {} : relationStates(sel)}
-        onNodeClick={(key) => setSel((cur) => (cur === key ? null : key))}
-        nodeRadius={24}
-        levelHeight={74}
-        siblingGap={58}
-        ariaLabel="General tree with nodes A to N — click a node to explore its terminology"
-        className="mx-auto h-auto w-full max-h-[360px]"
-      />
+    <figure className="print-avoid-break my-6 border border-hairline p-4 viz-shell">
+      <div className="tree-wrap">
+        <TreeGraph
+          root={tree}
+          nodeStates={sel === null ? {} : relationStates(sel)}
+          onNodeClick={(key) => setSel((cur) => (cur === key ? null : key))}
+          ariaLabel="General tree with nodes A to N; click a node to explore its terminology"
+        />
+      </div>
 
       {/* Legend + clear button */}
       <div className="no-print mt-3 flex flex-wrap items-center justify-center gap-2">
@@ -260,7 +256,7 @@ export function TreeTerminologyViz({ caption }: { caption?: string }) {
           </div>
         ) : (
           <p className="px-1 py-4 text-center text-sm text-ink-muted">
-            Click any node above — parent, children, siblings, ancestors,
+            Click any node above. Parent, children, siblings, ancestors,
             descendants, its subtree, level, depth, height and degree light up
             together with a full fact sheet.
           </p>
@@ -289,7 +285,7 @@ function buildNode(key: string): TreeGraphNode {
   };
 }
 
-const joinOrDash = (x: string | null): string => x ?? "—";
+const joinOrDash = (x: string | null): string => x ?? "none";
 
 function buildFacts(sel: string): { label: string; value: string; dot?: string }[] {
   const kids = childrenOf(sel);
@@ -298,7 +294,7 @@ function buildFacts(sel: string): { label: string; value: string; dot?: string }
   return [
     {
       label: "Node",
-      value: `${sel} — ${internal ? "internal node" : "leaf (external node)"}`,
+      value: `${sel}: ${internal ? "internal node" : "leaf (external node)"}`,
       dot: REL_COLORS.selected,
     },
     { label: "Parent", value: joinOrDash(parentOf(sel)), dot: REL_COLORS.path },

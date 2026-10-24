@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "11-master-revision-sheet",
     "number": 11,
-    "title": "Master Revision Sheet",
+    "title": "Master revision sheet",
     "subtitle": "Every key fact, list & number in one place · the night-before-exam page",
     "kind": "cheatsheet",
     "words": 1239,
@@ -34,7 +34,7 @@ const chapter: ChapterData = {
         ],
         [
           "<b>Business process</b>",
-          "Sets of activities / steps required to produce a product or service — workflows of material, information, knowledge"
+          "Sets of activities / steps required to produce a product or service, workflows of material, information, knowledge"
         ],
         [
           "<b>Business intelligence</b>",
@@ -50,7 +50,7 @@ const chapter: ChapterData = {
         ],
         [
           "<b>Churn rate</b>",
-          "Number of customers who stop using or purchasing products or services from a company — indicator of growth or decline of the customer base"
+          "Number of customers who stop using or purchasing products or services from a company, indicator of growth or decline of the customer base"
         ],
         [
           "<b>Knowledge management</b>",
@@ -85,7 +85,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "numbers-and-facts-that-appear-in-mcqs",
-      "text": "Numbers & facts that appear in MCQs"
+      "text": "Numbers & facts that appear in mcqs"
     },
     {
       "type": "table",
@@ -226,7 +226,7 @@ const chapter: ChapterData = {
       "items": [
         {
           "title": "Q: \"Discuss how information systems support the management pyramid.\" ▾",
-          "html": "<p><b>Plan:</b> (1) Pyramid: senior → middle → operational. (2) Operational: <b>TPS</b> — record routine transactions; structured decisions; source of data. (3) Middle: <b>MIS</b> routine reports; <b>DSS</b> non-routine analysis. (4) Senior: <b>ESS</b> digital dashboards, external + internal data, non-routine decisions. (5) Constituency perspective + loose integration. Conclusion: each level's decision type (structured → unstructured) matches its systems.</p>"
+          "html": "<p><b>Plan:</b> (1) Pyramid: senior → middle → operational. (2) Operational: <b>TPS</b>: record routine transactions; structured decisions; source of data. (3) Middle: <b>MIS</b> routine reports; <b>DSS</b> non-routine analysis. (4) Senior: <b>ESS</b> digital dashboards, external + internal data, non-routine decisions. (5) Constituency perspective + loose integration. Conclusion: each level's decision type (structured → unstructured) matches its systems.</p>"
         }
       ]
     },
@@ -244,7 +244,7 @@ const chapter: ChapterData = {
       "items": [
         {
           "title": "Q: \"Describe the knowledge management value chain and three types of KM systems.\" ▾",
-          "html": "<p><b>Plan:</b> (1) KM definition (create, store, transfer, apply). (2) Value chain: acquisition → storage → dissemination → application with examples at each stage. (3) Three system types: enterprise-wide KMS (content management, taxonomy, expertise location, LMS), KWS (CAD, VR, investment workstations + requirements), intelligent techniques (expert systems, CBR, fuzzy logic, neural nets, genetic algorithms, agents). (4) Organizational roles: CKO, knowledge managers, COPs. Conclusion: 80% of content is semi/unstructured — KM systems turn it into competitive assets.</p>"
+          "html": "<p><b>Plan:</b> (1) KM definition (create, store, transfer, apply). (2) Value chain: acquisition → storage → dissemination → application with examples at each stage. (3) Three system types: enterprise-wide KMS (content management, taxonomy, expertise location, LMS), KWS (CAD, VR, investment workstations + requirements), intelligent techniques (expert systems, CBR, fuzzy logic, neural nets, genetic algorithms, agents). (4) Organizational roles: CKO, knowledge managers, COPs. Conclusion: 80% of content is semi/unstructured. KM systems turn it into competitive assets.</p>"
         }
       ]
     },
@@ -261,7 +261,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Final advice",
-      "html": "Work through the <a href=\"/notes/mis/10-key-term-flashcards\">flashcards</a> until every definition is automatic, then attempt the <a href=\"/notes/mis/12-final-practice-exam\">Final Practice Exam</a> in one 40-minute sitting. Review every explanation — even for questions you got right — and revisit the topic section for anything you missed."
+      "html": "Work through the <a href=\"/notes/mis/10-key-term-flashcards\">flashcards</a> until every definition is automatic, then attempt the <a href=\"/notes/mis/12-final-practice-exam\">Final Practice Exam</a> in one 40-minute sitting. Review every explanation: even for questions you got right, and revisit the topic section for anything you missed."
     }
   ]
 };

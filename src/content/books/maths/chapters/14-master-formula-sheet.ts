@@ -4,8 +4,8 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "14-master-formula-sheet",
     "number": 14,
-    "title": "Master Formula Sheet",
-    "subtitle": "Click any card to flip it — perfect for last-minute revision",
+    "title": "Master formula sheet",
+    "subtitle": "Click any card to flip it, perfect for last-minute revision",
     "kind": "cheatsheet",
     "words": 525,
     "minutes": 3

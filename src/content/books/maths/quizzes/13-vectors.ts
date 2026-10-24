@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "13-vectors",
-  "title": "Topic 13 Quiz — Vectors",
+  "title": "Topic 13 Quiz: Vectors",
   "questions": [
     {
       "prompt": "1. Which of these is a vector quantity?",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "colour and label"
       ],
       "answer": 2,
-      "explanation": "Position is irrelevant — only length and direction matter."
+      "explanation": "Position is irrelevant: only length and direction matter."
     },
     {
       "prompt": "3. If <span class=\"m\">a = (2, 3)</span> and <span class=\"m\">b = (−1, 4)</span>, then a + b =",

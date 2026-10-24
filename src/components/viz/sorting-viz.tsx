@@ -230,7 +230,7 @@ export function SortingViz({ caption }: { caption?: string }) {
   const [speed, setSpeed] = useState(5);
   const [size, setSize] = useState(SIZE_DEFAULT);
   const [msg, setMsg] = useState<Msg>({
-    text: `${SIZE_DEFAULT} bars ready — choose an algorithm and press Play.`,
+    text: `${SIZE_DEFAULT} bars ready. Choose an algorithm and press Play.`,
     tone: "default",
   });
   const [view, setView] = useState<View>(() => ({
@@ -323,7 +323,7 @@ export function SortingViz({ caption }: { caption?: string }) {
     if (s.opIdx >= s.ops.length) {
       setPlaying(false);
       setMsg({
-        text: `${name} sort complete ✓ ${s.ops.length} operations — compare with the other algorithms!`,
+        text: `${name} sort complete: ${s.ops.length} operations. Compare with the other algorithms.`,
         tone: "ok",
       });
     } else {
@@ -355,7 +355,7 @@ export function SortingViz({ caption }: { caption?: string }) {
       s.hlKind = null;
       sync();
       setMsg({
-        text: `Shuffled ${n} bars — choose an algorithm and press Play.`,
+        text: `Shuffled ${n} bars. Choose an algorithm and press Play.`,
         tone: "default",
       });
     },
@@ -397,7 +397,7 @@ export function SortingViz({ caption }: { caption?: string }) {
     s.hlB = null;
     s.hlKind = null;
     sync();
-    setMsg({ text: `Algorithm set to ${ALGO_LABEL[v]} — press Play.`, tone: "default" });
+    setMsg({ text: `Algorithm set to ${ALGO_LABEL[v]}. Press Play.`, tone: "default" });
   };
 
   /* ---------- render ---------- */

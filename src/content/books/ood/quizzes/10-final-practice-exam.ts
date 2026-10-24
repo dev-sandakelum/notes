@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "10-final-practice-exam",
-  "title": "Final Practice Exam",
+  "title": "Final practice exam",
   "questions": [
     {
       "prompt": "1. \"Viewing a system as a set of interacting and interrelated objects, each encapsulating its data and behavior\" defines:",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "Design"
       ],
       "answer": 3,
-      "explanation": "Design plans the system before implementation — architecture, database, UI, flow, components, technologies — acting as the blueprint."
+      "explanation": "Design plans the system before implementation, architecture, database, UI, flow, components, technologies, acting as the blueprint."
     },
     {
       "prompt": "3. Which benefit of OO allows changes to be localized to particular classes?",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Enroll"
       ],
       "answer": 2,
-      "explanation": "The system must track which student registered for which course, semester, grade — an Enrollment class (enrollmentID, semester, grade) that the text never mentions explicitly."
+      "explanation": "The system must track which student registered for which course, semester, grade, an Enrollment class (enrollmentID, semester, grade) that the text never mentions explicitly."
     },
     {
       "prompt": "5. An EmailService contains only validateEmail(), sendEmail() and formatEmail(). This class demonstrates:",
@@ -178,7 +178,7 @@ const quiz: QuizData = {
         "Object states"
       ],
       "answer": 2,
-      "explanation": "Partitions/swimlanes assign responsibility — e.g. Passenger lane vs Passenger Services lane in the airport check-in example."
+      "explanation": "Partitions/swimlanes assign responsibility, e.g. Passenger lane vs Passenger Services lane in the airport check-in example."
     },
     {
       "prompt": "17. A Coach is-a Person; a Player is-a Person. In a class diagram this is drawn as:",
@@ -203,7 +203,7 @@ const quiz: QuizData = {
       "explanation": "\"At least four\" = 4..* (a range with no upper bound). 6..12 is the Team–Player multiplicity in the same exercise."
     },
     {
-      "prompt": "19. In a sequence diagram, the object that mediates between the boundary and the entity — organizing and scheduling interactions — is stereotyped as:",
+      "prompt": "19. In a sequence diagram, the object that mediates between the boundary and the entity, organizing and scheduling interactions, is stereotyped as:",
       "options": [
         "«control»",
         "«actor»",
@@ -222,7 +222,7 @@ const quiz: QuizData = {
         "3"
       ],
       "answer": 2,
-      "explanation": "Top-level steps: 1 (login), 2 (validateUser, with 2.1 nested inside it) — displayResult() is the 3rd top-level message, so 2 complete top-level steps precede it."
+      "explanation": "Top-level steps: 1 (login), 2 (validateUser, with 2.1 nested inside it): displayResult() is the 3rd top-level message, so 2 complete top-level steps precede it."
     }
   ]
 };

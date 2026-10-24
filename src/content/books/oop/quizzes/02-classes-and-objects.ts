@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "02-classes-and-objects",
-  "title": "Topic 2 Quiz — Classes & Objects",
+  "title": "Topic 2 Quiz: Classes & Objects",
   "questions": [
     {
       "prompt": "1. Which is NOT a member of a class body?",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q2b\" value=\"3\">Main.java"
       ],
       "answer": 0,
-      "explanation": "A public class must be in a source file with the same name and the .java extension — and only one public class per file."
+      "explanation": "A public class must be in a source file with the same name and the .java extension, and only one public class per file."
     },
     {
       "prompt": "3. The default (package-private) access modifier is written how?",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q2c\" value=\"3\">local"
       ],
       "answer": 2,
-      "explanation": "There is no keyword for default access — you just leave the modifier out. That's what makes it tricky."
+      "explanation": "There is no keyword for default access, you just leave the modifier out. That's what makes it tricky."
     },
     {
       "prompt": "4. A protected method can be called from…",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q2g\" value=\"3\">The compiler provides a default constructor if you write none"
       ],
       "answer": 1,
-      "explanation": "After the object is created, the constructor cannot be called again — one constructor call per new."
+      "explanation": "After the object is created, the constructor cannot be called again, one constructor call per new."
     },
     {
       "prompt": "8. A default constructor initializes instance variables to…",

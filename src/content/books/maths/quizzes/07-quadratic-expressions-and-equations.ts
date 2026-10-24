@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "07-quadratic-expressions-and-equations",
-  "title": "Topic 7 Quiz — Quadratic Expressions & Equations",
+  "title": "Topic 7 Quiz: Quadratic Expressions & Equations",
   "questions": [
     {
       "prompt": "1. In <span class=\"m\">5x² − 7x + 2</span>, the linear coefficient b is:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "7"
       ],
       "answer": 2,
-      "explanation": "b is the coefficient of x (the linear term): −7. Watch the sign!"
+      "explanation": "b is the coefficient of x (the linear term): −7. Watch the sign."
     },
     {
       "prompt": "2. Solve <span class=\"m\">x² − 5x + 6 = 0</span>.",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "17"
       ],
       "answer": 2,
-      "explanation": "9 − 4(2)(−2) = 9 + 16 = 25 — a perfect square, so the roots are rational."
+      "explanation": "9 − 4(2)(−2) = 9 + 16 = 25, a perfect square, so the roots are rational."
     },
     {
       "prompt": "6. If <span class=\"m\">b² − 4ac &lt; 0</span>, the quadratic equation has:",

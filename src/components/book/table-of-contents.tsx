@@ -35,22 +35,22 @@ export function TableOfContents({
   return (
     <nav
       aria-label="On this page"
-      className="sticky top-20 hidden max-h-[calc(100vh-6rem)] overflow-y-auto py-2 thin-scroll xl:block no-print"
+      className="sticky top-20 hidden max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden py-2 pr-2 thin-scroll xl:block no-print"
     >
       <p className="mb-2 text-caption font-semibold uppercase tracking-wider text-ink-faint">
         On this page
       </p>
       <ul className="flex flex-col gap-1 border-l border-hairline">
         {headings.map((h) => (
-          <li key={h.id}>
+          <li key={h.id} className="min-w-0">
             <a
               href={`#${h.id}`}
               aria-current={active === h.id ? "true" : undefined}
-              className={`-ml-px block border-l-2 text-[0.8rem] leading-snug transition-colors ${
+              className={`-ml-px block break-words [overflow-wrap:break-word] border-l-2 text-[0.8rem] leading-snug transition-colors ${
                 h.depth === 4 ? "pl-5" : "pl-3"
               } ${
                 active === h.id
-                  ? "border-ink font-medium text-ink"
+                  ? "border-(--accent) font-semibold text-(--accent-ink)"
                   : "border-transparent text-ink-muted hover:border-hairline-strong hover:text-ink"
               }`}
             >

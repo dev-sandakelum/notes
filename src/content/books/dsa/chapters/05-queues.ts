@@ -21,7 +21,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Definition",
-      "html": "A queue is a linear data structure similar to a stack, but insertions are made at the <b>rear</b> and deletions at the <b>front</b>. The first element inserted is the first removed: <b>First-In, First-Out (FIFO)</b> — like queuing at the bank or bus stop."
+      "html": "A queue is a linear data structure similar to a stack, but insertions are made at the <b>rear</b> and deletions at the <b>front</b>. The first element inserted is the first removed: <b>First-In, First-Out (FIFO)</b>, like queuing at the bank or bus stop."
     },
     {
       "type": "heading",
@@ -81,9 +81,9 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Operations trace — Lecture 3 example",
-      "bodyHtml": "<p>Starting from empty, apply: enqueue 5, 3 · dequeue (→5) · enqueue 7 · dequeue (→3) · front (→7) · dequeue (→7) · dequeue (error — empty!) · isEmpty (→true) · enqueue 9, 7 · size (→2) · enqueue 3, 5 · dequeue (→9)</p>",
-      "solutionHtml": "<div class=\"tbl-wrap\"><table class=\"tbl\">\n        <tbody><tr><th>Operation</th><th>Output</th><th>Queue (front…rear)</th></tr>\n        <tr><td class=\"m\">enqueue(5)</td><td>—</td><td class=\"m\">5</td></tr>\n        <tr><td class=\"m\">enqueue(3)</td><td>—</td><td class=\"m\">5, 3</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>5</b></td><td class=\"m\">3</td></tr>\n        <tr><td class=\"m\">enqueue(7)</td><td>—</td><td class=\"m\">3, 7</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>3</b></td><td class=\"m\">7</td></tr>\n        <tr><td class=\"m\">front()</td><td><b>7</b></td><td class=\"m\">7</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>7</b></td><td class=\"m\">(empty)</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>error</b></td><td class=\"m\">(empty)</td></tr>\n        <tr><td class=\"m\">isEmpty()</td><td><b>true</b></td><td class=\"m\">(empty)</td></tr>\n        <tr><td class=\"m\">enqueue(9), enqueue(7)</td><td>—</td><td class=\"m\">9, 7</td></tr>\n        <tr><td class=\"m\">size()</td><td><b>2</b></td><td class=\"m\">9, 7</td></tr>\n        <tr><td class=\"m\">enqueue(3), enqueue(5)</td><td>—</td><td class=\"m\">9, 7, 3, 5</td></tr>\n        <tr class=\"hl\"><td class=\"m\">dequeue()</td><td><b>9</b></td><td class=\"m\">7, 3, 5</td></tr>\n      </tbody></table></div>"
+      "title": "Operations trace: lecture 3 example",
+      "bodyHtml": "<p>Starting from empty, apply: enqueue 5, 3 · dequeue (→5) · enqueue 7 · dequeue (→3) · front (→7) · dequeue (→7) · dequeue (error, empty) · isEmpty (→true) · enqueue 9, 7 · size (→2) · enqueue 3, 5 · dequeue (→9)</p>",
+      "solutionHtml": "<div class=\"tbl-wrap\"><table class=\"tbl\">\n        <tbody><tr><th>Operation</th><th>Output</th><th>Queue (front…rear)</th></tr>\n        <tr><td class=\"m\">enqueue(5)</td><td>. </td><td class=\"m\">5</td></tr>\n        <tr><td class=\"m\">enqueue(3)</td><td>. </td><td class=\"m\">5, 3</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>5</b></td><td class=\"m\">3</td></tr>\n        <tr><td class=\"m\">enqueue(7)</td><td>. </td><td class=\"m\">3, 7</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>3</b></td><td class=\"m\">7</td></tr>\n        <tr><td class=\"m\">front()</td><td><b>7</b></td><td class=\"m\">7</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>7</b></td><td class=\"m\">(empty)</td></tr>\n        <tr><td class=\"m\">dequeue()</td><td><b>error</b></td><td class=\"m\">(empty)</td></tr>\n        <tr><td class=\"m\">isEmpty()</td><td><b>true</b></td><td class=\"m\">(empty)</td></tr>\n        <tr><td class=\"m\">enqueue(9), enqueue(7)</td><td>. </td><td class=\"m\">9, 7</td></tr>\n        <tr><td class=\"m\">size()</td><td><b>2</b></td><td class=\"m\">9, 7</td></tr>\n        <tr><td class=\"m\">enqueue(3), enqueue(5)</td><td>. </td><td class=\"m\">9, 7, 3, 5</td></tr>\n        <tr class=\"hl\"><td class=\"m\">dequeue()</td><td><b>9</b></td><td class=\"m\">7, 3, 5</td></tr>\n      </tbody></table></div>"
     },
     {
       "type": "heading",
@@ -94,7 +94,7 @@ const chapter: ChapterData = {
     {
       "type": "viz",
       "kind": "queue",
-      "caption": "Watch FRONT and REAR. After dequeues, rear hits the end — the “false full” problem that circular queues fix."
+      "caption": "Watch FRONT and REAR. After dequeues, rear hits the end; the “false full” problem that circular queues fix."
     },
     {
       "type": "heading",
@@ -104,7 +104,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "In a linear queue, dequeuing only moves <code>front</code> forward. After removing elements, <b>rear may sit at the end of the array while free cells exist at the front</b> — the queue looks “full” but is not! The fix: let indices <b>wrap around</b> — a <b>circular queue</b> (also called a <b>ring buffer</b>)."
+      "html": "In a linear queue, dequeuing only moves <code>front</code> forward. After removing elements, <b>rear may sit at the end of the array while free cells exist at the front</b>; the queue looks “full” but is not. The fix: let indices <b>wrap around</b>: a <b>circular queue</b> (also called a <b>ring buffer</b>)."
     },
     {
       "type": "table",
@@ -119,7 +119,7 @@ const chapter: ChapterData = {
         ],
         [
           "<b>Wrap rear to start</b>",
-          "if <code>rear == SIZE-1 &amp;&amp; front != 0</code> then <code>rear = −1</code> before incrementing"
+          "if <code>rear == SIZE-1 &amp;&amp; front = 0</code> then <code>rear = −1</code> before incrementing"
         ],
         [
           "<b>Empty buffer</b>",
@@ -132,9 +132,9 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Lecture exercise — circular queue of size 4",
+      "title": "Lecture exercise: circular queue of size 4",
       "bodyHtml": "<p>Perform: Enqueue 5, 4, 7 · Dequeue · Enqueue 8, 9 · Dequeue · Enqueue 1, 2</p>",
-      "solutionHtml": "<p>Indices 0–3.<br>\n      1. enqueue 5 → [5,·,·,·] · enqueue 4 → [5,4,·,·] · enqueue 7 → [5,4,7,·]<br>\n      2. dequeue → removes 5 (front now 1) → [·,4,7,·]<br>\n      3. enqueue 8 → [·,4,7,8] — rear = 3 = SIZE−1; enqueue 9 must <b>wrap</b>: rear → 0 → [9,4,7,8]<br>\n      4. dequeue → removes 4 (front now 2)<br>\n      5. enqueue 1 → rear 1: [9,1,7,8] · enqueue 2 → rear is at 2, but 2 holds 7 and front = 2 → next cell would make front == rear+1… position 3 is taken by 8, wrap to check: the queue is <b>full</b> (4 elements: 7, 8, 9, 1) → enqueue 2 fails with overflow.</p>\n      <p>Final: [9, 1, 7, 8] with front = 2, rear = 1 — a perfectly wrapped ring.</p>"
+      "solutionHtml": "<p>Indices 0–3.<br>\n      1. enqueue 5 → [5,·,·,·] · enqueue 4 → [5,4,·,·] · enqueue 7 → [5,4,7,·]<br>\n      2. dequeue → removes 5 (front now 1) → [·,4,7,·]<br>\n      3. enqueue 8 → [·,4,7,8]: rear = 3 = SIZE−1; enqueue 9 must <b>wrap</b>: rear → 0 → [9,4,7,8]<br>\n      4. dequeue → removes 4 (front now 2)<br>\n      5. enqueue 1 → rear 1: [9,1,7,8] · enqueue 2 → rear is at 2, but 2 holds 7 and front = 2 → next cell would make front == rear+1… position 3 is taken by 8, wrap to check: the queue is <b>full</b> (4 elements: 7, 8, 9, 1) → enqueue 2 fails with overflow.</p>\n      <p>Final: [9, 1, 7, 8] with front = 2, rear = 1, a perfectly wrapped ring.</p>"
     },
     {
       "type": "heading",
@@ -160,7 +160,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Same motivation as the stack: unlimited size. Keep a <code>queue</code> struct with <b>count, front, rear</b>; enqueue at the rear, dequeue at the front — no shifting, no wraparound logic."
+      "html": "Same motivation as the stack: unlimited size. Keep a <code>queue</code> struct with <b>count, front, rear</b>; enqueue at the rear, dequeue at the front, no shifting, no wraparound logic."
     },
     {
       "type": "code",
@@ -171,14 +171,14 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Clever fact",
-      "html": "A circular <i>linked list</i> can implement a queue with only <b>one</b> pointer: keep a pointer to the last node — the front is always <code>last-&gt;next</code>."
+      "html": "A circular <i>linked list</i> can implement a queue with only <b>one</b> pointer: keep a pointer to the last node; the front is always <code>last-&gt;next</code>."
     },
     {
       "type": "flashcards",
       "cards": [
         {
           "front": "<span class=\"fc-q\">Queue order principle?</span>",
-          "back": "<div class=\"fc-a\">FIFO — First In, First Out</div>",
+          "back": "<div class=\"fc-a\">FIFO: First In, First Out</div>",
           "category": "Principle"
         },
         {
@@ -200,7 +200,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 4 Quiz — Queues",
+      "title": "Topic 4 Quiz: Queues",
       "count": 8,
       "quizSlug": "05-queues"
     }

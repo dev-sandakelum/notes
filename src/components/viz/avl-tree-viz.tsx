@@ -43,11 +43,10 @@ const STATIC_TREE: TreeGraphNode = {
 
 export function AvlTreeViz({ caption }: { caption?: string }) {
   return (
-    <figure className="print-avoid-break my-6 rounded-md border border-hairline bg-paper-raised p-4 viz-shell">
+    <figure className="print-avoid-break my-6 border border-hairline p-4 viz-shell">
       <TreeGraph
         root={STATIC_TREE}
-        ariaLabel="AVL tree with root 20, children 10 and 40, leaves 5, 15, 30 and 50 — every balance factor is 0"
-        className="mx-auto h-auto w-full max-h-[300px]"
+        ariaLabel="AVL tree with root 20, children 10 and 40, leaves 5, 15, 30 and 50; every balance factor is 0"
       />
 
       <div className="mt-3 space-y-1 border-t border-hairline pt-2 text-center">
@@ -60,7 +59,7 @@ export function AvlTreeViz({ caption }: { caption?: string }) {
         <p className="text-caption text-ink-faint">
           Heights with the chapter convention (empty = −1, leaf = 0):{" "}
           <span className="font-mono">20 → 2 · 10, 40 → 1 · 5, 15, 30, 50 → 0</span>{" "}
-          — so every balance factor is <span className="font-mono">0</span>.
+          so every balance factor is <span className="font-mono">0</span>.
         </p>
       </div>
 

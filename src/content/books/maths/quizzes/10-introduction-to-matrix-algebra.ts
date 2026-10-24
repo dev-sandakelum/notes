@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "10-introduction-to-matrix-algebra",
-  "title": "Topic 10 Quiz — Matrix Algebra",
+  "title": "Topic 10 Quiz: Matrix Algebra",
   "questions": [
     {
       "prompt": "1. A matrix with 3 rows and 2 columns has order:",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "the same as division"
       ],
       "answer": 2,
-      "explanation": "Order matters in matrix multiplication — AB and BA can even have different sizes."
+      "explanation": "Order matters in matrix multiplication. AB and BA can even have different sizes."
     },
     {
       "prompt": "7. The transpose of a matrix is obtained by:",

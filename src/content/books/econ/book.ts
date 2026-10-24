@@ -3,9 +3,9 @@ import type { BookMeta } from "@/content/types";
 const book: BookMeta = {
   "slug": "econ",
   "code": "TCS2112",
-  "title": "Business Economics",
-  "tagline": "Scarcity to international trade — worked tutorials and formula sheets throughout.",
-  "description": "Scarcity to international trade — worked tutorials and formula sheets throughout.",
+  "title": "Business economics",
+  "tagline": "Scarcity to international trade: worked tutorials and formula sheets throughout.",
+  "description": "Scarcity to international trade: worked tutorials and formula sheets throughout.",
   "subject": "Economics",
   "department": "DMS",
   "tags": [
@@ -19,7 +19,7 @@ const book: BookMeta = {
     {
       "slug": "01-introduction-to-business-economics",
       "number": 1,
-      "title": "Introduction to Business Economics",
+      "title": "Introduction to business economics",
       "subtitle": "Lesson 01 · Tutorial 01 · V.P.V. Audarika",
       "kind": "topic",
       "words": 1475,
@@ -28,7 +28,7 @@ const book: BookMeta = {
     {
       "slug": "02-production-possibility-curve-ppc",
       "number": 2,
-      "title": "Production Possibility Curve (PPC)",
+      "title": "Production possibility curve (PPC)",
       "subtitle": "Lesson 02 · Tutorial 02 · Chathuranga Adhikari",
       "kind": "topic",
       "words": 1301,
@@ -37,7 +37,7 @@ const book: BookMeta = {
     {
       "slug": "03-demand-supply-and-market-equilibrium",
       "number": 3,
-      "title": "Demand, Supply & Market Equilibrium",
+      "title": "Demand, supply & market equilibrium",
       "subtitle": "Lesson 03 · Tutorial 03 · Chathuranga Adhikari",
       "kind": "topic",
       "words": 1812,
@@ -46,7 +46,7 @@ const book: BookMeta = {
     {
       "slug": "04-government-intervention-in-markets",
       "number": 4,
-      "title": "Government Intervention in Markets",
+      "title": "Government intervention in markets",
       "subtitle": "Lesson 04 · Tutorial 04 (Parts I & II) · Chathuranga Adhikari",
       "kind": "topic",
       "words": 1890,
@@ -55,7 +55,7 @@ const book: BookMeta = {
     {
       "slug": "05-theory-of-production-and-cost",
       "number": 5,
-      "title": "Theory of Production & Cost",
+      "title": "Theory of production & cost",
       "subtitle": "Lesson 05 · Tutorial 05 · Chathuranga Adhikari",
       "kind": "topic",
       "words": 1617,
@@ -64,7 +64,7 @@ const book: BookMeta = {
     {
       "slug": "06-consumer-behaviour-and-utility-maximization",
       "number": 6,
-      "title": "Consumer Behaviour & Utility Maximization",
+      "title": "Consumer behaviour & utility maximization",
       "subtitle": "Lesson 06 · Chathuranga Adhikari",
       "kind": "topic",
       "words": 2093,
@@ -73,7 +73,7 @@ const book: BookMeta = {
     {
       "slug": "07-basics-of-macroeconomics",
       "number": 7,
-      "title": "Basics of Macroeconomics",
+      "title": "Basics of macroeconomics",
       "subtitle": "Lesson 07 · Chathuranga Adhikari",
       "kind": "topic",
       "words": 1500,
@@ -82,7 +82,7 @@ const book: BookMeta = {
     {
       "slug": "08-international-trade",
       "number": 8,
-      "title": "International Trade",
+      "title": "International trade",
       "subtitle": "Course outline (Week 14–15) · supported by Lesson 07 exchange-rate content",
       "kind": "topic",
       "words": 629,
@@ -91,7 +91,7 @@ const book: BookMeta = {
     {
       "slug": "09-master-formula-and-key-facts-sheet",
       "number": 9,
-      "title": "Master Formula & Key-Facts Sheet",
+      "title": "Master formula & key-facts sheet",
       "subtitle": "Flip each card · rapid revision for the exam",
       "kind": "cheatsheet",
       "words": 474,
@@ -100,7 +100,7 @@ const book: BookMeta = {
     {
       "slug": "10-final-practice-exam",
       "number": 10,
-      "title": "Final Practice Exam",
+      "title": "Final practice exam",
       "subtitle": "15 mixed questions · all topics · exam conditions",
       "kind": "exam",
       "words": 32,

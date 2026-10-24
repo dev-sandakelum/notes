@@ -8,6 +8,8 @@ import { QuizTeaser } from "@/components/book/quiz-drawer";
 import { Flashcards } from "@/components/book/flashcards";
 import { Reveal } from "@/components/book/reveal";
 import { LazyViz } from "@/components/viz/lazy";
+import { TreeDiagram } from "@/components/book/tree-diagram";
+import { normalizeSvg } from "@/components/book/normalize-svg";
 import {
   AlertTriangle,
   BookMarked,
@@ -61,7 +63,7 @@ function Callout({
   const style = CALLOUT_STYLE[variant] ?? CALLOUT_STYLE.info;
   return (
     <aside
-      className={`print-avoid-break my-5 rounded-md border border-hairline border-l-[3px] ${style.box} px-4 py-3`}
+      className={`print-avoid-break my-5 rounded-xl border border-hairline border-l-4 ${style.box} px-4 py-3.5`}
     >
       <p
         className={`mb-1 flex items-center gap-1.5 text-caption font-semibold uppercase tracking-wide ${style.iconColor}`}
@@ -87,14 +89,14 @@ function CodeBlock({
   header?: { file?: string; tag?: string };
 }) {
   return (
-    <figure className="print-avoid-break my-5 overflow-hidden rounded-md border border-hairline">
+    <figure className="print-avoid-break my-5 overflow-hidden rounded-xl border border-hairline shadow-card">
       {header ? (
-        <figcaption className="flex items-center justify-between gap-2 border-b border-hairline bg-paper-sunken px-4 py-2">
-          <span className="font-mono text-caption text-ink">
+        <figcaption className="flex items-center justify-between gap-2 border-b border-[var(--code-line)] bg-[var(--code-bg)] px-4 py-2">
+          <span className="font-mono text-caption text-[var(--code-ink)]">
             {header.file}
           </span>
           {header.tag ? (
-            <span className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink-muted">
+            <span className="rounded-full border border-[var(--code-line)] px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-[var(--code-ink)]">
               {header.tag}
             </span>
           ) : null}
@@ -115,24 +117,32 @@ function TableBlockView({
   rows,
   highlightRows,
   nowrapCols,
+  caption,
 }: {
   head: string[];
   rows: string[][];
   highlightRows?: number[];
   nowrapCols?: number[];
+  caption?: string;
 }) {
   const highlight = new Set(highlightRows ?? []);
   const nowrap = new Set(nowrapCols ?? []);
   return (
-    <div className="print-avoid-break my-5 overflow-x-auto rounded-md border border-hairline thin-scroll">
-      <table className="w-full border-collapse text-sm">
+    <div className="print-avoid-break my-5 overflow-x-auto rounded-xl border border-hairline shadow-card thin-scroll table-book">
+      <table className="w-full border-collapse text-sm bg-paper-raised">
+        {caption ? (
+          <caption
+            className="px-3.5 pb-2 pt-3 text-left text-caption font-medium text-ink-muted"
+            dangerouslySetInnerHTML={{ __html: caption }}
+          />
+        ) : null}
         <thead>
-          <tr className="border-b border-hairline bg-paper-sunken">
+          <tr className="border-b border-hairline bg-(--accent-soft)">
             {head.map((h, i) => (
               <th
                 key={i}
                 scope="col"
-                className={`px-3.5 py-2.5 text-left text-caption font-semibold uppercase tracking-wide text-ink-muted ${
+                className={`px-3.5 py-2.5 text-left text-caption font-semibold uppercase tracking-wide text-(--accent-ink) ${
                   nowrap.has(i) ? "whitespace-nowrap" : ""
                 }`}
                 dangerouslySetInnerHTML={{ __html: wrapBigO(h) }}
@@ -165,6 +175,37 @@ function TableBlockView({
   );
 }
 
+function AsciiDiagram({
+  lines,
+  alt,
+  caption,
+}: {
+  lines: string[];
+  alt: string;
+  caption?: string;
+}) {
+  return (
+    <figure
+      aria-label={alt}
+      className="print-avoid-break my-6 min-w-0 max-w-full overflow-hidden rounded-xl border border-hairline bg-paper-raised p-4 shadow-card"
+    >
+      <div className="overflow-x-auto thin-scroll">
+        <pre
+          aria-hidden
+          className="ascii-diagram px-2 py-1 text-center font-mono text-[0.8rem] leading-[1.35] text-ink"
+        >
+          {lines.join("\n")}
+        </pre>
+      </div>
+      {caption ? (
+        <figcaption className="mt-2.5 text-center text-caption text-ink-muted">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
 function ExampleView({
   title,
   bodyHtml,
@@ -175,9 +216,9 @@ function ExampleView({
   solutionHtml: string | null;
 }) {
   return (
-    <section className="print-avoid-break my-6 rounded-md border border-hairline bg-paper-raised">
+    <section className="print-avoid-break my-6 rounded-2xl border border-hairline bg-paper-raised shadow-card">
       <header className="flex items-center gap-2.5 border-b border-hairline px-4 py-2.5">
-        <span className="rounded-sm bg-ink px-1.5 py-0.5 font-mono text-[0.62rem] font-bold uppercase tracking-widest text-paper">
+        <span className="rounded-full bg-(--accent) px-2.5 py-0.5 font-mono text-[0.62rem] font-bold uppercase tracking-widest text-white">
           Worked
         </span>
         <h4 className="font-display text-[0.95rem] font-semibold leading-snug">
@@ -205,7 +246,7 @@ function AccordionView({
   items: { title: string; html: string }[];
 }) {
   return (
-    <div className="my-5 divide-y divide-hairline overflow-hidden rounded-md border border-hairline bg-paper-raised">
+    <div className="my-5 divide-y divide-hairline overflow-hidden rounded-xl border border-hairline bg-paper-raised shadow-card">
       {items.map((item, i) => (
         <details key={i} className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-medium hover:bg-paper-sunken [&::-webkit-details-marker]:hidden">
@@ -265,12 +306,12 @@ function FigureView({
   caption?: string;
 }) {
   return (
-    <figure className="print-avoid-break my-6 overflow-x-auto rounded-md border border-hairline bg-paper-raised p-4 thin-scroll">
+    <figure className="print-avoid-break my-6 overflow-x-auto rounded-xl border border-hairline bg-paper-raised p-4 shadow-card thin-scroll">
       <div
         className="fig-embed"
         role="img"
         aria-label={alt}
-        dangerouslySetInnerHTML={{ __html: svg }}
+        dangerouslySetInnerHTML={{ __html: normalizeSvg(svg) }}
       />
       {caption ? (
         <figcaption className="mt-2.5 text-center text-caption text-ink-muted">
@@ -290,13 +331,18 @@ function HtmlFigureView({
   alt: string;
   caption?: string;
 }) {
+  // normalize any inline <svg viewBox=...> the same way as figure blocks
+  const normalized = html.replace(
+    /<svg\b[^>]*\bviewBox="[^"]+"[^>]*>/g,
+    (tag) => normalizeSvg(tag),
+  );
   return (
-    <figure className="print-avoid-break my-6 overflow-x-auto rounded-md border border-hairline bg-paper-raised p-4 thin-scroll">
+    <figure className="print-avoid-break my-6 overflow-x-auto rounded-xl border border-hairline bg-paper-raised p-4 shadow-card thin-scroll">
       <div
         className="fig-embed text-[0.95rem]"
         role="img"
         aria-label={alt}
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: normalized }}
       />
       {caption ? (
         <figcaption className="mt-2.5 text-center text-caption text-ink-muted">
@@ -322,7 +368,7 @@ export function BlockRenderer({
   quiz?: QuizData | null;
   /**
    * "inline" renders the full Quiz at the quizRef position (exam chapters);
-   * "drawer" renders a lightweight teaser — the quiz itself opens in the
+   * "drawer" renders a lightweight teaser; the quiz itself opens in the
    * right-side QuizDrawer mounted by the chapter page.
    */
   quizMode?: "inline" | "drawer";
@@ -405,6 +451,7 @@ export function BlockRenderer({
                 rows={b.rows}
                 highlightRows={b.highlightRows}
                 nowrapCols={b.nowrapCols}
+                caption={b.caption}
               />
             );
           case "example":
@@ -427,6 +474,20 @@ export function BlockRenderer({
                 caption={b.caption}
               />
             );
+          case "treeDiagram":
+            return (
+              <TreeDiagram
+                key={i}
+                nodes={b.nodes}
+                edges={b.edges}
+                alt={b.alt}
+                caption={b.caption}
+                maxWidth={b.maxWidth}
+                labels={b.labels}
+              />
+            );
+          case "ascii":
+            return <AsciiDiagram key={i} lines={b.lines} alt={b.alt} caption={b.caption} />;
           case "htmlFigure":
             return (
               <HtmlFigureView
@@ -442,7 +503,7 @@ export function BlockRenderer({
             return (
               <details
                 key={i}
-                className="group my-6 overflow-hidden rounded-md border border-hairline bg-paper-raised"
+                className="group my-6 overflow-hidden rounded-2xl border border-hairline bg-paper-raised shadow-card"
               >
                 {/* summary replaces the old h3 visually; keep a hidden heading
                     for document semantics */}
@@ -473,7 +534,7 @@ export function BlockRenderer({
             if (quizMode === "drawer") {
               // Topic chapters: quiz lives in the right-side drawer; show a
               // teaser at the old position instead (rendered even if the
-              // chapter's quiz data failed to load — the drawer handles that).
+              // chapter's quiz data failed to load; the drawer handles that).
               return <QuizTeaser key={i} title={b.title} count={b.count} />;
             }
             return quiz ? (

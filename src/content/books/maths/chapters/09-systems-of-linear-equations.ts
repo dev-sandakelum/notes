@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "09-systems-of-linear-equations",
     "number": 9,
-    "title": "Systems of Linear Equations",
+    "title": "Systems of linear equations",
     "subtitle": "Graphical solutions · Substitution · Elimination · Linear–quadratic systems",
     "kind": "topic",
     "words": 703,
@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A <b>system of linear equations in two unknowns</b> is a pair of equations such as <span class=\"m\">x + y = 5</span> and <span class=\"m\">x − y = 1</span>, both of which must be true <b>at the same time</b>. The <b>solution</b> is the single pair (x, y) that satisfies both equations — geometrically, the <b>point of intersection</b> of the two lines they represent."
+      "html": "A <b>system of linear equations in two unknowns</b> is a pair of equations such as <span class=\"m\">x + y = 5</span> and <span class=\"m\">x − y = 1</span>, both of which must be true <b>at the same time</b>. The <b>solution</b> is the single pair (x, y) that satisfies both equations, geometrically, the <b>point of intersection</b> of the two lines they represent."
     },
     {
       "type": "heading",
@@ -29,7 +29,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Linear simultaneous equations in two unknowns may be solved graphically by <b>(i)</b> plotting the two straight lines on the same axes and <b>(ii)</b> noting their point of intersection — its coordinates give the required solution. The three possible geometric situations are worth memorising:"
+      "html": "Linear simultaneous equations in two unknowns may be solved graphically by <b>(i)</b> plotting the two straight lines on the same axes and <b>(ii)</b> noting their point of intersection; its coordinates give the required solution. The three possible geometric situations are worth memorising:"
     },
     {
       "type": "figure",
@@ -39,7 +39,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — graphical solution",
+      "title": "Worked example: graphical solution",
       "bodyHtml": "<p>Solve graphically: <span class=\"m\">x + y = 5</span> and <span class=\"m\">x − y = 1</span>.</p>",
       "solutionHtml": "<p>Line 1: x + y = 5 passes through (0, 5) and (5, 0). Line 2: x − y = 1 passes through (0, −1) and (1, 0).</p>\n      <p>Plotting both, they intersect at <b>(3, 2)</b>, so <span class=\"m\">x = 3, y = 2</span>. Check: 3 + 2 = 5 ✓ and 3 − 2 = 1 ✓.</p>"
     },
@@ -55,7 +55,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — substitution",
+      "title": "Worked example: substitution",
       "bodyHtml": "<p>Solve: <span class=\"m\">x + y = 5</span> and <span class=\"m\">2x − y = 4</span>.</p>",
       "solutionHtml": "<p>From equation 1: <span class=\"m\">y = 5 − x</span>. Substitute into equation 2:</p>\n      <div class=\"eq\">2x − (5 − x) = 4 → 2x − 5 + x = 4 → 3x = 9 → x = 3</div>\n      <p>Then <span class=\"m\">y = 5 − 3 = 2</span>. Solution: <b>x = 3, y = 2</b>.</p>"
     },
@@ -71,13 +71,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — elimination",
+      "title": "Worked example: elimination",
       "bodyHtml": "<p>Solve: <span class=\"m\">2x + 3y = 12</span> and <span class=\"m\">x − y = 1</span>.</p>",
-      "solutionHtml": "<p>Multiply equation 2 by 3: <span class=\"m\">3x − 3y = 3</span>. Now the y-coefficients are +3 and −3:</p>\n      <div class=\"eq\">2x + 3y = 12<br>+ 3x − 3y = 3<br>———————<br>5x   = 15 → x = 3</div>\n      <p>Substitute back: <span class=\"m\">3 − y = 1</span> → <span class=\"m\">y = 2</span>. Solution: <b>x = 3, y = 2</b>.</p>"
+      "solutionHtml": "<p>Multiply equation 2 by 3: <span class=\"m\">3x − 3y = 3</span>. Now the y-coefficients are +3 and −3:</p>\n      <div class=\"eq\">2x + 3y = 12<br>+ 3x − 3y = 3<br>, , , , , , . <br>5x   = 15 → x = 3</div>\n      <p>Substitute back: <span class=\"m\">3 − y = 1</span> → <span class=\"m\">y = 2</span>. Solution: <b>x = 3, y = 2</b>.</p>"
     },
     {
       "type": "example",
-      "title": "Worked example — practical problem",
+      "title": "Worked example: practical problem",
       "bodyHtml": "<p>3 apples and 2 oranges cost Rs. 235, while 1 apple and 4 oranges cost Rs. 215. Find the cost of each fruit.</p>",
       "solutionHtml": "<p>Let a = price of an apple, o = price of an orange:</p>\n      <div class=\"eq\">3a + 2o = 235 &nbsp;&nbsp;…(1)&nbsp;&nbsp;&nbsp;&nbsp; a + 4o = 215 &nbsp;&nbsp;…(2)</div>\n      <p>Multiply (2) by 3: <span class=\"m\">3a + 12o = 645</span>. Subtract (1): <span class=\"m\">10o = 410 → o = 41</span>.</p>\n      <p>Then from (2): <span class=\"m\">a = 215 − 4(41) = 51</span>. An <b>apple costs Rs. 51</b>, an <b>orange Rs. 41</b>.</p>"
     },
@@ -89,13 +89,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A system may mix a straight line with a parabola. The solution is achieved graphically by <b>(i)</b> plotting the straight line and the parabola on the same axes and <b>(ii)</b> noting the points of intersection — their coordinates give the required solutions. Depending on the position of the line there can be <b>two, one or no</b> intersection points."
+      "html": "A system may mix a straight line with a parabola. The solution is achieved graphically by <b>(i)</b> plotting the straight line and the parabola on the same axes and <b>(ii)</b> noting the points of intersection, their coordinates give the required solutions. Depending on the position of the line there can be <b>two, one or no</b> intersection points."
     },
     {
       "type": "example",
-      "title": "Worked example — line meets parabola",
+      "title": "Worked example: line meets parabola",
       "bodyHtml": "<p>Solve simultaneously: <span class=\"m\">y = x²</span> and <span class=\"m\">y = x + 2</span>.</p>",
-      "solutionHtml": "<p>Set the expressions for y equal: <span class=\"m\">x² = x + 2</span> → <span class=\"m\">x² − x − 2 = 0</span> → <span class=\"m\">(x − 2)(x + 1) = 0</span> → <span class=\"m\">x = 2</span> or <span class=\"m\">x = −1</span>.</p>\n      <p>Find y from the line: <span class=\"m\">y = 2 + 2 = 4</span> and <span class=\"m\">y = −1 + 2 = 1</span>.</p>\n      <p>Solutions: <b>(2, 4)</b> and <b>(−1, 1)</b> — exactly the two intersection points of the graphs.</p>"
+      "solutionHtml": "<p>Set the expressions for y equal: <span class=\"m\">x² = x + 2</span> → <span class=\"m\">x² − x − 2 = 0</span> → <span class=\"m\">(x − 2)(x + 1) = 0</span> → <span class=\"m\">x = 2</span> or <span class=\"m\">x = −1</span>.</p>\n      <p>Find y from the line: <span class=\"m\">y = 2 + 2 = 4</span> and <span class=\"m\">y = −1 + 2 = 1</span>.</p>\n      <p>Solutions: <b>(2, 4)</b> and <b>(−1, 1)</b>: exactly the two intersection points of the graphs.</p>"
     },
     {
       "type": "callout",
@@ -105,7 +105,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 9 Quiz — Systems of Linear Equations",
+      "title": "Topic 9 Quiz: Systems of Linear Equations",
       "count": 6,
       "quizSlug": "09-systems-of-linear-equations"
     }

@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "06-linked-lists",
-  "title": "Topic 5 Quiz — Linked Lists",
+  "title": "Topic 5 Quiz: Linked Lists",
   "questions": [
     {
       "prompt": "1. Which is NOT an advantage of linked lists over arrays?",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "No fixed size at compile time"
       ],
       "answer": 2,
-      "explanation": "<b>Arrays</b> have the better cache locality — a known linked-list drawback."
+      "explanation": "<b>Arrays</b> have the better cache locality, a known linked-list drawback."
     },
     {
       "prompt": "2. The last node of a singly linked list points to…",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Only forward traversal is needed"
       ],
       "answer": 2,
-      "explanation": "prev pointers give the predecessor instantly — in a singly list you must traverse from the head."
+      "explanation": "prev pointers give the predecessor instantly, in a singly list you must traverse from the head."
     },
     {
       "prompt": "6. In a circular linked list, the last node's next field contains…",
@@ -68,18 +68,18 @@ const quiz: QuizData = {
         "A sentinel value"
       ],
       "answer": 1,
-      "explanation": "Storing the first node's address in the last node closes the ring — “no beginning and no end”."
+      "explanation": "Storing the first node's address in the last node closes the ring, “no beginning and no end”."
     },
     {
       "prompt": "7. Sentinel (header/trailer) nodes in a DLL are special because they…",
       "options": [
-        "Store no data — they simplify edge-case coding",
+        "Store no data: they simplify edge-case coding",
         "Hold the largest keys",
         "Are always red",
         "Store two data items"
       ],
       "answer": 0,
-      "explanation": "They guarantee every real node has a previous node — no NULL special cases when inserting/removing."
+      "explanation": "They guarantee every real node has a previous node, no NULL special cases when inserting/removing."
     },
     {
       "prompt": "8. Implementing a stack with a linked list, push is…",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Reversing the list each time"
       ],
       "answer": 2,
-      "explanation": "Each push makes the new node the head/top: <code>n-&gt;next = top; top = n;</code> — O(1)."
+      "explanation": "Each push makes the new node the head/top: <code>n-&gt;next = top; top = n;</code>. O(1)."
     }
   ]
 };

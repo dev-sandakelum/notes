@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "05-operational-excellence-i-enterprise-systems-and-supply-chain-management",
-  "title": "Topic 5 Quiz — Enterprise Systems & SCM",
+  "title": "Topic 5 Quiz: Enterprise Systems & SCM",
   "questions": [
     {
       "prompt": "1. Which of the following is <b>NOT</b> a characteristic of an enterprise system?",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Flow of information across processes"
       ],
       "answer": 2,
-      "explanation": "ERP characteristics: real-time operations, integration of all business activities, flow of information. ERP eliminates fragmented, redundant data sets — the opposite of silos."
+      "explanation": "ERP characteristics: real-time operations, integration of all business activities, flow of information. ERP eliminates fragmented, redundant data sets; the opposite of silos."
     },
     {
       "prompt": "2. To implement enterprise software, firms customize its behaviour primarily using:",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "Manual paper forms"
       ],
       "answer": 1,
-      "explanation": "Firms select functions, map business processes to the software's processes, and use configuration tables for customizing — no need to rewrite code. The software embeds thousands of predefined best-practice processes."
+      "explanation": "Firms select functions, map business processes to the software's processes, and use configuration tables for customizing, no need to rewrite code. The software embeds thousands of predefined best-practice processes."
     },
     {
       "prompt": "3. The upstream supply chain includes:",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Refers to finished goods only"
       ],
       "answer": 1,
-      "explanation": "Safety stock buffers inflexibility and uncertainty, at the cost of holding inventory. JIT is the opposite philosophy — components arrive exactly when needed; finished goods ship right off the line."
+      "explanation": "Safety stock buffers inflexibility and uncertainty, at the cost of holding inventory. JIT is the opposite philosophy: components arrive exactly when needed; finished goods ship right off the line."
     },
     {
       "prompt": "6. Supply chain software that manages the flow of products through distribution centers and warehouses is a(n):",

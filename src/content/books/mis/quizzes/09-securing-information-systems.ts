@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "09-securing-information-systems",
-  "title": "Topic 9 Quiz — Securing Information Systems",
+  "title": "Topic 9 Quiz: Securing Information Systems",
   "questions": [
     {
       "prompt": "1. Which statement best defines information systems <b>security</b>?",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Uses numerous computers (often a botnet) to launch the attack"
       ],
       "answer": 3,
-      "explanation": "DDoS = distributed — many machines (zombie PCs in botnets, which deliver ~90% of spam and ~80% of malware; e.g. Mirai) flood the target with false requests."
+      "explanation": "DDoS = distributed: many machines (zombie PCs in botnets, which deliver ~90% of spam and ~80% of malware; e.g. Mirai) flood the target with false requests."
     },
     {
       "prompt": "5. Setting up fake web sites or e-mails that look like legitimate businesses to obtain confidential personal data is:",
@@ -123,7 +123,7 @@ const quiz: QuizData = {
         "A deep packet inspection system"
       ],
       "answer": 0,
-      "explanation": "Fault-tolerant systems contain redundant hardware, software and power supply components creating an environment of continuous, uninterrupted service — required where online transaction processing demands 100% availability."
+      "explanation": "Fault-tolerant systems contain redundant hardware, software and power supply components creating an environment of continuous, uninterrupted service, required where online transaction processing demands 100% availability."
     },
     {
       "prompt": "12. \"Known bugs per hundred lines of code\" and \"online response time\" are examples of:",
@@ -134,7 +134,7 @@ const quiz: QuizData = {
         "Software metrics"
       ],
       "answer": 3,
-      "explanation": "Software metrics are objective assessments of systems in the form of quantified measurements — transactions, response time, payroll checks printed per hour, known bugs per hundred lines of code. They support early/regular testing, walkthroughs and debugging."
+      "explanation": "Software metrics are objective assessments of systems in the form of quantified measurements, transactions, response time, payroll checks printed per hour, known bugs per hundred lines of code. They support early/regular testing, walkthroughs and debugging."
     }
   ]
 };

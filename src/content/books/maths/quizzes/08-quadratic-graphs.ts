@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "08-quadratic-graphs",
-  "title": "Topic 8 Quiz — Quadratic Graphs",
+  "title": "Topic 8 Quiz: Quadratic Graphs",
   "questions": [
     {
       "prompt": "1. The graph of <span class=\"m\">y = −3x² + x</span> is:",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "y = 2"
       ],
       "answer": 0,
-      "explanation": "x = −b/2a = 4/2 = 2 — a vertical line, so the answer is x = …, never y = …"
+      "explanation": "x = −b/2a = 4/2 = 2, a vertical line, so the answer is x = …, never y = …"
     },
     {
       "prompt": "4. The roots of a quadratic are found graphically where the curve:",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "crosses the x-axis"
       ],
       "answer": 3,
-      "explanation": "Roots solve f(x) = 0, i.e. where y = 0 — the x-axis crossings."
+      "explanation": "Roots solve f(x) = 0, i.e. where y = 0: the x-axis crossings."
     },
     {
       "prompt": "5. The minimum value of <span class=\"m\">y = 2x² + 8x − 3</span> is:",

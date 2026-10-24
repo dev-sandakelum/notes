@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "11-heaps-and-heap-sort",
-  "title": "Topic 10 Quiz — Heaps & Heap Sort",
+  "title": "Topic 10 Quiz: Heaps & Heap Sort",
   "questions": [
     {
       "prompt": "1. The two properties every heap must satisfy are…",
@@ -32,7 +32,7 @@ const quiz: QuizData = {
         "Index 3",
         "Index 12",
         "Index 2",
-        "Index 2 — via (6−1)/2"
+        "Index 2: via (6−1)/2"
       ],
       "answer": 3,
       "explanation": "(6 − 1)/2 = 2 (integer division). Watch out: children of 2 are 5 and 6."
@@ -40,8 +40,8 @@ const quiz: QuizData = {
     {
       "prompt": "4. A tree is complete and every parent ≥ its children, but the left sibling happens to be smaller than the right sibling. Is it a heap?",
       "options": [
-        "No — siblings must be ordered",
-        "Yes — sibling order is irrelevant",
+        "No: siblings must be ordered",
+        "Yes: sibling order is irrelevant",
         "Only if it is also a BST",
         "Only if duplicates are absent"
       ],
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "O(n log n)"
       ],
       "answer": 3,
-      "explanation": "Worst = best = average = O(n log n). Space O(1) — the algorithm is not recursive."
+      "explanation": "Worst = best = average = O(n log n). Space O(1): the algorithm is not recursive."
     },
     {
       "prompt": "8. To sort numbers into DECREASING order with heap sort, use a…",

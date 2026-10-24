@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "07-encapsulation",
-  "title": "Topic 7 Quiz — Encapsulation",
+  "title": "Topic 7 Quiz: Encapsulation",
   "questions": [
     {
       "prompt": "1. Encapsulation is the process of…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q7a\" value=\"3\">Deriving classes from superclasses"
       ],
       "answer": 2,
-      "explanation": "Code + data wrapped in one unit (the class) — like a capsule of mixed medicines."
+      "explanation": "Code + data wrapped in one unit (the class), like a capsule of mixed medicines."
     },
     {
       "prompt": "2. Encapsulation is also known as…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q7b\" value=\"3\">Upcasting"
       ],
       "answer": 1,
-      "explanation": "Private fields are hidden inside the class — hence \"data hiding\"."
+      "explanation": "Private fields are hidden inside the class, hence \"data hiding\"."
     },
     {
       "prompt": "3. Getter methods are technically called…",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q7e\" value=\"3\">commissionRate becomes 0.20"
       ],
       "answer": 2,
-      "explanation": "The setter validates: only 0.0–0.20 is accepted; 0.5 is refused — total control over data."
+      "explanation": "The setter validates: only 0.0–0.20 is accepted; 0.5 is refused: total control over data."
     },
     {
       "prompt": "6. Which is a design-level concept focused on WHAT a class can do?",

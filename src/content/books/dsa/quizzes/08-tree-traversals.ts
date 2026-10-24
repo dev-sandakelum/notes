@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "08-tree-traversals",
-  "title": "Topic 7 Quiz — Tree Traversals",
+  "title": "Topic 7 Quiz: Tree Traversals",
   "questions": [
     {
       "prompt": "1. Which traversal processes the root <b>first</b>?",
@@ -13,13 +13,13 @@ const quiz: QuizData = {
         "Level order"
       ],
       "answer": 1,
-      "explanation": "Preorder = Root, Left, Right — the root is processed before its subtrees."
+      "explanation": "Preorder = Root, Left, Right: the root is processed before its subtrees."
     },
     {
       "prompt": "2. Nodes: root 1, left 2 (with left child 4), right 3. Inorder traversal = ?",
       "options": [
         "1 2 3 4",
-        "4 2 1 3 — wait, check again",
+        "4 2 1 3: wait, check again",
         "4 2 1 3",
         "1 2 4 3"
       ],
@@ -60,7 +60,7 @@ const quiz: QuizData = {
       "explanation": "Level order processes all nodes of level 0, then level 1, etc."
     },
     {
-      "prompt": "6. For tree 1(root), children 2 and 3, node 2 has children 4 and 5 — level-order traversal = ?",
+      "prompt": "6. For tree 1(root), children 2 and 3, node 2 has children 4 and 5, level-order traversal = ?",
       "options": [
         "4 2 5 1 3",
         "1 2 4 5 3",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "An AVL tree automatically"
       ],
       "answer": 0,
-      "explanation": "Every new key goes to the right only — the tree degenerates into a linear chain, killing the log advantage."
+      "explanation": "Every new key goes to the right only; the tree degenerates into a linear chain, killing the log advantage."
     },
     {
       "prompt": "8. In the traversal trick, inorder processes a node when the path passes…",

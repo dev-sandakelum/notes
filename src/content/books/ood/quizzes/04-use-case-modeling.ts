@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "04-use-case-modeling",
-  "title": "Topic 4 Quiz — Use Case Modeling",
+  "title": "Topic 4 Quiz: Use Case Modeling",
   "questions": [
     {
       "prompt": "1. Use case modeling is primarily a technique for:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Choosing a programming language"
       ],
       "answer": 2,
-      "explanation": "Use case modeling is a requirements engineering technique — it captures functional requirements from the user's perspective. (And remember: use cases are primarily written descriptions, not diagrams.)"
+      "explanation": "Use case modeling is a requirements engineering technique; it captures functional requirements from the user's perspective. (And remember: use cases are primarily written descriptions, not diagrams.)"
     },
     {
       "prompt": "2. \"The ATM shall validate the PIN within 3 seconds.\" What kind of requirement is this?",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "System boundary"
       ],
       "answer": 0,
-      "explanation": "The payment gateway provides a service TO the system — it isn't using the system for its own goal — so it is a supporting actor."
+      "explanation": "The payment gateway provides a service TO the system; it isn't using the system for its own goal, so it is a supporting actor."
     },
     {
       "prompt": "4. Which statement about use case vs scenario is correct?",

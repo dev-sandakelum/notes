@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "09-master-formula-and-key-facts-sheet",
     "number": 9,
-    "title": "Master Formula & Key-Facts Sheet",
+    "title": "Master formula & key-facts sheet",
     "subtitle": "Flip each card · rapid revision for the exam",
     "kind": "cheatsheet",
     "words": 474,
@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Tap a card to flip it. Work through these until you can state every back without hesitating — they cover the formulae that appear in tutorials, quizzes and the final exam."
+      "html": "Tap a card to flip it. Work through these until you can state every back without hesitating; they cover the formulae that appear in tutorials, quizzes and the final exam."
     },
     {
       "type": "flashcards",

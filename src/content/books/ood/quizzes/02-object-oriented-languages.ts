@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "02-object-oriented-languages",
-  "title": "Topic 2 Quiz — Object-Oriented Languages",
+  "title": "Topic 2 Quiz: Object-Oriented Languages",
   "questions": [
     {
       "prompt": "1. Which languages are <b>statically typed</b>?",
@@ -63,7 +63,7 @@ const quiz: QuizData = {
       "prompt": "6. <code>int x = \"Hello\";</code> fails to compile in Java. This demonstrates:",
       "options": [
         "Dynamic loading",
-        "Strong typing — every value must belong to an appropriate type for its context",
+        "Strong typing: every value must belong to an appropriate type for its context",
         "Garbage collection",
         "Polymorphism"
       ],

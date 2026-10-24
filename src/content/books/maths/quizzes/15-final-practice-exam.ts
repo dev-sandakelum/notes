@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "15-final-practice-exam",
-  "title": "Final Practice Exam",
+  "title": "Final practice exam",
   "questions": [
     {
       "prompt": "1. Which number is irrational?",
@@ -123,7 +123,7 @@ const quiz: QuizData = {
         "0"
       ],
       "answer": 3,
-      "explanation": "(4)(3) − (6)(2) = 12 − 12 = 0 — a singular matrix, so no inverse exists."
+      "explanation": "(4)(3) − (6)(2) = 12 − 12 = 0, a singular matrix, so no inverse exists."
     },
     {
       "prompt": "12. A girl walks 9 m west then 12 m north. Her displacement magnitude is:",
@@ -167,7 +167,7 @@ const quiz: QuizData = {
         "AB = BA for all square matrices A, B"
       ],
       "answer": 3,
-      "explanation": "Matrix multiplication is not commutative — AB and BA generally differ. The other three are true statements."
+      "explanation": "Matrix multiplication is not commutative. AB and BA generally differ. The other three are true statements."
     }
   ]
 };

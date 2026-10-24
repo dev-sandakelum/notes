@@ -2,18 +2,18 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "03-this-static-and-memory",
-  "title": "Topic 3 Quiz — this, static & Memory",
+  "title": "Topic 3 Quiz: this, static & Memory",
   "questions": [
     {
       "prompt": "1. The this keyword refers to…",
       "options": [
         "<input type=\"radio\" name=\"q3a\" value=\"0\">The parent class object",
-        "<input type=\"radio\" name=\"q3a\" value=\"1\">The current object — the instance for which the method/constructor was called",
+        "<input type=\"radio\" name=\"q3a\" value=\"1\">The current object; the instance for which the method/constructor was called",
         "<input type=\"radio\" name=\"q3a\" value=\"2\">The class itself",
         "<input type=\"radio\" name=\"q3a\" value=\"3\">The last created object"
       ],
       "answer": 1,
-      "explanation": "Every object carries a reference to itself — this. It disambiguates fields from shadowing parameters."
+      "explanation": "Every object carries a reference to itself, this. It disambiguates fields from shadowing parameters."
     },
     {
       "prompt": "2. A call to this(...) inside a constructor must be…",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q3f\" value=\"3\">Only inside constructors"
       ],
       "answer": 0,
-      "explanation": "Static members belong to the class; they are initialized at class load time — before any object exists."
+      "explanation": "Static members belong to the class; they are initialized at class load time, before any object exists."
     },
     {
       "prompt": "7. Which is TRUE about static and instance access?",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q3h\" value=\"3\">Override the new keyword"
       ],
       "answer": 1,
-      "explanation": "A private constructor blocks instance creation from outside — the Math class technique, and the basis of Singleton."
+      "explanation": "A private constructor blocks instance creation from outside; the Math class technique, and the basis of Singleton."
     }
   ]
 };

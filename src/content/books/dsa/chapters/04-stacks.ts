@@ -21,7 +21,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Definition",
-      "html": "A stack is a <b>linear data structure which can be accessed only at one end</b> — the <b>top</b> — for storing and retrieving data. Insertions and deletions are made at the top only, so elements are removed in the <b>reverse</b> order of insertion: <b>Last-In, First-Out (LIFO)</b>."
+      "html": "A stack is a <b>linear data structure which can be accessed only at one end</b>; the <b>top</b>, for storing and retrieving data. Insertions and deletions are made at the top only, so elements are removed in the <b>reverse</b> order of insertion: <b>Last-In, First-Out (LIFO)</b>."
     },
     {
       "type": "paragraph",
@@ -58,17 +58,17 @@ const chapter: ChapterData = {
         ],
         [
           "<b>IsEmpty()</b>",
-          "—",
+          "None",
           "True if the stack has no elements"
         ],
         [
           "<b>IsFull()</b>",
-          "—",
+          "None",
           "True if no more items fit (array version)"
         ],
         [
           "<b>MakeEmpty</b>",
-          "—",
+          "None",
           "Removes all elements"
         ]
       ]
@@ -137,7 +137,7 @@ const chapter: ChapterData = {
     {
       "type": "viz",
       "kind": "stack",
-      "caption": "Push, pop and peek — watch TOP move. Full = overflow error, empty pop = underflow error."
+      "caption": "Push, pop and peek: watch TOP move. Full = overflow error, empty pop = underflow error."
     },
     {
       "type": "heading",
@@ -149,10 +149,10 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Method calls</b> — most microprocessors are stack-based: return address and arguments are pushed on call, popped on return.",
-        "<b>Reversing</b> — push all letters of a word, pop them out in reverse order.",
-        "<b>Compilers / expression evaluation</b> — converting infix expressions to prefix/postfix and evaluating them.",
-        "<b>Browser back button</b> — URLs are pushed as you visit; back pops the current page.",
+        "<b>Method calls</b>: most microprocessors are stack-based: return address and arguments are pushed on call, popped on return.",
+        "<b>Reversing</b>: push all letters of a word, pop them out in reverse order.",
+        "<b>Compilers / expression evaluation</b>: converting infix expressions to prefix/postfix and evaluating them.",
+        "<b>Browser back button</b>. URLs are pushed as you visit; back pops the current page.",
         "<b>Undo</b> in text editors."
       ]
     },
@@ -164,7 +164,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Infix</b> places the operator <i>between</i> operands (A + B). <b>Prefix</b> (Polish) places it <i>before</i> (+ A B). <b>Postfix</b> (Reverse Polish) places it <i>after</i> (A B +). No parentheses or precedence rules are needed in prefix/postfix — which is why compilers love them."
+      "html": "<b>Infix</b> places the operator <i>between</i> operands (A + B). <b>Prefix</b> (Polish) places it <i>before</i> (+ A B). <b>Postfix</b> (Reverse Polish) places it <i>after</i> (A B +). No parentheses or precedence rules are needed in prefix/postfix, which is why compilers love them."
     },
     {
       "type": "callout",
@@ -245,7 +245,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The array stack works only for a <b>fixed number</b> of values — unsuitable when the data size is unknown. A linked-list stack grows without limit: every new element is inserted as the new <b>top</b>, pointed at by <code>top</code>."
+      "html": "The array stack works only for a <b>fixed number</b> of values, unsuitable when the data size is unknown. A linked-list stack grows without limit: every new element is inserted as the new <b>top</b>, pointed at by <code>top</code>."
     },
     {
       "type": "code",
@@ -261,7 +261,7 @@ const chapter: ChapterData = {
       "cards": [
         {
           "front": "<span class=\"fc-q\">Stack order principle?</span>",
-          "back": "<div class=\"fc-a\">LIFO — Last In, First Out</div>",
+          "back": "<div class=\"fc-a\">LIFO: Last In, First Out</div>",
           "category": "Principle"
         },
         {
@@ -283,7 +283,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 3 Quiz — Stacks",
+      "title": "Topic 3 Quiz: Stacks",
       "count": 8,
       "quizSlug": "04-stacks"
     }

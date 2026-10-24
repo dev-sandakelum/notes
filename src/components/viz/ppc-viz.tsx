@@ -47,8 +47,8 @@ export function PpcViz({ caption }: { caption?: string }) {
   const fY = sy(fy);
 
   const msg = idle
-    ? `Only 80% of potential output — the economy sits INSIDE the frontier. It could reach ${Math.round(fx)} butter and ${Math.round(fy)} guns by fully employing its resources.`
-    : `Point (${Math.round(fx)}, ${Math.round(fy)}) lies ON the frontier — resources are fully and efficiently employed (productive efficiency).`;
+    ? `Only 80% of potential output: the economy sits INSIDE the frontier. It could reach ${Math.round(fx)} butter and ${Math.round(fy)} guns by fully employing its resources.`
+    : `Point (${Math.round(fx)}, ${Math.round(fy)}) lies ON the frontier: resources are fully and efficiently employed (productive efficiency).`;
 
   const pointLabelRight = pX < x0 + plotW - 70;
 

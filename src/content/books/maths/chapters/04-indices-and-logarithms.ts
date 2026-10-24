@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "04-indices-and-logarithms",
     "number": 4,
-    "title": "Indices & Logarithms",
+    "title": "Indices & logarithms",
     "subtitle": "Laws of indices · Scientific notation · Laws of logarithms · Indicial equations",
     "kind": "topic",
     "words": 1028,
@@ -23,7 +23,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — evaluating powers",
+      "title": "Worked example: evaluating powers",
       "bodyHtml": "<p>Evaluate (a) 2⁶ &nbsp; (b) 3⁴</p>",
       "solutionHtml": "<p>(a) 2⁶ = 2×2×2×2×2×2 = <b>64</b> &nbsp;&nbsp; (b) 3⁴ = 3×3×3×3 = <b>81</b></p>"
     },
@@ -83,9 +83,9 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — simplifying with the laws",
+      "title": "Worked example: simplifying with the laws",
       "bodyHtml": "<p>Simplify: (1) <span class=\"m\">x⁷ × x⁻³ ÷ x²</span> &nbsp; (2) <span class=\"m\">(2x²y³)²</span> &nbsp; (3) <span class=\"m\">(3x)⁰</span> &nbsp; (4) <span class=\"m\">16<sup>3/4</sup></span></p>",
-      "solutionHtml": "<ol>\n        <li><span class=\"m\">x<sup>7+(−3)−2</sup> = x²</span></li>\n        <li><span class=\"m\">2²x⁴y⁶ = 4x⁴y⁶</span> — the outer power applies to <i>every</i> factor inside.</li>\n        <li><span class=\"m\">(3x)⁰ = 1</span> — the whole bracket to the power 0 is 1.</li>\n        <li><span class=\"m\">16<sup>3/4</sup> = (⁴√16)³ = 2³ = 8</span>.</li>\n      </ol>"
+      "solutionHtml": "<ol>\n        <li><span class=\"m\">x<sup>7+(−3)−2</sup> = x²</span></li>\n        <li><span class=\"m\">2²x⁴y⁶ = 4x⁴y⁶</span>; the outer power applies to <i>every</i> factor inside.</li>\n        <li><span class=\"m\">(3x)⁰ = 1</span>: the whole bracket to the power 0 is 1.</li>\n        <li><span class=\"m\">16<sup>3/4</sup> = (⁴√16)³ = 2³ = 8</span>.</li>\n      </ol>"
     },
     {
       "type": "heading",
@@ -99,13 +99,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — operations in scientific notation",
+      "title": "Worked example: operations in scientific notation",
       "bodyHtml": "<p>Evaluate and give the answer in scientific notation: (a) (7.3 × 10⁶) × (8.0 × 10<sup>−⁸</sup>) &nbsp; (b) (4.8 × 10⁷) ÷ (3.0 × 10<sup>−³</sup>)</p>",
       "solutionHtml": "<p>(a) 7.3 × 8.0 = 58.4 and 10⁶ × 10<sup>−8</sup> = 10<sup>−2</sup>, so 58.4 × 10<sup>−2</sup> = <b>5.84 × 10<sup>−1</sup></b>.</p>\n      <p>(b) 4.8 ÷ 3.0 = 1.6 and 10⁷ ÷ 10<sup>−3</sup> = 10<sup>7−(−3)</sup> = 10¹⁰, giving <b>1.6 × 10¹⁰</b>.</p>"
     },
     {
       "type": "example",
-      "title": "Worked example — real-world problem",
+      "title": "Worked example: real-world problem",
       "bodyHtml": "<p>A government proposes a 700 billion dollar bailout (7 × 10¹¹) of the banking system. If 21 million people (2.1 × 10⁷) each pay an equal share, what is the cost per person?</p>",
       "solutionHtml": "<div class=\"eq\"><span class=\"frac\"><span>7 × 10¹¹</span><span>2.1 × 10⁷</span></span> = <span class=\"frac\"><span>7</span><span>2.1</span></span> × 10⁵ = 3.33… × 10⁴ ≈ <b>$33,300 per person</b></div>"
     },
@@ -117,7 +117,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Logarithms were invented in the early 1600s to turn <b>multiplicative processes into additive ones</b> — they literally lengthened the productive lives of astronomers. They still matter today: loudness in decibels, the pH of a solution and earthquake intensity on the Richter scale are all logarithmic."
+      "html": "Logarithms were invented in the early 1600s to turn <b>multiplicative processes into additive ones</b>; they literally lengthened the productive lives of astronomers. They still matter today: loudness in decibels, the pH of a solution and earthquake intensity on the Richter scale are all logarithmic."
     },
     {
       "type": "callout",
@@ -139,7 +139,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — exponential ↔ logarithmic form",
+      "title": "Worked example: exponential ↔ logarithmic form",
       "bodyHtml": "<p>Write in logarithmic form: (1) 2³ = 8 &nbsp; (2) 2<sup>−3</sup> = 1/8 &nbsp; (3) 7² = 49 &nbsp; (4) 5⁰ = 1 &nbsp; (5) 10<sup>−2</sup> = 1/100</p>",
       "solutionHtml": "<ol>\n        <li><span class=\"m\">log₂ 8 = 3</span> (“log base 2 of 8 is 3”)</li>\n        <li><span class=\"m\">log₂ <span class=\"frac\"><span>1</span><span>8</span></span> = −3</span></li>\n        <li><span class=\"m\">log₇ 49 = 2</span></li>\n        <li><span class=\"m\">log₅ 1 = 0</span></li>\n        <li><span class=\"m\">lg <span class=\"frac\"><span>1</span><span>100</span></span> = −2</span></li>\n      </ol>"
     },
@@ -158,11 +158,11 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "warn",
       "title": "Common mistakes",
-      "html": "<span class=\"m\">log(x + y) ≠ log x + log y</span> — the laws only split <b>products</b> and <b>quotients</b>, never sums. Also <span class=\"m\">(log x)² ≠ log x²</span>; the second is <span class=\"m\">2 log x</span>."
+      "html": "<span class=\"m\">log(x + y) ≠ log x + log y</span>; the laws only split <b>products</b> and <b>quotients</b>, never sums. Also <span class=\"m\">(log x)² ≠ log x²</span>; the second is <span class=\"m\">2 log x</span>."
     },
     {
       "type": "example",
-      "title": "Worked example — applying log laws",
+      "title": "Worked example: applying log laws",
       "bodyHtml": "<p>Write <span class=\"m\">log₂<span class=\"bigp\">(</span><span class=\"frac\"><span>x³√y</span><span>16</span></span><span class=\"bigp\">)</span></span> as a combination of simple logs (x, y &gt; 0).</p>",
       "solutionHtml": "<div class=\"eq\">3 log₂ x + <span class=\"frac\"><span>1</span><span>2</span></span> log₂ y − log₂ 16 = 3 log₂ x + <span class=\"frac\"><span>1</span><span>2</span></span> log₂ y − 4</div>\n      <p>Power law on x³ and y<sup>1/2</sup>, quotient law splits the fraction, and log₂ 16 = log₂ 2⁴ = 4.</p>"
     },
@@ -178,7 +178,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — solving indicial equations",
+      "title": "Worked example: solving indicial equations",
       "bodyHtml": "<p>Solve: (1) 2ᵀ = 32 &nbsp; (2) 3ᵁ⁻¹ = 81 &nbsp; (3) 9ᵀ = 27 &nbsp; (4) 2ᵀ = 5</p>",
       "solutionHtml": "<ol>\n        <li>32 = 2⁵, so <span class=\"m\">x = 5</span>.</li>\n        <li>81 = 3⁴ → x − 1 = 4 → <span class=\"m\">x = 5</span>.</li>\n        <li>Same base 3: <span class=\"m\">(3²)ᵀ = 3³</span> → 2x = 3 → <span class=\"m\">x = 3/2</span>.</li>\n        <li>No common base, so take logs: <span class=\"m\">x log 2 = log 5</span> → <span class=\"m\">x = <span class=\"frac\"><span>log 5</span><span>log 2</span></span> ≈ 2.322</span>.</li>\n      </ol>"
     },
@@ -196,7 +196,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 4 Quiz — Indices & Logarithms",
+      "title": "Topic 4 Quiz: Indices & Logarithms",
       "count": 8,
       "quizSlug": "04-indices-and-logarithms"
     }

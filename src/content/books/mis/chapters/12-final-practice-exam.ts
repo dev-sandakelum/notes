@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "12-final-practice-exam",
     "number": 12,
-    "title": "Final Practice Exam",
+    "title": "Final practice exam",
     "subtitle": "20 mixed questions across all 9 lectures · aim for 40 minutes",
     "kind": "exam",
     "words": 79,
@@ -13,11 +13,11 @@ const chapter: ChapterData = {
   "blocks": [
     {
       "type": "paragraph",
-      "html": "Attempt this exam in one sitting after finishing all topics. Every question links back to a concept covered above — if you miss one, revisit that topic section before your real exam. <b>Pass benchmark: 14/20 (70%).</b>"
+      "html": "Attempt this exam in one sitting after finishing all topics. Every question links back to a concept covered above, if you miss one, revisit that topic section before your real exam. <b>Pass benchmark: 14/20 (70%).</b>"
     },
     {
       "type": "quiz",
-      "title": "ICT2162 — Final Practice Exam",
+      "title": "ICT2162: final practice exam",
       "count": 20,
       "quizSlug": "12-final-practice-exam"
     },
@@ -25,7 +25,7 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "After the exam",
-      "html": "Scored 14+? You are on track — drill the flashcards and re-read the Master Revision Sheet the night before. Below 14? Revisit the topic quizzes for every question you missed — each explanation points back to the exact concept in its topic section."
+      "html": "Scored 14+? You are on track: drill the flashcards and re-read the Master Revision Sheet the night before. Below 14? Revisit the topic quizzes for every question you missed, each explanation points back to the exact concept in its topic section."
     }
   ]
 };

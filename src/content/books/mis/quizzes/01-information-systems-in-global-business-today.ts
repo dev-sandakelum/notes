@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "01-information-systems-in-global-business-today",
-  "title": "Topic 1 Quiz — IS in Global Business Today",
+  "title": "Topic 1 Quiz: IS in Global Business Today",
   "questions": [
     {
       "prompt": "1. An information system is best defined as a set of interrelated components that:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Automate the accounting function of a business"
       ],
       "answer": 1,
-      "explanation": "The lecture definition: interrelated components that collect, process, store and distribute information to support decision making and control in an organization — and may also help analyze problems, visualize complex subjects and create new products."
+      "explanation": "The lecture definition: interrelated components that collect, process, store and distribute information to support decision making and control in an organization, and may also help analyze problems, visualize complex subjects and create new products."
     },
     {
       "prompt": "2. Converting raw input into a meaningful form is which activity of an information system?",
@@ -51,10 +51,10 @@ const quiz: QuizData = {
     {
       "prompt": "5. Which company is paired with the <b>wrong</b> strategic business objective?",
       "options": [
-        "Wal-Mart — operational excellence",
-        "Toyota — customer and supplier intimacy",
-        "Apple — new products, services and business models",
-        "HSBC — survival"
+        "Wal-Mart: operational excellence",
+        "Toyota: customer and supplier intimacy",
+        "Apple: new products, services and business models",
+        "HSBC: survival"
       ],
       "answer": 1,
       "explanation": "Toyota is the example for <b>competitive advantage</b>. Customer and supplier intimacy belongs to the <b>Mandarin Oriental</b> hotel group. Wal-Mart = operational excellence, Apple = new products/services/models, HSBC = survival."

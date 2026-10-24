@@ -7,12 +7,13 @@ import {
   type TreeGraphNode,
   type TreeGraphNodeState,
 } from "./tree-graph";
+import { btnGhost, btnPrimary, inputCls, statusCls } from "./viz-ui";
 
 /**
  * BST builder visualizer (rebuilt on the shared <TreeGraph /> renderer).
  * Insert walks every key down the tree one animated comparison at a
  * time; search animates the same walk (with two green pulses on a hit);
- * delete explains its three cases — leaf, one child (splice) and two
+ * delete explains its three cases: leaf, one child (splice) and two
  * children (in-order successor). Deterministic initial tree, ≤ 15 nodes,
  * duplicates rejected with an error flash.
  */
@@ -42,22 +43,6 @@ const LIMIT = 15; // node limit, like the original widget
 const STEP = 450; // ms per comparison on the walk down
 const SETTLE = 650; // ms to let a result sink in
 const INITIAL_KEYS = [50, 30, 70, 20, 40, 60, 80]; // fixed insert order (SSR-safe)
-
-const btnPrimary =
-  "inline-flex items-center gap-1.5 rounded-md bg-ink text-paper px-3 h-9 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:pointer-events-none";
-const btnGhost =
-  "inline-flex items-center gap-1.5 rounded-md border border-hairline text-ink px-3 h-9 text-sm hover:border-hairline-strong transition-colors disabled:opacity-50 disabled:pointer-events-none";
-const inputCls =
-  "border border-hairline rounded-md bg-paper px-3 h-9 font-mono text-sm text-ink w-44 placeholder:text-ink-faint disabled:opacity-50";
-
-const toneCls = (tone: Tone) =>
-  tone === "ok"
-    ? "text-ok"
-    : tone === "danger"
-      ? "text-danger"
-      : tone === "warn"
-        ? "text-warn"
-        : "text-ink-muted";
 
 /* ---------- pure tree helpers (persistent-style, immutable) ---------- */
 
@@ -121,11 +106,17 @@ function buildInitial(): TNode | null {
   return t;
 }
 
-function toGraph(n: TNode): TreeGraphNode {
+function toGraph(n: TNode, side?: "left" | "right"): TreeGraphNode {
   const kids: TreeGraphNode[] = [];
-  if (n.left) kids.push(toGraph(n.left));
-  if (n.right) kids.push(toGraph(n.right));
-  return { key: String(n.key), label: String(n.key), children: kids };
+  if (n.left) kids.push(toGraph(n.left, "left"));
+  if (n.right) kids.push(toGraph(n.right, "right"));
+  const node: TreeGraphNode = {
+    key: String(n.key),
+    label: String(n.key),
+    side,
+  };
+  if (kids.length) node.children = kids;
+  return node;
 }
 
 /** `37 < 50 → go left` — the comparison line shown during insert walks. */
@@ -149,7 +140,7 @@ export function BstViz({ caption }: { caption?: string }) {
   const [states, setStates] = useState<States>({});
   const [input, setInput] = useState("");
   const [msg, setMsg] = useState<Msg>({
-    text: "Insert keys (space separated) — each one walks down the tree, comparing as it goes.",
+    text: "Insert keys (space separated). Each one walks down the tree, comparing as it goes.",
     tone: "default",
   });
   const [busy, setBusy] = useState(false);
@@ -229,7 +220,7 @@ export function BstViz({ caption }: { caption?: string }) {
           at,
           tree: work,
           states: { [String(k)]: "error" },
-          msg: { text: `Duplicate ${k} — BSTs store unique keys`, tone: "warn" },
+          msg: { text: `Duplicate ${k}. BSTs store unique keys.`, tone: "warn" },
         });
         at += STEP * 1.5;
         continue;
@@ -259,7 +250,7 @@ export function BstViz({ caption }: { caption?: string }) {
         states: st,
         msg:
           path.length === 0
-            ? { text: `Tree was empty — ${k} becomes the root (depth 0)`, tone: "ok" }
+            ? { text: `Tree was empty. ${k} becomes the root (depth 0).`, tone: "ok" }
             : { text: `Inserted ${k} (depth ${path.length})`, tone: "ok" },
       });
       at += SETTLE;
@@ -271,7 +262,7 @@ export function BstViz({ caption }: { caption?: string }) {
     const notes: string[] = [];
     if (added > 1) notes.push(`Inserted ${added} keys.`);
     if (dups.length) notes.push(`Duplicates rejected: ${dups.join(", ")}.`);
-    if (limited) notes.push(`Node limit (${LIMIT}) reached — press Clear to build more.`);
+    if (limited) notes.push(`Node limit (${LIMIT}) reached. Press Clear to build more.`);
     if (invalidCount)
       notes.push(`${invalidCount} token(s) skipped (whole numbers from −99 to 999).`);
     if (notes.length) {
@@ -290,7 +281,7 @@ export function BstViz({ caption }: { caption?: string }) {
     if (busyRef.current) return;
     const t = treeRef.current;
     if (!t) {
-      setMsg({ text: "Tree is empty — insert some keys first.", tone: "warn" });
+      setMsg({ text: "Tree is empty. Insert some keys first.", tone: "warn" });
       return;
     }
     const { path, found } = walkPath(t, k);
@@ -318,7 +309,7 @@ export function BstViz({ caption }: { caption?: string }) {
 
     if (found) {
       const hitMsg: Msg = {
-        text: `${k} — found ✓ after ${path.length} comparison${path.length === 1 ? "" : "s"}`,
+        text: `${k} found after ${path.length} comparison${path.length === 1 ? "" : "s"}`,
         tone: "ok",
       };
       const on: States = { ...pathStates, [String(k)]: "found" };
@@ -336,7 +327,7 @@ export function BstViz({ caption }: { caption?: string }) {
         at,
         tree: t,
         states: st,
-        msg: { text: `${k} not found — looked ${path.join(" → ")}`, tone: "danger" },
+        msg: { text: `${k} not found. Path walked: ${path.join(" → ")}.`, tone: "danger" },
       });
       at += STEP;
     }
@@ -347,7 +338,7 @@ export function BstViz({ caption }: { caption?: string }) {
     if (busyRef.current) return;
     const t = treeRef.current;
     if (!t) {
-      setMsg({ text: "Tree is empty — nothing to delete.", tone: "warn" });
+      setMsg({ text: "Tree is empty. Nothing to delete.", tone: "warn" });
       return;
     }
     const { path, found } = walkPath(t, k);
@@ -380,7 +371,7 @@ export function BstViz({ caption }: { caption?: string }) {
         at,
         tree: t,
         states: st,
-        msg: { text: `${k} is not in the tree — nothing to delete.`, tone: "danger" },
+        msg: { text: `${k} is not in the tree. Nothing to delete.`, tone: "danger" },
       });
       at += STEP;
     } else {
@@ -390,14 +381,14 @@ export function BstViz({ caption }: { caption?: string }) {
           at,
           tree: t,
           states: { [String(k)]: "selected" },
-          msg: { text: `${k} is a leaf — unlink it`, tone: "default" },
+          msg: { text: `${k} is a leaf. Unlink it.`, tone: "default" },
         });
         at += SETTLE;
         snaps.push({
           at,
           tree: r.tree,
           states: {},
-          msg: { text: `Deleted ${k} — leaf unlinked`, tone: "ok" },
+          msg: { text: `Deleted ${k}. Leaf unlinked.`, tone: "ok" },
         });
         at += SETTLE / 2;
       } else if (r.kind === "one" && r.tree) {
@@ -406,14 +397,14 @@ export function BstViz({ caption }: { caption?: string }) {
           at,
           tree: t,
           states: { [String(k)]: "selected", [String(child)]: "visiting" },
-          msg: { text: `${k} has one child (${child}) — splice it up`, tone: "default" },
+          msg: { text: `${k} has one child (${child}). Splice it up.`, tone: "default" },
         });
         at += SETTLE;
         snaps.push({
           at,
           tree: r.tree,
           states: { [String(child)]: "found" },
-          msg: { text: `Deleted ${k} — ${child} spliced up`, tone: "ok" },
+          msg: { text: `Deleted ${k}. ${child} spliced up.`, tone: "ok" },
         });
         at += SETTLE / 2;
       } else if (r.kind === "two" && r.succ !== undefined) {
@@ -422,14 +413,14 @@ export function BstViz({ caption }: { caption?: string }) {
           at,
           tree: t,
           states: { [String(k)]: "selected", [String(succ)]: "visiting" },
-          msg: { text: `${k} has two children — inorder successor is ${succ}`, tone: "default" },
+          msg: { text: `${k} has two children. In-order successor is ${succ}.`, tone: "default" },
         });
         at += SETTLE;
         snaps.push({
           at,
           tree: r.tree,
           states: { [String(succ)]: "found" },
-          msg: { text: `Deleted ${k} — successor ${succ} takes its place`, tone: "ok" },
+          msg: { text: `Deleted ${k}. Successor ${succ} takes its place.`, tone: "ok" },
         });
         at += SETTLE / 2;
       }
@@ -446,7 +437,7 @@ export function BstViz({ caption }: { caption?: string }) {
     setStates({});
     setInput("");
     setMsg({
-      text: "Cleared — insert keys to build a new tree.",
+      text: "Cleared. Insert keys to build a new tree.",
       tone: "default",
     });
   };
@@ -493,7 +484,7 @@ export function BstViz({ caption }: { caption?: string }) {
   /* ---------- render ---------- */
 
   return (
-    <figure className="print-avoid-break my-6 rounded-md border border-hairline bg-paper-raised p-4 viz-shell">
+    <figure className="print-avoid-break my-6 border border-hairline p-4 viz-shell">
       <div className="no-print flex flex-wrap items-center justify-center gap-2">
         <input
           value={input}
@@ -524,24 +515,23 @@ export function BstViz({ caption }: { caption?: string }) {
         </button>
       </div>
 
-      <div className="mt-3">
+      <div className="tree-wrap mt-3">
         {tree ? (
           <TreeGraph
             root={toGraph(tree)}
             nodeStates={states}
             ariaLabel={`Binary search tree with ${countTree(tree)} of at most ${LIMIT} nodes`}
-            className="mx-auto h-auto w-full max-h-[360px]"
           />
         ) : (
           <div className="rounded-md border border-dashed border-hairline py-12 text-center text-sm text-ink-faint">
-            Empty tree — insert keys above and watch each one walk down, comparing as it goes.
+            Empty tree. Insert keys above and watch each one walk down, comparing as it goes.
           </div>
         )}
       </div>
 
       <div
         aria-live="polite"
-        className={`mt-3 min-h-[1.5rem] text-center text-sm ${toneCls(msg.tone)}`}
+        className={`mt-3 text-center ${statusCls(msg.tone)}`}
       >
         {msg.text}
       </div>

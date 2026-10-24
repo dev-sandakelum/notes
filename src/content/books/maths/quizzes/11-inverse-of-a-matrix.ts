@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "11-inverse-of-a-matrix",
-  "title": "Topic 11 Quiz — Inverse of a Matrix",
+  "title": "Topic 11 Quiz: Inverse of a Matrix",
   "questions": [
     {
       "prompt": "1. det<span class=\"mtx\" style=\"grid-template-columns:repeat(2,auto)\"><span>2</span><span>5</span><span>1</span><span>3</span></span> = ?",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "the transpose of A"
       ],
       "answer": 1,
-      "explanation": "adj(A) = (cofactor matrix)ᵖ — forgetting this transpose is the classic error."
+      "explanation": "adj(A) = (cofactor matrix)ᵖ: forgetting this transpose is the classic error."
     },
     {
       "prompt": "6. The system AX = B is solved by:",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "X = AB"
       ],
       "answer": 2,
-      "explanation": "Multiply on the LEFT by A⁻¹: A⁻¹(AX) = A⁻¹B → X = A⁻¹B. (BA⁻¹ is usually not even defined!)"
+      "explanation": "Multiply on the LEFT by A⁻¹: A⁻¹(AX) = A⁻¹B → X = A⁻¹B. (BA⁻¹ is usually not even defined.)"
     }
   ]
 };

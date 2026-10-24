@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Pivots on the X-axis"
       ],
       "answer": 2,
-      "explanation": "Unemployment does not change productive capacity — it moves the operating point inside the unchanged curve."
+      "explanation": "Unemployment does not change productive capacity; it moves the operating point inside the unchanged curve."
     },
     {
       "prompt": "6. New fertiliser raises only paddy yields in a rice-and-clothes economy. The PPC:",

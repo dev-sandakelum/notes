@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "08-enhancing-decision-making",
-  "title": "Topic 8 Quiz — Enhancing Decision Making",
+  "title": "Topic 8 Quiz: Enhancing Decision Making",
   "questions": [
     {
       "prompt": "1. A decision that is repetitive and routine, with a definite procedure for handling it, is:",
@@ -18,10 +18,10 @@ const quiz: QuizData = {
     {
       "prompt": "2. \"Should we enter a new market?\" is typically a decision made by:",
       "options": [
-        "Senior managers — unstructured",
-        "Senior managers — structured",
-        "Operational managers — structured",
-        "Middle managers — structured"
+        "Senior managers: unstructured",
+        "Senior managers: structured",
+        "Operational managers: structured",
+        "Middle managers: structured"
       ],
       "answer": 0,
       "explanation": "Senior managers make many unstructured decisions like entering new markets. Middle managers: more structured, possibly with unstructured components. Operational: more structured (e.g. credit criteria checks)."
@@ -112,7 +112,7 @@ const quiz: QuizData = {
         "Drill-down reporting"
       ],
       "answer": 0,
-      "explanation": "Predictive analytics uses patterns in data to predict future behavior — the lecture's example is exactly credit card churn prediction."
+      "explanation": "Predictive analytics uses patterns in data to predict future behavior; the lecture's example is exactly credit card churn prediction."
     }
   ]
 };

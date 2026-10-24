@@ -99,7 +99,11 @@ export function QuizDrawer({
 
   return (
     <>
-      {/* Floating launcher tab pinned to the right viewport edge */}
+      {/* Mobile/tablet launcher: compact icon-only FAB (bottom-right).
+          Desktop (xl+) uses the <QuizRailLauncher /> in the TOC rail instead,
+          so the launcher can never cover the TOC or the reading column.
+          The chapter main adds bottom padding so the last content can
+          scroll clear of the FAB. */}
       <button
         ref={launcherRef}
         type="button"
@@ -107,72 +111,82 @@ export function QuizDrawer({
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={panelId}
-        className="no-print fixed right-0 top-1/3 z-30 flex flex-col items-center gap-2 rounded-l-lg bg-ink py-3.5 pl-2.5 pr-2 text-paper shadow-md transition-transform duration-200 hover:-translate-x-0.5"
+        aria-label={`Open topic quiz (${count} questions)`}
+        className="no-print fixed bottom-5 right-4 z-30 inline-flex size-12 items-center justify-center rounded-full bg-(--accent) text-white shadow-card-lg transition-transform duration-200 hover:-translate-y-0.5 xl:hidden"
       >
-        <ClipboardList className="size-4 shrink-0" aria-hidden="true" />
-        <span className="text-caption font-semibold [writing-mode:vertical-rl]">
-          Quiz · {count} questions
-        </span>
+        <ClipboardList className="size-5 shrink-0" aria-hidden="true" />
       </button>
 
-      {/* Backdrop — mounted always, fades in and out */}
+      {/* Fixed layer: backdrop + clipped panel track.
+
+          The panel lives inside an overflow-hidden full-viewport track so
+          its closed-state translate-x-full can NEVER extend the page's
+          scrollable area (a transformed fixed element still contributes
+          to scrollWidth, which caused 258-844px of phantom horizontal
+          scroll on chapter pages). Backdrop fades via opacity only. */}
       <div
-        role="presentation"
-        onClick={() => setOpen(false)}
-        className={`no-print fixed inset-0 z-40 bg-ink/30 transition-opacity duration-300 ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      />
-
-      {/* Drawer panel — always mounted so answers survive open/close.
-          `inert` while closed keeps the hidden quiz out of the tab order. */}
-      <aside
-        ref={panelRef}
-        id={panelId}
-        role="dialog"
-        aria-modal="true"
-        aria-label={quiz.title}
-        inert={!open}
-        className={`no-print fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-hairline bg-paper-raised shadow-xl transition-transform duration-300 ease-in-out ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`no-print fixed inset-0 z-40 ${open ? "" : "pointer-events-none"}`}
+        aria-hidden={!open}
       >
-        <header className="flex shrink-0 items-start justify-between gap-3 border-b border-hairline px-5 py-4">
-          <div className="min-w-0">
-            <p className="text-caption font-semibold uppercase tracking-wider text-ink-faint">
-              Topic quiz
-            </p>
-            <h2 className="mt-0.5 font-display text-subsection font-semibold leading-snug text-ink">
-              {quiz.title}
-            </h2>
-            <p className="mt-0.5 text-caption text-ink-muted">
-              {count} {count === 1 ? "question" : "questions"}
-            </p>
-          </div>
-          <button
-            ref={closeRef}
-            type="button"
-            onClick={() => setOpen(false)}
-            aria-label="Close quiz panel"
-            className="inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-hairline text-ink-muted transition-colors hover:border-hairline-strong hover:text-ink"
+        <div
+          role="presentation"
+          onClick={() => setOpen(false)}
+          className={`absolute inset-0 bg-ink/30 transition-opacity duration-300 ${
+            open ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        />
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Drawer panel — always mounted so answers survive open/close.
+              `inert` while closed keeps the hidden quiz out of the tab order. */}
+          <aside
+            ref={panelRef}
+            id={panelId}
+            role="dialog"
+            aria-modal="true"
+            aria-label={quiz.title}
+            inert={!open}
+            className={`absolute inset-y-0 right-0 flex w-full max-w-md flex-col rounded-l-2xl border-l border-hairline bg-paper-raised shadow-2xl transition-transform duration-300 ease-in-out ${
+              open ? "translate-x-0" : "translate-x-full"
+            }`}
           >
-            <X className="size-4" aria-hidden="true" />
-          </button>
-        </header>
+            <header className="flex shrink-0 items-start justify-between gap-3 border-b border-hairline px-5 py-4">
+              <div className="min-w-0">
+                <p className="text-caption font-semibold uppercase tracking-wider text-ink-faint">
+                  Topic quiz
+                </p>
+                <h2 className="mt-0.5 font-display text-subsection font-semibold leading-snug text-ink">
+                  {quiz.title}
+                </h2>
+                <p className="mt-0.5 text-caption text-ink-muted">
+                  {count} {count === 1 ? "question" : "questions"}
+                </p>
+              </div>
+              <button
+                ref={closeRef}
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close quiz panel"
+                className="inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-hairline text-ink-muted transition-colors hover:border-hairline-strong hover:text-ink"
+              >
+                <X className="size-4" aria-hidden="true" />
+              </button>
+            </header>
 
-        <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-5 py-5">
-          <Quiz
-            quiz={quiz}
-            storageKey={`notequiz:${bookSlug}:${chapterSlug}`}
-          />
+            <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-5 py-5">
+              <Quiz
+                quiz={quiz}
+                storageKey={`notequiz:${bookSlug}:${chapterSlug}`}
+              />
+            </div>
+
+            <footer className="shrink-0 border-t border-hairline bg-paper-sunken px-5 py-3">
+              <p className="text-caption text-ink-faint">
+                Your progress is saved in this browser.
+              </p>
+            </footer>
+          </aside>
         </div>
-
-        <footer className="shrink-0 border-t border-hairline bg-paper-sunken px-5 py-3">
-          <p className="text-caption text-ink-faint">
-            Your progress is saved in this browser.
-          </p>
-        </footer>
-      </aside>
+      </div>
     </>
   );
 }
@@ -183,7 +197,7 @@ export function QuizDrawer({
  */
 export function QuizTeaser({ title, count }: { title: string; count: number }) {
   return (
-    <section className="no-print my-10 rounded-md border border-dashed border-hairline-strong bg-paper-raised px-4 py-4 sm:px-5">
+    <section className="no-print my-10 rounded-2xl border border-dashed border-hairline-strong bg-paper-raised px-4 py-4 shadow-card sm:px-5">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
         <span
           className="flex size-9 shrink-0 items-center justify-center rounded-sm bg-paper-sunken text-ink-muted"
@@ -193,7 +207,7 @@ export function QuizTeaser({ title, count }: { title: string; count: number }) {
         </span>
         <div className="min-w-0 flex-1">
           <p className="text-sm font-medium text-ink">
-            <span className="text-ink-muted">Optional quiz — </span>
+            <span className="text-ink-muted">Optional quiz: </span>
             {title}
           </p>
           <p className="mt-0.5 text-caption text-ink-muted">
@@ -206,12 +220,44 @@ export function QuizTeaser({ title, count }: { title: string; count: number }) {
             window.dispatchEvent(new CustomEvent(OPEN_EVENT));
           }}
           aria-label="Open quiz panel"
-          className="inline-flex min-h-[40px] shrink-0 items-center gap-2 rounded-md border border-hairline bg-paper px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-hairline-strong"
+          className="btn btn-primary"
         >
           <GraduationCap className="size-4" aria-hidden="true" />
           Open quiz
         </button>
       </div>
     </section>
+  );
+}
+
+/**
+ * Desktop (xl+) launcher that sits at the top of the "On this page" TOC
+ * rail — it lives INSIDE the right-hand column, so it can never overlap
+ * the TOC links or the reading column at any desktop width. Opens the
+ * QuizDrawer via the same custom event the teaser uses.
+ *
+ * Rendered by the chapter page above <TableOfContents />; hidden below xl
+ * where the floating FAB takes over.
+ */
+export function QuizRailLauncher({ count }: { count: number }) {
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        window.dispatchEvent(new CustomEvent(OPEN_EVENT));
+      }}
+      className="no-print mb-4 flex w-full items-center gap-2.5 rounded-lg border border-hairline bg-paper-raised px-3 py-2.5 text-left shadow-card transition-colors hover:border-(--accent) hover:bg-(--accent-soft) xl:block hidden"
+    >
+      <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-(--accent) text-white">
+        <ClipboardList className="size-4" aria-hidden="true" />
+      </span>
+      <span className="min-w-0">
+        <span className="block text-sm font-bold text-ink">Topic quiz</span>
+        <span className="block text-caption text-ink-muted">
+          {count} {count === 1 ? "question" : "questions"} · saved in this
+          browser
+        </span>
+      </span>
+    </button>
   );
 }

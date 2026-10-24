@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "10-avl-trees-and-balanced-trees",
     "number": 10,
-    "title": "AVL Trees & Balanced Trees",
+    "title": "AVL trees & balanced trees",
     "subtitle": "Lecture 8/9 · AVL trees 2026",
     "kind": "topic",
     "words": 1582,
@@ -30,13 +30,13 @@ const chapter: ChapterData = {
     {
       "type": "viz",
       "kind": "avlTree",
-      "caption": "A valid AVL tree — balance factor ∈ {−1, 0, +1} at every node"
+      "caption": "A valid AVL tree: balance factor ∈ {−1, 0, +1} at every node"
     },
     {
       "type": "callout",
       "variant": "exam",
       "title": "Exam alert",
-      "html": "You will be shown a BST and asked “is this an AVL tree?” — compute BF for <b>every node</b>. One node with BF = ±2 disqualifies it. A right subtree of height 3 vs left of height 1 (BF = −2) means <b>not AVL</b>."
+      "html": "You will be shown a BST and asked “is this an AVL tree?” Compute BF for <b>every node</b>. One node with BF = ±2 disqualifies it. A right subtree of height 3 vs left of height 1 (BF = −2) means <b>not AVL</b>."
     },
     {
       "type": "heading",
@@ -97,21 +97,21 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The player below speaks a compact notation: <b>z</b> = the unbalanced node (BF ±2); <b>y</b> = its child on the heavy side; <b>x</b> = the child of y on the side where the new node was inserted; <b>T₀–T₃</b> = the four subtrees hanging off x, y, z. Compact rule: LL → rotate right · RR → rotate left · LR/RL → two rotations (opposite then same)."
+      "html": "The player below speaks a compact notation: <b>z</b> = the unbalanced node (BF ±2); <b>y</b> = its child on the heavy side; <b>x</b> = the child of y on the side where the new node was inserted; <b>T₀–T₃</b> = the four subtrees hanging off x, y and z (played by the leaves 5, 15, 25 and 35). Compact rule: LL → rotate right · RR → rotate left · LR/RL → two rotations (opposite then same)."
     },
     {
       "type": "viz",
       "kind": "avlRotations",
-      "caption": "Rotation case player — LL, RR, LR and RL step by step"
+      "caption": "Rotation case player: LL, RR, LR and RL step by step"
     },
     {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>LL — insert into the LEFT subtree of the LEFT child</b> (z → y → x all lean left; BF(z) = +2, BF(y) = +1). Cure: one <b>right rotation at z</b> — y rises to head the subtree, z drops to y's right, and y's old right child T₂ passes to z as its new left child. After: y(x(T₀, T₁), z(T₂, T₃)) — every |BF| ≤ 1.",
-        "<b>RR — insert into the RIGHT subtree of the RIGHT child</b> (z → y → x all lean right; BF(z) = −2, BF(y) = −1). Cure: one <b>left rotation at z</b> — y rises to head the subtree, z drops to y's left, and y's old left child T₁ passes to z as its new right child. After: y(z(T₀, T₁), x(T₂, T₃)).",
-        "<b>LR — insert into the RIGHT subtree of the LEFT child</b> (the z → y → x path zig-zags; BF(z) = +2, BF(y) = −1). Cure: <b>two rotations</b> — first a <b>left rotation at y</b> straightens the bend into a plain left-left line, then a <b>right rotation at z</b> finishes the job. After: x(y(T₀, T₁), z(T₂, T₃)).",
-        "<b>RL — insert into the LEFT subtree of the RIGHT child</b> (the zig-zag runs the other way; BF(z) = −2, BF(y) = +1). Cure: <b>two rotations</b> — first a <b>right rotation at y</b>, then a <b>left rotation at z</b>. After: x(z(T₀, T₁), y(T₂, T₃))."
+        "<b>LL: insert into the LEFT subtree of the LEFT child</b> (30 → 20 → 10 all lean left; BF(30) = +2, BF(20) = +1). Cure: one <b>right rotation at 30</b>. 20 rises to head the subtree, 30 drops to 20's right, and 20's old right child 25 passes to 30 as its new left child. After: 20(10(5,15),30(25,35)), every |BF| ≤ 1.",
+        "<b>RR: insert into the RIGHT subtree of the RIGHT child</b> (10 → 20 → 30 all lean right; BF(10) = −2, BF(20) = −1). Cure: one <b>left rotation at 10</b>. 20 rises to head the subtree, 10 drops to 20's left, and 20's old left child 15 passes to 10 as its new right child. After: 20(10(5,15),30(25,35)).",
+        "<b>LR: insert into the RIGHT subtree of the LEFT child</b> (the 30 → 10 → 20 path zig-zags; BF(30) = +2, BF(10) = −1). Cure: <b>two rotations</b>. First a <b>left rotation at 10</b> straightens the bend into a plain left-left line, then a <b>right rotation at 30</b> finishes the job. After: 20(10(5,15),30(25,35)).",
+        "<b>RL: insert into the LEFT subtree of the RIGHT child</b> (the 10 → 30 → 20 path zig-zags the other way; BF(10) = −2, BF(30) = +1). Cure: <b>two rotations</b>. First a <b>right rotation at 30</b>, then a <b>left rotation at 10</b>. After: 20(10(5,15),30(25,35))"
       ]
     },
     {
@@ -124,13 +124,13 @@ const chapter: ChapterData = {
       "type": "example",
       "title": "Build an AVL tree by inserting 1…8",
       "bodyHtml": "<p>Insert 1, 2, 3 → after 3, root 1 has BF = −2 (RR case) → single left rotation ⇒ 2 becomes root (1 left, 3 right).</p>",
-      "solutionHtml": "<p>4 goes right of 3. Insert 5: node 3 has BF = −2 (RR) → left rotation around 3 ⇒ subtree now 4(3,5). Insert 6: root 2 has BF = −2 (RR) → left rotation ⇒ <b>4 becomes the new root</b> with left subtree 2(1,3) and right 5(–,6). Insert 7: BF(5) = −2 → left rotation ⇒ 6(5,7). Insert 8: BF(7) = −2 → left rotation ⇒ 8 takes 7's place as 6's right child. Final root = <b>4</b> — perfectly balanced.</p>"
+      "solutionHtml": "<p>4 goes right of 3. Insert 5: node 3 has BF = −2 (RR) → left rotation around 3 ⇒ subtree now 4(3,5). Insert 6: root 2 has BF = −2 (RR) → left rotation ⇒ <b>4 becomes the new root</b> with left subtree 2(1,3) and right 5(–,6). Insert 7: BF(5) = −2 → left rotation ⇒ 6(5,7). Insert 8: BF(7) = −2 → left rotation ⇒ 8 takes 7's place as 6's right child. Final root = <b>4</b>: perfectly balanced.</p>"
     },
     {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise — is this a balanced tree? (from lecture)▾",
+          "title": "Exercise: is this a balanced tree? (from lecture)",
           "html": "<p>Node 8's subtree has height 3 while node 18's subtree has height 1 → the root's BF = 3 − 1 = <b>+2</b> ⇒ <b>not an AVL tree</b>. Also check every node: one violation is enough to disqualify.</p>"
         }
       ]
@@ -179,7 +179,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "red-black-trees-introduction",
-      "text": "Red-Black trees (introduction)"
+      "text": "Red-black trees (introduction)"
     },
     {
       "type": "paragraph",
@@ -191,7 +191,7 @@ const chapter: ChapterData = {
       "items": [
         "It must be a <b>Binary Search Tree</b>.",
         "The <b>ROOT must be BLACK</b>.",
-        "Children of a <b>RED node must be BLACK</b> — no two consecutive red nodes.",
+        "Children of a <b>RED node must be BLACK</b>, no two consecutive red nodes.",
         "Every root-to-leaf path has the <b>same number of BLACK nodes</b>.",
         "Every <b>new node is inserted RED</b>.",
         "Every leaf (<b>NULL node</b>) is BLACK."
@@ -199,7 +199,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "After each insertion, check the properties; fix violations with a <b>Recolor</b>, or a <b>Rotation followed by Recolor</b>. Insertion logic: if the parent is BLACK → done. If the parent is RED: check the parent's sibling — if BLACK/NULL, rotate + recolor; if RED, recolor and recheck upward."
+      "html": "After each insertion, check the properties; fix violations with a <b>Recolor</b>, or a <b>Rotation followed by Recolor</b>. Insertion logic: if the parent is BLACK → done. If the parent is RED: check the parent's sibling: if BLACK/NULL, rotate + recolor; if RED, recolor and recheck upward."
     },
     {
       "type": "flashcards",
@@ -221,14 +221,14 @@ const chapter: ChapterData = {
         },
         {
           "front": "<span class=\"fc-q\">Colour of a newly inserted node?</span>",
-          "back": "<div class=\"fc-a\">RED — always (and the root is always BLACK)</div>",
+          "back": "<div class=\"fc-a\">RED: always (and the root is always BLACK)</div>",
           "category": "Red-Black"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 9 Quiz — AVL Trees",
+      "title": "Topic 9 Quiz: AVL Trees",
       "count": 8,
       "quizSlug": "10-avl-trees-and-balanced-trees"
     },
@@ -242,21 +242,21 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "what-is-an-avl-tree",
-      "text": "What is an AVL Tree?"
+      "text": "What is an AVL tree?"
     },
     {
       "type": "paragraph",
-      "html": "Invented by <b>Adelson-Velsky &amp; Landis</b> (1962) — the <b>first self-balancing BST</b> in history."
+      "html": "Invented by <b>Adelson-Velsky &amp; Landis</b> (1962), the <b>first self-balancing BST</b> in history."
     },
     {
       "type": "paragraph",
-      "html": "A normal BST can degenerate into a <b>linked list</b> (e.g. inserting 1,2,3,…,10) making search <b>O(n)</b>. An AVL tree detects imbalance and <b>repairs itself with rotations</b>, so search stays <b>O(log n)</b> — always."
+      "html": "A normal BST can degenerate into a <b>linked list</b> (e.g. inserting 1,2,3,…,10) making search <b>O(n)</b>. An AVL tree detects imbalance and <b>repairs itself with rotations</b>, so search stays <b>O(log n)</b>, always."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "balance-factor-bf-the-heart-of-avl",
-      "text": "⚖ Balance Factor (BF) — The Heart of AVL"
+      "text": "Balance factor (BF): the heart of AVL"
     },
     {
       "type": "callout",
@@ -294,12 +294,12 @@ const chapter: ChapterData = {
         [
           "<b>≥ +2</b>",
           "Left-heavy",
-          "❌ Rotate!"
+          "Rotate"
         ],
         [
           "<b>≤ −2</b>",
           "Right-heavy",
-          "❌ Rotate!"
+          "Rotate"
         ]
       ]
     },
@@ -313,102 +313,58 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "spot-the-difference",
-      "text": "Spot the Difference"
+      "text": "Spot the difference: AVL"
     },
     {
-      "type": "heading",
-      "depth": 4,
-      "id": "valid-avl-tree",
-      "text": "Valid AVL Tree"
-    },
-    {
-      "type": "figure",
-      "svg": "<svg viewBox=\"0 0 235 178\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"118\" y1=\"34\" x2=\"72\" y2=\"96\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"118\" y1=\"34\" x2=\"164\" y2=\"96\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"72\" y1=\"96\" x2=\"44\" y2=\"158\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"72\" y1=\"96\" x2=\"100\" y2=\"158\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><circle cx=\"118\" cy=\"34\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"118\" y=\"35\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">30</text><circle cx=\"72\" cy=\"96\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"72\" y=\"97\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">20</text><circle cx=\"164\" cy=\"96\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"164\" y=\"97\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">40</text><circle cx=\"44\" cy=\"158\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"44\" y=\"159\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">10</text><circle cx=\"100\" cy=\"158\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"100\" y=\"159\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">25</text><text x=\"142\" y=\"26\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">+1</text><text x=\"96\" y=\"88\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">0</text><text x=\"188\" y=\"88\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">0</text><text x=\"68\" y=\"150\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">0</text><text x=\"124\" y=\"150\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">0</text></svg>",
-      "alt": "Valid AVL tree: 30 with left child 20 (children 10 and 25) and right child 40 — every balance factor is 0 or +1."
-    },
-    {
-      "type": "paragraph",
-      "html": "All BF ∈ {−1, 0, +1} → balanced ✔"
-    },
-    {
-      "type": "heading",
-      "depth": 4,
-      "id": "not-an-avl-tree",
-      "text": "❌ NOT an AVL Tree"
-    },
-    {
-      "type": "figure",
-      "svg": "<svg viewBox=\"0 0 235 178\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"55\" y1=\"40\" x2=\"117\" y2=\"98\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"117\" y1=\"98\" x2=\"179\" y2=\"156\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><circle cx=\"55\" cy=\"40\" r=\"17\" fill=\"var(--danger-soft)\" stroke=\"var(--danger)\" stroke-width=\"2\"/><text x=\"55\" y=\"41\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">10</text><circle cx=\"117\" cy=\"98\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"117\" y=\"99\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">20</text><circle cx=\"179\" cy=\"156\" r=\"17\" fill=\"var(--fig-soft)\" stroke=\"var(--fig-primary)\" stroke-width=\"2\"/><text x=\"179\" y=\"157\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--ink)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">30</text><text x=\"79\" y=\"32\" text-anchor=\"middle\" fill=\"var(--danger)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">−2</text><text x=\"141\" y=\"90\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">−1</text><text x=\"203\" y=\"148\" text-anchor=\"middle\" fill=\"var(--ok)\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\">0</text></svg>",
-      "alt": "Not an AVL tree: 10 has only a right chain 20 then 30 — BF(10) is −2, so the AVL rule is broken and a rotation is required."
-    },
-    {
-      "type": "paragraph",
-      "html": "It's a valid BST, but BF = −2 breaks the AVL rule → rotation needed!"
+      "type": "viz",
+      "kind": "avlCompare",
+      "caption": "Compute the balance factor of every node; one node with BF ±2 disqualifies the tree."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "the-4-rotation-cases-when-bf-hits-2",
-      "text": "The 4 Rotation Cases (when BF hits ±2)"
+      "text": "The four rotation cases (when BF hits ±2)"
     },
     {
       "type": "paragraph",
-      "html": "The case name = the shape of the problem path. Red node = unbalanced (|BF| = 2)."
+      "html": "The case name = the shape of the problem path from the unbalanced node z down to the new key. The unbalanced node (|BF| = 2) is ringed in red below."
     },
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "↻ LL Case — Single RIGHT Rotation",
-      "html": "<span class=\"cond\">BF = +2 and left child BF ≥ 0</span> <div class=\"miniRow\"> <div><svg id=\"svgLLb\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">Before</p></div> <div class=\"arrow\">→</div> <div><svg id=\"svgLLa\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">After ↻</p></div> </div> <p class=\"cap\">Inserted in the <b>L</b>eft of the <b>L</b>eft child → rotate right once.</p>"
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "↺ RR Case — Single LEFT Rotation",
-      "html": "<span class=\"cond\">BF = −2 and right child BF ≤ 0</span> <div class=\"miniRow\"> <div><svg id=\"svgRRb\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">Before</p></div> <div class=\"arrow\">→</div> <div><svg id=\"svgRRa\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">After ↺</p></div> </div> <p class=\"cap\">Inserted in the <b>R</b>ight of the <b>R</b>ight child → rotate left once.</p>"
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "↺↻ LR Case — Double Rotation",
-      "html": "<span class=\"cond\">BF = +2 and left child BF &lt; 0</span> <div class=\"miniRow\"> <div><svg id=\"svgLRb\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">Before</p></div> <div class=\"arrow\">→</div> <div><svg id=\"svgLRa\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">After ↺↻</p></div> </div> <p class=\"cap\">Zig-zag shape → LEFT-rotate the left child, then RIGHT-rotate the node.</p>"
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "↻↺ RL Case — Double Rotation",
-      "html": "<span class=\"cond\">BF = −2 and right child BF &gt; 0</span> <div class=\"miniRow\"> <div><svg id=\"svgRLb\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">Before</p></div> <div class=\"arrow\">→</div> <div><svg id=\"svgRLa\" class=\"mini\" viewBox=\"0 0 235 178\"></svg><p class=\"cap\">After ↻↺</p></div> </div> <p class=\"cap\">Zig-zag shape → RIGHT-rotate the right child, then LEFT-rotate the node.</p>"
+      "type": "viz",
+      "kind": "avlCases",
+      "caption": "Press Play this case to load a case into the animated rotation player above."
     },
     {
       "type": "callout",
       "variant": "tip",
       "title": "Memory hook",
-      "html": "<b>Memory trick:</b> <b>L</b><b>L</b> = straight Left line → one <b>Right</b> rotation • <b>R</b><b>R</b> = straight Right line → one <b>Left</b> rotation • <b>LR</b> / <b>RL</b> = zig-zag → <b>two</b> rotations (fix the bend first!).<br> Why does one rotation always fix it? The rotation promotes the middle value of the three nodes — which is exactly what sorted order demands!"
+      "html": "<b>Memory trick:</b> <b>L</b><b>L</b> = straight Left line → one <b>Right</b> rotation • <b>R</b><b>R</b> = straight Right line → one <b>Left</b> rotation • <b>LR</b> / <b>RL</b> = zig-zag → <b>two</b> rotations (fix the bend first).<br> Why does one rotation always fix it? The rotation promotes the middle value of the three nodes, which is exactly what sorted order demands."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "interactive-avl-playground",
-      "text": "Interactive AVL Playground"
+      "text": "Interactive AVL playground"
     },
     {
       "type": "paragraph",
-      "html": "Insert values and watch the <b>BF badges</b> update. When a badge hits |BF| = 2, the status line names the case (LL, RR, LR or RL) and the tree <b>rotates itself</b> — step by step!"
+      "html": "Insert values and watch the <b>BF badges</b> update. When a badge hits |BF| = 2, the status line names the case (LL, RR, LR or RL) and the tree <b>rotates itself</b>, step by step."
     },
     {
       "type": "viz",
       "kind": "avlInsert",
-      "caption": "AVL rebalance playground — insert keys and watch the rotations"
+      "caption": "AVL rebalance playground: insert keys and watch the rotations"
     },
     {
       "type": "paragraph",
-      "html": "Try: Reset → insert <b>65</b> then <b>10</b> (no rotation) → then insert <b>5</b> (LL rotation!). Or press <b>Insert 1…10</b> for the classic ascending stress sequence."
+      "html": "Try: Reset → insert <b>65</b> then <b>10</b> (no rotation) → then insert <b>5</b> (LL rotation). Or press <b>Insert 1…10</b> for the classic ascending stress sequence."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "avl-vs-normal-bst",
-      "text": "AVL vs Normal BST"
+      "text": "AVL vs normal BST"
     },
     {
       "type": "table",
@@ -425,17 +381,17 @@ const chapter: ChapterData = {
         ],
         [
           "Worst-case search",
-          "O(n) — skewed tree",
-          "O(log n) — guaranteed"
+          "O(n) in a skewed tree",
+          "O(log n), guaranteed"
         ],
         [
           "Self-balancing",
-          "❌",
-          " via LL/RR/LR/RL rotations"
+          "No",
+          "Yes, via LL/RR/LR/RL rotations"
         ],
         [
           "Extra storage per node",
-          "—",
+          "None",
           "Height (or BF)"
         ],
         [
@@ -454,11 +410,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "test-yourself",
-      "text": "Test Yourself"
+      "text": "Test yourself: AVL"
     },
     {
       "type": "paragraph",
-      "html": "Click an answer — instant feedback!"
+      "html": "Click an answer for instant feedback."
     },
     {
       "type": "heading",
@@ -470,7 +426,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "what-is-a-red-black-tree",
-      "text": "What is a Red-Black Tree?"
+      "text": "What is a red-black tree?"
     },
     {
       "type": "paragraph",
@@ -484,11 +440,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "the-5-golden-rules",
-      "text": "The 5 Golden Rules"
+      "text": "The five golden rules"
     },
     {
       "type": "paragraph",
-      "html": "Every Red-Black tree must satisfy ALL of them — the playground checks them for you!"
+      "html": "Every red-black tree must satisfy all five rules, simultaneously."
     },
     {
       "type": "table",
@@ -534,60 +490,36 @@ const chapter: ChapterData = {
     {
       "type": "heading",
       "depth": 3,
-      "id": "spot-the-difference",
-      "text": "Spot the Difference"
+      "id": "spot-the-difference-red-black",
+      "text": "Spot the difference: red-black"
     },
     {
-      "type": "heading",
-      "depth": 4,
-      "id": "valid-red-black-tree",
-      "text": "Valid Red-Black Tree"
-    },
-    {
-      "type": "figure",
-      "svg": "<svg viewBox=\"0 0 300 180\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"150\" y1=\"24\" x2=\"95\" y2=\"68\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"150\" y1=\"24\" x2=\"205\" y2=\"68\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"95\" y1=\"68\" x2=\"58\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"95\" y1=\"68\" x2=\"110\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"205\" y1=\"68\" x2=\"182\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"205\" y1=\"68\" x2=\"248\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"248\" y1=\"112\" x2=\"222\" y2=\"156\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"248\" y1=\"112\" x2=\"274\" y2=\"156\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><circle cx=\"150\" cy=\"24\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"150\" y=\"25\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">13</text><circle cx=\"95\" cy=\"68\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"95\" y=\"69\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">8</text><circle cx=\"205\" cy=\"68\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"205\" y=\"69\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">17</text><circle cx=\"58\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"58\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">1</text><circle cx=\"110\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"110\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">11</text><circle cx=\"182\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"182\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">15</text><circle cx=\"248\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"248\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">25</text><circle cx=\"222\" cy=\"156\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"222\" y=\"157\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">22</text><circle cx=\"274\" cy=\"156\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"274\" y=\"157\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">27</text></svg>",
-      "alt": "A valid red-black tree: black root 13, red children 8 and 17, black nodes 1, 11, 15 and 25, red leaves 22 and 27 — every root-to-NIL path has exactly three black nodes."
-    },
-    {
-      "type": "paragraph",
-      "html": "Root black • no red-red • every root→NIL path has exactly <b>3 blacks</b> ✔"
-    },
-    {
-      "type": "heading",
-      "depth": 4,
-      "id": "invalid-rule-4-broken",
-      "text": "❌ Invalid (Rule 4 broken)"
-    },
-    {
-      "type": "figure",
-      "svg": "<svg viewBox=\"0 0 300 180\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"140\" y1=\"40\" x2=\"85\" y2=\"102\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"140\" y1=\"40\" x2=\"195\" y2=\"102\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"195\" y1=\"102\" x2=\"243\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><ellipse cx=\"219\" cy=\"131\" rx=\"52\" ry=\"52\" fill=\"none\" stroke=\"var(--danger)\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><circle cx=\"140\" cy=\"40\" r=\"15\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"140\" y=\"41\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">10</text><circle cx=\"85\" cy=\"102\" r=\"15\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"85\" y=\"103\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">5</text><circle cx=\"195\" cy=\"102\" r=\"15\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"195\" y=\"103\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">20</text><circle cx=\"243\" cy=\"160\" r=\"15\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"243\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">30</text><text x=\"219\" y=\"58\" text-anchor=\"middle\" fill=\"var(--danger)\" font-size=\"12.5\" font-weight=\"700\">red-red ✗</text></svg>",
-      "alt": "Invalid red-black tree: red node 20 has a red child 30, breaking the no-red-red rule, and the two sides have unequal black heights."
-    },
-    {
-      "type": "paragraph",
-      "html": "20<span style=\"color:#ef4444;\">RED</span> → 30<span style=\"color:#ef4444;\">RED</span>: a red-red pair! Also unequal black counts."
+      "type": "htmlFigure",
+      "html": "<div class=\"compare2\"><div><svg viewBox=\"0 0 300 180\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"150\" y1=\"24\" x2=\"95\" y2=\"68\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"150\" y1=\"24\" x2=\"205\" y2=\"68\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"95\" y1=\"68\" x2=\"58\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"95\" y1=\"68\" x2=\"110\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"205\" y1=\"68\" x2=\"182\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"205\" y1=\"68\" x2=\"248\" y2=\"112\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"248\" y1=\"112\" x2=\"222\" y2=\"156\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"248\" y1=\"112\" x2=\"274\" y2=\"156\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><circle cx=\"150\" cy=\"24\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"150\" y=\"25\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">13</text><circle cx=\"95\" cy=\"68\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"95\" y=\"69\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">8</text><circle cx=\"205\" cy=\"68\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"205\" y=\"69\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">17</text><circle cx=\"58\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"58\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">1</text><circle cx=\"110\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"110\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">11</text><circle cx=\"182\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"182\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">15</text><circle cx=\"248\" cy=\"112\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"248\" y=\"113\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">25</text><circle cx=\"222\" cy=\"156\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"222\" y=\"157\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">22</text><circle cx=\"274\" cy=\"156\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"274\" y=\"157\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">27</text></svg><p class=\"cap\">Root black; no red-red pair; every root-to-NIL path has exactly 3 black nodes.</p></div><div><svg viewBox=\"0 0 300 180\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"140\" y1=\"40\" x2=\"85\" y2=\"102\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"140\" y1=\"40\" x2=\"195\" y2=\"102\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><line x1=\"195\" y1=\"102\" x2=\"243\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"/><ellipse cx=\"219\" cy=\"131\" rx=\"52\" ry=\"52\" fill=\"none\" stroke=\"var(--danger)\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><circle cx=\"140\" cy=\"40\" r=\"15\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"140\" y=\"41\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">10</text><circle cx=\"85\" cy=\"102\" r=\"15\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"/><text x=\"85\" y=\"103\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">5</text><circle cx=\"195\" cy=\"102\" r=\"15\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"195\" y=\"103\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">20</text><circle cx=\"243\" cy=\"160\" r=\"15\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"243\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">30</text><text x=\"219\" y=\"58\" text-anchor=\"middle\" fill=\"var(--danger)\" font-size=\"12.5\" font-weight=\"700\">red-red ✗</text></svg><p class=\"cap\">Node 20 is red and its child 30 is red: a red-red pair breaks rule 4.</p></div></div>",
+      "alt": "Side-by-side comparison. Left: A valid red-black tree: black root 13, red children 8 and 17, black nodes 1, 11, 15 and 25, red leaves 22 and 27, every root-to-NIL path has exactly three black nodes. Right: Invalid red-black tree: red node 20 has a red child 30, breaking the no-red-red rule, and the two sides have unequal black heights.",
+      "caption": "One red-red parent-child pair is enough to disqualify a red-black tree."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "insertion-always-insert-red",
-      "text": "➕ Insertion — Always Insert RED!"
+      "text": "Insertion: always insert red"
     },
     {
       "type": "paragraph",
-      "html": "A red node can only break <b>Rule 4</b> locally (easy fix). A black node would break Rule 5 on <i>every</i> path — much worse!"
+      "html": "A red node can only break <b>Rule 4</b> locally, which is a local fix. A black node would break Rule 5 on <i>every</i> path, which is much worse."
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Case A — Uncle is RED → RECOLOR",
-      "html": "<span class=\"cond\">No rotation needed!</span> <div class=\"miniRow\"> <div><svg id=\"svgRecB\" class=\"mini\" viewBox=\"0 0 300 180\"></svg><p class=\"cap\">Before: red-red violation </p></div> <div class=\"arrow\">→</div> <div><svg id=\"svgRecA\" class=\"mini\" viewBox=\"0 0 300 180\"></svg><p class=\"cap\">After: recolor &amp; push red up</p></div> </div> <ol class=\"steps\"> <li>Parent &amp; Uncle → <b>BLACK</b></li> <li>Grandparent → <b>RED</b></li> <li>Continue checking <b>from the grandparent</b> (redness moves up)</li> <li>If grandparent is root → recolor root <b>BLACK</b> (Rule 2) and stop</li> </ol>"
+      "title": "Case A: uncle is red → recolor",
+      "html": "<span class=\"cond\">No rotation needed.</span> <div class=\"miniRow\"> <div><svg class=\"mini\" viewBox=\"0 0 300 175\" role=\"img\"><line x1=\"140\" y1=\"30\" x2=\"85\" y2=\"100\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"140\" y1=\"30\" x2=\"195\" y2=\"100\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"85\" y1=\"100\" x2=\"45\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"85\" y1=\"100\" x2=\"125\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><ellipse cx=\"65\" cy=\"130\" rx=\"52\" ry=\"40\" fill=\"none\" stroke=\"var(--danger)\" stroke-width=\"2\" stroke-dasharray=\"6 4\"></ellipse><circle cx=\"140\" cy=\"30\" r=\"16\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"140\" y=\"31\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">13</text><circle cx=\"85\" cy=\"100\" r=\"16\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"85\" y=\"101\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">8</text><circle cx=\"195\" cy=\"100\" r=\"16\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"195\" y=\"101\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">17</text><circle cx=\"45\" cy=\"160\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"45\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">1</text><circle cx=\"125\" cy=\"160\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"125\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">11</text></svg><p class=\"cap\">Before: red-red violation </p></div> <div class=\"arrow\">→</div> <div><svg class=\"mini\" viewBox=\"0 0 300 175\" role=\"img\"><line x1=\"140\" y1=\"30\" x2=\"85\" y2=\"100\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"140\" y1=\"30\" x2=\"195\" y2=\"100\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"85\" y1=\"100\" x2=\"45\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"85\" y1=\"100\" x2=\"125\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><circle cx=\"140\" cy=\"30\" r=\"16\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"140\" y=\"31\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">13</text><circle cx=\"85\" cy=\"100\" r=\"16\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"85\" y=\"101\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">8</text><circle cx=\"195\" cy=\"100\" r=\"16\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"195\" y=\"101\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">17</text><circle cx=\"45\" cy=\"160\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"45\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">1</text><circle cx=\"125\" cy=\"160\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"125\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">11</text></svg><p class=\"cap\">After: recolor &amp; push red up</p></div> </div> <ol class=\"steps\"> <li>Parent &amp; Uncle → <b>BLACK</b></li> <li>Grandparent → <b>RED</b></li> <li>Continue checking <b>from the grandparent</b> (redness moves up)</li> <li>If grandparent is root → recolor root <b>BLACK</b> (Rule 2) and stop</li> </ol>"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "⚫ Case B — Uncle is BLACK → ROTATE + RECOLOR",
-      "html": "<span class=\"cond\">Same LL / RR / LR / RL shapes as AVL!</span> <div class=\"miniRow\"> <div><svg id=\"svgRotB\" class=\"mini\" viewBox=\"0 0 300 180\"></svg><p class=\"cap\">Before: RR shape, uncle black</p></div> <div class=\"arrow\">→</div> <div><svg id=\"svgRotA\" class=\"mini\" viewBox=\"0 0 300 180\"></svg><p class=\"cap\">After: rotate + recolor ↺</p></div> </div> <ol class=\"steps\"> <li><b>LL</b> → RIGHT-rotate grandparent | <b>RR</b> → LEFT-rotate grandparent</li> <li><b>LR / RL</b> → two rotations (straighten the zig-zag first)</li> <li>Recolor: middle node → <b>BLACK</b>, its two children → <b>RED</b></li> <li> After a rotation fix, the violation is <b>gone for good</b> (no cascade!)</li> </ol>"
+      "title": "Case B: uncle is black → rotate + recolor",
+      "html": "<span class=\"cond\">Same LL / RR / LR / RL shapes as AVL.</span> <div class=\"miniRow\"> <div><svg class=\"mini\" viewBox=\"0 0 300 175\" role=\"img\"><line x1=\"110\" y1=\"30\" x2=\"55\" y2=\"105\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"110\" y1=\"30\" x2=\"185\" y2=\"105\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"185\" y1=\"105\" x2=\"250\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><ellipse cx=\"218\" cy=\"133\" rx=\"52\" ry=\"40\" fill=\"none\" stroke=\"var(--danger)\" stroke-width=\"2\" stroke-dasharray=\"6 4\"></ellipse><circle cx=\"110\" cy=\"30\" r=\"16\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"110\" y=\"31\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">10</text><circle cx=\"55\" cy=\"105\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"55\" y=\"106\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">5</text><circle cx=\"185\" cy=\"105\" r=\"16\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"185\" y=\"106\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">20</text><circle cx=\"250\" cy=\"160\" r=\"14\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"250\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">30</text></svg><p class=\"cap\">Before: RR shape, uncle black</p></div> <div class=\"arrow\">→</div> <div><svg class=\"mini\" viewBox=\"0 0 300 175\" role=\"img\"><line x1=\"150\" y1=\"30\" x2=\"85\" y2=\"105\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"150\" y1=\"30\" x2=\"215\" y2=\"105\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><line x1=\"85\" y1=\"105\" x2=\"45\" y2=\"160\" stroke=\"var(--fig-axis)\" stroke-width=\"2\"></line><circle cx=\"150\" cy=\"30\" r=\"16\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"150\" y=\"31\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">20</text><circle cx=\"85\" cy=\"105\" r=\"16\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"85\" y=\"106\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">10</text><circle cx=\"215\" cy=\"105\" r=\"16\" fill=\"#dc2626\" stroke=\"#b91c1c\" stroke-width=\"2\"></circle><text x=\"215\" y=\"106\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#ffffff\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">30</text><circle cx=\"45\" cy=\"160\" r=\"14\" fill=\"var(--ink)\" stroke=\"var(--ink-faint)\" stroke-width=\"2\"></circle><text x=\"45\" y=\"161\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"var(--paper)\" font-size=\"13\" font-weight=\"700\" font-family=\"monospace\">5</text></svg><p class=\"cap\">After: rotate + recolor ↺</p></div> </div> <ol class=\"steps\"> <li><b>LL</b> → RIGHT-rotate grandparent | <b>RR</b> → LEFT-rotate grandparent</li> <li><b>LR / RL</b> → two rotations (straighten the zig-zag first)</li> <li>Recolor: middle node → <b>BLACK</b>, its two children → <b>RED</b></li> <li> After a rotation fix, the violation is <b>gone for good</b> (no cascade)</li> </ol>"
     },
     {
       "type": "callout",
@@ -599,13 +531,13 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "deletion-the-short-version",
-      "text": "➖ Deletion (The Short Version)"
+      "text": "Deletion (the short version)"
     },
     {
       "type": "list",
       "ordered": true,
       "items": [
-        "Standard BST delete — two children? Replace with <b>in-order successor</b> (which adopts the deleted node's color).",
+        "Standard BST delete: two children? Replace with <b>in-order successor</b> (which adopts the deleted node's color).",
         "If the removed node was <b>RED</b> → black-heights unchanged → <b>no fix-up needed</b>",
         "If it was <b>BLACK</b> → one path lost a black node → the missing black is treated as a <b>\"double-black\"</b>.",
         "Double-black is fixed by examining the <b>sibling</b>: recolor / rotate cases (1–4), pushing or transferring blackness until Rule 5 is restored."
@@ -615,13 +547,13 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "tip",
       "title": "Memory hook",
-      "html": "<b>Exam tip:</b> deletion fix-up is the most complex part of RB trees — exams usually focus on <b>properties + insertion</b>. Try deletions in the playground and watch the sibling cases fire!"
+      "html": "<b>Exam tip:</b> deletion fix-up is the most complex part of red-black trees; exams usually focus on the properties and insertion."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "interactive-playground",
-      "text": "Red-Black Fixup — Worked Example"
+      "text": "Red-black fixup: worked example"
     },
     {
       "type": "paragraph",
@@ -635,13 +567,13 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "For live rotation practice, use the <b>AVL rebalance playground</b> earlier in this chapter — the rotation mechanics are identical. Red-black trees simply pick the cheaper fix first: recolor when the uncle is red, rotate when it is black."
+      "html": "For live rotation practice, use the <b>AVL rebalance playground</b> earlier in this chapter; the rotation mechanics are identical. Red-black trees pick the cheaper fix first: recolor when the uncle is red, rotate when it is black."
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "red-black-vs-avl",
-      "text": "Red-Black vs AVL"
+      "text": "Red-black vs AVL"
     },
     {
       "type": "table",
@@ -653,8 +585,8 @@ const chapter: ChapterData = {
       "rows": [
         [
           "Balance strictness",
-          "Strict — BF ∈ {−1, 0, +1}",
-          "Loose — longest ≤ 2× shortest path"
+          "Strict: BF ∈ {−1, 0, +1}",
+          "Loose: longest ≤ 2× shortest path"
         ],
         [
           "Height",
@@ -663,13 +595,13 @@ const chapter: ChapterData = {
         ],
         [
           "Search speed",
-          " Faster (flatter tree)",
+          "Faster (flatter tree)",
           "Slightly slower"
         ],
         [
           "Insert / Delete",
           "More rotations",
-          " Fewer rotations — faster"
+          "Fewer rotations, faster"
         ],
         [
           "Balance info stored",
@@ -679,7 +611,7 @@ const chapter: ChapterData = {
         [
           "Real-world use",
           "Rare",
-          " std::map, TreeMap, Linux kernel"
+          "std::map, TreeMap, Linux kernel"
         ],
         [
           "Best for",
@@ -692,11 +624,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "test-yourself",
-      "text": "Test Yourself"
+      "text": "Test yourself: red-black"
     },
     {
       "type": "paragraph",
-      "html": "Click an answer — instant feedback!"
+      "html": "Click an answer for instant feedback."
     }
   ]
 };

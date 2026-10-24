@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "05-use-case-diagrams",
-  "title": "Topic 5 Quiz — Use Case Diagrams",
+  "title": "Topic 5 Quiz: Use Case Diagrams",
   "questions": [
     {
       "prompt": "1. In a use case diagram, use cases are drawn as:",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Dependency"
       ],
       "answer": 1,
-      "explanation": "The children are specialized versions of the parent — an is-a relationship between use cases = generalization."
+      "explanation": "The children are specialized versions of the parent, an is-a relationship between use cases = generalization."
     },
     {
       "prompt": "6. The main purpose of extracting Login as an included use case is:",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Deployment hardware"
       ],
       "answer": 1,
-      "explanation": "Use case diagrams show who interacts with the system, what it can do, and how they are related — a high-level view of the functional requirements."
+      "explanation": "Use case diagrams show who interacts with the system, what it can do, and how they are related, a high-level view of the functional requirements."
     }
   ]
 };

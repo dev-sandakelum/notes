@@ -16,7 +16,7 @@ const quiz: QuizData = {
       "explanation": "Short run = some inputs (plant, machines) fixed; only variable inputs can change."
     },
     {
-      "prompt": "2. If TP = 0, 3, 10, 24 for L = 0, 1, 2, 3 — MP of the 3rd worker is:",
+      "prompt": "2. If TP = 0, 3, 10, 24 for L = 0, 1, 2, 3: MP of the 3rd worker is:",
       "options": [
         "10",
         "14",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "Has no effect on output"
       ],
       "answer": 0,
-      "explanation": "MP rises at first, then eventually declines — the classic short-run law."
+      "explanation": "MP rises at first, then eventually declines; the classic short-run law."
     },
     {
       "prompt": "4. Which cost is NOT incurred when output is zero?",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "Wages of production workers"
       ],
       "answer": 3,
-      "explanation": "Wages of direct production workers are variable costs — zero at zero output. The rest are fixed."
+      "explanation": "Wages of direct production workers are variable costs, zero at zero output. The rest are fixed."
     },
     {
       "prompt": "5. Accounting profit exceeds economic profit because accountants ignore:",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "TFC at its minimum"
       ],
       "answer": 1,
-      "explanation": "MC passes through the minimum of AVC and of ATC — a favourite exam fact."
+      "explanation": "MC passes through the minimum of AVC and of ATC, a favourite exam fact."
     },
     {
       "prompt": "7. When MP is rising, MC is:",

@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "05-introduction-to-functions",
-  "title": "Topic 5 Quiz — Functions",
+  "title": "Topic 5 Quiz: Functions",
   "questions": [
     {
       "prompt": "1. A function assigns to each element x in X:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "any number of y-values"
       ],
       "answer": 1,
-      "explanation": "Definition: each input has exactly one output — that's what makes it a function."
+      "explanation": "Definition: each input has exactly one output, that's what makes it a function."
     },
     {
       "prompt": "2. Which set of ordered pairs is <b>NOT</b> a function?",

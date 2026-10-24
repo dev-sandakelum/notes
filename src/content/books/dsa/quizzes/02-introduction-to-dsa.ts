@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "02-introduction-to-dsa",
-  "title": "Topic 1 Quiz — Introduction to DSA",
+  "title": "Topic 1 Quiz: Introduction to DSA",
   "questions": [
     {
       "prompt": "1. A step-by-step procedure which can be applied to data to achieve some goal is called…",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "Primitive"
       ],
       "answer": 0,
-      "explanation": "<b>Static</b> — e.g. an array. Dynamic structures (linked lists) expand or shrink during execution."
+      "explanation": "<b>Static</b>, e.g. an array. Dynamic structures (linked lists) expand or shrink during execution."
     },
     {
       "prompt": "4. Which is <b>NOT</b> one of the six classic data structure operations?",
@@ -49,7 +49,7 @@ const quiz: QuizData = {
       "explanation": "<b>Iteration</b> is a control-flow concept. The six operations are: traversing, searching, insertion, deletion, sorting, merging."
     },
     {
-      "prompt": "5. “Quick insertion, quick deletion — but slow search” describes which data structure?",
+      "prompt": "5. “Quick insertion, quick deletion, but slow search” describes which data structure?",
       "options": [
         "Array",
         "Ordered array",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "Composite types only"
       ],
       "answer": 0,
-      "explanation": "<b>Primitive data structures</b> — built into the language. Stack, queue, tree, graph, linked list are abstract data structures."
+      "explanation": "<b>Primitive data structures</b>: built into the language. Stack, queue, tree, graph, linked list are abstract data structures."
     }
   ]
 };

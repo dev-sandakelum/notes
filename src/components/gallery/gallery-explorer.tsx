@@ -94,14 +94,14 @@ export function GalleryExplorer({ books }: { books: BookMeta[] }) {
   const pill = (active: boolean) =>
     `inline-flex items-center rounded-full border px-3 py-1 text-caption transition-colors duration-150 ${
       active
-        ? "border-ink bg-ink text-paper-raised"
+        ? "border-(--accent) bg-(--accent) text-white"
         : "border-hairline bg-paper-raised text-ink-muted hover:border-hairline-strong hover:text-ink"
     }`;
 
   const chip = (active: boolean) =>
-    `inline-flex items-center rounded-full border px-2.5 py-0.5 text-caption transition-colors duration-150 ${
+    `inline-flex items-center rounded-full border px-2.5 py-0.5 text-caption font-medium transition-colors duration-150 ${
       active
-        ? "border-hairline-strong bg-paper-sunken text-ink"
+        ? "border-(--accent2) bg-(--accent2-soft) text-(--accent2-ink)"
         : "border-hairline bg-paper-raised text-ink-muted hover:border-hairline-strong hover:text-ink"
     }`;
 
@@ -125,7 +125,7 @@ export function GalleryExplorer({ books }: { books: BookMeta[] }) {
             placeholder="Search notes, subjects, tags…"
             aria-label="Search notes"
             autoComplete="off"
-            className="h-10 w-full rounded-md border border-hairline bg-paper-raised pl-9 pr-9 text-sm text-ink outline-none transition-colors duration-150 placeholder:text-ink-faint focus-visible:border-hairline-strong"
+            className="h-10 w-full rounded-[10px] border-2 border-hairline bg-paper-raised pl-9 pr-9 text-sm text-ink outline-none transition-colors duration-150 placeholder:text-ink-faint focus-visible:border-(--accent)"
           />
           {rawQuery.length > 0 ? (
             <button
@@ -216,7 +216,7 @@ export function GalleryExplorer({ books }: { books: BookMeta[] }) {
           <button
             type="button"
             onClick={clearFilters}
-            className="inline-flex items-center gap-2 rounded-md border border-hairline bg-paper-raised px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-hairline-strong"
+            className="inline-flex items-center gap-2 rounded-[10px] border border-hairline bg-paper-raised px-4 py-2 text-sm font-medium text-ink transition-colors duration-150 hover:border-hairline-strong"
           >
             <X className="h-4 w-4 text-ink-muted" aria-hidden="true" />
             Clear filters

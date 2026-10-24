@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "05-polymorphism",
-  "title": "Topic 5 Quiz — Polymorphism",
+  "title": "Topic 5 Quiz: Polymorphism",
   "questions": [
     {
       "prompt": "1. Polymorphism literally means…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q5b\" value=\"3\">Garbage collection time"
       ],
       "answer": 0,
-      "explanation": "The compiler picks the overload from the argument number/types — hence static/early binding."
+      "explanation": "The compiler picks the overload from the argument number/types, hence static/early binding."
     },
     {
       "prompt": "3. Which of these does NOT create a valid overload of sum(int, int)?",
@@ -35,14 +35,14 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q5c\" value=\"3\">double sum(int, int)"
       ],
       "answer": 3,
-      "explanation": "Same name + same parameters, differing only in return type, is not overloading — it won't compile."
+      "explanation": "Same name + same parameters, differing only in return type, is not overloading; it won't compile."
     },
     {
-      "prompt": "4. Vehicle v = new Car(); &nbsp;v.start(); — which version runs?",
+      "prompt": "4. Vehicle v = new Car(); &nbsp;v.start();, which version runs?",
       "options": [
         "<input type=\"radio\" name=\"q5d\" value=\"0\">Vehicle's start()",
         "<input type=\"radio\" name=\"q5d\" value=\"1\">Car's start()",
-        "<input type=\"radio\" name=\"q5d\" value=\"2\">A compile error — you can't assign Car to Vehicle",
+        "<input type=\"radio\" name=\"q5d\" value=\"2\">A compile error, you can't assign Car to Vehicle",
         "<input type=\"radio\" name=\"q5d\" value=\"3\">Both run, Vehicle's first"
       ],
       "answer": 1,
@@ -52,12 +52,12 @@ const quiz: QuizData = {
       "prompt": "5. Member variables (fields) in Java are bound…",
       "options": [
         "<input type=\"radio\" name=\"q5e\" value=\"0\">Dynamically, by object type",
-        "<input type=\"radio\" name=\"q5e\" value=\"1\">Never — fields cannot be accessed",
+        "<input type=\"radio\" name=\"q5e\" value=\"1\">Never: fields cannot be accessed",
         "<input type=\"radio\" name=\"q5e\" value=\"2\">Statically, by reference type at compile time",
         "<input type=\"radio\" name=\"q5e\" value=\"3\">Only inside constructors"
       ],
       "answer": 2,
-      "explanation": "Java does not allow dynamic binding for member variables — v.color uses Vehicle's field if v is declared Vehicle."
+      "explanation": "Java does not allow dynamic binding for member variables, v.color uses Vehicle's field if v is declared Vehicle."
     },
     {
       "prompt": "6. Which is NOT dynamically bound?",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q5g\" value=\"3\">Cast an object to another type"
       ],
       "answer": 1,
-      "explanation": "@Override makes the compiler verify you are truly overriding — it helps prevent mistakes and improves readability."
+      "explanation": "@Override makes the compiler verify you are truly overriding; it helps prevent mistakes and improves readability."
     }
   ]
 };

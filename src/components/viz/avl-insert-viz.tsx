@@ -4,9 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { ListPlus, Plus, RotateCw } from "lucide-react";
 import {
   TreeGraph,
+  bfTone,
   type TreeGraphNode,
   type TreeGraphNodeState,
 } from "./tree-graph";
+import { btnGhost, btnPrimary, inputCls, statusCls } from "./viz-ui";
 
 /**
  * AVL rebalance playground (ch10) — mounts where the original notes
@@ -48,22 +50,6 @@ const STEP = 450; // ms per comparison on the walk down
 const SETTLE = 700; // ms to let a result sink in
 const PRESET = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // ascending stress sequence
 const FAST = 280; // ms per comparison for the preset demo
-
-const btnPrimary =
-  "inline-flex items-center gap-1.5 rounded-md bg-ink text-paper px-3 h-9 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:pointer-events-none";
-const btnGhost =
-  "inline-flex items-center gap-1.5 rounded-md border border-hairline text-ink px-3 h-9 text-sm hover:border-hairline-strong transition-colors disabled:opacity-50 disabled:pointer-events-none";
-const inputCls =
-  "border border-hairline rounded-md bg-paper px-3 h-9 font-mono text-sm text-ink w-44 placeholder:text-ink-faint disabled:opacity-50";
-
-const toneCls = (tone: Tone) =>
-  tone === "ok"
-    ? "text-ok"
-    : tone === "danger"
-      ? "text-danger"
-      : tone === "warn"
-        ? "text-warn"
-        : "text-ink-muted";
 
 /* ------------------------------------------------------------------ */
 /* Pure AVL logic (exported for the /tmp verification harness)          */
@@ -240,20 +226,20 @@ export function rebalance(root: TNode, zKey: number): Rebalance {
 
 /* ---------- presentation helpers ---------- */
 
-function toGraph(n: TNode): TreeGraphNode {
+function toGraph(n: TNode, side?: "left" | "right"): TreeGraphNode {
   const kids: TreeGraphNode[] = [];
-  if (n.left) kids.push(toGraph(n.left));
-  if (n.right) kids.push(toGraph(n.right));
+  if (n.left) kids.push(toGraph(n.left, "left"));
+  if (n.right) kids.push(toGraph(n.right, "right"));
   const b = bfOf(n);
-  const tone: "ok" | "warn" | "danger" =
-    Math.abs(b) <= 1 ? "ok" : Math.abs(b) === 2 ? "warn" : "danger";
-  return {
+  const node: TreeGraphNode = {
     key: String(n.key),
     label: String(n.key),
     badge: fmtBF(b),
-    badgeTone: tone,
-    children: kids.length ? kids : undefined,
+    badgeTone: bfTone(b),
+    side,
   };
+  if (kids.length) node.children = kids;
+  return node;
 }
 
 /** `37 < 50 → go left` — the comparison line shown during walks. */
@@ -285,7 +271,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
   const [states, setStates] = useState<States>({});
   const [input, setInput] = useState("");
   const [msg, setMsg] = useState<Msg>({
-    text: "Insert keys (space separated) — each one walks down like a plain BST, then the tree rebalances itself.",
+    text: "Insert keys (space separated). Each one walks down like a plain BST, then the tree rebalances itself.",
     tone: "default",
   });
   const [busy, setBusy] = useState(false);
@@ -371,7 +357,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
           at,
           tree: work,
           states: { [String(k)]: "error" },
-          msg: { text: `Duplicate ${k} — BSTs store unique keys`, tone: "warn" },
+          msg: { text: `Duplicate ${k}. BSTs store unique keys.`, tone: "warn" },
         });
         at += stepMs * 1.5;
         continue;
@@ -406,7 +392,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
         msg: {
           text:
             path.length === 0
-              ? `Tree was empty — ${k} becomes the root (depth 0)`
+              ? `Tree was empty. ${k} becomes the root (depth 0).`
               : `Inserted ${k} (depth ${path.length})`,
           tone: "ok",
         },
@@ -423,7 +409,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
           tree: work,
           states: inserted,
           msg: {
-            text: "All balance factors within {−1, 0, +1} — no rotation needed.",
+            text: "All balance factors within {−1, 0, +1}. No rotation needed.",
             tone: "ok",
           },
         });
@@ -450,7 +436,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
           tree: r.mid,
           states: { [String(r.xKey)]: "visiting" },
           msg: {
-            text: `Rotation 1 — ${r.caseName === "LR" ? "left" : "right"} at ${r.yKey}: ${r.xKey} rises, the bend straightens (BF(${ub.key}) is still ${fmtBF(ub.bf)})`,
+            text: `Rotation 1: ${r.caseName === "LR" ? "left" : "right"} at ${r.yKey}. ${r.xKey} rises, the bend straightens (BF(${ub.key}) is still ${fmtBF(ub.bf)}).`,
             tone: "warn",
           },
         });
@@ -461,7 +447,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
           tree: work,
           states: { [String(r.xKey)]: "found" },
           msg: {
-            text: `Rotation 2 — ${r.caseName === "LR" ? "right" : "left"} at ${ub.key} → ${r.xKey} heads the subtree · all |BF| ≤ 1`,
+            text: `Rotation 2: ${r.caseName === "LR" ? "right" : "left"} at ${ub.key}. ${r.xKey} heads the subtree; all |BF| ≤ 1.`,
             tone: "ok",
           },
         });
@@ -474,7 +460,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
           tree: work,
           states: { [String(r.yKey)]: "found" },
           msg: {
-            text: `${r.caseName} — ${r.caseName === "LL" ? "right" : "left"} rotation at ${ub.key} → ${r.yKey} now heads the subtree · all |BF| ≤ 1`,
+            text: `${r.caseName}: ${r.caseName === "LL" ? "right" : "left"} rotation at ${ub.key}. ${r.yKey} now heads the subtree; all |BF| ≤ 1.`,
             tone: "ok",
           },
         });
@@ -485,7 +471,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
         tree: work,
         states: {},
         msg: {
-          text: `Insert ${k} complete — height ${work ? heightOf(work) : 0} (edges) · every |BF| ≤ 1.`,
+          text: `Insert ${k} complete. Height ${work ? heightOf(work) : 0} (edges); every |BF| ≤ 1.`,
           tone: "ok",
         },
       });
@@ -494,7 +480,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
 
     if (added > 1) notes.push(`Inserted ${added} keys.`);
     if (dups.length) notes.push(`Duplicates rejected: ${dups.join(", ")}.`);
-    if (limited) notes.push(`Node limit (${LIMIT}) reached — press Reset to start over.`);
+    if (limited) notes.push(`Node limit (${LIMIT}) reached. Press Reset to start over.`);
     if (invalidCount)
       notes.push(`${invalidCount} token(s) skipped (whole numbers from −99 to 999).`);
     if (notes.length) {
@@ -555,7 +541,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
     setStates({});
     setInput("");
     setMsg({
-      text: "Reset — insert keys and watch the tree rebalance itself.",
+      text: "Reset. Insert keys and watch the tree rebalance itself.",
       tone: "default",
     });
   };
@@ -563,7 +549,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
   const count = tree ? countTree(tree) : 0;
 
   return (
-    <figure className="print-avoid-break my-6 rounded-md border border-hairline bg-paper-raised p-4 viz-shell">
+    <figure className="print-avoid-break my-6 border border-hairline p-4 viz-shell">
       <div className="no-print flex flex-wrap items-center justify-center gap-2">
         <input
           value={input}
@@ -590,17 +576,16 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
         </button>
       </div>
 
-      <div className="mt-3">
+      <div className="tree-wrap mt-3">
         {tree ? (
           <TreeGraph
             root={toGraph(tree)}
             nodeStates={states}
             ariaLabel={`AVL tree with ${count} of at most ${LIMIT} nodes, every node badged with its balance factor`}
-            className="mx-auto h-auto w-full max-h-[360px]"
           />
         ) : (
           <div className="rounded-md border border-dashed border-hairline py-12 text-center text-sm text-ink-faint">
-            Empty AVL tree — insert keys above (try <span className="font-mono">50 25 10</span>) and
+            Empty AVL tree. Insert keys above (try <span className="font-mono">50 25 10</span>) and
             watch the rotations fire.
           </div>
         )}
@@ -608,7 +593,7 @@ export function AvlInsertViz({ caption }: { caption?: string }) {
 
       <div
         aria-live="polite"
-        className={`mt-3 min-h-[1.5rem] text-center text-sm ${toneCls(msg.tone)}`}
+        className={`mt-3 text-center ${statusCls(msg.tone)}`}
       >
         {msg.text}
       </div>

@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "The same for everyone"
       ],
       "answer": 1,
-      "explanation": "Utility = satisfaction, which is subjective and differs between people — a useless item can give great utility."
+      "explanation": "Utility = satisfaction, which is subjective and differs between people, a useless item can give great utility."
     },
     {
       "prompt": "2. The ordinal approach to utility holds that utility:",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "Price must be negative"
       ],
       "answer": 0,
-      "explanation": "Beyond the saturation point extra units cause disutility — TU declines (7th yogurt: TU 30→28)."
+      "explanation": "Beyond the saturation point extra units cause disutility. TU declines (7th yogurt: TU 30→28)."
     },
     {
       "prompt": "4. For a single product, the consumer’s optimum is where:",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "Income is exhausted"
       ],
       "answer": 0,
-      "explanation": "Even free goods are consumed only while MU &gt; 0 — beyond that they reduce total utility."
+      "explanation": "Even free goods are consumed only while MU &gt; 0: beyond that they reduce total utility."
     },
     {
       "prompt": "8. The income effect of a price fall works through:",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Increased real income / purchasing power"
       ],
       "answer": 3,
-      "explanation": "A lower price makes the given money income buy more — the purchasing-power (income) effect."
+      "explanation": "A lower price makes the given money income buy more; the purchasing-power (income) effect."
     }
   ]
 };

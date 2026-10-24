@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "02-global-e-business-types-of-information-systems",
     "number": 2,
-    "title": "Global E-Business: Types of Information Systems",
+    "title": "Global e-business: types of information systems",
     "subtitle": "Lecture 02 · Business processes, TPS · MIS · DSS · ESS, enterprise applications, e-business",
     "kind": "topic",
     "words": 1517,
@@ -15,11 +15,11 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "business-processes-and-information-systems",
-      "text": "Business Processes and Information Systems"
+      "text": "Business processes and information systems"
     },
     {
       "type": "paragraph",
-      "html": "<b>Business processes</b> are sets of activities — the steps required to produce a product or a service. They are the <b>workflows of material, information and knowledge</b> through the organization. Processes may be tied to a single <b>functional area</b> (e.g. Human Resources hiring employees) or be <b>cross-functional</b>, spanning several areas (e.g. fulfilling a customer order, which involves sales, warehousing, production and accounting). Business processes are so central that a business can be seen as a <b>collection of business processes</b> — and processes may be <b>assets or liabilities</b> depending on how well they are designed."
+      "html": "<b>Business processes</b> are sets of activities; the steps required to produce a product or a service. They are the <b>workflows of material, information and knowledge</b> through the organization. Processes may be tied to a single <b>functional area</b> (e.g. Human Resources hiring employees) or be <b>cross-functional</b>, spanning several areas (e.g. fulfilling a customer order, which involves sales, warehousing, production and accounting). Business processes are so central that a business can be seen as a <b>collection of business processes</b>, and processes may be <b>assets or liabilities</b> depending on how well they are designed."
     },
     {
       "type": "table",
@@ -54,38 +54,38 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Information technology enhances business processes in <b>two main ways</b>. First, it increases the <b>efficiency of existing processes</b> by automating steps that were previously manual. Second, it enables <b>entirely new processes</b> capable of transforming the business — changing the flow of information, replacing sequential steps with parallel steps, eliminating delays in decision making, and supporting new business models. Examples: the <b>Kindle e-book</b> from Amazon (a whole new digital delivery model) and <b>buying a computer online at Best Buy</b> (an existing process transformed by a new channel)."
+      "html": "Information technology enhances business processes in <b>two main ways</b>. First, it increases the <b>efficiency of existing processes</b> by automating steps that were previously manual. Second, it enables <b>entirely new processes</b> capable of transforming the business, changing the flow of information, replacing sequential steps with parallel steps, eliminating delays in decision making, and supporting new business models. Examples: the <b>Kindle e-book</b> from Amazon (a whole new digital delivery model) and <b>buying a computer online at Best Buy</b> (an existing process transformed by a new channel)."
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"flow\">\n    <div class=\"fstep\"><b>Efficiency</b><small>Automate manual steps of an <b>existing</b> process</small></div>\n    <div class=\"farrow\">vs</div>\n    <div class=\"fstep\"><b>Transformation</b><small>Enable <b>new</b> processes — new information flows, parallel steps, new business models</small></div>\n  </div>",
+      "html": "<div class=\"flow\">\n    <div class=\"fstep\"><b>Efficiency</b><small>Automate manual steps of an <b>existing</b> process</small></div>\n    <div class=\"farrow\">vs</div>\n    <div class=\"fstep\"><b>Transformation</b><small>Enable <b>new</b> processes, new information flows, parallel steps, new business models</small></div>\n  </div>",
       "alt": "Diagram from the original notes"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "types-of-information-systems",
-      "text": "Types of Information Systems"
+      "text": "Types of information systems"
     },
     {
       "type": "paragraph",
-      "html": "The lecture organizes systems into two big families: <b>systems for different management groups</b> (TPS at the bottom, business-intelligence systems for middle and senior management) and <b>systems for linking the enterprise</b> (enterprise applications, intranets and extranets). Learn the ladder below — it is one of the most examined diagrams in the whole course."
+      "html": "The lecture organizes systems into two big families: <b>systems for different management groups</b> (TPS at the bottom, business-intelligence systems for middle and senior management) and <b>systems for linking the enterprise</b> (enterprise applications, intranets and extranets). Learn the ladder below: it is one of the most examined diagrams in the whole course."
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "1-transaction-processing-systems-tps",
-      "text": "1 · Transaction Processing Systems (TPS)"
+      "text": "1 · transaction processing systems (TPS)"
     },
     {
       "type": "paragraph",
-      "html": "TPS <b>perform and record the daily routine transactions</b> necessary to conduct business — such as <b>sales order entry, payroll, shipping</b>. They allow managers to monitor the status of internal operations and relations with the external environment, they <b>serve the operational levels</b> of the organization, and they handle <b>predefined, structured goals and decision making</b>. A payroll TPS keeps track of money paid to employees; because TPS record every transaction, they are the <b>major source of data for all other systems</b>. TPS failures can stop the whole business — imagine a stopped airline reservation system — so they must be reliable and fast."
+      "html": "TPS <b>perform and record the daily routine transactions</b> necessary to conduct business, such as <b>sales order entry, payroll, shipping</b>. They allow managers to monitor the status of internal operations and relations with the external environment, they <b>serve the operational levels</b> of the organization, and they handle <b>predefined, structured goals and decision making</b>. A payroll TPS keeps track of money paid to employees; because TPS record every transaction, they are the <b>major source of data for all other systems</b>. TPS failures can stop the whole business, imagine a stopped airline reservation system, so they must be reliable and fast."
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "2-systems-for-business-intelligence-bi",
-      "text": "2 · Systems for Business Intelligence (BI)"
+      "text": "2 · systems for business intelligence (BI)"
     },
     {
       "type": "paragraph",
@@ -140,34 +140,34 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Beyond the classic MIS, the lecture lists five specialized management-support systems. A <b>Marketing Information System</b> helps managers identify key customers and perform <b>market segmentation</b>, leading to accurate identification of the target market. A <b>Human Resource Information System (HRIS)</b> allows HR managers to take better and timely decisions, with modules for payroll, time &amp; attendance, benefits administration, HR management, training, and employee self-service. A <b>Finance Management Information System (FMIS)</b> helps managers evaluate sources of funds — which suit the firm best, bear the least risk, and reap the most gain (e.g. choosing between <b>equity and debt</b>). A <b>Production Management Information System (PMIS)</b> is concerned with planning and control of all activities that transform inputs into outputs by adding value — production planning, production control, product design &amp; development, and plant location &amp; layout."
+      "html": "Beyond the classic MIS, the lecture lists five specialized management-support systems. A <b>Marketing Information System</b> helps managers identify key customers and perform <b>market segmentation</b>, leading to accurate identification of the target market. A <b>Human Resource Information System (HRIS)</b> allows HR managers to take better and timely decisions, with modules for payroll, time &amp; attendance, benefits administration, HR management, training, and employee self-service. A <b>Finance Management Information System (FMIS)</b> helps managers evaluate sources of funds, which suit the firm best, bear the least risk, and reap the most gain (e.g. choosing between <b>equity and debt</b>). A <b>Production Management Information System (PMIS)</b> is concerned with planning and control of all activities that transform inputs into outputs by adding value, production planning, production control, product design &amp; development, and plant location &amp; layout."
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">HRIS modules</div><div class=\"f-b\">1· Payroll &nbsp;2· Time &amp; attendance &nbsp;3· Benefits administration &nbsp;4· HR management &nbsp;5· Training &nbsp;6· Employee self-service</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">PMIS scope</div><div class=\"f-b\">Production planning · production control · product design · product development · plant location &amp; layout</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">FMIS decision</div><div class=\"f-b\">Evaluating sources of funds: best suited, least risk, most gain — <b>equity vs debt</b></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Marketing IS</div><div class=\"f-b\">Identify key customers + market segmentation → accurate target market</div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">HRIS modules</div><div class=\"f-b\">1· Payroll &nbsp;2· Time &amp; attendance &nbsp;3· Benefits administration &nbsp;4· HR management &nbsp;5· Training &nbsp;6· Employee self-service</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">PMIS scope</div><div class=\"f-b\">Production planning · production control · product design · product development · plant location &amp; layout</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">FMIS decision</div><div class=\"f-b\">Evaluating sources of funds: best suited, least risk, most gain. <b>equity vs debt</b></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">Marketing IS</div><div class=\"f-b\">Identify key customers + market segmentation → accurate target market</div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
       "type": "heading",
       "depth": 4,
       "id": "relationships-among-systems-the-constituency-perspective",
-      "text": "Relationships among systems — the constituency perspective"
+      "text": "Relationships among systems: the constituency perspective"
     },
     {
       "type": "paragraph",
-      "html": "Viewed from the <b>constituency perspective</b>: <b>TPS</b> support operational-level employees; <b>MIS and DSS</b> support managers; <b>ESS</b> support executives. The systems are also related to one another: <b>TPS are the major source of data for other systems</b>, while <b>ESS are recipients of data from lower-level systems</b>. Data may be exchanged between systems, although in reality most businesses' systems are only <b>loosely integrated</b> — but they are getting better."
+      "html": "Viewed from the <b>constituency perspective</b>: <b>TPS</b> support operational-level employees; <b>MIS and DSS</b> support managers; <b>ESS</b> support executives. The systems are also related to one another: <b>TPS are the major source of data for other systems</b>, while <b>ESS are recipients of data from lower-level systems</b>. Data may be exchanged between systems, although in reality most businesses' systems are only <b>loosely integrated</b>, but they are getting better."
     },
     {
       "type": "example",
-      "title": "Worked example — MIS obtains its data from TPS",
+      "title": "Worked example: MIS obtains its data from TPS",
       "bodyHtml": "<p>Three TPS (sales order, payroll, shipping) supply summarized transaction data to the MIS reporting system at the end of each period. A middle manager asks: \"Which product line had the highest sales revenue this quarter?\" Why is this an MIS question, and where does the answer come from?</p>",
-      "solutionHtml": "<p>It is a <b>routine question with a predefined procedure for answering</b> — summarize the period's transaction data into a report. The raw data originates in the <b>TPS</b>, which records every sales transaction; the <b>MIS</b> summarizes that data and delivers the report (e.g. summarized annual sales data). No external data or \"what-if\" modelling is needed — if it were (e.g. \"what if prices drop 10%?\"), it would be a <b>DSS</b> question.</p>"
+      "solutionHtml": "<p>It is a <b>routine question with a predefined procedure for answering</b>, summarize the period's transaction data into a report. The raw data originates in the <b>TPS</b>, which records every sales transaction; the <b>MIS</b> summarizes that data and delivers the report (e.g. summarized annual sales data). No external data or \"what-if\" modelling is needed, if it were (e.g. \"what if prices drop 10%?\"), it would be a <b>DSS</b> question.</p>"
     },
     {
       "type": "heading",
       "depth": 3,
       "id": "systems-for-linking-the-enterprise",
-      "text": "Systems for Linking the Enterprise"
+      "text": "Systems for linking the enterprise"
     },
     {
       "type": "paragraph",
@@ -207,7 +207,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 4,
       "id": "intranets-and-extranets",
-      "text": "Intranets and Extranets"
+      "text": "Intranets and extranets"
     },
     {
       "type": "paragraph",
@@ -221,7 +221,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "htmlFigure",
-      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">E-business</div><div class=\"f-b\">Use of digital technology and Internet to drive <b>major business processes</b> — internal as well as external</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">E-commerce</div><div class=\"f-b\"><b>Subset of e-business</b>: buying and selling goods &amp; services <b>over the Internet</b></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">E-government</div><div class=\"f-b\">Using Internet technology to deliver information and services to <b>citizens, employees and businesses</b></div></div>\n  </div>",
+      "html": "<div class=\"fgrid\">\n    <div class=\"fcard\"><div class=\"f-t\">E-business</div><div class=\"f-b\">Use of digital technology and Internet to drive <b>major business processes</b>, internal as well as external</div></div>\n    <div class=\"fcard\"><div class=\"f-t\">E-commerce</div><div class=\"f-b\"><b>Subset of e-business</b>: buying and selling goods &amp; services <b>over the Internet</b></div></div>\n    <div class=\"fcard\"><div class=\"f-t\">E-government</div><div class=\"f-b\">Using Internet technology to deliver information and services to <b>citizens, employees and businesses</b></div></div>\n  </div>",
       "alt": "Formula reference cards"
     },
     {
@@ -240,14 +240,14 @@ const chapter: ChapterData = {
       "type": "accordion",
       "items": [
         {
-          "title": "Drill set — which system serves this need? ▾",
-          "html": "<ol>\n        <li>A cashier scans items and the system instantly records the sale and updates stock.</li>\n        <li>A marketing manager wants a standard monthly summary of sales by region.</li>\n        <li>A CFO studies a live dashboard of working capital, cash flow and inventory.</li>\n        <li>An operations manager asks \"what happens to the production schedule if December sales double?\"</li>\n        <li>A supplier logs into a company website to check order status and delivery schedules.</li>\n      </ol>\n      <p style=\"margin-top:8px\"><b>Answers:</b> 1 — TPS (routine transaction, operational level). 2 — MIS (routine reporting from TPS data). 3 — ESS (digital dashboard for senior management). 4 — DSS (non-routine \"what-if\" analysis). 5 — Extranet (external access for vendors/suppliers, often used to coordinate the supply chain).</p>"
+          "title": "Drill set: which system serves this need?",
+          "html": "<ol>\n        <li>A cashier scans items and the system instantly records the sale and updates stock.</li>\n        <li>A marketing manager wants a standard monthly summary of sales by region.</li>\n        <li>A CFO studies a live dashboard of working capital, cash flow and inventory.</li>\n        <li>An operations manager asks \"what happens to the production schedule if December sales double?\"</li>\n        <li>A supplier logs into a company website to check order status and delivery schedules.</li>\n      </ol>\n      <p style=\"margin-top:8px\"><b>Answers:</b> 1. TPS (routine transaction, operational level). 2. MIS (routine reporting from TPS data). 3. ESS (digital dashboard for senior management). 4. DSS (non-routine \"what-if\" analysis). 5. Extranet (external access for vendors/suppliers, often used to coordinate the supply chain).</p>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 2 Quiz — Global E-Business",
+      "title": "Topic 2 Quiz: Global E-Business",
       "count": 10,
       "quizSlug": "02-global-e-business-types-of-information-systems"
     }

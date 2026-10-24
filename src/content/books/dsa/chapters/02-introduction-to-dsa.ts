@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Data</b> is a collection of facts from which conclusions may be drawn — e.g. a temperature reading of 38°C. Data comes in many types: <b>textual</b> (your name), <b>numeric</b> (your ID TG/2025/0001), <b>audio</b> (your voice) and <b>video</b> (voice + picture)."
+      "html": "<b>Data</b> is a collection of facts from which conclusions may be drawn, e.g. a temperature reading of 38°C. Data comes in many types: <b>textual</b> (your name), <b>numeric</b> (your ID TG/2025/0001), <b>audio</b> (your voice) and <b>video</b> (voice + picture)."
     },
     {
       "type": "heading",
@@ -44,7 +44,7 @@ const chapter: ChapterData = {
         ],
         [
           "<b>Data structure</b>",
-          "The manner in which data is represented in the computer to facilitate its access and manipulation by an algorithm — the organization of data needed to solve the problem"
+          "The manner in which data is represented in the computer to facilitate its access and manipulation by an algorithm; the organization of data needed to solve the problem"
         ]
       ],
       "highlightRows": [
@@ -74,24 +74,24 @@ const chapter: ChapterData = {
       "rows": [
         [
           "<b>Arrangement</b>",
-          "<b>Linear</b> — items in a sequence (array)",
-          "<b>Non-linear</b> — no sequence (tree, graph)"
+          "<b>Linear</b>: items in a sequence (array)",
+          "<b>Non-linear</b>: no sequence (tree, graph)"
         ],
         [
           "<b>Element types</b>",
-          "<b>Homogeneous</b> — all elements same type (array)",
-          "<b>Non-homogeneous</b> — may differ (struct)"
+          "<b>Homogeneous</b>: all elements same type (array)",
+          "<b>Non-homogeneous</b>: may differ (struct)"
         ],
         [
           "<b>Memory</b>",
-          "<b>Static</b> — size fixed at compile time (array)",
-          "<b>Dynamic</b> — grows/shrinks at run time (linked list)"
+          "<b>Static</b>: size fixed at compile time (array)",
+          "<b>Dynamic</b>: grows/shrinks at run time (linked list)"
         ]
       ]
     },
     {
       "type": "paragraph",
-      "html": "The hierarchy splits into <b>primitive</b> data structures (int, float, char, boolean — built into the language) and <b>non-primitive</b> (arrays, lists, stacks, queues, trees, graphs — built from primitives)."
+      "html": "The hierarchy splits into <b>primitive</b> data structures (int, float, char, boolean, built into the language) and <b>non-primitive</b> (arrays, lists, stacks, queues, trees, graphs, built from primitives)."
     },
     {
       "type": "heading",
@@ -142,13 +142,13 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "abstract-data-type-adt",
-      "text": "Abstract Data Type (ADT)"
+      "text": "Abstract data type (ADT)"
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Definition",
-      "html": "An ADT is a <b>collection of data and a set of operations on that data</b>, defined as a mathematical model of the data objects plus the functions that operate on them — <b>without regard to how they will be implemented</b>."
+      "html": "An ADT is a <b>collection of data and a set of operations on that data</b>, defined as a mathematical model of the data objects plus the functions that operate on them. <b>without regard to how they will be implemented</b>."
     },
     {
       "type": "paragraph",
@@ -158,8 +158,8 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Primitive data structures</b> — int, float, boolean, char (e.g. an <code>int</code> stores numerical values with operations +, −, ÷ …). We never worry how an int is implemented in hardware.",
-        "<b>Abstract data structures</b> — linked list, tree, graph, stack, queue: an implementation-independent view.",
+        "<b>Primitive data structures</b>: int, float, boolean, char (e.g. an <code>int</code> stores numerical values with operations +, −, ÷ …). We never worry how an int is implemented in hardware.",
+        "<b>Abstract data structures</b>: linked list, tree, graph, stack, queue; an implementation-independent view.",
         "<b>Data structures</b> represent the objects of the ADT; <b>algorithms</b> manipulate the data structures to implement the ADT's operations."
       ]
     },
@@ -167,7 +167,7 @@ const chapter: ChapterData = {
       "type": "heading",
       "depth": 3,
       "id": "choosing-a-structure-the-classic-comparison-table",
-      "text": "Choosing a structure — the classic comparison table"
+      "text": "Choosing a structure: the classic comparison table"
     },
     {
       "type": "table",
@@ -225,7 +225,7 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Component reuse</b> — once implemented, a data structure can be reused across many applications.",
+        "<b>Component reuse</b>: once implemented, a data structure can be reused across many applications.",
         "Adding <b>structure to data makes algorithms simpler, easier to maintain, and often faster</b>.",
         "Design goals: <b>correctness, efficiency, robustness, adaptability, reusability</b>.",
         "Uses: real-world data storage, programmer's tools (stacks, queues), real-world modelling (graphs, queues)."
@@ -240,7 +240,7 @@ const chapter: ChapterData = {
     {
       "type": "code",
       "language": "c",
-      "html": "<span class=\"tok-cm\">/* structures, pointers and dynamic memory — the atoms of every DS in C */</span>\n<span class=\"tok-kw\">struct</span> Node {\n    <span class=\"tok-kw\">int</span>          data;      <span class=\"tok-cm\">/* the payload               */</span>\n    <span class=\"tok-kw\">struct</span> Node *next;      <span class=\"tok-cm\">/* self-referencing pointer  */</span>\n};\n\n<span class=\"tok-kw\">struct</span> Node *np = (<span class=\"tok-kw\">struct</span> Node*) <span class=\"tok-fn\">malloc</span>(<span class=\"tok-kw\">sizeof</span>(<span class=\"tok-kw\">struct</span> Node));\nnp-&gt;data = <span class=\"tok-num\">42</span>;            <span class=\"tok-cm\">/* (*np).data is the same thing */</span>\n<span class=\"tok-fn\">free</span>(np);               <span class=\"tok-cm\">/* return memory to the heap    */</span>"
+      "html": "<span class=\"tok-cm\">/* structures, pointers and dynamic memory; the atoms of every DS in C */</span>\n<span class=\"tok-kw\">struct</span> Node {\n    <span class=\"tok-kw\">int</span>          data;      <span class=\"tok-cm\">/* the payload               */</span>\n    <span class=\"tok-kw\">struct</span> Node *next;      <span class=\"tok-cm\">/* self-referencing pointer  */</span>\n};\n\n<span class=\"tok-kw\">struct</span> Node *np = (<span class=\"tok-kw\">struct</span> Node*) <span class=\"tok-fn\">malloc</span>(<span class=\"tok-kw\">sizeof</span>(<span class=\"tok-kw\">struct</span> Node));\nnp-&gt;data = <span class=\"tok-num\">42</span>;            <span class=\"tok-cm\">/* (*np).data is the same thing */</span>\n<span class=\"tok-fn\">free</span>(np);               <span class=\"tok-cm\">/* return memory to the heap    */</span>"
     },
     {
       "type": "flashcards",
@@ -269,7 +269,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "quiz",
-      "title": "Topic 1 Quiz — Introduction to DSA",
+      "title": "Topic 1 Quiz: Introduction to DSA",
       "count": 7,
       "quizSlug": "02-introduction-to-dsa"
     }

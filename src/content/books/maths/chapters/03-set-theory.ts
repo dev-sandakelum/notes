@@ -4,7 +4,7 @@ const chapter: ChapterData = {
   "meta": {
     "slug": "03-set-theory",
     "number": 3,
-    "title": "Set Theory",
+    "title": "Set theory",
     "subtitle": "Notation · Operations · Venn diagrams · Cartesian product",
     "kind": "topic",
     "words": 1477,
@@ -19,7 +19,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A <b>set</b> is a collection of <b>well-defined and distinct objects</b>. Each object inside is called an <b>element</b> (or member), and elements are listed inside <b>curly brackets</b>. Examples: <span class=\"m\">A = {1, 2, 3, 4}</span> (a set of integers), <span class=\"m\">B = {apple, orange, banana}</span> (a set of fruits), and <span class=\"m\">C = {x | 0 &lt; x &lt; 5}</span> (the numbers strictly between 0 and 5 — the bar reads “such that”). Sets can be finite, infinite, or <b>empty</b>: the empty (null) set contains no elements and is written <b>∅</b> or { }."
+      "html": "A <b>set</b> is a collection of <b>well-defined and distinct objects</b>. Each object inside is called an <b>element</b> (or member), and elements are listed inside <b>curly brackets</b>. Examples: <span class=\"m\">A = {1, 2, 3, 4}</span> (a set of integers), <span class=\"m\">B = {apple, orange, banana}</span> (a set of fruits), and <span class=\"m\">C = {x | 0 &lt; x &lt; 5}</span> (the numbers strictly between 0 and 5; the bar reads “such that”). Sets can be finite, infinite, or <b>empty</b>: the empty (null) set contains no elements and is written <b>∅</b> or { }."
     },
     {
       "type": "heading",
@@ -31,15 +31,15 @@ const chapter: ChapterData = {
       "type": "list",
       "ordered": false,
       "items": [
-        "<b>Roster form</b> — list the elements: <span class=\"m\">A = {1, 2, 3}</span>.",
-        "<b>Set-builder form</b> — describe a property: <span class=\"m\">A = {x | x &gt; 0, x ∈ ℤ}</span> reads “A is the set of all x such that x is positive and x is an integer”."
+        "<b>Roster form</b>: list the elements: <span class=\"m\">A = {1, 2, 3}</span>.",
+        "<b>Set-builder form</b>: describe a property: <span class=\"m\">A = {x | x &gt; 0, x ∈ ℤ}</span> reads “A is the set of all x such that x is positive and x is an integer”."
       ]
     },
     {
       "type": "example",
-      "title": "Worked example — converting to set-builder form",
+      "title": "Worked example: converting to set-builder form",
       "bodyHtml": "<p>Express in set-builder form: (1) A = {2, 4, 6, 8, 10} &nbsp; (2) B = {1, 2, 3, 4} &nbsp; (3) C = {−3, −2, −1, 0, 1, 2, 3} &nbsp; (4) E = {1, 4, 9, 16, 25}</p>",
-      "solutionHtml": "<ol>\n        <li><span class=\"m\">A = {x ∈ ℕ | 2 ≤ x ≤ 10, x is even}</span> — all even natural numbers from 2 to 10.</li>\n        <li><span class=\"m\">B = {x ∈ ℕ | 1 ≤ x &lt; 5}</span> — natural numbers from 1 up to (but not including) 5.</li>\n        <li><span class=\"m\">C = {x ∈ ℤ | −3 ≤ x ≤ 3}</span> — all integers between −3 and 3 inclusive.</li>\n        <li><span class=\"m\">E = {x | x = n², n ∈ ℕ, 1 ≤ n ≤ 5}</span> — perfect squares of the first five naturals.</li>\n      </ol>\n      <p>Going the other way: {x | x is an even number less than 10} = {2, 4, 6, 8}; positive integers less than 7 in set-builder form = {x ∈ ℕ | x &lt; 7}.</p>"
+      "solutionHtml": "<ol>\n        <li><span class=\"m\">A = {x ∈ ℕ | 2 ≤ x ≤ 10, x is even}</span>, all even natural numbers from 2 to 10.</li>\n        <li><span class=\"m\">B = {x ∈ ℕ | 1 ≤ x &lt; 5}</span>: natural numbers from 1 up to (but not including) 5.</li>\n        <li><span class=\"m\">C = {x ∈ ℤ | −3 ≤ x ≤ 3}</span>, all integers between −3 and 3 inclusive.</li>\n        <li><span class=\"m\">E = {x | x = n², n ∈ ℕ, 1 ≤ n ≤ 5}</span>, perfect squares of the first five naturals.</li>\n      </ol>\n      <p>Going the other way: {x | x is an even number less than 10} = {2, 4, 6, 8}; positive integers less than 7 in set-builder form = {x ∈ ℕ | x &lt; 7}.</p>"
     },
     {
       "type": "heading",
@@ -59,7 +59,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "A set <span class=\"m\">A</span> is a <b>subset</b> of <span class=\"m\">B</span> (written <b><span class=\"m\">A ⊆ B</span></b>) when <b>every</b> element of A is also in B. If <span class=\"m\">A = {1, 2, 3}</span> and <span class=\"m\">B = {1, 2, 3, 4}</span>, then <span class=\"m\">A ⊆ B</span>. The <b>universal set</b> is the largest set in a given scenario — for rolling a die, <span class=\"m\">U = {1, 2, 3, 4, 5, 6}</span> and the even outcomes <span class=\"m\">A<sub>e</sub> = {2, 4, 6}</span> satisfy <span class=\"m\">A<sub>e</sub> ⊆ U</span>. Two facts worth memorising: <b>the null set is a subset of every set</b>, and a set with n elements has exactly <b>2ⁿ subsets</b>."
+      "html": "A set <span class=\"m\">A</span> is a <b>subset</b> of <span class=\"m\">B</span> (written <b><span class=\"m\">A ⊆ B</span></b>) when <b>every</b> element of A is also in B. If <span class=\"m\">A = {1, 2, 3}</span> and <span class=\"m\">B = {1, 2, 3, 4}</span>, then <span class=\"m\">A ⊆ B</span>. The <b>universal set</b> is the largest set in a given scenario, for rolling a die, <span class=\"m\">U = {1, 2, 3, 4, 5, 6}</span> and the even outcomes <span class=\"m\">A<sub>e</sub> = {2, 4, 6}</span> satisfy <span class=\"m\">A<sub>e</sub> ⊆ U</span>. Two facts worth memorising: <b>the null set is a subset of every set</b>, and a set with n elements has exactly <b>2ⁿ subsets</b>."
     },
     {
       "type": "heading",
@@ -69,7 +69,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "The <b>complement</b> of A, written <b>A′</b>, contains all elements of the universal set that are <b>not</b> in A. With <span class=\"m\">U = {1, 2, 3, 4, 5, 6}</span> and <span class=\"m\">A<sub>e</sub> = {2, 4, 6}</span> (even die outcomes), the complement is <span class=\"m\">A<sub>e</sub>′ = {1, 3, 5}</span> — the odd outcomes."
+      "html": "The <b>complement</b> of A, written <b>A′</b>, contains all elements of the universal set that are <b>not</b> in A. With <span class=\"m\">U = {1, 2, 3, 4, 5, 6}</span> and <span class=\"m\">A<sub>e</sub> = {2, 4, 6}</span> (even die outcomes), the complement is <span class=\"m\">A<sub>e</sub>′ = {1, 3, 5}</span>; the odd outcomes."
     },
     {
       "type": "heading",
@@ -84,9 +84,9 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — union & intersection",
+      "title": "Worked example: union & intersection",
       "bodyHtml": "<p>With <span class=\"m\">A = {1, 2, 3, 4, 5, 6}</span> (die outcomes) and <span class=\"m\">B = {4, 5, 6, 7, 8, 9}</span>: find <span class=\"m\">A ∥ B</span> and <span class=\"m\">A ∩ B</span>.</p>",
-      "solutionHtml": "<p><span class=\"m\">A ∥ B = {1, 2, 3, 4, 5, 6, 7, 8, 9}</span> — everything in either set. <span class=\"m\">A ∩ B = {4, 5, 6}</span> — only the shared elements.</p>"
+      "solutionHtml": "<p><span class=\"m\">A ∥ B = {1, 2, 3, 4, 5, 6, 7, 8, 9}</span>, everything in either set. <span class=\"m\">A ∩ B = {4, 5, 6}</span>, only the shared elements.</p>"
     },
     {
       "type": "heading",
@@ -96,11 +96,11 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "Two sets are <b>disjoint</b> if they have <b>no elements in common</b>, i.e. <span class=\"m\">A ∩ B = ∅</span>. For example <span class=\"m\">{1, 3, 5, 7}</span> and <span class=\"m\">{2, 4, 6, 8}</span> are disjoint, but <span class=\"m\">{x | x &gt; 9}</span> and <span class=\"m\">{x | x ≤ 10}</span> are <b>not</b> disjoint — they share the element 10."
+      "html": "Two sets are <b>disjoint</b> if they have <b>no elements in common</b>, i.e. <span class=\"m\">A ∩ B = ∅</span>. For example <span class=\"m\">{1, 3, 5, 7}</span> and <span class=\"m\">{2, 4, 6, 8}</span> are disjoint, but <span class=\"m\">{x | x &gt; 9}</span> and <span class=\"m\">{x | x ≤ 10}</span> are <b>not</b> disjoint; they share the element 10."
     },
     {
       "type": "example",
-      "title": "Worked example — disjoint or not?",
+      "title": "Worked example: disjoint or not?",
       "bodyHtml": "<p>(1) A = {x | x = n², n ∈ ℕ, 1 ≤ n ≤ 5}, B = {x | 1 ≤ x ≤ 5, x is even}<br>(2) A = {x | x = n³, n ∈ ℕ, 1 ≤ n ≤ 5}, B = {x | 1 ≤ x ≤ 10, x is prime}</p>",
       "solutionHtml": "<p><b>(1)</b> A = {1, 4, 9, 16, 25}, B = {2, 4}. They share <b>4</b> → <b>not disjoint</b>.</p>\n      <p><b>(2)</b> A = {1, 8, 27, 64, 125}, B = {2, 3, 5, 7}. No common element → <b>disjoint</b> (A ∩ B = ∅).</p>"
     },
@@ -122,9 +122,9 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — difference",
+      "title": "Worked example: difference",
       "bodyHtml": "<p>If A = {a, b, c, d, e} and B = {c, d, f, g}, find A − B and B − A. Then, for A = {x | x &lt; 5} and B = {x | x is even}, describe A ∩ B, A − B and B − A.</p>",
-      "solutionHtml": "<p><span class=\"m\">A − B = {a, b, e}</span> (in A, not in B) and <span class=\"m\">B − A = {f, g}</span>. Difference is <b>not</b> symmetric!</p>\n      <p>Working within the integers: A = {…, −2, −1, 0, 1, 2, 3, 4} and B = {…, −4, −2, 0, 2, 4, 6, …}.</p>\n      <ul>\n        <li><span class=\"m\">A ∩ B</span> = evens less than 5 = <span class=\"m\">{…, −4, −2, 0, 2, 4}</span></li>\n        <li><span class=\"m\">A − B</span> = odds and non-integers less than 5 = <span class=\"m\">{…, −3, −1, 1, 3}</span></li>\n        <li><span class=\"m\">B − A</span> = <span class=\"m\">{x | x is even and x ≥ 5}</span> = {6, 8, 10, …}</li>\n      </ul>"
+      "solutionHtml": "<p><span class=\"m\">A − B = {a, b, e}</span> (in A, not in B) and <span class=\"m\">B − A = {f, g}</span>. Difference is <b>not</b> symmetric.</p>\n      <p>Working within the integers: A = {…, −2, −1, 0, 1, 2, 3, 4} and B = {…, −4, −2, 0, 2, 4, 6, …}.</p>\n      <ul>\n        <li><span class=\"m\">A ∩ B</span> = evens less than 5 = <span class=\"m\">{…, −4, −2, 0, 2, 4}</span></li>\n        <li><span class=\"m\">A − B</span> = odds and non-integers less than 5 = <span class=\"m\">{…, −3, −1, 1, 3}</span></li>\n        <li><span class=\"m\">B − A</span> = <span class=\"m\">{x | x is even and x ≥ 5}</span> = {6, 8, 10, …}</li>\n      </ul>"
     },
     {
       "type": "heading",
@@ -150,7 +150,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — alphabet sets (universal set reasoning)",
+      "title": "Worked example: alphabet sets (universal set reasoning)",
       "bodyHtml": "<p>Let A be the set of all letters in the alphabet, B the set of vowels, and C the set of letters in your name. Identify the universal set, the subsets, and describe B′.</p>",
       "solutionHtml": "<p><span class=\"m\">A = {A, B, C, …}</span> is the <b>universal set</b> here; both B = {A, E, I, O, U} and C are <b>subsets</b> of A. Since a letter that is not a vowel must be a consonant, <span class=\"m\">B′</span> is <b>the set of all consonants</b> in the English alphabet.</p>"
     },
@@ -166,22 +166,22 @@ const chapter: ChapterData = {
     },
     {
       "type": "example",
-      "title": "Worked example — Cartesian product",
+      "title": "Worked example: cartesian product",
       "bodyHtml": "<p>Find <span class=\"m\">{1, 2, 3} × {a, b}</span>. True or false: {(1, a), (3, b)} ⊆ {1, 2, 3} × {a, b}? &nbsp;And: {1, 2, 3} ⊆ {1, 2, 3} × {a, b}?</p>",
-      "solutionHtml": "<p><span class=\"m\">{1,2,3} × {a,b} =</span> <b>{(1,a), (1,b), (2,a), (2,b), (3,a), (3,b)}</b> — 3 × 2 = 6 ordered pairs (2-tuples).</p>\n      <p><b>True</b> — both (1, a) and (3, b) are members of the product. <b>False</b> — the numbers 1, 2, 3 are not ordered pairs, so they cannot belong to A × B.</p>"
+      "solutionHtml": "<p><span class=\"m\">{1,2,3} × {a,b} =</span> <b>{(1,a), (1,b), (2,a), (2,b), (3,a), (3,b)}</b>: 3 × 2 = 6 ordered pairs (2-tuples).</p>\n      <p><b>True</b>: both (1, a) and (3, b) are members of the product. <b>False</b>: the numbers 1, 2, 3 are not ordered pairs, so they cannot belong to A × B.</p>"
     },
     {
       "type": "accordion",
       "items": [
         {
-          "title": "Exercise set C — set operations drill ▾",
-          "html": "<ol>\n        <li>Find the intersection of P = {1, 3, 5} and Q = {2, 5, 8}.</li>\n        <li>Find the union of P = {5, 10} and Q = {12, 15, 18}.</li>\n        <li>Find P − Q for P = {1, 3, 5} and Q = {2, 5, 8}.</li>\n        <li>Find the complement of X = {a, b, d} when U = {a, b, c, d, e}.</li>\n        <li>Is P = {2, 4} a subset of Q = {2, 3, 4, 5}?</li>\n        <li>Find X ∥ Y and X ∩ Y for X = {2, 3, 4}, Y = {4, 5, 6}.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li><span class=\"m\">P ∩ Q = {5}</span></li>\n          <li><span class=\"m\">P ∥ Q = {5, 10, 12, 15, 18}</span></li>\n          <li><span class=\"m\">P − Q = {1, 3}</span></li>\n          <li><span class=\"m\">X′ = {c, e}</span></li>\n          <li>Yes — 2 and 4 are both in Q, so <span class=\"m\">P ⊆ Q</span>.</li>\n          <li><span class=\"m\">X ∥ Y = {2, 3, 4, 5, 6}</span>; <span class=\"m\">X ∩ Y = {4}</span></li>\n        </ol>\n      </div>"
+          "title": "Exercise set C: set operations drill",
+          "html": "<ol>\n        <li>Find the intersection of P = {1, 3, 5} and Q = {2, 5, 8}.</li>\n        <li>Find the union of P = {5, 10} and Q = {12, 15, 18}.</li>\n        <li>Find P − Q for P = {1, 3, 5} and Q = {2, 5, 8}.</li>\n        <li>Find the complement of X = {a, b, d} when U = {a, b, c, d, e}.</li>\n        <li>Is P = {2, 4} a subset of Q = {2, 3, 4, 5}?</li>\n        <li>Find X ∥ Y and X ∩ Y for X = {2, 3, 4}, Y = {4, 5, 6}.</li>\n      </ol>\n      <button class=\"reveal-btn\">Show answers</button>\n      <div class=\"solution\"><div class=\"sol-label\">Answers</div>\n        <ol>\n          <li><span class=\"m\">P ∩ Q = {5}</span></li>\n          <li><span class=\"m\">P ∥ Q = {5, 10, 12, 15, 18}</span></li>\n          <li><span class=\"m\">P − Q = {1, 3}</span></li>\n          <li><span class=\"m\">X′ = {c, e}</span></li>\n          <li>Yes: 2 and 4 are both in Q, so <span class=\"m\">P ⊆ Q</span>.</li>\n          <li><span class=\"m\">X ∥ Y = {2, 3, 4, 5, 6}</span>; <span class=\"m\">X ∩ Y = {4}</span></li>\n        </ol>\n      </div>"
         }
       ]
     },
     {
       "type": "quiz",
-      "title": "Topic 3 Quiz — Set Theory",
+      "title": "Topic 3 Quiz: Set Theory",
       "count": 8,
       "quizSlug": "03-set-theory"
     }

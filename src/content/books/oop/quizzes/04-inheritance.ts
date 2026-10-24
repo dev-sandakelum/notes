@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "04-inheritance",
-  "title": "Topic 4 Quiz — Inheritance",
+  "title": "Topic 4 Quiz: Inheritance",
   "questions": [
     {
       "prompt": "1. Which keyword creates a subclass in Java?",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q4a\" value=\"3\">super"
       ],
       "answer": 2,
-      "explanation": "class Car extends Vehicle { } — implements is for interfaces."
+      "explanation": "class Car extends Vehicle { }, implements is for interfaces."
     },
     {
       "prompt": "2. Which type of inheritance is NOT supported for classes in Java?",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q4b\" value=\"3\">Hierarchical"
       ],
       "answer": 1,
-      "explanation": "Multiple inheritance of classes is not allowed due to the diamond problem — interfaces provide the workaround."
+      "explanation": "Multiple inheritance of classes is not allowed due to the diamond problem, interfaces provide the workaround."
     },
     {
       "prompt": "3. An overriding method's access modifier…",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q4d\" value=\"3\">Is automatically deleted"
       ],
       "answer": 0,
-      "explanation": "Static methods are hidden, not overridden — they bind at compile time."
+      "explanation": "Static methods are hidden, not overridden; they bind at compile time."
     },
     {
       "prompt": "5. The super() call in a constructor must be…",

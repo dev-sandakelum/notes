@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Subtracting"
       ],
       "answer": 2,
-      "explanation": "Add quantities supplied by all firms at each price — horizontal summation (same for market demand)."
+      "explanation": "Add quantities supplied by all firms at each price, horizontal summation (same for market demand)."
     },
     {
       "prompt": "6. Qd = 350 − 10P and Qs = −40 + 5P. The equilibrium price is:",
@@ -73,10 +73,10 @@ const quiz: QuizData = {
     {
       "prompt": "7. At the current market price, quantity demanded exceeds quantity supplied. This is:",
       "options": [
-        "Excess demand — price will rise",
-        "Excess supply — price will fall",
-        "Equilibrium — price is stable",
-        "A surplus — price will rise"
+        "Excess demand: price will rise",
+        "Excess supply: price will fall",
+        "Equilibrium: price is stable",
+        "A surplus: price will rise"
       ],
       "answer": 0,
       "explanation": "Shortage (excess demand) puts upward pressure on price until equilibrium is restored."

@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "08-interaction-diagrams-sequence-and-communication",
-  "title": "Topic 8 Quiz — Interaction Diagrams",
+  "title": "Topic 8 Quiz: Interaction Diagrams",
   "questions": [
     {
       "prompt": "1. The key difference between communication and sequence diagrams is:",
@@ -29,7 +29,7 @@ const quiz: QuizData = {
     {
       "prompt": "3. A lifeline with a <b>boundary</b> element represents:",
       "options": [
-        "A system boundary/software element users interact with — e.g. UI screens, menus, database gateways",
+        "A system boundary/software element users interact with, e.g. UI screens, menus, database gateways",
         "System data such as a Customer entity",
         "A controlling entity that mediates between boundaries and entities",
         "The actor that owns the use case"
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "object.reference(parameters)"
       ],
       "answer": 0,
-      "explanation": "A message arrow carries the signature: attribute = message_name(arguments) : return_type — e.g. balance = getBalance(accountID) : double."
+      "explanation": "A message arrow carries the signature: attribute = message_name(arguments) : return_type, e.g. balance = getBalance(accountID) : double."
     }
   ]
 };

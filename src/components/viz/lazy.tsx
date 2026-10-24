@@ -26,6 +26,27 @@ const registry: Record<VizKind, React.ComponentType<{ caption?: string }>> = {
   avlInsert: dynamic(() =>
     import("./avl-insert-viz").then((m) => m.AvlInsertViz)
   ),
+  bstDelete: dynamic(() =>
+    import("./bst-delete-viz").then((m) => m.BstDeleteViz)
+  ),
+  avlCases: dynamic(() =>
+    import("./avl-rotation-cases-viz").then((m) => m.AvlRotationCasesViz)
+  ),
+  avlCompare: dynamic(() =>
+    import("./avl-compare-viz").then((m) => m.AvlCompareViz)
+  ),
+  traversalPlayer: dynamic(() =>
+    import("./traversal-player").then((m) => m.TraversalPlayer)
+  ),
+  notationPlayer: dynamic(() =>
+    import("./notation-player").then((m) => m.NotationPlayer)
+  ),
+  postfixEval: dynamic(() =>
+    import("./postfix-eval-player").then((m) => m.PostfixEvalPlayer)
+  ),
+  infixPostfix: dynamic(() =>
+    import("./infix-postfix-player").then((m) => m.InfixPostfixPlayer)
+  ),
 };
 
 /**

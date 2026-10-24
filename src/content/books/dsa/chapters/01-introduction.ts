@@ -20,19 +20,19 @@ const chapter: ChapterData = {
       "type": "callout",
       "variant": "info",
       "title": "Study loop",
-      "html": "Read a topic → try the worked examples before revealing solutions → flip all flashcards → take the topic quiz → press <b>Mark as complete</b>. Your progress and theme are saved in this browser (localStorage) — even after closing the file."
+      "html": "Read a topic → try the worked examples before revealing solutions → flip all flashcards → take the topic quiz → press <b>Mark as complete</b>. Your progress and theme are saved in this browser (localStorage), even after closing the file."
     },
     {
       "type": "callout",
       "variant": "tip",
       "title": "Exam focus",
-      "html": "Red <b>Exam alert</b> boxes flag facts that are repeatedly examined. The <b>Master Cheat Sheet</b> compresses the whole course into tables and formulas — perfect for the night before. Finish with the <b>Final Practice Exam</b>."
+      "html": "Red <b>Exam alert</b> boxes flag facts that are repeatedly examined. The <b>Master Cheat Sheet</b> compresses the whole course into tables and formulas, perfect for the night before. Finish with the <b>Final Practice Exam</b>."
     },
     {
       "type": "callout",
       "variant": "warn",
       "title": "Searching",
-      "html": "Use the search box in the top bar (or press <code>/</code>) to filter topics instantly — e.g. type <i>“rotation”</i>, <i>“postfix”</i> or <i>“circular”</i>."
+      "html": "Use the search box in the top bar (or press <code>/</code>) to filter topics instantly, e.g. type <i>“rotation”</i>, <i>“postfix”</i> or <i>“circular”</i>."
     },
     {
       "type": "heading",
@@ -64,12 +64,12 @@ const chapter: ChapterData = {
           "Laboratory assignments (Labs 1–9)"
         ],
         [
-          "<b>Final examination — theory</b>",
+          "<b>Final examination: theory</b>",
           "<b>40%</b>",
           "These notes target this paper"
         ],
         [
-          "Final examination — practical",
+          "Final examination: practical",
           "20%",
           "C programming on Linux"
         ]
@@ -83,7 +83,7 @@ const chapter: ChapterData = {
     },
     {
       "type": "paragraph",
-      "html": "<b>Prerequisites:</b> C programming — basic data types, control structures, functions, arrays, pointers and structures. The labs use C on Linux with <code>gcc</code>."
+      "html": "<b>Prerequisites:</b> C programming, covering basic data types, control structures, functions, arrays, pointers and structures. The labs use C on Linux with <code>gcc</code>."
     },
     {
       "type": "heading",

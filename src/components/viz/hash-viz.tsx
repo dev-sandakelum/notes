@@ -113,7 +113,7 @@ export function HashViz({ caption }: { caption?: string }) {
 
   const doInsert = () => {
     if (busy.current) {
-      setMsg({ text: "One moment — finishing the previous probe…", tone: "warn" });
+      setMsg({ text: "One moment: finishing the previous probe…", tone: "warn" });
       return;
     }
     const v = parseKey();
@@ -123,7 +123,7 @@ export function HashViz({ caption }: { caption?: string }) {
     }
     const r = findSlot(cells, v, true);
     if (r.idx === -2) {
-      setMsg({ text: "⚠ Table completely full — insert rejected.", tone: "danger" });
+      setMsg({ text: "⚠ Table completely full: insert rejected.", tone: "danger" });
       return;
     }
     const commit = () => {
@@ -157,7 +157,7 @@ export function HashViz({ caption }: { caption?: string }) {
 
   const doSearch = () => {
     if (busy.current) {
-      setMsg({ text: "One moment — finishing the previous probe…", tone: "warn" });
+      setMsg({ text: "One moment: finishing the previous probe…", tone: "warn" });
       return;
     }
     const v = parseKey();
@@ -182,7 +182,7 @@ export function HashViz({ caption }: { caption?: string }) {
         setHit(null);
         setMsg({
           text:
-            `${v} % ${SIZE} = ${r.home} · NOT FOUND — ` +
+            `${v} % ${SIZE} = ${r.home} · NOT FOUND: ` +
             (r.visited.length >= SIZE
               ? `probed all ${SIZE} slots without a match`
               : `search stopped at empty slot [${r.stop}]`),
@@ -195,7 +195,7 @@ export function HashViz({ caption }: { caption?: string }) {
 
   const doDelete = () => {
     if (busy.current) {
-      setMsg({ text: "One moment — finishing the previous probe…", tone: "warn" });
+      setMsg({ text: "One moment: finishing the previous probe…", tone: "warn" });
       return;
     }
     const v = parseKey();
@@ -218,7 +218,7 @@ export function HashViz({ caption }: { caption?: string }) {
         setHit({ idx: r.idx, tone: "danger" });
         setMsg({
           text:
-            `Deleted ${v} from [${r.idx}] — slot specially marked (del), NOT plain empty, ` +
+            `Deleted ${v} from [${r.idx}]. Slot specially marked (del), not plain empty, ` +
             `so searches keep probing past it.`,
           tone: "warn",
         });
@@ -227,7 +227,7 @@ export function HashViz({ caption }: { caption?: string }) {
         setHit(null);
         setMsg({
           text:
-            `${v} % ${SIZE} = ${r.home} · not found — nothing to delete` +
+            `${v} % ${SIZE} = ${r.home} · not found: nothing to delete` +
             (path.length ? ` (probed ${path.join(" → ")})` : ""),
           tone: "danger",
         });

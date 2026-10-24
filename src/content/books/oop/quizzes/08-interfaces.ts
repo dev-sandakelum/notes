@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "08-interfaces",
-  "title": "Topic 8 Quiz — Interfaces",
+  "title": "Topic 8 Quiz: Interfaces",
   "questions": [
     {
       "prompt": "1. Interface methods are implicitly…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q8a\" value=\"3\">static and final"
       ],
       "answer": 2,
-      "explanation": "You never need to type public abstract — the method is always public and abstract anyway."
+      "explanation": "You never need to type public abstract; the method is always public and abstract anyway."
     },
     {
       "prompt": "2. Variables declared in an interface are implicitly…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q8b\" value=\"3\">default-scoped"
       ],
       "answer": 1,
-      "explanation": "Interfaces can declare only constants — public static final — and they must be initialized at declaration."
+      "explanation": "Interfaces can declare only constants: public static final, and they must be initialized at declaration."
     },
     {
       "prompt": "3. Which keyword does a class use to consume an interface?",
@@ -54,21 +54,21 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q8e\" value=\"0\">Only one other interface",
         "<input type=\"radio\" name=\"q8e\" value=\"1\">Any class or interface",
         "<input type=\"radio\" name=\"q8e\" value=\"2\">One or more other interfaces",
-        "<input type=\"radio\" name=\"q8e\" value=\"3\">Nothing — interfaces are final"
+        "<input type=\"radio\" name=\"q8e\" value=\"3\">Nothing: interfaces are final"
       ],
       "answer": 2,
       "explanation": "Interface-to-interface inheritance may be multiple (PlayableBall extends ThrowableBall, KickableBall); an interface can never implement anything."
     },
     {
-      "prompt": "6. In interface Foo { int BAR = 42; void go(); } — what is BAR = 27; inside an implementing class?",
+      "prompt": "6. In interface Foo { int BAR = 42; void go(); }: what is BAR = 27; inside an implementing class?",
       "options": [
-        "<input type=\"radio\" name=\"q8f\" value=\"0\">Legal — BAR is just a variable",
-        "<input type=\"radio\" name=\"q8f\" value=\"1\">A compile error — BAR is final",
+        "<input type=\"radio\" name=\"q8f\" value=\"0\">Legal: BAR is just a variable",
+        "<input type=\"radio\" name=\"q8f\" value=\"1\">A compile error: BAR is final",
         "<input type=\"radio\" name=\"q8f\" value=\"2\">Legal only inside static methods",
         "<input type=\"radio\" name=\"q8f\" value=\"3\">A runtime exception"
       ],
       "answer": 1,
-      "explanation": "BAR is implicitly public static final — assigning to a final constant doesn't compile."
+      "explanation": "BAR is implicitly public static final, assigning to a final constant doesn't compile."
     },
     {
       "prompt": "7. Default methods were introduced to…",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q8h\" value=\"3\">Constructors"
       ],
       "answer": 3,
-      "explanation": "Interfaces have no constructors — they are never instantiated."
+      "explanation": "Interfaces have no constructors: they are never instantiated."
     }
   ]
 };

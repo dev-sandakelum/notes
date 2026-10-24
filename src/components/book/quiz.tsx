@@ -153,7 +153,7 @@ export function Quiz({ quiz, storageKey }: QuizProps) {
   return (
     <section
       aria-label={quiz.title}
-      className="overflow-hidden rounded-md border border-hairline bg-paper-raised"
+      className="overflow-hidden rounded-2xl border border-hairline border-l-4 border-l-(--accent2) bg-paper-raised shadow-card"
     >
       <header className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 border-b border-hairline px-4 py-4 sm:px-5">
         <div className="min-w-0">
@@ -210,15 +210,15 @@ export function Quiz({ quiz, storageKey }: QuizProps) {
                 const wrong = checked && selected && !correct;
 
                 const labelClass = [
-                  "flex min-h-[44px] w-full items-start gap-3 rounded-md border px-3 py-2.5 text-sm",
-                  "has-[:focus-visible]:border-ink",
+                  "flex min-h-[44px] w-full items-start gap-3 rounded-[10px] border-2 px-3 py-2.5 text-sm transition-colors",
+                  "has-[:focus-visible]:border-(--accent)",
                   wrong
-                    ? "cursor-default border-danger bg-danger-soft text-danger"
+                    ? "cursor-default border-danger bg-danger-soft text-danger font-semibold"
                     : correct
-                      ? "cursor-default border-ok bg-ok-soft text-ok"
+                      ? "cursor-default border-ok bg-ok-soft text-ok font-semibold"
                       : selected
-                        ? "cursor-pointer border-ink bg-paper-sunken text-ink"
-                        : "cursor-pointer border-hairline bg-paper text-ink hover:border-hairline-strong",
+                        ? "cursor-pointer border-(--accent) bg-(--accent-soft) text-ink"
+                        : "cursor-pointer border-hairline bg-paper text-ink hover:border-hairline-strong hover:-translate-y-px",
                   checked && !correct && !wrong ? "opacity-60" : "",
                 ]
                   .filter(Boolean)
@@ -232,7 +232,7 @@ export function Quiz({ quiz, storageKey }: QuizProps) {
                       checked={selected}
                       onChange={() => select(qi, oi)}
                       disabled={checked}
-                      className="mt-0.5 size-4 shrink-0 accent-ink"
+                      className="mt-0.5 size-4 shrink-0 accent-(--accent)"
                     />
                     <span className="min-w-0 flex-1 leading-snug">
                       {option}
@@ -272,7 +272,7 @@ export function Quiz({ quiz, storageKey }: QuizProps) {
           type="button"
           onClick={reset}
           disabled={!checked && !hasAnswered}
-          className="inline-flex min-h-[40px] items-center rounded-md border border-hairline bg-paper-raised px-4 py-2 text-sm font-medium text-ink hover:border-hairline-strong disabled:cursor-not-allowed disabled:opacity-50"
+          className="btn btn-ghost"
         >
           Reset
         </button>
@@ -280,7 +280,7 @@ export function Quiz({ quiz, storageKey }: QuizProps) {
           type="button"
           onClick={() => setChecked(true)}
           disabled={checked}
-          className="inline-flex min-h-[40px] items-center rounded-md bg-ink px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="btn btn-primary"
         >
           Check answers
         </button>

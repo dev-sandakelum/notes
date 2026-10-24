@@ -13,10 +13,10 @@ const quiz: QuizData = {
         "Land + labour"
       ],
       "answer": 2,
-      "explanation": "Oikonomikos = Oikos (house) + Nomos (management) — household management."
+      "explanation": "Oikonomikos = Oikos (house) + Nomos (management), household management."
     },
     {
-      "prompt": "2. “Economics is the science which studies human behaviour as a relationship between ends and scarce means which have alternative uses” — this definition belongs to:",
+      "prompt": "2. “Economics is the science which studies human behaviour as a relationship between ends and scarce means which have alternative uses”; this definition belongs to:",
       "options": [
         "Adam Smith",
         "Lionel Robbins",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "Scarcity arises only in poor countries"
       ],
       "answer": 3,
-      "explanation": "Scarcity exists in every society — even wealthy nations face limited resources relative to unlimited wants."
+      "explanation": "Scarcity exists in every society: even wealthy nations face limited resources relative to unlimited wants."
     },
     {
       "prompt": "4. A farmer uses a field to grow maize, giving up the rice harvest it could have produced. The rice is:",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "General unemployment (idle resources)"
       ],
       "answer": 2,
-      "explanation": "With full employment, using a resource elsewhere always sacrifices current output — opportunity cost is positive."
+      "explanation": "With full employment, using a resource elsewhere always sacrifices current output, opportunity cost is positive."
     },
     {
       "prompt": "6. The two main functions of the entrepreneur are:",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "Buying and selling"
       ],
       "answer": 1,
-      "explanation": "The entrepreneur combines all factors of production — the key functions are organising and risk-bearing."
+      "explanation": "The entrepreneur combines all factors of production; the key functions are organising and risk-bearing."
     },
     {
       "prompt": "7. “The Sri Lankan inflation rate was 6.8% last year” is a positive statement because:",

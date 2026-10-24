@@ -8,7 +8,6 @@ import {
   ClipboardList,
   Clock,
   FileQuestion,
-  Layers,
   ScrollText,
   Sparkles,
 } from "lucide-react";
@@ -56,41 +55,31 @@ export default async function BookPage({
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
-      {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="mb-8 no-print">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-caption text-ink-muted transition-colors hover:text-ink"
-        >
-          <Layers className="h-3.5 w-3.5" aria-hidden />
-          All books
-        </Link>
-      </nav>
-
-      {/* Book hero */}
-      <header className="mb-10 border-b border-hairline pb-8">
+      {/* Book hero — the sidebar already has the "All books" link and
+          breadcrumb; don't duplicate them here. */}
+      <header className="hero-gradient mb-10 rounded-[26px] px-6 py-8 sm:px-8 sm:py-9">
         <div className="mb-3 flex flex-wrap items-center gap-2">
-          <span className="rounded-full border border-hairline px-2.5 py-0.5 font-mono text-caption text-ink">
+          <span className="rounded-full bg-white/15 px-2.5 py-0.5 font-mono text-caption font-semibold text-white">
             {book.code}
           </span>
           {book.department ? (
-            <span className="rounded-full border border-hairline px-2.5 py-0.5 font-mono text-caption text-ink-muted">
+            <span className="rounded-full bg-white/15 px-2.5 py-0.5 font-mono text-caption text-white/90">
               {book.department}
             </span>
           ) : null}
-          <span className="text-caption text-ink-muted">{book.subject}</span>
+          <span className="text-caption font-medium text-white/85">{book.subject}</span>
         </div>
-        <h1 className="font-display text-book-title font-semibold leading-tight text-ink">
+        <h1 className="font-display text-book-title font-extrabold leading-tight text-white">
           {book.title}
         </h1>
-        <p className="mt-3 max-w-[65ch] font-display text-lg italic leading-relaxed text-ink-muted">
+        <p className="mt-3 max-w-[65ch] text-[0.98rem] leading-relaxed text-white/90">
           {book.tagline}
         </p>
-        <p className="prose-book mt-3 max-w-[68ch] text-[0.95rem] text-ink">
+        <p className="mt-2 max-w-[68ch] text-[0.9rem] leading-relaxed text-white/75">
           {book.description}
         </p>
 
-        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-caption text-ink-muted">
+        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-caption font-medium text-white/85">
           <span className="inline-flex items-center gap-1.5">
             <BookOpen className="h-3.5 w-3.5" aria-hidden />
             {book.chapters.length} chapters
@@ -114,7 +103,7 @@ export default async function BookPage({
         {first ? (
           <Link
             href={`/notes/${book.slug}/${first.slug}`}
-            className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-ink px-5 text-sm font-medium text-paper transition-opacity hover:opacity-90 no-print"
+            className="mt-6 inline-flex h-11 items-center gap-2 rounded-[10px] bg-white px-5 text-sm font-bold text-(--accent) shadow-sm transition-transform duration-200 hover:-translate-y-0.5 no-print"
           >
             <BookOpen className="h-4 w-4" aria-hidden />
             Start reading
@@ -125,7 +114,7 @@ export default async function BookPage({
           {book.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-paper-sunken px-2.5 py-0.5 text-caption text-ink-muted"
+              className="rounded-full bg-white/15 px-2.5 py-0.5 text-caption font-medium text-white/90"
             >
               {tag}
             </span>
@@ -137,11 +126,11 @@ export default async function BookPage({
       <section aria-labelledby="chapters-heading">
         <h2
           id="chapters-heading"
-          className="mb-4 font-display text-section font-semibold text-ink"
+          className="mb-4 font-display text-section font-bold text-ink"
         >
           Chapters
         </h2>
-        <ol className="divide-y divide-hairline rounded-md border border-hairline bg-paper-raised">
+        <ol className="divide-y divide-hairline overflow-hidden rounded-2xl border border-hairline bg-paper-raised shadow-card">
           {topics.map((ch) => (
             <ChapterRow key={ch.slug} bookSlug={book.slug} chapter={ch} />
           ))}
@@ -149,10 +138,10 @@ export default async function BookPage({
 
         {revision.length > 0 ? (
           <>
-            <h2 className="mb-4 mt-10 font-display text-section font-semibold text-ink">
+            <h2 className="mb-4 mt-10 font-display text-section font-bold text-ink">
               Revision
             </h2>
-            <ol className="divide-y divide-hairline rounded-md border border-hairline bg-paper-raised">
+            <ol className="divide-y divide-hairline overflow-hidden rounded-2xl border border-hairline bg-paper-raised shadow-card">
               {revision.map((ch) => (
                 <ChapterRow key={ch.slug} bookSlug={book.slug} chapter={ch} />
               ))}

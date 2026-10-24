@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "09-exception-handling",
-  "title": "Topic 9 Quiz — Exceptions",
+  "title": "Topic 9 Quiz: Exceptions",
   "questions": [
     {
       "prompt": "1. An exception is…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q9a\" value=\"3\">A memory dump"
       ],
       "answer": 1,
-      "explanation": "Exception = exceptional event occurring during execution, disrupting normal flow — but it can be handled."
+      "explanation": "Exception = exceptional event occurring during execution, disrupting normal flow, but it can be handled."
     },
     {
       "prompt": "2. FileNotFoundException is which kind?",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q9b\" value=\"3\">Custom exception"
       ],
       "answer": 0,
-      "explanation": "It's predictable (the file may not exist) — the compiler forces you to catch-or-throw it."
+      "explanation": "It's predictable (the file may not exist); the compiler forces you to catch-or-throw it."
     },
     {
       "prompt": "3. Which hierarchy statement is TRUE?",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q9d\" value=\"3\">Is always executed, whether the exception is handled or not"
       ],
       "answer": 3,
-      "explanation": "finally is for cleanup (closing streams/connections) and always runs — one finally per try, max."
+      "explanation": "finally is for cleanup (closing streams/connections) and always runs, one finally per try, max."
     },
     {
       "prompt": "5. Which is ILLEGAL?",
@@ -57,10 +57,10 @@ const quiz: QuizData = {
         "<input type=\"radio\" name=\"q9e\" value=\"3\">Nested try/catch blocks"
       ],
       "answer": 1,
-      "explanation": "catch cannot exist without try. try alone is also illegal — it needs a catch or a finally."
+      "explanation": "catch cannot exist without try. try alone is also illegal: it needs a catch or a finally."
     },
     {
-      "prompt": "6. throw new ArithmeticException(\"Not Eligible\"); — the throw keyword is followed by…",
+      "prompt": "6. throw new ArithmeticException(\"Not Eligible\");; the throw keyword is followed by…",
       "options": [
         "<input type=\"radio\" name=\"q9f\" value=\"0\">An instance of the exception class",
         "<input type=\"radio\" name=\"q9f\" value=\"1\">The class name only",

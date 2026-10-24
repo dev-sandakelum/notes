@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "04-stacks",
-  "title": "Topic 3 Quiz — Stacks",
+  "title": "Topic 3 Quiz: Stacks",
   "questions": [
     {
       "prompt": "1. A stack is a linear structure where insertion and deletion happen…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "At the front only"
       ],
       "answer": 1,
-      "explanation": "<b>One end only</b> — the TOP. That restriction is what creates the LIFO behaviour."
+      "explanation": "<b>One end only</b>: the TOP. That restriction is what creates the LIFO behaviour."
     },
     {
       "prompt": "2. With MAX = 6, overflow occurs when…",
@@ -35,7 +35,7 @@ const quiz: QuizData = {
         "stack[0] = item;"
       ],
       "answer": 0,
-      "explanation": "Increment <b>first</b>, then store — otherwise the first element would land at index −1."
+      "explanation": "Increment <b>first</b>, then store: otherwise the first element would land at index −1."
     },
     {
       "prompt": "4. The prefix form of A + B * C is…",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "Implementing recursion"
       ],
       "answer": 2,
-      "explanation": "Printer scheduling is <b>FIFO</b> — that's a <b>queue</b>. The rest are classic stack uses."
+      "explanation": "Printer scheduling is <b>FIFO</b>: that's a <b>queue</b>. The rest are classic stack uses."
     },
     {
       "prompt": "7. In a linked-list stack, the new node's <code>next</code> points to…",
@@ -79,7 +79,7 @@ const quiz: QuizData = {
         "Itself"
       ],
       "answer": 0,
-      "explanation": "Push: <code>n-&gt;next = top;</code> then <code>top = n;</code> — each new node sits on top of the old one."
+      "explanation": "Push: <code>n-&gt;next = top;</code> then <code>top = n;</code>: each new node sits on top of the old one."
     },
     {
       "prompt": "8. In the expression tree / evaluation world, the <b>inorder</b> traversal of an expression tree produces…",

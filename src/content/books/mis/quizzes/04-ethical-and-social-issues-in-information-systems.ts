@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "04-ethical-and-social-issues-in-information-systems",
-  "title": "Topic 4 Quiz — Ethics & Social Issues",
+  "title": "Topic 4 Quiz: Ethics & Social Issues",
   "questions": [
     {
       "prompt": "1. Ethics is best defined as:",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Technical standards for system quality"
       ],
       "answer": 1,
-      "explanation": "Ethics = principles of right and wrong used by free moral agents to guide behavior. Social issues are matters of concern to governments and communities — related but distinct."
+      "explanation": "Ethics = principles of right and wrong used by free moral agents to guide behavior. Social issues are matters of concern to governments and communities, related but distinct."
     },
     {
       "prompt": "2. Legally placing responsibility (so injured parties can recover damages) with a person or group is:",
@@ -46,7 +46,7 @@ const quiz: QuizData = {
         "20 years"
       ],
       "answer": 3,
-      "explanation": "Patents = 20-year monopoly on the ideas behind an invention. Copyrights protect the expression of intellectual property from being copied — a statutory grant to creators."
+      "explanation": "Patents = 20-year monopoly on the ideas behind an invention. Copyrights protect the expression of intellectual property from being copied, a statutory grant to creators."
     },
     {
       "prompt": "5. Cookies raise ethical concerns primarily under which dimension?",
@@ -57,7 +57,7 @@ const quiz: QuizData = {
         "Quality of life"
       ],
       "answer": 1,
-      "explanation": "Cookies (with web site policies) track browsing — a privacy issue, i.e. information rights and obligations: what information rights do individuals possess and what can they protect?"
+      "explanation": "Cookies (with web site policies) track browsing, a privacy issue, i.e. information rights and obligations: what information rights do individuals possess and what can they protect?"
     },
     {
       "prompt": "6. An AI recruitment tool systematically filters out female applicants because it learned from historically biased hiring data. This is best described as:",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Data being stored across borders and legal territories"
       ],
       "answer": 3,
-      "explanation": "Cloud/edge computing moves data across national borders — whose laws apply? That is the data jurisdiction issue. IoT = massive collection; analytics = profiling/surveillance capitalism; quantum = encryption risks."
+      "explanation": "Cloud/edge computing moves data across national borders, whose laws apply? That is the data jurisdiction issue. IoT = massive collection; analytics = profiling/surveillance capitalism; quantum = encryption risks."
     }
   ]
 };

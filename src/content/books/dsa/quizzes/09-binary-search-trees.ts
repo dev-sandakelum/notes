@@ -2,7 +2,7 @@ import type { QuizData } from "@/content/types";
 
 const quiz: QuizData = {
   "slug": "09-binary-search-trees",
-  "title": "Topic 8 Quiz — Binary Search Trees",
+  "title": "Topic 8 Quiz: Binary Search Trees",
   "questions": [
     {
       "prompt": "1. In a BST, the right subtree of any node contains only keys…",
@@ -13,7 +13,7 @@ const quiz: QuizData = {
         "Randomly placed"
       ],
       "answer": 2,
-      "explanation": "Right = greater, left = smaller — at <i>every</i> node of the tree."
+      "explanation": "Right = greater, left = smaller, at <i>every</i> node of the tree."
     },
     {
       "prompt": "2. Searching a balanced BST with N nodes costs…",
@@ -24,7 +24,7 @@ const quiz: QuizData = {
         "O(N log N)"
       ],
       "answer": 0,
-      "explanation": "Each comparison discards a subtree — height is log₂(N+1) when balanced."
+      "explanation": "Each comparison discards a subtree: height is log₂(N+1) when balanced."
     },
     {
       "prompt": "3. Inserting 63 into the lecture BST (50, 76, 65, 59…) ends as the right child of…",
@@ -68,7 +68,7 @@ const quiz: QuizData = {
         "A heap"
       ],
       "answer": 0,
-      "explanation": "Each key is larger, so every insertion goes right — the tree becomes a linked list. Random insertion order gives roughly balanced trees."
+      "explanation": "Each key is larger, so every insertion goes right; the tree becomes a linked list. Random insertion order gives roughly balanced trees."
     },
     {
       "prompt": "7. Which is NOT a valid BST application listed in the lecture?",
@@ -90,7 +90,7 @@ const quiz: QuizData = {
         "Only a heap"
       ],
       "answer": 1,
-      "explanation": "Inorder of a BST is sorted regardless of shape — that's the invariant."
+      "explanation": "Inorder of a BST is sorted regardless of shape, that's the invariant."
     },
     {
       "prompt": "The in-order successor of a node with two children is…",
@@ -101,7 +101,7 @@ const quiz: QuizData = {
         "Any leaf node"
       ],
       "answer": 1,
-      "explanation": "The successor is the NEXT value in sorted order — the smallest node of the right subtree (go right once, then keep going left)."
+      "explanation": "The successor is the NEXT value in sorted order; the smallest node of the right subtree (go right once, then keep going left)."
     },
     {
       "prompt": "To find the in-order predecessor, you…",
@@ -112,7 +112,7 @@ const quiz: QuizData = {
         "Delete the left child first"
       ],
       "answer": 1,
-      "explanation": "Predecessor = PREVIOUS value in sorted order — go LEFT once, then keep going RIGHT as far as possible."
+      "explanation": "Predecessor = PREVIOUS value in sorted order, go LEFT once, then keep going RIGHT as far as possible."
     },
     {
       "prompt": "The replacement node (successor or predecessor) can have…",
@@ -123,7 +123,7 @@ const quiz: QuizData = {
         "Any number of children"
       ],
       "answer": 2,
-      "explanation": "Because we travel as far as possible in ONE direction, that node has no child on that side — so it has at most one child, making it easy to delete."
+      "explanation": "Because we travel as far as possible in ONE direction, that node has no child on that side, so it has at most one child, making it easy to delete."
     },
     {
       "prompt": "Which traversal of a BST outputs values in sorted order?",
@@ -134,7 +134,7 @@ const quiz: QuizData = {
         "Level-order"
       ],
       "answer": 2,
-      "explanation": "In-order traversal of a BST visits nodes in ascending sorted order — that's exactly why 'in-order successor/predecessor' get their names."
+      "explanation": "In-order traversal of a BST visits nodes in ascending sorted order, that's exactly why 'in-order successor/predecessor' get their names."
     }
   ]
 };
