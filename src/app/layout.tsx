@@ -47,16 +47,16 @@ export default function RootLayout({
         className="bg-paper text-ink antialiased"
       >
         {/*
-          Pre-paint splash gate: decide BEFORE the first paint whether this
-          session still needs the first-load splash (once per session,
-          sessionStorage). Runs synchronously at the top of <body>, so the
-          [data-splash] attribute exists before any content renders — no
-          flash, no hydration mismatch (the React tree renders the overlay
-          unconditionally; CSS keys off the attribute).
+          Pre-paint splash gate: ALWAYS show the first-load splash on every
+          full page load (not gated by sessionStorage). Runs synchronously
+          at the top of <body>, so the [data-splash] attribute exists
+          before any content renders — no flash, no hydration mismatch
+          (the React tree renders the overlay unconditionally; CSS keys
+          off the attribute). The overlay then holds for a fixed 3s.
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{document.documentElement.dataset.splash=sessionStorage.getItem("notes-splash-shown")?"off":"on"}catch(e){document.documentElement.dataset.splash="off"}`,
+            __html: `document.documentElement.dataset.splash="on"`,
           }}
         />
         <ThemeProvider

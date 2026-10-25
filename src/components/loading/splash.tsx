@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * First-load splash (once per browser session, tracked in sessionStorage).
+ * First-load splash — shown on EVERY full page load for a fixed 3 seconds.
  *
  * The whole SITE is a multi-subject notes library, so the loader is a
  * NOTEBOOK THAT OPENS — not a single-subject glyph:
@@ -22,8 +22,9 @@ import { useEffect, useState } from "react";
  * Beneath the book: the wordmark, a rotating line ("Opening your
  *      notes…") and a smooth progress bar.
  *
- * - shown only on the FIRST full load of a session (client-side
- *   navigations never re-run the gate);
+ * - shown on EVERY full page load (refresh / direct navigation) and
+ *   held for a fixed 3s every time; client-side navigations never
+ *   re-run the gate (the App Router layout persists);
  * - the visibility attribute is set by a pre-paint inline script in the
  *   root layout (no hydration mismatch, no wrong-theme flash — colors
  *   are CSS variables resolved under the already-applied theme class);
@@ -34,11 +35,13 @@ import { useEffect, useState } from "react";
  *   focus moves to the main content when the splash finishes.
  */
 
-const SHOWN_KEY = "notes-splash-shown";
-/** Let the full sequence play (cover, doodles, page flip, sine). */
-const MIN_MS = 2900;
-/** Hard cap: a stalled load still reveals the page. */
-const MAX_MS = 5500;
+/**
+ * Fixed duration: the splash holds for exactly 3 seconds on every load,
+ * then exits. We do NOT wait for `window.load`, so the timing is the same
+ * regardless of how fast or slow the page assets arrive.
+ */
+const MIN_MS = 3000;
+/** Exit (fade/lift) transition length. */
 const EXIT_MS = 650;
 
 /** Rotating one-liners while the book opens. */
@@ -54,13 +57,6 @@ export function SplashGate() {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (root.dataset.splash !== "on") {
-      // Not this session's first load: CSS already hides the overlay —
-      // drop it from the DOM after a tick (async, no cascading render).
-      const t = window.setTimeout(() => setRemoved(true), 0);
-      return () => window.clearTimeout(t);
-    }
-    const start = Date.now();
     let done = false;
     let exitTimer = 0;
 
@@ -68,11 +64,6 @@ export function SplashGate() {
       if (done) return;
       done = true;
       root.dataset.splash = "exiting";
-      try {
-        sessionStorage.setItem(SHOWN_KEY, "1");
-      } catch {
-        /* private mode — splash simply won't persist */
-      }
       exitTimer = window.setTimeout(() => {
         root.dataset.splash = "off";
         setRemoved(true);
@@ -86,22 +77,13 @@ export function SplashGate() {
       }, EXIT_MS);
     };
 
-    const tryFinish = () => {
-      const elapsed = Date.now() - start;
-      window.setTimeout(finish, Math.max(0, MIN_MS - elapsed));
-    };
-
-    if (document.readyState === "complete") {
-      window.setTimeout(tryFinish, 120);
-    } else {
-      window.addEventListener("load", tryFinish, { once: true });
-    }
-    const cap = window.setTimeout(finish, MAX_MS);
+    // Fixed 3-second hold on every load — independent of asset load speed,
+    // so the timing is identical every time.
+    const holdTimer = window.setTimeout(finish, MIN_MS);
 
     return () => {
-      window.clearTimeout(cap);
+      window.clearTimeout(holdTimer);
       window.clearTimeout(exitTimer);
-      window.removeEventListener("load", tryFinish);
     };
   }, []);
 
