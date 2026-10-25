@@ -1,96 +1,115 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
+import { AlertTriangle, Lightbulb, PartyPopper } from "lucide-react";
 import { StepPlayer } from "./step-player";
 import {
   recordPostfixEval,
   tokenizePostfix,
-  PostfixError,
-  type PostfixStep,
+  type PostfixFrame,
+  type PostfixPhase,
 } from "./player-steps";
 import { btnPrimary } from "./viz-ui";
 
 /**
- * (c) Postfix evaluation player.
+ * (c) Postfix evaluation player · fine-grained rebuild · STABLE LAYOUT.
  *
- * Scans tokens left → right on a visual stack: operands push (slide in),
- * operators pop two (the FIRST pop is highlighted as the RIGHT operand),
- * apply, and push the intermediate result. Steps come from the real stack
- * algorithm (player-steps.recordPostfixEval), so the trace is exact.
+ * The frame sequence comes from the REAL algorithm (recordPostfixEval):
+ * every token contributes multiple sub-frames · operands are read, lifted
+ * off the expression and pushed; operators pop into labelled RIGHT/LEFT
+ * slots, build the equation (so the pop order is visible), compute, and
+ * push the result back. Errors (underflow / bad token / leftovers) are
+ * terminal frames you can step through, not crashes.
  *
- * The expression is editable: invalid input (stack underflow, unknown
- * tokens, leftover operands) shows a friendly error without crashing.
- * Default example: 5 3 + 8 2 - * = 48.
+ * LAYOUT CONTRACT (never changes size between frames):
+ *   [tokens strip]  — chips restyle in place, count is fixed per expression
+ *   [stage row]     — fixed-width, fixed-height stack | two reserved slots:
+ *                     · WHY slot   (fixed height, long text scrolls inside)
+ *                     · WORK slot  (fixed height; operator panel, answer
+ *                       badge and error alert swap INSIDE it as layers)
+ *   [status line]   — fixed height (reserved by StepPlayer)
+ *   [controls]      — constant position, always
+ *   [input]         — expression form + examples
+ *
+ * The stack column is sized for the DEEPEST stack of the current
+ * expression (precomputed from the recording), items animate in/out
+ * inside that reserved box, and the "n items" counter never wraps.
+ * Everything animates with transform/opacity only and honours
+ * prefers-reduced-motion + the shared speed control.
  */
 const DEFAULT_EXPR = "5 3 + 8 2 - *";
 
+const EXAMPLES: { expr: string; label: string }[] = [
+  { expr: "5 3 + 8 2 - *", label: "5 3 + 8 2 - *" },
+  { expr: "2 3 4 * +", label: "2 3 4 * +" },
+  { expr: "6 2 / 3 - 4 +", label: "6 2 / 3 - 4 +" },
+  { expr: "5 +", label: "5 +  (underflow)" },
+  { expr: "5 3", label: "5 3  (leftovers)" },
+];
+
+/** Phases that belong to an operator's pop/combine sequence. */
+const OP_PHASES: PostfixPhase[] = [
+  "pop-right",
+  "pop-left",
+  "equation",
+  "compute",
+  "push-result",
+];
+
+/** Stack item height (h-10) + row gap (gap-1.5) in px. */
+const STACK_ROW = 46;
+
+function fmt(n: number): string {
+  return Number.isInteger(n) ? String(n) : String(Math.round(n * 100) / 100);
+}
+
+function opSym(t: string): string {
+  return t === "-" ? "−" : t === "*" ? "×" : t === "/" ? "÷" : t;
+}
+
 interface Built {
   tokens: string[];
-  steps: PostfixStep[];
+  frames: PostfixFrame[];
+  /** Deepest stack across the recording — sizes the fixed stack slot. */
+  maxDepth: number;
 }
 
 function build(expr: string): Built {
   const tokens = tokenizePostfix(expr);
-  return { tokens, steps: recordPostfixEval(tokens) };
+  const frames = recordPostfixEval(tokens);
+  const maxDepth = Math.max(1, ...frames.map((f) => f.stack.length));
+  return { tokens, frames, maxDepth };
 }
 
-function errText(e: unknown): string {
-  return e instanceof PostfixError
-    ? e.message
-    : "Could not evaluate that expression.";
-}
-
-export function PostfixEvalPlayer({ caption }: { caption?: string }) {
-  const [built, setBuilt] = useState<Built>(() => build(DEFAULT_EXPR));
-  const [input, setInput] = useState(DEFAULT_EXPR);
-  const [error, setError] = useState<string | null>(null);
-
-  const submit = (e: FormEvent) => {
-    e.preventDefault();
-    try {
-      setBuilt(build(input));
-      setError(null);
-    } catch (e) {
-      setError(errText(e));
-    }
-  };
+export function PostfixEvalPlayer({
+  caption,
+  initialExpr,
+}: {
+  caption?: string;
+  /** Optional starting expression (fullscreen route: ?expr=…). */
+  initialExpr?: string;
+}) {
+  const startExpr = initialExpr && initialExpr.trim() ? initialExpr : DEFAULT_EXPR;
+  const [built, setBuilt] = useState<Built>(() => build(startExpr));
+  const [input, setInput] = useState(startExpr);
 
   const load = (ex: string) => {
     setInput(ex);
-    try {
-      setBuilt(build(ex));
-      setError(null);
-    } catch (e) {
-      setError(errText(e));
-    }
+    setBuilt(build(ex));
   };
 
-  if (error) {
-    return (
-      <figure className="viz-shell print-avoid-break my-6 border border-hairline p-4">
-        <p className="mb-2 text-caption font-semibold uppercase tracking-wider text-ink-faint">
-          Postfix evaluation player
-        </p>
-        <ExpressionForm input={input} setInput={setInput} onSubmit={submit} />
-        <p role="alert" className="viz-status danger mt-3">
-          {error}
-        </p>
-        <button type="button" className={`${btnPrimary} mt-2`} onClick={() => load(DEFAULT_EXPR)}>
-          Reset to 5 3 + 8 2 - *
-        </button>
-      </figure>
-    );
-  }
+  const submit = (e: FormEvent) => {
+    e.preventDefault();
+    load(input);
+  };
 
-  const { steps, tokens } = built;
+  const { frames, tokens, maxDepth } = built;
 
   return (
-    <StepPlayer<PostfixStep>
-      steps={steps}
+    <StepPlayer<PostfixFrame>
+      steps={frames}
       describe={(s) => s.desc}
-      render={(s) => (
-        <PostfixStage step={s} tokens={tokens} />
-      )}
+      render={(s) => <PostfixStage frame={s} tokens={tokens} maxDepth={maxDepth} />}
       title="Postfix evaluation player"
       baseInterval={850}
       resetKey={tokens.join(" ")}
@@ -99,9 +118,15 @@ export function PostfixEvalPlayer({ caption }: { caption?: string }) {
         <div className="mt-3 border-t border-hairline pt-3">
           <ExpressionForm input={input} setInput={setInput} onSubmit={submit} />
           <div className="mt-2 flex flex-wrap items-center gap-2">
-            {["5 3 + 8 2 - *", "2 3 4 * +", "6 2 / 3 - 4 +"].map((ex) => (
-              <button key={ex} type="button" className="chip" onClick={() => load(ex)}>
-                {ex}
+            {EXAMPLES.map((ex) => (
+              <button
+                key={ex.expr}
+                type="button"
+                className="chip"
+                onClick={() => load(ex.expr)}
+                title={ex.label}
+              >
+                {ex.label}
               </button>
             ))}
           </div>
@@ -149,105 +174,233 @@ function ExpressionForm({
   );
 }
 
-function PostfixStage({ step, tokens }: { step: PostfixStep; tokens: string[] }) {
-  const popped = step.popped; // [right, left] during operator steps
-  const isOperatorStep = popped !== undefined;
-  const stackLen = step.stack.length;
+/* ------------------------------------------------------------------ */
+/* Stage — fixed named regions; content swaps inside reserved slots     */
+/* ------------------------------------------------------------------ */
+
+function PostfixStage({
+  frame,
+  tokens,
+  maxDepth,
+}: {
+  frame: PostfixFrame;
+  tokens: string[];
+  maxDepth: number;
+}) {
+  const inOp = OP_PHASES.includes(frame.phase);
+  const opVisible = inOp || frame.phase === "read-operator";
+  const animating = frame.phase === "push" || frame.phase === "push-result";
 
   return (
     <div className="flex flex-col gap-4">
-      {/* token strip */}
-      <div className="flex flex-wrap items-center gap-1.5" aria-label="Tokens">
+      {/* [tokens strip] — chips restyle in place; height fixed per expression */}
+      <div className="flex min-h-[1.75rem] flex-wrap items-center gap-1.5" aria-label="Tokens">
         {tokens.map((t, i) => {
-          const consumed = i < step.consumed;
-          const current = i === step.consumed - 1 && step.current !== null;
+          const done =
+            i < frame.tokenIndex ||
+            frame.phase === "done" ||
+            (frame.phase === "error" && frame.error?.kind === "leftover");
+          const current = i === frame.tokenIndex;
           return (
             <span
               key={i}
               className={`sp-token rounded-md border px-2 py-0.5 font-mono text-caption ${
                 current
                   ? "border-(--accent) bg-(--accent-soft) font-bold text-(--accent-ink)"
-                  : consumed
+                  : done
                     ? "border-hairline text-ink-faint opacity-55"
                     : "border-hairline text-ink-muted"
-              }`}
+              } ${current && animating ? "pf-token-lift" : ""}`}
             >
               {t}
             </span>
           );
         })}
+        {tokens.length === 0 ? (
+          <span className="font-mono text-caption text-ink-faint">empty expression</span>
+        ) : null}
       </div>
 
-      <div className="grid items-start gap-4 sm:grid-cols-[minmax(0,1fr)_auto]">
-        {/* visual stack (top on the right end) */}
-        <div>
+      {/* [stage row] — stack (fixed) | right column (two reserved slots) */}
+      <div className="grid items-start gap-4 sm:grid-cols-[9.5rem_minmax(0,1fr)]">
+        {/* VERTICAL stack · fixed width + height sized for maxDepth ·
+            items animate in and out INSIDE the reserved box */}
+        <div className="flex flex-col">
           <p className="mb-1.5 text-caption font-semibold uppercase tracking-wider text-ink-faint">
-            Stack <span className="normal-case">(top →)</span>
+            Operand stack
           </p>
-          <div className="flex min-h-[3.2rem] flex-wrap-reverse items-center gap-1.5" aria-label="Operand stack">
-            {step.stack.length === 0 ? (
-              <span className="font-mono text-caption text-ink-faint">empty</span>
-            ) : (
-              step.stack.map((v, i) => {
-                const isTop = i === stackLen - 1;
-                const justPushed =
-                  isTop && step.result !== undefined && step.current !== null;
-                return (
-                  <span
-                    key={`${i}-${v}`}
-                    className={`sp-stack-item sp-in flex h-9 min-w-[2.4rem] items-center justify-center rounded-md border-2 px-1.5 font-mono text-caption font-bold ${
-                      isTop
-                        ? "border-(--accent) bg-(--accent-soft) text-(--accent-ink)"
-                        : "border-hairline bg-paper-raised text-ink"
-                    } ${justPushed ? "ring-2 ring-(--ok)" : ""}`}
-                  >
-                    {v}
-                  </span>
-                );
-              })
-            )}
+          <div className="pf-stack mx-auto w-full rounded-lg border border-hairline bg-paper-sunken p-2.5">
+            <p className="mb-1.5 flex items-center gap-1.5 whitespace-nowrap text-caption font-bold uppercase tracking-wider text-(--accent-ink)">
+              <span aria-hidden className="inline-block h-3.5 w-px bg-(--accent)" />
+              TOP of stack
+            </p>
+            {/* reserved box: maxDepth rows tall, never resizes between frames */}
+            <div
+              className="flex flex-col justify-start gap-1.5"
+              style={{ height: maxDepth * STACK_ROW - 6 }}
+              aria-label="Operand stack, top to bottom"
+            >
+              {frame.stack.length === 0 ? (
+                <span className="py-2 font-mono text-caption text-ink-faint">(empty)</span>
+              ) : (
+                [...frame.stack]
+                  .map((v, i) => ({ v, i }))
+                  .reverse()
+                  .map(({ v, i }) => {
+                    const isTop = i === frame.stack.length - 1;
+                    const justPushed = i === frame.pushIndex && animating;
+                    return (
+                      <span
+                        key={`${i}-${v}`}
+                        className={`sp-stack-item flex h-10 items-center justify-center rounded-md border-2 px-3 font-mono text-caption font-bold ${
+                          isTop
+                            ? "border-(--accent) bg-(--accent-soft) text-(--accent-ink)"
+                            : "border-hairline bg-paper-raised text-ink"
+                        } ${justPushed ? "pf-push-in ring-2 ring-(--ok)" : ""}`}
+                      >
+                        {fmt(v)}
+                      </span>
+                    );
+                  })
+              )}
+            </div>
+            <p className="mt-1.5 whitespace-nowrap text-right font-mono text-[0.62rem] uppercase tracking-wide text-ink-faint">
+              bottom
+            </p>
           </div>
-          <p className="mt-1 font-mono text-caption text-ink-faint">
-            {isOperatorStep
-              ? `popped: ${popped[0]} (right), ${popped[1]} (left)`
-              : "\u00a0"}
+          {/* counter — one line, never wraps */}
+          <p className="mt-1.5 whitespace-nowrap text-center font-mono text-caption text-ink-faint">
+            {frame.stack.length} item{frame.stack.length === 1 ? "" : "s"}
           </p>
         </div>
 
-        {/* popped operands + result panel */}
-        <div className="flex flex-col gap-2 sm:min-w-[13rem]">
-          {isOperatorStep ? (
-            <div className="rounded-lg border border-hairline bg-paper-sunken p-3">
-              <p className="mb-1 text-caption font-semibold uppercase tracking-wider text-ink-faint">
-                Pop order matters
-              </p>
-              <p className="font-mono text-sm text-ink">
-                1st pop = <b className="text-(--danger)">{popped[0]}</b> (RIGHT)
-                <br />
-                2nd pop = <b className="text-(--ok)">{popped[1]}</b> (LEFT)
-              </p>
+        {/* right column — WHY slot + WORK slot, both fixed height */}
+        <div className="flex min-w-0 flex-col gap-2.5">
+          {/* WHY slot: reserved height, long text scrolls inside */}
+          <div className="rounded-lg border border-l-4 border-(--accent) border-l-(--accent) bg-paper-sunken p-3">
+            <p className="mb-1 flex items-center gap-1.5 text-caption font-semibold uppercase tracking-wider text-(--accent-ink)">
+              <Lightbulb className="size-3.5 shrink-0" aria-hidden />
+              Why this happens
+            </p>
+            <p className="h-[5.2rem] overflow-y-auto text-caption leading-relaxed text-ink thin-scroll">
+              {frame.why}
+            </p>
+          </div>
+
+          {/* WORK slot: one fixed-height box; the operator panel, the
+              final answer and errors swap INSIDE it as layers — the box
+              (and therefore the whole player) never changes size. */}
+          <div className="relative rounded-lg border border-hairline bg-paper-raised p-3">
+            <div className="flex min-h-[9.2rem] flex-col">
+              {/* layer: operator slots + equation (dimmed when idle) */}
+              <div
+                className={`flex min-h-0 flex-1 flex-col transition-opacity duration-200 ${
+                  opVisible ? "opacity-100" : "opacity-30"
+                }`}
+                aria-hidden={!opVisible}
+              >
+                <p className="mb-2 text-caption font-semibold uppercase tracking-wider text-ink-faint">
+                  Pop order matters
+                </p>
+                <div className="flex items-center justify-center gap-2 font-mono">
+                  <Slot label="LEFT" sub="pop #2" tone="ok" value={frame.left} />
+                  <span className="text-xl font-bold text-(--accent)" aria-hidden>
+                    {frame.token ? opSym(frame.token) : "·"}
+                  </span>
+                  <Slot label="RIGHT" sub="pop #1" tone="danger" value={frame.right} />
+                </div>
+                {/* equation line — ALWAYS mounted in its reserved row
+                    (placeholder dot when not computed yet) so the slot
+                    never changes height */}
+                <p
+                  className={`mt-2.5 min-h-[1.55rem] text-center font-mono text-sm font-bold ${
+                    frame.phase === "compute" || frame.phase === "push-result"
+                      ? "text-ok pf-celebrate"
+                      : "text-ink-muted"
+                  }`}
+                >
+                  {frame.result !== null ? (
+                    <>
+                      {fmt(frame.left!)} {opSym(frame.token!)} {fmt(frame.right!)} ={" "}
+                      <b className="text-ok">{fmt(frame.result)}</b>
+                    </>
+                  ) : (
+                    <span className="text-ink-faint" aria-hidden>
+                      ·
+                    </span>
+                  )}
+                </p>
+              </div>
             </div>
-          ) : null}
-          {step.result !== undefined ? (
-            <div className="rounded-lg border border-(--ok) bg-ok-soft p-3">
-              <p className="text-caption font-semibold uppercase tracking-wider text-ok">
-                Intermediate result
-              </p>
-              <p className="font-mono text-lg font-bold text-ok">{step.result}</p>
-            </div>
-          ) : null}
-          {step.consumed === tokens.length && step.stack.length === 1 ? (
-            <div className="rounded-lg border-2 border-(--ok) bg-ok-soft p-3">
-              <p className="text-caption font-semibold uppercase tracking-wider text-ok">
-                Answer
-              </p>
-              <p className="font-mono text-2xl font-bold text-ok">
-                {step.stack[0]}
-              </p>
-            </div>
-          ) : null}
+
+            {/* layer: final answer — overlay badge INSIDE the work slot */}
+            {frame.phase === "done" ? (
+              <div className="pf-layer-in absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-lg border-2 border-(--ok) bg-ok-soft p-3">
+                <p className="flex items-center gap-1.5 text-caption font-semibold uppercase tracking-wider text-ok">
+                  <PartyPopper className="size-4" aria-hidden />
+                  Answer
+                </p>
+                <p className="font-mono text-3xl font-bold text-ok">
+                  {fmt(frame.answer!)}
+                </p>
+              </div>
+            ) : null}
+
+            {/* layer: terminal error — also inside the work slot */}
+            {frame.phase === "error" ? (
+              <div
+                role="alert"
+                className="pf-layer-in absolute inset-0 flex flex-col items-center justify-center gap-1 overflow-y-auto rounded-lg border-2 border-(--danger) bg-danger-soft p-3 thin-scroll"
+              >
+                <p className="flex items-center gap-1.5 text-caption font-semibold uppercase tracking-wider text-danger">
+                  <AlertTriangle className="size-4" aria-hidden />
+                  {frame.error?.kind === "underflow"
+                    ? "Stack underflow"
+                    : frame.error?.kind === "invalid-token"
+                      ? "Invalid token"
+                      : "Leftover operands"}
+                </p>
+                <p className="max-h-[5.4rem] text-center text-caption leading-relaxed text-ink thin-scroll">
+                  {frame.error?.message}
+                </p>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function Slot({
+  label,
+  sub,
+  tone,
+  value,
+}: {
+  label: string;
+  sub: string;
+  tone: "ok" | "danger";
+  value: number | null;
+}) {
+  const labelCls = tone === "ok" ? "text-ok" : "text-danger";
+  const boxCls =
+    value !== null
+      ? tone === "ok"
+        ? "pf-slot-in border-(--ok) bg-ok-soft text-ink"
+        : "pf-slot-in border-(--danger) bg-danger-soft text-ink"
+      : "border-dashed border-hairline-strong text-ink-faint";
+  return (
+    <span className="flex flex-col items-center gap-1">
+      <span className={`font-mono text-[0.6rem] font-bold uppercase tracking-wide ${labelCls}`}>
+        {label}
+        <span className="ml-1 font-normal text-ink-faint">({sub})</span>
+      </span>
+      <span
+        className={`flex h-10 min-w-[3.6rem] items-center justify-center rounded-md border-2 font-mono text-sm font-bold ${boxCls}`}
+      >
+        {value !== null ? fmt(value) : "·"}
+      </span>
+    </span>
   );
 }

@@ -58,8 +58,8 @@ const book: BookMeta = {
       "title": "Queues",
       "subtitle": "Lecture 3 · Lab 3",
       "kind": "topic",
-      "words": 783,
-      "minutes": 4
+      "words": 1526,
+      "minutes": 7
     },
     {
       "slug": "06-linked-lists",
@@ -152,8 +152,8 @@ const book: BookMeta = {
       "minutes": 1
     }
   ],
-  "questionCount": 131,
-  "flashcardCount": 48
+  "questionCount": 135,
+  "flashcardCount": 52
 };
 
 export default book;

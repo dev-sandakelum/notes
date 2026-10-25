@@ -26,11 +26,15 @@ const DEFAULT_EXPR = "A + B * C - D";
 interface Built {
   tokens: string[];
   steps: InfixPostfixStep[];
+  /** Deepest operator stack — sizes the fixed stack slot. */
+  maxDepth: number;
 }
 
 function build(expr: string): Built {
   const tokens = tokenizeInfix(expr);
-  return { tokens, steps: recordInfixToPostfix(tokens) };
+  const steps = recordInfixToPostfix(tokens);
+  const maxDepth = Math.max(1, ...steps.map((s) => s.stack.length));
+  return { tokens, steps, maxDepth };
 }
 
 function errText(e: unknown): string {
@@ -87,7 +91,7 @@ export function InfixPostfixPlayer({ caption }: { caption?: string }) {
     <StepPlayer<InfixPostfixStep>
       steps={steps}
       describe={(s) => s.desc}
-      render={(s) => <InfixStage step={s} tokens={tokens} />}
+      render={(s) => <InfixStage step={s} tokens={tokens} maxDepth={built.maxDepth} />}
       title="Infix → postfix player"
       baseInterval={1000}
       resetKey={tokens.join(" ")}
@@ -139,7 +143,15 @@ function InfixForm({
   );
 }
 
-function InfixStage({ step, tokens }: { step: InfixPostfixStep; tokens: string[] }) {
+function InfixStage({
+  step,
+  tokens,
+  maxDepth,
+}: {
+  step: InfixPostfixStep;
+  tokens: string[];
+  maxDepth: number;
+}) {
   return (
     <div className="flex flex-col gap-4">
       {/* token strip */}
@@ -165,12 +177,17 @@ function InfixStage({ step, tokens }: { step: InfixPostfixStep; tokens: string[]
       </div>
 
       <div className="grid items-start gap-4 sm:grid-cols-2">
-        {/* operator stack (top on top) */}
+        {/* operator stack (top on top) — fixed slot sized for the
+            deepest stack of this expression; items swap inside */}
         <div>
           <p className="mb-1.5 text-caption font-semibold uppercase tracking-wider text-ink-faint">
             Operator stack <span className="normal-case">(top ↑)</span>
           </p>
-          <div className="flex min-h-[3.2rem] flex-col-reverse flex-wrap justify-start gap-1" aria-label="Operator stack">
+          <div
+            className="flex flex-col-reverse justify-start gap-1"
+            style={{ height: maxDepth * 36 - 4 }}
+            aria-label="Operator stack"
+          >
             {step.stack.length === 0 ? (
               <span className="font-mono text-caption text-ink-faint">empty</span>
             ) : (

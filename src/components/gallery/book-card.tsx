@@ -3,7 +3,6 @@ import { BookOpen, Clock, FileQuestion } from "lucide-react";
 import type { BookMeta } from "@/content/types";
 
 const PREVIEW_CHAPTERS = 4;
-const PREVIEW_TAGS = 3;
 
 /**
  * A single book in the gallery grid. The whole card is one link to
@@ -14,7 +13,6 @@ export function BookCard({ book }: { book: BookMeta }) {
   const minutes = book.chapters.reduce((sum, chapter) => sum + chapter.minutes, 0);
   const preview = book.chapters.slice(0, PREVIEW_CHAPTERS);
   const moreChapters = book.chapters.length - preview.length;
-  const tags = book.tags.slice(0, PREVIEW_TAGS);
 
   return (
     <Link
@@ -64,19 +62,6 @@ export function BookCard({ book }: { book: BookMeta }) {
           <p className="mt-1 pl-7 text-caption text-ink-muted">+{moreChapters} more</p>
         ) : null}
       </div>
-
-      {tags.length > 0 ? (
-        <div className="mt-4 flex flex-wrap gap-1.5 border-t border-hairline pt-3">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-hairline px-2 py-0.5 text-caption text-ink-muted transition-colors duration-150 group-hover:border-hairline-strong"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      ) : null}
     </Link>
   );
 }

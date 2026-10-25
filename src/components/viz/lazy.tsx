@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import type { VizKind } from "@/content/types";
+import { PlayerFullscreenButton, PlayerFullscreenProvider, slugForKind } from "./fullscreen-button";
+import { PlayerSkeleton } from "@/components/loading/skeletons";
 
 /* Route-level code splitting: each visualization is its own lazy chunk. */
 const registry: Record<VizKind, React.ComponentType<{ caption?: string }>> = {
@@ -47,6 +49,12 @@ const registry: Record<VizKind, React.ComponentType<{ caption?: string }>> = {
   infixPostfix: dynamic(() =>
     import("./infix-postfix-player").then((m) => m.InfixPostfixPlayer)
   ),
+  linkedList: dynamic(() =>
+    import("./linked-list-player").then((m) => m.LinkedListPlayer)
+  ),
+  circularQueue: dynamic(() =>
+    import("./circular-queue-player").then((m) => m.CircularQueuePlayer)
+  ),
 };
 
 /**
@@ -79,17 +87,22 @@ export function LazyViz({ kind, caption }: { kind: VizKind; caption?: string }) 
   }, []);
 
   const Comp = registry[kind];
+  const slug = slugForKind(kind);
 
   return (
-    <div ref={ref} className="min-h-[200px]">
+    // The wrapper hugs the player card exactly (the figure's own margins
+    // collapse through this padding/border-free block), so an absolutely
+    // positioned child lands precisely INSIDE the card's top-right corner.
+    <div ref={ref} className="relative min-h-[200px]">
       {visible ? (
-        <Comp caption={caption} />
+        <PlayerFullscreenProvider slug={slug ?? ""}>
+          <Comp caption={caption} />
+          {/* Fullscreen: same player, own stable route, new tab — tiny
+              icon-only button overlaid in the card corner, zero layout. */}
+          {slug ? <PlayerFullscreenButton /> : null}
+        </PlayerFullscreenProvider>
       ) : (
-        <div className="flex h-[200px] items-center justify-center rounded-md border border-hairline bg-paper-sunken">
-          <span className="text-caption text-ink-faint">
-            Loading visualization…
-          </span>
-        </div>
+        <PlayerSkeleton />
       )}
     </div>
   );

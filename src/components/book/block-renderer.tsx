@@ -210,11 +210,25 @@ function ExampleView({
   title,
   bodyHtml,
   solutionHtml,
+  blocks,
+  quizStorageKey,
 }: {
   title: string;
   bodyHtml: string;
   solutionHtml: string | null;
+  blocks?: Block[];
+  quizStorageKey?: string;
 }) {
+  // Same defensive viewBox normalization as figure/htmlFigure blocks, so any
+  // inline SVG in a worked example or its solution can never be cropped.
+  const normalizedBody = bodyHtml.replace(
+    /<svg\b[^>]*\bviewBox="[^"]+"[^>]*>/g,
+    (tag) => normalizeSvg(tag),
+  );
+  const normalizedSolution = solutionHtml?.replace(
+    /<svg\b[^>]*\bviewBox="[^"]+"[^>]*>/g,
+    (tag) => normalizeSvg(tag),
+  );
   return (
     <section className="print-avoid-break my-6 rounded-2xl border border-hairline bg-paper-raised shadow-card">
       <header className="flex items-center gap-2.5 border-b border-hairline px-4 py-2.5">
@@ -227,12 +241,21 @@ function ExampleView({
       </header>
       <div
         className="prose-book px-4 py-3"
-        dangerouslySetInnerHTML={{ __html: bodyHtml }}
+        dangerouslySetInnerHTML={{ __html: normalizedBody }}
       />
+      {blocks && blocks.length > 0 ? (
+        /* Structured figures (shared renderers) inside the worked box */
+        <div className="px-4 pb-1">
+          <BlockRenderer blocks={blocks} quiz={null} quizStorageKey={quizStorageKey} />
+        </div>
+      ) : null}
       {solutionHtml ? (
         <div className="px-4 pb-4">
           <Reveal label="Show solution">
-            <div dangerouslySetInnerHTML={{ __html: solutionHtml }} />
+            <div
+              className="prose-book"
+              dangerouslySetInnerHTML={{ __html: normalizedSolution! }}
+            />
           </Reveal>
         </div>
       ) : null}
@@ -461,6 +484,8 @@ export function BlockRenderer({
                 title={b.title}
                 bodyHtml={b.bodyHtml}
                 solutionHtml={b.solutionHtml}
+                blocks={b.blocks}
+                quizStorageKey={quizStorageKey}
               />
             );
           case "accordion":
@@ -478,6 +503,7 @@ export function BlockRenderer({
             return (
               <TreeDiagram
                 key={i}
+                tree={b.tree}
                 nodes={b.nodes}
                 edges={b.edges}
                 alt={b.alt}

@@ -97,6 +97,12 @@ export interface ExampleBlock {
   bodyHtml: string;
   /** Hidden solution shown on demand; null when there is no reveal */
   solutionHtml: string | null;
+  /**
+   * Structured content rendered inside the "Worked" box after bodyHtml
+   * (e.g. a shared <TreeDiagram /> figure). Lets worked examples use the
+   * same renderers as the main flow instead of raw, unstyled SVG HTML.
+   */
+  blocks?: Block[];
 }
 
 export interface AccordionBlock {
@@ -134,14 +140,36 @@ export interface TreeDiagramNodeData {
   note?: string;
 }
 
+/**
+ * Nested tree for auto-laid-out static figures: positions are COMPUTED by
+ * the shared side-aware tidy layout (book/tree-layout.ts) — lone left/right
+ * children are offset sideways, siblings keep a minimum gap, and nothing
+ * can overlap or render as a vertical single-child edge.
+ */
+export interface TreeDiagramTreeNode {
+  id: string;
+  label: string;
+  /** Which slot this child occupies in its parent ("left" | "right"). */
+  side?: "left" | "right";
+  /** Optional short annotation drawn under the label. */
+  note?: string;
+  /** Optional per-node radius (default 21). */
+  r?: number;
+  children?: TreeDiagramTreeNode[];
+}
+
 /** Static tree figure rendered by the shared <TreeDiagram /> component.
+ *  Either pass `tree` (auto layout) or explicit `nodes` + `edges`.
  *  The viewBox is computed from the actual node positions + radii + padding,
  *  so nodes can never be clipped. */
 export interface TreeDiagramBlock {
   type: "treeDiagram";
-  nodes: TreeDiagramNodeData[];
-  /** Edges as [fromId, toId] pairs */
-  edges: [string, string][];
+  /** Nested tree — positions computed by the shared tidy layout. */
+  tree?: TreeDiagramTreeNode;
+  /** Explicit node positions (used when `tree` is absent). */
+  nodes?: TreeDiagramNodeData[];
+  /** Edges as [fromId, toId] pairs (used when `tree` is absent). */
+  edges?: [string, string][];
   alt: string;
   caption?: string;
   /** Optional max rendered width in px (default 560) */
@@ -178,7 +206,9 @@ export type VizKind =
   | "traversalPlayer"
   | "notationPlayer"
   | "postfixEval"
-  | "infixPostfix";
+  | "infixPostfix"
+  | "linkedList"
+  | "circularQueue";
 
 export interface VizBlock {
   type: "viz";

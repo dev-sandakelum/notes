@@ -194,19 +194,54 @@ export function recordNotations(root: TNode): NotationStep[] {
 
 /* ------------------------------------------------------------------ */
 /* (c) Postfix evaluation with an operand stack                         */
+/*                                                                      */
+/*  Fine-grained frame sequence recorded from the REAL algorithm:       */
+/*  every token contributes multiple sub-frames (read → animate →       */
+/*  act) so the player can show exactly why each action happens.        */
+/*  Invalid input no longer throws · the error becomes a terminal       */
+/*  FRAME the player can walk through (underflow / bad token /          */
+/*  leftover operands).                                                 */
 /* ------------------------------------------------------------------ */
 
-export interface PostfixStep {
-  /** Token being scanned (null = final state). */
-  current: string | null;
-  /** Stack contents, bottom to top. */
+export type PostfixPhase =
+  | "start" // before anything happens
+  | "read-operand" // token highlighted, not yet pushed
+  | "push" // token lifts off the strip and slides onto the stack
+  | "pushed" // settled · "Operand → push" note
+  | "read-operator" // operator highlighted
+  | "pop-right" // pop #1 leaves the stack into the RIGHT slot
+  | "pop-left" // pop #2 leaves into the LEFT slot
+  | "equation" // "8 − 2" with left/right labels
+  | "compute" // "= 6"
+  | "push-result" // result pushed back, highlighted
+  | "done" // final answer + celebration
+  | "error"; // terminal error frame
+
+export type PostfixErrorKind = "underflow" | "invalid-token" | "leftover";
+
+export interface PostfixFrame {
+  phase: PostfixPhase;
+  /** Index of the current token (-1 outside token phases). */
+  tokenIndex: number;
+  /** The token itself. */
+  token: string | null;
+  /** Stack contents, bottom → top, AFTER this frame's action. */
   stack: number[];
-  /** During an operator step: [right, left] popped operands. */
-  popped?: [number, number];
-  /** Intermediate result just computed (operator steps). */
-  result?: number;
-  /** Tokens already consumed. */
-  consumed: number;
+  /** Index of the just-pushed stack item (drives the push animation). */
+  pushIndex: number | null;
+  /** First pop = RIGHT operand (operator phases). */
+  right: number | null;
+  /** Second pop = LEFT operand (operator phases). */
+  left: number | null;
+  /** Computed result (compute/push-result phases). */
+  result: number | null;
+  /** Final answer (done phase). */
+  answer: number | null;
+  /** Terminal error details. */
+  error: { kind: PostfixErrorKind; message: string } | null;
+  /** Plain-English WHY this action happens (the live explanation). */
+  why: string;
+  /** Short line for the aria-live status. */
   desc: string;
 }
 
@@ -227,73 +262,220 @@ const OPERATORS: Record<string, (a: number, b: number) => number> = {
   "/": (a, b) => (b === 0 ? NaN : a / b),
 };
 
-/** Run the real stack algorithm and record each state. Throws PostfixError. */
-export function recordPostfixEval(tokens: string[]): PostfixStep[] {
-  const steps: PostfixStep[] = [];
-  const stack: number[] = [];
+/** Pretty operator symbols for human-facing strings (− × ÷ +). */
+function opSym(t: string): string {
+  return t === "-" ? "−" : t === "*" ? "×" : t === "/" ? "÷" : t;
+}
 
-  steps.push({
-    current: null,
-    stack: [],
-    consumed: 0,
-    desc: "Scan tokens left to right with one stack.",
+function fmt(n: number): string {
+  return Number.isInteger(n) ? String(n) : String(Math.round(n * 100) / 100);
+}
+
+/**
+ * Run the real stack algorithm and record a fine-grained frame for every
+ * sub-step. Frames are immutable snapshots, so back-stepping restores the
+ * previous frame exactly. Errors are recorded as terminal frames.
+ */
+export function recordPostfixEval(tokens: string[]): PostfixFrame[] {
+  const frames: PostfixFrame[] = [];
+  const stack: number[] = [];
+  const snap = (): number[] => [...stack];
+  const base = {
+    pushIndex: null as number | null,
+    right: null as number | null,
+    left: null as number | null,
+    result: null as number | null,
+    answer: null as number | null,
+    error: null,
+  };
+
+  frames.push({
+    ...base,
+    phase: "start",
+    tokenIndex: -1,
+    token: null,
+    stack: snap(),
+    why: "Postfix (Reverse Polish) needs no brackets and no precedence rules: scan left to right, use one stack, and the answer is whatever is left at the end.",
+    desc: "Ready. Scan tokens left to right with one stack.",
   });
 
   for (let i = 0; i < tokens.length; i++) {
     const t = tokens[i];
+
     if (t in OPERATORS) {
-      if (stack.length < 2) {
-        throw new PostfixError(
-          `Stack underflow at token "${t}" (step ${i + 1}): an operator needs two operands, but the stack holds ${stack.length}.`,
-        );
-      }
-      const right = stack.pop()!; // FIRST pop = RIGHT operand
-      const left = stack.pop()!;
-      const result = OPERATORS[t](left, right);
-      steps.push({
-        current: t,
-        stack: [...stack],
-        popped: [right, left],
-        consumed: i + 1,
-        desc: `"${t}": pop ${right} (right), pop ${left} (left) → ${left} ${t} ${right} = ${result}. Push ${result}.`,
+      frames.push({
+        ...base,
+        phase: "read-operator",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        why: `Read token "${opSym(t)}": an operator. Operators never sit on the stack · they pop the top two values, combine them, and push the answer back.`,
+        desc: `Read token "${opSym(t)}": an operator · it needs two operands.`,
       });
-      stack.push(result);
-      steps.push({
-        current: t,
-        stack: [...stack],
+
+      if (stack.length < 2) {
+        frames.push({
+          ...base,
+          phase: "error",
+          tokenIndex: i,
+          token: t,
+          stack: snap(),
+          error: {
+            kind: "underflow",
+            message: `Stack underflow at "${t}": an operator needs two operands, but the stack holds ${stack.length}.`,
+          },
+          why: `The stack has ${stack.length === 0 ? "nothing" : `only ${stack[0]}`} on it, but "${opSym(t)}" must pop two values. There are not enough operands before the operator · the classic "stack underflow" exam case.`,
+          desc: `Stack underflow at "${opSym(t)}".`,
+        });
+        return frames;
+      }
+
+      const right = stack.pop()!;
+      frames.push({
+        ...base,
+        phase: "pop-right",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        right,
+        why: `Pop #1 lifts the TOP of the stack (${fmt(right)}) out first · the first pop is the RIGHT operand. Memorise this: for − and ÷ the order changes the answer.`,
+        desc: `Pop #1: ${fmt(right)} → RIGHT operand.`,
+      });
+
+      const left = stack.pop()!;
+      frames.push({
+        ...base,
+        phase: "pop-left",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        right,
+        left,
+        why: `Pop #2 lifts the next value (${fmt(left)}) · it becomes the LEFT operand. Now the operation reads ${fmt(left)} ${opSym(t)} ${fmt(right)}, left to right.`,
+        desc: `Pop #2: ${fmt(left)} → LEFT operand.`,
+      });
+
+      frames.push({
+        ...base,
+        phase: "equation",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        right,
+        left,
+        why: `Assemble the expression in pop order: LEFT ${opSym(t)} RIGHT = ${fmt(left)} ${opSym(t)} ${fmt(right)}. If you had flipped the pops you would compute ${fmt(right)} ${opSym(t)} ${fmt(left)} · wrong for − and ÷!`,
+        desc: `Equation: ${fmt(left)} ${opSym(t)} ${fmt(right)}.`,
+      });
+
+      const result = OPERATORS[t](left, right);
+      frames.push({
+        ...base,
+        phase: "compute",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        right,
+        left,
         result,
-        consumed: i + 1,
-        desc: `Push ${result}. Stack: [${stack.join(", ")}].`,
+        why: `Compute ${fmt(left)} ${opSym(t)} ${fmt(right)} = ${fmt(result)}. This single value replaces both operands.`,
+        desc: `${fmt(left)} ${opSym(t)} ${fmt(right)} = ${fmt(result)}.`,
+      });
+
+      stack.push(result);
+      frames.push({
+        ...base,
+        phase: "push-result",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        pushIndex: stack.length - 1,
+        right,
+        left,
+        result,
+        why: `Push ${fmt(result)} back onto the stack. From now on it is just an ordinary operand, waiting for the next operator.`,
+        desc: `Push ${fmt(result)} onto the stack.`,
       });
     } else {
       const n = Number(t);
       if (!Number.isFinite(n)) {
-        throw new PostfixError(
-          `"${t}" is not a number or a known operator (+ - * /).`,
-        );
+        frames.push({
+          ...base,
+          phase: "error",
+          tokenIndex: i,
+          token: t,
+          stack: snap(),
+          error: {
+            kind: "invalid-token",
+            message: `"${t}" is not a number or a known operator (+ − * /).`,
+          },
+          why: `"${t}" is neither a number nor one of the four operators. The scanner cannot continue · every postfix token must be an operand or an operator.`,
+          desc: `Invalid token "${t}".`,
+        });
+        return frames;
       }
+
+      frames.push({
+        ...base,
+        phase: "read-operand",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        why: `Read token "${fmt(n)}": a number, i.e. an operand. Operands never combine with anything immediately · they wait on the stack until an operator needs them.`,
+        desc: `Read token "${fmt(n)}": an operand.`,
+      });
+
       stack.push(n);
-      steps.push({
-        current: t,
-        stack: [...stack],
-        consumed: i + 1,
-        desc: `"${t}" is an operand → push. Stack: [${stack.join(", ")}].`,
+      frames.push({
+        ...base,
+        phase: "push",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        pushIndex: stack.length - 1,
+        why: `"${fmt(n)}" lifts off the expression and slides onto the top of the stack.`,
+        desc: `Push ${fmt(n)} onto the stack.`,
+      });
+
+      frames.push({
+        ...base,
+        phase: "pushed",
+        tokenIndex: i,
+        token: t,
+        stack: snap(),
+        why: `Operand → push. The stack now reads [${stack.map(fmt).join(", ")}] from bottom to top.`,
+        desc: `Stack: [${stack.map(fmt).join(", ")}].`,
       });
     }
   }
 
   if (stack.length !== 1) {
-    throw new PostfixError(
-      `Invalid expression: ${stack.length} values left on the stack (expected exactly 1). Too many operands.`,
-    );
+    frames.push({
+      ...base,
+      phase: "error",
+      tokenIndex: -1,
+      token: null,
+      stack: snap(),
+      error: {
+        kind: "leftover",
+        message: `Invalid expression: ${stack.length} values left on the stack (expected exactly 1). Too many operands.`,
+      },
+      why: `Every token was consumed, but ${stack.length} values [${stack.map(fmt).join(", ")}] are still on the stack. A valid postfix expression combines everything down to exactly ONE value · this one has too many operands (or a missing operator).`,
+      desc: `Invalid: ${stack.length} values left on the stack.`,
+    });
+    return frames;
   }
-  steps.push({
-    current: null,
-    stack: [...stack],
-    consumed: tokens.length,
-    desc: `Done. The single value left on the stack is the answer: ${stack[0]}.`,
+
+  frames.push({
+    ...base,
+    phase: "done",
+    tokenIndex: -1,
+    token: null,
+    stack: snap(),
+    answer: stack[0],
+    why: `All tokens consumed and exactly one value remains: ${fmt(stack[0])} is the answer. One stack did all the work · no brackets, no precedence, no ambiguity.`,
+    desc: `Done. The answer is ${fmt(stack[0])}.`,
   });
-  return steps;
+  return frames;
 }
 
 /* ------------------------------------------------------------------ */
@@ -454,7 +636,7 @@ export const TRACE_TREE: TNode = {
 };
 
 /**
- * ch08 expression tree for A/B*C*D+E  (correct structure — the original
+ * ch08 expression tree for A/B*C*D+E  (correct structure · the original
  * figure had drawn D with A, B as children, which is not an expression
  * tree):
  *
@@ -502,4 +684,711 @@ export function toGraphNode(n: TNode): TreeGraphNode {
     label: n.label ?? n.key,
     children: children.length ? children : undefined,
   };
+}
+
+/* ------------------------------------------------------------------ */
+/* (e) Linked list operations (singly + doubly)                         */
+/*                                                                      */
+/*  Frames recorded from the REAL C-style operations, in the exact      */
+/*  order the pointers are updated (new->next BEFORE head = new, etc.), */
+/*  so the animation shows why the order matters.                      */
+/* ------------------------------------------------------------------ */
+
+export interface LLNodeData {
+  id: string;
+  value: number;
+}
+
+export interface LinkedListFrame {
+  kind: "singly" | "doubly";
+  /** List contents, head → tail, AFTER this frame's action. */
+  list: LLNodeData[];
+  /** Node being inserted · rendered floating until it lands in the list. */
+  newNode: LLNodeData | null;
+  /** Where HEAD points (may be the OLD head mid-operation). */
+  headId: string | null;
+  /** Doubly: where TAIL points. */
+  tailId: string | null;
+  /** Traversal pointers. */
+  currId: string | null;
+  prevId: string | null;
+  /** new->next / new->prev targets (node id or "NULL"); null = not shown. */
+  newNext: string | null;
+  newPrev: string | null;
+  /** Node ids highlighted this frame. */
+  active: string[];
+  /** Nodes about to disappear (delete animation, danger styling). */
+  removing: string[];
+  /** Reverse: ids whose ->next now points at their PREDECESSOR. */
+  flipped: string[];
+  /** The C-style line(s) executed this frame. */
+  code: string;
+  /** Plain-English WHY. */
+  why: string;
+  /** Short aria-live line. */
+  desc: string;
+}
+
+export type LinkedListOp =
+  | { op: "insertHead"; value: number }
+  | { op: "insertTail"; value: number }
+  | { op: "insertAt"; value: number; position: number }
+  | { op: "deleteValue"; value: number }
+  | { op: "search"; value: number }
+  | { op: "reverse" };
+
+export type ListKind = "singly" | "doubly";
+
+const NULL_ID = "NULL";
+
+function llFrame(
+  kind: ListKind,
+  list: LLNodeData[],
+  extra: Partial<LinkedListFrame>,
+): LinkedListFrame {
+  return {
+    kind,
+    list: [...list],
+    newNode: null,
+    headId: list[0]?.id ?? null,
+    tailId: kind === "doubly" ? (list[list.length - 1]?.id ?? null) : null,
+    currId: null,
+    prevId: null,
+    newNext: null,
+    newPrev: null,
+    active: [],
+    removing: [],
+    flipped: [],
+    code: "",
+    why: "",
+    desc: "",
+    ...extra,
+  };
+}
+
+let llNodeSeq = 0;
+function freshNode(value: number): LLNodeData {
+  llNodeSeq += 1;
+  return { id: `n${llNodeSeq}`, value };
+}
+
+/** Pretty arrow direction helpers for the renderer. */
+export const LL_NULL = NULL_ID;
+
+/**
+ * Record the frames of one operation on `list`. The returned frames are
+ * immutable snapshots; the LAST frame's `list` is the committed result.
+ */
+export function recordLinkedListOp(
+  list: LLNodeData[],
+  kind: ListKind,
+  oper: LinkedListOp,
+): LinkedListFrame[] {
+  const frames: LinkedListFrame[] = [];
+  const F = (extra: Partial<LinkedListFrame>) => frames.push(llFrame(kind, list, extra));
+
+
+  /* ---------- allocation preamble shared by every insert ---------- */
+  const allocFrame = (value: number, after: string) => {
+    const node = freshNode(value);
+    F({
+      newNode: node,
+      active: [node.id],
+      code: `struct Node *new = malloc(sizeof(struct Node));\nnew->data = ${value};`,
+      why: `malloc() reserves a node anywhere on the heap and returns its address. The node exists now, but nothing in the list points to it yet · it is completely unlinked.`,
+      desc: `Allocate a new node for ${value}.`,
+    });
+    return node;
+  };
+
+  switch (oper.op) {
+    /* ---------------- insert at the head (4 steps) ---------------- */
+    case "insertHead": {
+      const node = allocFrame(oper.value, "head");
+      const oldHead = list[0] ?? null;
+
+      F({
+        newNode: node,
+        newNext: oldHead?.id ?? NULL_ID,
+        active: [node.id, ...(oldHead ? [oldHead.id] : [])],
+        code: `new->next = head;   ${kind === "doubly" ? "new->prev = NULL;" : ""}`,
+        why: `Link the new node to the OLD head FIRST. If you moved head before doing this, nothing would point at the old first node any more · the rest of the list would be lost forever.`,
+        desc: `new->next = head${oldHead ? ` (${oldHead.value})` : " (NULL)"}.`,
+      });
+
+      if (kind === "doubly" && oldHead) {
+        F({
+          newNode: node,
+          newNext: oldHead.id,
+          newPrev: NULL_ID,
+          active: [node.id, oldHead.id],
+          code: `head->prev = new;`,
+          why: `In a DLL the old head must also point BACK to the new node · prev links are maintained on every insert, that is the price of two-way traversal.`,
+          desc: `head->prev = new.`,
+        });
+      }
+
+      const updated = [node, ...list];
+      list = updated;
+      F({
+        list: updated,
+        headId: node.id,
+        tailId: kind === "doubly" ? (updated[updated.length - 1]?.id ?? null) : null,
+        active: [node.id],
+        code: `head = new;`,
+        why: `Only now is head moved onto the new node. The list grew at the front in O(1) · no traversal, no shifting (an array would have moved every element).`,
+        desc: `head = new. ${oper.value} is the new first node.`,
+      });
+      break;
+    }
+
+    /* ---------------- insert at the tail (append) ---------------- */
+    case "insertTail": {
+      const node = allocFrame(oper.value, "tail");
+      F({
+        newNode: node,
+        newNext: NULL_ID,
+        active: [node.id],
+        code: `new->next = NULL;`,
+        why: `The new node will be the LAST node, so its next must be NULL from the start · the list's end marker.`,
+        desc: `new->next = NULL.`,
+      });
+
+      if (list.length === 0) {
+        list = [node];
+        F({
+          list,
+          headId: node.id,
+          tailId: kind === "doubly" ? node.id : null,
+          active: [node.id],
+          code: `if (head == NULL) { head = new; return; }`,
+          why: `The list was empty, so the new node IS the whole list · head points at it directly, no traversal needed.`,
+          desc: `Empty list: head = new.`,
+        });
+        break;
+      }
+
+      let curr = list[0];
+      F({
+        currId: curr.id,
+        active: [curr.id],
+        code: `last = head;`,
+        why: `A singly list only stores head, so to reach the end you must walk: start a pointer at the first node.`,
+        desc: `last = head (${curr.value}).`,
+      });
+      for (let i = 1; i < list.length; i++) {
+        const next = list[i];
+        F({
+          currId: next.id,
+          prevId: curr.id,
+          active: [next.id],
+          code: `while (last->next != NULL)\n    last = last->next;`,
+          why: `last->next is not NULL yet, so advance: last moves one node forward. This walk is why appending costs O(n).`,
+          desc: `last = last->next (${next.value}).`,
+        });
+        curr = next;
+      }
+      F({
+        currId: curr.id,
+        newNode: node,
+        newNext: NULL_ID,
+        active: [curr.id, node.id],
+        code: `last->next = new;   ${kind === "doubly" ? "new->prev = last; tail = new;" : ""}`,
+        why: `Link the old last node forward to the new node${kind === "doubly" ? ", link it back, and move tail · a DLL keeps both ends reachable in O(1)" : " · the append is complete"}.`,
+        desc: `last->next = new.`,
+      });
+      const updated = [...list, node];
+      list = updated;
+      F({
+        list: updated,
+        tailId: kind === "doubly" ? node.id : null,
+        active: [node.id],
+        code: kind === "doubly" ? `tail = new;` : `/* appended */`,
+        why: `${oper.value} is now the last node${kind === "doubly" ? " and tail points at it" : ""}. Note the cost: reaching the end took ${list.length - 1} hops.`,
+        desc: `${oper.value} appended at the tail.`,
+      });
+      break;
+    }
+
+    /* ---------------- insert at a position (1-based) ---------------- */
+    case "insertAt": {
+      const pos = Math.max(1, Math.min(oper.position, list.length + 1));
+      if (pos === 1) {
+        return recordLinkedListOp(list, kind, { op: "insertHead", value: oper.value });
+      }
+      if (pos > list.length) {
+        return recordLinkedListOp(list, kind, { op: "insertTail", value: oper.value });
+      }
+      const node = allocFrame(oper.value, "middle");
+      let prev = list[0];
+      F({
+        prevId: prev.id,
+        currId: list[1].id,
+        active: [prev.id, list[1].id],
+        code: `prev = head;\ncurr = prev->next;`,
+        why: `Inserting at position ${pos} needs the node BEFORE that position (prev) and the node currently sitting there (curr). Walk until prev is at position ${pos - 1}.`,
+        desc: `Start the walk: prev = head.`,
+      });
+      for (let i = 1; i < pos - 1; i++) {
+        const c = list[i];
+        F({
+          prevId: c.id,
+          currId: list[i + 1].id,
+          active: [c.id, list[i + 1].id],
+          code: `prev = prev->next;  curr = curr->next;`,
+          why: `Not there yet · both pointers hop one node forward. Traversal is the price of no random access.`,
+          desc: `Advance to prev = ${c.value}.`,
+        });
+        prev = c;
+      }
+      const curr = list[pos - 1];
+      F({
+        prevId: prev.id,
+        currId: curr.id,
+        newNode: node,
+        newNext: curr.id,
+        active: [node.id, curr.id],
+        code: `new->next = curr;   ${kind === "doubly" ? "new->prev = prev;" : ""}`,
+        why: `FIRST the new node copies curr's position: new->next points at the node that currently occupies position ${pos}. Do this before touching prev · otherwise curr becomes unreachable.`,
+        desc: `new->next = ${curr.value}.`,
+      });
+      if (kind === "doubly") {
+        F({
+          prevId: prev.id,
+          currId: curr.id,
+          newNode: node,
+          newNext: curr.id,
+          newPrev: prev.id,
+          active: [node.id, curr.id],
+          code: `curr->prev = new;`,
+          why: `DLL: the successor must also point back to the new node before the forward link is rewired.`,
+          desc: `curr->prev = new.`,
+        });
+      }
+      const updated = [...list.slice(0, pos - 1), node, ...list.slice(pos - 1)];
+      list = updated;
+      F({
+        list: updated,
+        prevId: prev.id,
+        active: [node.id],
+        code: `prev->next = new;`,
+        why: `NOW prev can be re-pointed at the new node. The link order (new first, prev second) is what keeps the list intact · reverse it and you lose everything after prev.`,
+        desc: `prev->next = new. ${oper.value} inserted at position ${pos}.`,
+      });
+      break;
+    }
+
+    /* ---------------- delete a value ---------------- */
+    case "deleteValue": {
+      if (list.length === 0) {
+        F({
+          code: `if (head == NULL) return;`,
+          why: `Nothing to delete · an empty list has no nodes.`,
+          desc: `The list is empty.`,
+        });
+        break;
+      }
+      let prev: LLNodeData | null = null;
+      let curr = list[0];
+      let foundAt = -1;
+      F({
+        currId: curr.id,
+        active: [curr.id],
+        code: `pCur = head;`,
+        why: `Deletion is search + unlink: walk a current pointer from the head, keeping track of the previous node, until the value matches.`,
+        desc: `pCur = head (${curr.value}).`,
+      });
+      for (let i = 0; i < list.length; i++) {
+        curr = list[i];
+        if (curr.value === oper.value) {
+          foundAt = i;
+          F({
+            prevId: prev?.id ?? null,
+            currId: curr.id,
+            active: [curr.id, ...(prev ? [prev.id] : [])],
+            code: `while (pCur != NULL && pCur->data != ${oper.value}) …\nfound: pCur->data == ${oper.value}`,
+            why: `Match! ${curr.value} found at position ${i + 1}. The node cannot simply vanish · its neighbours must be stitched together first, then the memory is freed.`,
+            desc: `Found ${oper.value} at position ${i + 1}.`,
+          });
+          break;
+        }
+        F({
+          prevId: prev?.id ?? null,
+          currId: curr.id,
+          active: [curr.id],
+          code: `pPrev = pCur;  pCur = pCur->${kind === "doubly" ? "right" : "next"};`,
+          why: `${curr.value} ≠ ${oper.value} · advance. pPrev trails pCur by one node so the unlink always has the predecessor at hand.`,
+          desc: `${curr.value} ≠ ${oper.value}: advance.`,
+        });
+        prev = curr;
+      }
+
+      if (foundAt === -1) {
+        F({
+          currId: null,
+          code: `/* pCur == NULL · walked off the end */`,
+          why: `The walk reached NULL: ${oper.value} is not in the list. Nothing is deleted · always handle this case in exams.`,
+          desc: `${oper.value} is not in the list.`,
+        });
+        break;
+      }
+
+      const target = list[foundAt];
+      const before = foundAt > 0 ? list[foundAt - 1] : null;
+      const after = foundAt < list.length - 1 ? list[foundAt + 1] : null;
+
+      if (before === null) {
+        // deleting the head
+        F({
+          currId: target.id,
+          removing: [target.id],
+          active: after ? [after.id] : [],
+          code: `head = pCur->${kind === "doubly" ? "right" : "next"};${kind === "doubly" && after ? `\nhead->prev = NULL;` : ""}`,
+          why: `The target is the FIRST node, so instead of a prev link, HEAD itself is moved to the successor${after ? ` (${after.value})` : " (NULL · list becomes empty)"}.`,
+          desc: `head = pCur->next (deleting the head).`,
+        });
+      } else {
+        F({
+          prevId: before.id,
+          currId: target.id,
+          removing: [target.id],
+          active: after ? [after.id] : [],
+          code: `pPrev->${kind === "doubly" ? "right" : "next"} = pCur->${kind === "doubly" ? "right" : "next"};${kind === "doubly" && after ? `\npCur->right->left = pPrev;` : ""}`,
+          why: `The unlink: prev's link is re-pointed straight at the successor, skipping over the target. ${after ? `${before.value} now points at ${after.value}.` : "prev now points at NULL."}${kind === "doubly" ? " In a DLL the successor's prev is fixed too." : ""}`,
+          desc: `prev->next = curr->next (skip the target).`,
+        });
+      }
+
+      const updated = list.filter((n) => n.id !== target.id);
+      list = updated;
+      F({
+        list: updated,
+        tailId: kind === "doubly" ? (updated[updated.length - 1]?.id ?? null) : null,
+        code: `free(pCur);`,
+        why: `The node is unlinked · now free() returns its heap memory. Forgetting free() is a memory leak; freeing before unlinking is a dangling pointer. Order matters.`,
+        desc: `free(pCur). ${oper.value} deleted.`,
+      });
+      break;
+    }
+
+    /* ---------------- search / traverse ---------------- */
+    case "search": {
+      if (list.length === 0) {
+        F({
+          code: `pCur = head;  /* head == NULL */`,
+          why: `An empty list contains nothing · the search ends immediately.`,
+          desc: `Empty list: not found.`,
+        });
+        break;
+      }
+      let foundAt = -1;
+      for (let i = 0; i < list.length; i++) {
+        const curr = list[i];
+        if (curr.value === oper.value) {
+          foundAt = i;
+          F({
+            currId: curr.id,
+            active: [curr.id],
+            code: `pCur->data == ${oper.value}  → found`,
+            why: `Match at position ${i + 1} after ${i + 1} comparison${i ? "s" : ""}. Search in a linked list is O(n) · sequential, no shortcuts (no binary search without random access).`,
+            desc: `Found ${oper.value} at position ${i + 1}.`,
+          });
+          break;
+        }
+        F({
+          currId: curr.id,
+          active: [curr.id],
+          code: `pCur->data != ${oper.value} → pCur = pCur->${kind === "doubly" ? "right" : "next"};`,
+          why: `${curr.value} ≠ ${oper.value}: move to the next node. Each check costs one comparison and one pointer hop.`,
+          desc: `${curr.value} ≠ ${oper.value}: next.`,
+        });
+      }
+      if (foundAt === -1) {
+        F({
+          currId: null,
+          code: `/* pCur == NULL: end of list */`,
+          why: `The walk fell off the end (next == NULL) · ${oper.value} is not stored in this list.`,
+          desc: `${oper.value} not found (end of list).`,
+        });
+      }
+      break;
+    }
+
+    /* ---------------- reverse (singly) ---------------- */
+    case "reverse": {
+      if (kind === "doubly") {
+        F({
+          code: `/* DLLs are usually reversed by swapping prev/next in each node */`,
+          why: `A doubly list can be reversed by swapping the two pointers inside every node. This player shows the classic singly-list three-pointer reverse.`,
+          desc: `Use the singly list to watch the classic reverse.`,
+        });
+        break;
+      }
+      if (list.length < 2) {
+        F({
+          code: `/* 0 or 1 nodes: already "reversed" */`,
+          why: `A list with fewer than two nodes reads the same forwards and backwards · nothing to do.`,
+          desc: `Nothing to reverse.`,
+        });
+        break;
+      }
+      let prev: LLNodeData | null = null;
+      F({
+        prevId: null,
+        currId: list[0].id,
+        active: [list[0].id],
+        code: `prev = NULL;\ncurr = head;`,
+        why: `The classic three-pointer reverse: prev (already-reversed chain), curr (node being flipped), next (saved forward link). Start with prev = NULL and curr = head.`,
+        desc: `prev = NULL; curr = head.`,
+      });
+      const flipped: string[] = [];
+      for (let i = 0; i < list.length; i++) {
+        const curr = list[i];
+        const next = list[i + 1] ?? null;
+        F({
+          prevId: prev?.id ?? null,
+          currId: curr.id,
+          active: next ? [curr.id, next.id] : [curr.id],
+          code: `next = curr->next;   /* save ${next ? next.value : "NULL"} */`,
+          why: `Save the forward link FIRST · after flipping curr->next, the way forward would be lost without this copy.`,
+          desc: `next = curr->next${next ? ` (${next.value})` : " (NULL)"}.`,
+        });
+        flipped.push(curr.id);
+        F({
+          prevId: prev?.id ?? null,
+          currId: curr.id,
+          active: [curr.id],
+          flipped: [...flipped],
+          code: `curr->next = prev;  /* flip */`,
+          why: `Flip the pointer: curr now points BACKWARDS at prev. The chain behind curr is fully reversed; the chain ahead is still untouched.`,
+          desc: `curr->next = prev (${prev ? prev.value : "NULL"}).`,
+        });
+        F({
+          prevId: curr.id,
+          currId: next?.id ?? null,
+          active: next ? [next.id] : [],
+          flipped: [...flipped],
+          code: `prev = curr;  curr = next;`,
+          why: `Slide both pointers forward: prev becomes the freshly flipped node, curr becomes the saved next one. Repeat until curr == NULL.`,
+          desc: `Advance prev and curr.`,
+        });
+        prev = curr;
+      }
+      const updated = [...list].reverse();
+      list = updated;
+      F({
+        list: updated,
+        headId: updated[0].id,
+        active: [updated[0].id],
+        code: `head = prev;`,
+        why: `curr reached NULL, so prev holds the LAST node · the new head. The whole list is reversed, having touched each node exactly once: O(n) time, O(1) extra space.`,
+        desc: `head = prev. List reversed.`,
+      });
+      break;
+    }
+  }
+
+  return frames;
+}
+
+/** Default demo list used by the player: 12 → 99 → 37 (from the chapter figure). */
+export function defaultLinkedList(): LLNodeData[] {
+  return [12, 99, 37].map((v, i) => ({ id: `d${i + 1}`, value: v }));
+}
+
+/* ------------------------------------------------------------------ */
+/* (f) Circular queue (ring buffer) operations                          */
+/*                                                                      */
+/*  Frames from the real count-based circular queue: front indexes the  */
+/*  first element, rear the last; enqueue advances rear = (rear+1) % N  */
+/*  (the wrap-around), dequeue advances front. Full = count == N,      */
+/*  empty = count == 0 · the count variable is what disambiguates.      */
+/* ------------------------------------------------------------------ */
+
+export interface CircularQueueState {
+  /** Fixed slot array; null = empty slot. */
+  slots: (number | null)[];
+  /** Index of the first element (meaningful while count > 0). */
+  front: number;
+  /** Index of the last element (meaningful while count > 0); -1 when empty. */
+  rear: number;
+  count: number;
+}
+
+export type CQPhase =
+  | "check-full"
+  | "advance-rear"
+  | "write"
+  | "enqueue-done"
+  | "full"
+  | "check-empty"
+  | "read"
+  | "advance-front"
+  | "dequeue-done"
+  | "empty"
+  | "scenario-end";
+
+export interface CircularQueueFrame {
+  state: CircularQueueState;
+  phase: CQPhase;
+  /** Slot written/read this frame (highlight in the ring). */
+  activeSlot: number | null;
+  /** Value involved (dequeued value / enqueued value). */
+  value: number | null;
+  /** Live arithmetic line, e.g. "rear = (4 + 1) % 5 = 0  ← wrap-around!". */
+  calc: string;
+  why: string;
+  desc: string;
+}
+
+export type CircularQueueOp =
+  | { op: "enqueue"; value: number }
+  | { op: "dequeue" };
+
+export function emptyCircularQueue(n: number): CircularQueueState {
+  return { slots: Array<number | null>(n).fill(null), front: 0, rear: -1, count: 0 };
+}
+
+function cqSnap(s: CircularQueueState): CircularQueueState {
+  return { slots: [...s.slots], front: s.front, rear: s.rear, count: s.count };
+}
+
+/**
+ * Record a sequence of operations on a circular queue. Frames are immutable
+ * snapshots; the LAST frame's state is the committed result. Full/empty are
+ * recorded as frames (not errors) so the player can show the detection.
+ */
+export function recordCircularQueueOps(
+  start: CircularQueueState,
+  ops: CircularQueueOp[],
+): CircularQueueFrame[] {
+  const frames: CircularQueueFrame[] = [];
+  const s = cqSnap(start);
+  const N = s.slots.length;
+  const F = (phase: CQPhase, extra: Partial<CircularQueueFrame>) =>
+    frames.push({
+      state: cqSnap(s),
+      phase,
+      activeSlot: null,
+      value: null,
+      calc: "",
+      why: "",
+      desc: "",
+      ...extra,
+    });
+
+  for (const oper of ops) {
+    if (oper.op === "enqueue") {
+      if (s.count === N) {
+        F("full", {
+          value: oper.value,
+          why: `count == N (${N}), so the queue is FULL: every slot holds a value and rear is one step behind front. Enqueue must refuse · this is the "queue full" exam condition (count version).`,
+          desc: `Queue full: cannot enqueue ${oper.value}.`,
+        });
+        continue;
+      }
+      const oldRear = s.rear;
+      const newRear = (s.rear + 1) % N;
+      F("check-full", {
+        value: oper.value,
+        calc: `count = ${s.count} < N = ${N} → not full`,
+        why: `Before writing, check for space: count (${s.count}) has not reached N (${N}), so there is room. (With the sacrifice-one-slot convention you would instead test (rear + 1) % N == front.)`,
+        desc: `Enqueue ${oper.value}: room available.`,
+      });
+      F("advance-rear", {
+        value: oper.value,
+        activeSlot: newRear,
+        calc: `rear = (${oldRear} + 1) % ${N} = ${(oldRear + 1) % N}${newRear < oldRear ? "  ← wrap-around!" : ""}`,
+        why: `rear advances with MODULO. ${newRear < oldRear ? `(${oldRear} + 1) would be ${oldRear + 1}, past the last slot · % ${N} wraps it back to ${newRear}, reusing the freed space at the front. That is the whole trick: the array is linear, the queue is circular.` : `It simply moves one slot to the right · no wrap needed yet.`}`,
+        desc: `rear = (${oldRear} + 1) % ${N} = ${newRear}.`,
+      });
+      s.rear = newRear;
+      s.slots[newRear] = oper.value;
+      s.count += 1;
+      F("write", {
+        value: oper.value,
+        activeSlot: newRear,
+        calc: `Q[${newRear}] = ${oper.value};  count = ${s.count}`,
+        why: `Write the value into the new rear slot and bump count. Nothing was shifted · contrast with a linear array queue, which either shifts every element or abandons the space in front.`,
+        desc: `Write ${oper.value} into slot ${newRear}.`,
+      });
+      F("enqueue-done", {
+        value: oper.value,
+        activeSlot: newRear,
+        calc: `front = ${s.front}, rear = ${s.rear}, count = ${s.count}`,
+        why: `Enqueued ${oper.value}: it sits at the REAR. Elements leave from the FRONT · first in, first out.`,
+        desc: `Enqueued ${oper.value} (count ${s.count}).`,
+      });
+    } else {
+      if (s.count === 0) {
+        F("empty", {
+          why: `count == 0: the queue is EMPTY · front and rear positions alone cannot tell you that (front can be at any index after wraps), which is exactly why the count variable (or one sacrificed slot) is needed.`,
+          desc: `Queue empty: cannot dequeue.`,
+        });
+        continue;
+      }
+      const oldFront = s.front;
+      const v = s.slots[oldFront];
+      F("check-empty", {
+        calc: `count = ${s.count} > 0 → not empty`,
+        why: `count (${s.count}) is above zero, so at least one element is stored. (With the sacrifice-one-slot convention, empty is front == rear.)`,
+        desc: `Dequeue: queue not empty.`,
+      });
+      F("read", {
+        activeSlot: oldFront,
+        value: v ?? null,
+        calc: `x = Q[front] = Q[${oldFront}] = ${v}`,
+        why: `Read the FRONT slot · this is the oldest value (FIFO). The slot is about to be freed; the data itself does not need erasing, the indices decide what is "in" the queue.`,
+        desc: `Read front slot ${oldFront}: ${v}.`,
+      });
+      const newFront = (s.front + 1) % N;
+      F("advance-front", {
+        activeSlot: newFront,
+        value: v ?? null,
+        calc: `front = (${oldFront} + 1) % ${N} = ${newFront}${newFront < oldFront ? "  ← wrap-around!" : ""}`,
+        why: `front also advances with modulo${newFront < oldFront ? ` · past the last slot it wraps to 0, so the freed front space becomes reusable by later enqueues` : ""}. count drops to ${s.count - 1}.`,
+        desc: `front = (${oldFront} + 1) % ${N} = ${newFront}.`,
+      });
+      s.slots[oldFront] = null;
+      s.front = newFront;
+      s.count -= 1;
+      F("dequeue-done", {
+        value: v ?? null,
+        calc: `front = ${s.front}, rear = ${s.rear}, count = ${s.count}`,
+        why: `Dequeued ${v}. Slot ${oldFront} is free again and will be reused when rear wraps around to it.`,
+        desc: `Dequeued ${v} (count ${s.count}).`,
+      });
+    }
+  }
+
+  F("scenario-end", {
+    calc: `front = ${s.front}, rear = ${s.rear}, count = ${s.count} / N = ${N}`,
+    why: `Sequence complete. front and rear chase each other around the ring; with the count variable the queue never confuses full with empty.`,
+    desc: `Done. count = ${s.count} of ${N}.`,
+  });
+  return frames;
+}
+
+/** The scripted wrap-around demo used by the player's scenario button. */
+export function wrapAroundScenario(): CircularQueueOp[] {
+  return [
+    { op: "enqueue", value: 10 },
+    { op: "enqueue", value: 20 },
+    { op: "enqueue", value: 30 },
+    { op: "dequeue" },
+    { op: "dequeue" },
+    { op: "enqueue", value: 40 },
+    { op: "enqueue", value: 50 },
+    { op: "enqueue", value: 60 },
+    { op: "enqueue", value: 70 },
+    { op: "enqueue", value: 80 },
+    { op: "enqueue", value: 90 },
+    { op: "dequeue" },
+    { op: "dequeue" },
+    { op: "dequeue" },
+    { op: "dequeue" },
+    { op: "dequeue" },
+    { op: "dequeue" },
+    { op: "dequeue" },
+  ];
 }

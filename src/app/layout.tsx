@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { SplashGate } from "@/components/loading/splash";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -45,12 +46,26 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-paper text-ink antialiased"
       >
+        {/*
+          Pre-paint splash gate: decide BEFORE the first paint whether this
+          session still needs the first-load splash (once per session,
+          sessionStorage). Runs synchronously at the top of <body>, so the
+          [data-splash] attribute exists before any content renders — no
+          flash, no hydration mismatch (the React tree renders the overlay
+          unconditionally; CSS keys off the attribute).
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{document.documentElement.dataset.splash=sessionStorage.getItem("notes-splash-shown")?"off":"on"}catch(e){document.documentElement.dataset.splash="off"}`,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
+          <SplashGate />
           {children}
         </ThemeProvider>
       </body>

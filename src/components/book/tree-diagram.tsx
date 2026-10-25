@@ -1,4 +1,8 @@
-import type { TreeDiagramNodeData } from "@/content/types";
+import type {
+  TreeDiagramNodeData,
+  TreeDiagramTreeNode,
+} from "@/content/types";
+import { layoutTreeDiagram } from "./tree-layout";
 
 /**
  * Reusable static tree figure (server component).
@@ -11,24 +15,42 @@ import type { TreeDiagramNodeData } from "@/content/types";
  *   - preserveAspectRatio="xMidYMid meet" + mx-auto → always centred
  *   - edges are trimmed border-to-border so they never poke past nodes
  *
+ * Two authoring modes, ONE renderer:
+ *   - `tree`: nested structure — positions computed by the shared
+ *     side-aware tidy layout (tree-layout.ts): lone left/right children
+ *     offset sideways (never a vertical edge), siblings keep a minimum
+ *     edge-to-edge gap, subtrees never overlap.
+ *   - `nodes` + `edges`: explicit positions (dual-panel figures etc.).
+ *
  * Every tree figure on the site renders through this component (content
  * blocks of type "treeDiagram"), guaranteeing one consistent visual language.
  */
 export function TreeDiagram({
-  nodes,
-  edges,
+  tree,
+  nodes: explicitNodes,
+  edges: explicitEdges,
   alt,
   caption,
   maxWidth = 560,
   labels,
 }: {
-  nodes: TreeDiagramNodeData[];
-  edges: [string, string][];
+  tree?: TreeDiagramTreeNode;
+  nodes?: TreeDiagramNodeData[];
+  edges?: [string, string][];
   alt: string;
   caption?: string;
   maxWidth?: number;
   labels?: { text: string; x: number; y: number }[];
 }) {
+  let nodes = explicitNodes ?? [];
+  let edges = explicitEdges ?? [];
+  if (tree) {
+    const laid = layoutTreeDiagram(tree);
+    nodes = laid.nodes;
+    edges = laid.edges;
+  } else if (nodes.length === 0) {
+    return null;
+  }
   const byId = new Map(nodes.map((n) => [n.id, n]));
 
   // ---- viewBox from actual geometry (min/max x, y, plus radius + padding) ----
@@ -117,7 +139,7 @@ export function TreeDiagram({
           return (
             <g key={n.id}>
               <circle className="td-node" cx={n.x} cy={n.y} r={r} />
-              <text className="td-label" x={n.x} y={n.y} r={r}>
+              <text className="td-label" x={n.x} y={n.y}>
                 {n.label}
               </text>
               {n.note ? (

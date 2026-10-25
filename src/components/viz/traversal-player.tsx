@@ -67,7 +67,12 @@ export function TraversalPlayer({ caption }: { caption?: string }) {
             <p className="mb-1.5 text-caption font-semibold uppercase tracking-wider text-ink-faint">
               Call stack
             </p>
-            <ol className="flex min-h-[2rem] flex-col-reverse gap-1" aria-label="Call stack">
+            {/* fixed height for the deepest recursion (4 frames) so the
+                panel never changes size between frames */}
+            <ol
+              className="flex h-[8.2rem] flex-col-reverse gap-1 overflow-y-auto thin-scroll"
+              aria-label="Call stack"
+            >
               {s.callStack.length === 0 ? (
                 <li className="font-mono text-caption text-ink-faint">empty</li>
               ) : (

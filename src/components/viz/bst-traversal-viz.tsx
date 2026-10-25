@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Redo2, RotateCw } from "lucide-react";
-import { Slider } from "@/components/ui/slider";
 import {
   TreeGraph,
   type TreeGraphNode,
   type TreeGraphNodeState,
 } from "./tree-graph";
 import { btnGhost } from "./viz-ui";
+import { SpeedControl, SpeedPresetChips, usePlaybackSpeed } from "./step-player";
 
 /**
  * BST traversal trainer (rebuilt on the shared <TreeGraph /> renderer:
@@ -43,9 +43,7 @@ const ORDER_LABEL: Record<Order, string> = {
 /** Deterministic first tree (SSR-safe); "New tree" uses Math.random. */
 const FIXED_SEQUENCE = [50, 30, 70, 20, 40, 60, 80, 35];
 
-const SPEED_MIN = 150;
-const SPEED_MAX = 900;
-const SPEED_DEFAULT = 450; // ms per visited node
+const SPEED_BASE_MS = 450; // ms per visited node at 1x (shared speed scales it)
 
 /* ---------- pure helpers ---------- */
 
@@ -117,7 +115,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
   );
   const [running, setRunning] = useState(false);
   const [lastOrder, setLastOrder] = useState<Order | null>(null);
-  const [speed, setSpeed] = useState(SPEED_DEFAULT);
+  const [speed, setSpeed] = usePlaybackSpeed();
   const runningRef = useRef(false);
   const timers = useRef<number[]>([]);
   const token = useRef(0); // stale timers can never commit
@@ -156,7 +154,7 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
     setCurKey(null);
     setStatus(`${label}: visiting ${keys[0]}…`);
 
-    const step = speed; // ms per visit, captured at run start
+    const step = Math.max(40, SPEED_BASE_MS / speed); // ms per visit, scales with the shared speed
     const settle = Math.max(70, Math.round(step * 0.55)); // "visiting" flash share
     keys.forEach((k, i) => {
       const key = String(k);
@@ -235,18 +233,13 @@ export function BstTraversalViz({ caption }: { caption?: string }) {
       </div>
 
       <div className="no-print mt-2 flex flex-wrap items-center justify-center gap-3">
-        <span className="text-caption text-ink-muted">Speed</span>
-        <Slider
-          className="w-44"
-          value={[speed]}
-          min={SPEED_MIN}
-          max={SPEED_MAX}
-          step={50}
-          aria-label="Traversal speed (milliseconds per visited node)"
-          onValueChange={([v]) => setSpeed(v)}
-        />
-        <span className="w-16 text-right font-mono text-sm text-ink-muted">{speed} ms</span>
+        <SpeedControl speed={speed} setSpeed={setSpeed} showPresets={false} />
       </div>
+      <SpeedPresetChips
+        speed={speed}
+        setSpeed={setSpeed}
+        className="no-print mt-2 justify-center"
+      />
 
       <div className="tree-wrap mt-3">
         {tree ? (

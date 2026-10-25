@@ -44,8 +44,10 @@ export default async function BookLayout({
       <ChapterNav book={book} />
 
       {/* Main column — left-padded on desktop to clear the fixed sidebar,
-          full-width on mobile. */}
-      <div className="lg:pl-72">
+          full-width on mobile. Right-padded too, so the reading column and
+          the sticky TOC rail always keep breathing room from the screen
+          edge (never flush against it / clipped under the scrollbar). */}
+      <div className="lg:pl-72 lg:pr-6 xl:pr-8">
         <Topbar book={book} />
         {children}
       </div>

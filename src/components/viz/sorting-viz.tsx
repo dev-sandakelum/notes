@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Pause, Play, Shuffle, StepForward } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { SpeedControl, SpeedPresetChips, usePlaybackSpeed } from "./step-player";
 
 /**
  * Sorting race visualizer.
@@ -227,7 +228,7 @@ function genOps(algo: Algo, src: number[]): Op[] {
 export function SortingViz({ caption }: { caption?: string }) {
   const [algo, setAlgo] = useState<Algo>("bubble");
   const [playing, setPlaying] = useState(false);
-  const [speed, setSpeed] = useState(5);
+  const [speed, setSpeed] = usePlaybackSpeed();
   const [size, setSize] = useState(SIZE_DEFAULT);
   const [msg, setMsg] = useState<Msg>({
     text: `${SIZE_DEFAULT} bars ready. Choose an algorithm and press Play.`,
@@ -478,19 +479,19 @@ export function SortingViz({ caption }: { caption?: string }) {
           <span className="w-7 text-right font-mono text-sm">{size}</span>
         </div>
         <div className="flex w-56 items-center gap-3">
-          <span className="w-14 shrink-0 text-caption text-ink-muted">Speed</span>
-          <Slider
-            className="flex-1"
-            value={[speed]}
-            min={1}
-            max={10}
-            step={1}
-            aria-label="Playback speed"
-            onValueChange={([v]) => setSpeed(v)}
+          <SpeedControl
+            speed={speed}
+            setSpeed={setSpeed}
+            showPresets={false}
           />
-          <span className="w-7 text-right font-mono text-sm">×{speed}</span>
         </div>
       </div>
+
+      <SpeedPresetChips
+        speed={speed}
+        setSpeed={setSpeed}
+        className="no-print mt-2 justify-center"
+      />
 
       <div className="mt-3">
         <svg

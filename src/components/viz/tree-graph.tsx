@@ -440,11 +440,11 @@ const ANIM_CSS = `
   to { stroke-dashoffset: 0; }
 }
 .tg-anim-node {
-  animation: tg-pop 220ms cubic-bezier(0.2, 1.28, 0.44, 1) both;
+  animation: tg-pop calc(220ms / var(--speed, 1)) cubic-bezier(0.2, 1.28, 0.44, 1) both;
   transform-box: fill-box;
   transform-origin: center;
 }
-.tg-anim-edge { animation: tg-draw 320ms ease both; }
+.tg-anim-edge { animation: tg-draw calc(320ms / var(--speed, 1)) ease both; }
 @media (prefers-reduced-motion: reduce) {
   .tg-anim-node, .tg-anim-edge { animation: none !important; }
   .tg-pulse { animation: none !important; }
@@ -552,7 +552,7 @@ export function TreeGraph(props: TreeGraphProps): JSX.Element {
             "--tg-len": e.len,
             ...(animateEntry ? { strokeDasharray: e.len } : {}),
             transition:
-              "x1 320ms ease, y1 320ms ease, x2 320ms ease, y2 320ms ease, stroke 200ms ease",
+              "x1 calc(320ms / var(--speed, 1)) ease, y1 calc(320ms / var(--speed, 1)) ease, x2 calc(320ms / var(--speed, 1)) ease, y2 calc(320ms / var(--speed, 1)) ease, stroke calc(200ms / var(--speed, 1)) ease",
           };
           return (
             <line
@@ -580,7 +580,7 @@ export function TreeGraph(props: TreeGraphProps): JSX.Element {
                   stroke="var(--danger)"
                   strokeWidth={2}
                   strokeDasharray="6 4"
-                  style={{ transition: "r 320ms ease" }}
+                  style={{ transition: "r calc(320ms / var(--speed, 1)) ease" }}
                 />
               ) : null}
               <circle
@@ -591,7 +591,7 @@ export function TreeGraph(props: TreeGraphProps): JSX.Element {
                   stroke: pal.stroke,
                   strokeWidth: pal.strokeWidth,
                   transition:
-                    "fill 200ms ease, stroke 200ms ease, stroke-width 200ms ease",
+                    "fill calc(200ms / var(--speed, 1)) ease, stroke calc(200ms / var(--speed, 1)) ease, stroke-width calc(200ms / var(--speed, 1)) ease",
                 }}
               />
               <text
@@ -599,7 +599,7 @@ export function TreeGraph(props: TreeGraphProps): JSX.Element {
                 dominantBaseline="central"
                 fontSize={16}
                 fontWeight={700}
-                style={{ fill: pal.label, transition: "fill 200ms ease" }}
+                style={{ fill: pal.label, transition: "fill calc(200ms / var(--speed, 1)) ease" }}
               >
                 {node.label}
               </text>
@@ -628,7 +628,7 @@ export function TreeGraph(props: TreeGraphProps): JSX.Element {
               style={{
                 transform: `translate(${n.x}px, ${n.y}px)`,
                 opacity: pal.opacity,
-                transition: "transform 320ms ease, opacity 200ms ease",
+                transition: "transform calc(320ms / var(--speed, 1)) ease, opacity calc(200ms / var(--speed, 1)) ease",
               }}
             >
               {animateEntry ? (

@@ -87,7 +87,28 @@ const chapter: ChapterData = {
     {
       "type": "example",
       "title": "Classic exam tree (lecture 7)",
-      "bodyHtml": "<p>For the tree below, write all three depth-first traversals.</p>\n    <div class=\"dia\">\n      <svg class=\"treesvg\" viewBox=\"0 0 420 190\" width=\"420\" role=\"img\" aria-label=\"Tree 12 49 13 5 42\">\n        <line class=\"edge\" x1=\"210\" y1=\"34\" x2=\"110\" y2=\"94\"></line>\n        <line class=\"edge\" x1=\"210\" y1=\"34\" x2=\"310\" y2=\"94\"></line>\n        <line class=\"edge\" x1=\"110\" y1=\"94\" x2=\"50\" y2=\"154\"></line>\n        <line class=\"edge\" x1=\"110\" y1=\"94\" x2=\"170\" y2=\"154\"></line>\n        <circle class=\"vtx\" cx=\"210\" cy=\"34\" r=\"24\"></circle><text class=\"vlbl\" x=\"210\" y=\"34\">12</text>\n        <circle class=\"vtx\" cx=\"110\" cy=\"94\" r=\"24\"></circle><text class=\"vlbl\" x=\"110\" y=\"94\">49</text>\n        <circle class=\"vtx\" cx=\"310\" cy=\"94\" r=\"24\"></circle><text class=\"vlbl\" x=\"310\" y=\"94\">42</text>\n        <circle class=\"vtx\" cx=\"50\" cy=\"154\" r=\"22\"></circle><text class=\"vlbl\" x=\"50\" y=\"154\">13</text>\n        <circle class=\"vtx\" cx=\"170\" cy=\"154\" r=\"22\"></circle><text class=\"vlbl\" x=\"170\" y=\"154\">5</text>\n      </svg>\n      <div class=\"dia-cap\">Preorder: process passing down the left side · Inorder: passing underneath · Postorder: passing up the right side</div>\n    </div>",
+      "bodyHtml": "<p>For the tree below, write all three depth-first traversals.</p>",
+      "blocks": [
+        {
+          "type": "treeDiagram",
+          "alt": "Binary tree: root 12, left child 49 with children 13 and 5, right child 42",
+          "caption": "Preorder: process passing down the left side · Inorder: passing underneath · Postorder: passing up the right side",
+          "maxWidth": 420,
+          "nodes": [
+            { "id": "n0", "label": "12", "x": 210, "y": 40, "r": 24 },
+            { "id": "n1", "label": "49", "x": 110, "y": 104, "r": 24 },
+            { "id": "n2", "label": "42", "x": 310, "y": 104, "r": 24 },
+            { "id": "n3", "label": "13", "x": 50, "y": 168, "r": 22 },
+            { "id": "n4", "label": "5", "x": 170, "y": 168, "r": 22 }
+          ],
+          "edges": [
+            ["n0", "n1"],
+            ["n0", "n2"],
+            ["n1", "n3"],
+            ["n1", "n4"]
+          ]
+        }
+      ],
       "solutionHtml": "<p><b>Preorder:</b> 12 49 13 5 42 &nbsp;(root first, then left subtree, then right subtree)<br>\n      <b>Inorder:</b> 13 49 5 12 42 &nbsp;&nbsp;(left, node, right)<br>\n      <b>Postorder:</b> 13 5 49 42 12 (left, right, node)</p>"
     },
     {
@@ -105,27 +126,38 @@ const chapter: ChapterData = {
       "alt": "Expression tree for A/B*C*D+E",
       "caption": "Inorder → A/B*C*D+E (infix) · Preorder → +**/ABCDE (prefix) · Postorder → AB/C*D*E+ (postfix)",
       "maxWidth": 560,
-      "nodes": [
-        { "id": "n0", "label": "+", "x": 230, "y": 40, "r": 21 },
-        { "id": "n1", "label": "*", "x": 120, "y": 100, "r": 21 },
-        { "id": "n2", "label": "E", "x": 410, "y": 100, "r": 21 },
-        { "id": "n3", "label": "*", "x": 55, "y": 160, "r": 21 },
-        { "id": "n4", "label": "D", "x": 185, "y": 160, "r": 21 },
-        { "id": "n5", "label": "/", "x": 25, "y": 205, "r": 18 },
-        { "id": "n6", "label": "C", "x": 90, "y": 205, "r": 18 },
-        { "id": "n7", "label": "B", "x": 155, "y": 205, "r": 18 },
-        { "id": "n8", "label": "A", "x": 220, "y": 205, "r": 18 }
-      ],
-      "edges": [
-        ["n0", "n1"],
-        ["n0", "n2"],
-        ["n1", "n3"],
-        ["n1", "n4"],
-        ["n3", "n5"],
-        ["n3", "n6"],
-        ["n4", "n7"],
-        ["n4", "n8"]
-      ]
+      "tree": {
+        "id": "n0",
+        "label": "+",
+        "children": [
+          {
+            "id": "n1",
+            "label": "*",
+            "side": "left",
+            "children": [
+              {
+                "id": "n3",
+                "label": "*",
+                "side": "left",
+                "children": [
+                  {
+                    "id": "n5",
+                    "label": "/",
+                    "side": "left",
+                    "children": [
+                      { "id": "n8", "label": "A", "side": "left", "r": 18 },
+                      { "id": "n7", "label": "B", "side": "right", "r": 18 }
+                    ]
+                  },
+                  { "id": "n6", "label": "C", "side": "right", "r": 18 }
+                ]
+              },
+              { "id": "n4", "label": "D", "side": "right", "r": 18 }
+            ]
+          },
+          { "id": "n2", "label": "E", "side": "right", "r": 18 }
+        ]
+      }
     },
     {
       "type": "accordion",

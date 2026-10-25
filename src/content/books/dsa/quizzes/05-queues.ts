@@ -91,6 +91,50 @@ const quiz: QuizData = {
       ],
       "answer": 3,
       "explanation": "<b>peek()/first()</b> returns <code>queue[front]</code> without changing front."
+    },
+    {
+      "prompt": "9. A circular queue of SIZE 6 sacrifices one slot. How many elements can it store?",
+      "options": [
+        "6",
+        "5",
+        "7",
+        "3"
+      ],
+      "answer": 1,
+      "explanation": "The sacrificed cell is what separates FULL from EMPTY, so capacity is <b>SIZE − 1 = 5</b>."
+    },
+    {
+      "prompt": "10. In a count-variable circular queue, which pair of conditions gives FULL and EMPTY?",
+      "options": [
+        "FULL: front == rear · EMPTY: front == 0",
+        "FULL: count == SIZE · EMPTY: count == 0",
+        "FULL: rear == SIZE − 1 · EMPTY: rear == −1",
+        "FULL: count == 0 · EMPTY: count == SIZE"
+      ],
+      "answer": 1,
+      "explanation": "The count variable counts stored elements: it hits <b>SIZE</b> when full and <b>0</b> when empty · positions alone are ambiguous after wraps."
+    },
+    {
+      "prompt": "11. A SIZE-5 circular queue (count design) has front = 3, rear = 4, count = 2. Where does the next enqueued element go?",
+      "options": [
+        "Slot 4",
+        "Slot 0",
+        "Slot 5",
+        "Slot 3"
+      ],
+      "answer": 1,
+      "explanation": "rear = (4 + 1) % 5 = <b>0</b> · the modulo wraps past the last slot back to the start."
+    },
+    {
+      "prompt": "12. Why does a linear array queue waste space after dequeues?",
+      "options": [
+        "Elements must be sorted after each removal",
+        "front moves forward and its freed cells can never be reused by rear",
+        "The array doubles in size automatically",
+        "rear resets to 0 on every dequeue"
+      ],
+      "answer": 1,
+      "explanation": "rear keeps marching toward the end while the cells behind front sit empty · the “false full” the circular queue fixes with the modulo wrap."
     }
   ]
 };

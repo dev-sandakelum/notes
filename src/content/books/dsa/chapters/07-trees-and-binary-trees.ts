@@ -278,29 +278,45 @@ const chapter: ChapterData = {
       "type": "treeDiagram",
       "alt": "General tree with root A, children B and C, and leaves F, G, H, I and J",
       "maxWidth": 560,
-      "nodes": [
-        { "id": "n0", "label": "A", "x": 320, "y": 40, "r": 22 },
-        { "id": "n1", "label": "B", "x": 200, "y": 110, "r": 22 },
-        { "id": "n2", "label": "C", "x": 440, "y": 110, "r": 22 },
-        { "id": "n3", "label": "D", "x": 140, "y": 185, "r": 22 },
-        { "id": "n4", "label": "E", "x": 260, "y": 185, "r": 22 },
-        { "id": "n5", "label": "F", "x": 440, "y": 185, "r": 22 },
-        { "id": "n6", "label": "G", "x": 105, "y": 260, "r": 20 },
-        { "id": "n7", "label": "H", "x": 175, "y": 260, "r": 20 },
-        { "id": "n8", "label": "I", "x": 225, "y": 260, "r": 20 },
-        { "id": "n9", "label": "J", "x": 295, "y": 260, "r": 20 }
-      ],
-      "edges": [
-        ["n0", "n1"],
-        ["n0", "n2"],
-        ["n1", "n3"],
-        ["n1", "n4"],
-        ["n2", "n5"],
-        ["n3", "n6"],
-        ["n3", "n7"],
-        ["n4", "n8"],
-        ["n4", "n9"]
-      ]
+      "tree": {
+        "id": "n0",
+        "label": "A",
+        "children": [
+          {
+            "id": "n1",
+            "label": "B",
+            "side": "left",
+            "children": [
+              {
+                "id": "n3",
+                "label": "D",
+                "side": "left",
+                "children": [
+                  { "id": "n6", "label": "G", "side": "left" },
+                  { "id": "n7", "label": "H", "side": "right" }
+                ]
+              },
+              {
+                "id": "n4",
+                "label": "E",
+                "side": "right",
+                "children": [
+                  { "id": "n8", "label": "I", "side": "left" },
+                  { "id": "n9", "label": "J", "side": "right" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "n2",
+            "label": "C",
+            "side": "right",
+            "children": [
+              { "id": "n5", "label": "F", "side": "right" }
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "heading",

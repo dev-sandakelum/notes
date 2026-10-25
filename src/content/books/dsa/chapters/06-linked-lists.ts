@@ -134,6 +134,11 @@ const chapter: ChapterData = {
       "html": "<span class=\"tok-cm\">/* search then unlink then free */</span>\npCur = pHead;\n<span class=\"tok-kw\">while</span> (pCur != NULL &amp;&amp; pCur-&gt;data != target)\n    pCur = pCur-&gt;right;          <span class=\"tok-cm\">/* advance until found or end */</span>\nfound = (pCur != NULL);"
     },
     {
+      "type": "viz",
+      "kind": "linkedList",
+      "caption": "Every operation is replayed pointer update by pointer update · watch why new->next must be set BEFORE head = new."
+    },
+    {
       "type": "heading",
       "depth": 3,
       "id": "doubly-linked-lists-dll",
@@ -179,6 +184,11 @@ const chapter: ChapterData = {
       "type": "code",
       "language": "c",
       "html": "<span class=\"tok-kw\">if</span> (pCur-&gt;left == NULL) {              <span class=\"tok-cm\">/* first node of the list */</span>\n    pHead = pCur-&gt;right;\n    pCur-&gt;right-&gt;left = NULL;\n} <span class=\"tok-kw\">else</span> {                                <span class=\"tok-cm\">/* any other node         */</span>\n    pCur-&gt;left-&gt;right = pCur-&gt;right;     <span class=\"tok-cm\">/* neighbours point to    */</span>\n    pCur-&gt;right-&gt;left = pCur-&gt;left;      <span class=\"tok-cm\">/*   … each other         */</span>\n}\n<span class=\"tok-fn\">free</span>(pCur);                            <span class=\"tok-cm\">/* recycle the node       */</span>"
+    },
+    {
+      "type": "viz",
+      "kind": "linkedList",
+      "caption": "Same player, Doubly mode: inserts and deletes now maintain prev, tail and both directions (⇄)."
     },
     {
       "type": "heading",

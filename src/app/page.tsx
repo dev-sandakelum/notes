@@ -37,7 +37,7 @@ export default function HomePage() {
         </h1>
         <p className="mx-auto mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-white/90">
           Six interactive course books, rebuilt from the original lecture
-          notes: searchable, cross-linked and exam-ready.
+          notes: cross-linked, visual and exam-ready.
         </p>
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
           <StatItem icon={Library} label={`${galleryStats.books} books`} />
