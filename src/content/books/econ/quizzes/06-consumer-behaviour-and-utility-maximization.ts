@@ -60,15 +60,15 @@ const quiz: QuizData = {
       "explanation": "The last rupee spent on each good must yield equal marginal utility."
     },
     {
-      "prompt": "6. With income Rs. 26, P<sub>A</sub> = 5, P<sub>B</sub> = 3 (slide 49 data), the utility-maximizing bundle is approximately:",
+      "prompt": "6. With income Rs. 26, P<sub>A</sub> = 5, P<sub>B</sub> = 3 (slide 49 data), the utility-maximizing bundle is:",
       "options": [
         "5A + 0B",
         "2A + 5B",
-        "3A + 3B (Rs. 24, TU 60)",
-        "4A + 2B"
+        "3A + 3B (Rs. 24 spent, TU 60)",
+        "4A + 2B (Rs. 26 spent, TU 62)"
       ],
-      "answer": 2,
-      "explanation": "Buying by MU-per-rupee ranking ends at 3A + 3B, TU = 40 + 20 = 60."
+      "answer": 3,
+      "explanation": "The MU-per-rupee ranking path stops at 3A + 3B (TU 60, Rs. 2 unspent), but 4A + 2B spends the full Rs. 26 and yields TU = 46 + 16 = 62 > 60 — the 4th A (MU 6) adds more than the 3rd B (MU 4). Always check bundles that exhaust the budget."
     },
     {
       "prompt": "7. A consumer stops buying a free good when:",
