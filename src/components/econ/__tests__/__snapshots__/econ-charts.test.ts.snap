@@ -1,0 +1,990 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`all Economics charts > buffer-stock: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S-bad",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S-good",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S-buffer",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 33,
+  "points": [
+    {
+      "cx": 186.9,
+      "cy": 124.8,
+      "id": "E bad",
+    },
+    {
+      "cx": 271.9,
+      "cy": 183.1,
+      "id": "T",
+    },
+    {
+      "cx": 373.8,
+      "cy": 252.9,
+      "id": "E good",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "40",
+    "160",
+    "200",
+    "240",
+    "280",
+    "320",
+  ],
+  "ticksY": [
+    "0",
+    "8",
+    "16",
+    "32",
+  ],
+  "viewBox": {
+    "h": 480,
+    "w": 720,
+  },
+}
+`;
+
+exports[`all Economics charts > business-cycle: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "trend",
+      "points": 41,
+      "segments": 1,
+    },
+    {
+      "id": "gdp",
+      "points": 41,
+      "segments": 1,
+    },
+  ],
+  "labels": 26,
+  "points": [
+    {
+      "cx": 165.8,
+      "cy": 294.9,
+      "id": "Peak",
+    },
+    {
+      "cx": 361.2,
+      "cy": 257.2,
+      "id": "Trough",
+    },
+    {
+      "cx": 556.7,
+      "cy": 57.3,
+      "id": "Peak",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "4",
+    "8",
+  ],
+  "ticksY": [
+    "100",
+    "140",
+    "160",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > consumer-producer-surplus: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 30,
+  "points": [
+    {
+      "cx": 176.8,
+      "cy": 135.8,
+      "id": "E",
+    },
+  ],
+  "regions": [
+    {
+      "id": "CS",
+      "label": "CS = Rs 3,200",
+    },
+    {
+      "id": "PS",
+      "label": "PS = Rs 6,400",
+    },
+  ],
+  "ticksX": [
+    "0",
+    "80",
+    "240",
+    "320",
+    "400",
+    "480",
+    "560",
+    "640",
+    "720",
+  ],
+  "ticksY": [
+    "0",
+    "20",
+    "40",
+    "60",
+    "80",
+    "100",
+    "120",
+    "160",
+    "180",
+    "200",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > dwl-max-price: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 37,
+  "points": [
+    {
+      "cx": 301.9,
+      "cy": 230.5,
+      "id": "E",
+    },
+    {
+      "cx": 207.2,
+      "cy": 300.7,
+      "id": "Q1",
+    },
+    {
+      "cx": 207.2,
+      "cy": 160.4,
+      "id": "Pd",
+    },
+  ],
+  "regions": [
+    {
+      "id": "A (gain to buyers)",
+      "label": "A (gain to buyers) = Rs 120",
+    },
+    {
+      "id": "B",
+      "label": "B = 40",
+    },
+    {
+      "id": "C",
+      "label": "C = 40",
+    },
+  ],
+  "ticksX": [
+    "0",
+    "10",
+    "20",
+    "40",
+    "60",
+    "70",
+    "80",
+    "90",
+    "100",
+  ],
+  "ticksY": [
+    "0",
+    "2",
+    "4",
+    "8",
+    "10",
+    "12",
+    "16",
+    "18",
+    "20",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > lratc: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "ATC1",
+      "points": 61,
+      "segments": 1,
+    },
+    {
+      "id": "ATC2",
+      "points": 61,
+      "segments": 1,
+    },
+    {
+      "id": "ATC3",
+      "points": 61,
+      "segments": 1,
+    },
+    {
+      "id": "LRATC",
+      "points": 61,
+      "segments": 1,
+    },
+  ],
+  "labels": 27,
+  "points": [
+    {
+      "cx": 160.5,
+      "cy": 301.9,
+      "id": "switch 1→2",
+    },
+    {
+      "cx": 270.6,
+      "cy": 355.2,
+      "id": "MES",
+    },
+    {
+      "cx": 343,
+      "cy": 332.1,
+      "id": "switch 2→3",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "2",
+    "4",
+    "6",
+    "8",
+    "10",
+    "12",
+  ],
+  "ticksY": [
+    "20",
+    "40",
+    "60",
+    "80",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > market-equilibrium: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 23,
+  "points": [
+    {
+      "cx": 311.1,
+      "cy": 318.3,
+      "id": "E",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "20",
+    "40",
+    "60",
+    "80",
+    "100",
+  ],
+  "ticksY": [
+    "0",
+    "10",
+    "15",
+    "20",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > mp-ap: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "MP",
+      "points": 10,
+      "segments": 1,
+    },
+    {
+      "id": "AP",
+      "points": 135,
+      "segments": 1,
+    },
+  ],
+  "labels": 26,
+  "points": [
+    {
+      "cx": 212.7,
+      "cy": 46.6,
+      "id": "MP max",
+    },
+    {
+      "cx": 266.2,
+      "cy": 67.9,
+      "id": "AP max",
+    },
+    {
+      "cx": 480.1,
+      "cy": 312.8,
+      "id": "MP = 0",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "2",
+    "6",
+    "10",
+  ],
+  "ticksY": [
+    "0",
+    "25",
+    "50",
+    "75",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > per-unit-subsidy: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "Ssub",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 29,
+  "points": [
+    {
+      "cx": 255.1,
+      "cy": 181.4,
+      "id": "E0",
+    },
+    {
+      "cx": 289,
+      "cy": 202.5,
+      "id": "E1",
+    },
+    {
+      "cx": 289,
+      "cy": 167.4,
+      "id": "Ps",
+    },
+  ],
+  "regions": [
+    {
+      "id": "govt cost",
+      "label": "govt cost = Rs 3,360",
+    },
+    {
+      "id": "DWL",
+      "label": "DWL = 240",
+    },
+  ],
+  "ticksX": [
+    "0",
+    "50",
+    "100",
+    "200",
+    "250",
+    "300",
+    "350",
+    "400",
+  ],
+  "ticksY": [
+    "0",
+    "40",
+    "80",
+    "160",
+    "200",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > per-unit-tax: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "Stax",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 32,
+  "points": [
+    {
+      "cx": 319.6,
+      "cy": 230.5,
+      "id": "E0",
+    },
+    {
+      "cx": 265.1,
+      "cy": 195.5,
+      "id": "E1",
+    },
+    {
+      "cx": 265.1,
+      "cy": 248.1,
+      "id": "Ps",
+    },
+  ],
+  "regions": [
+    {
+      "id": "tax revenue",
+      "label": "tax revenue = Rs 240",
+    },
+    {
+      "id": "DWL",
+      "label": "DWL = Rs 30",
+    },
+  ],
+  "ticksX": [
+    "0",
+    "20",
+    "40",
+    "60",
+    "80",
+    "120",
+    "140",
+    "160",
+    "180",
+    "200",
+  ],
+  "ticksY": [
+    "0",
+    "5",
+    "15",
+    "20",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > ppc-frontier: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "ppc",
+      "points": 75,
+      "segments": 1,
+    },
+  ],
+  "labels": 23,
+  "points": [
+    {
+      "cx": 46.2,
+      "cy": 47.9,
+      "id": "A",
+    },
+    {
+      "cx": 146,
+      "cy": 75.8,
+      "id": "B",
+    },
+    {
+      "cx": 245.8,
+      "cy": 131.5,
+      "id": "C",
+    },
+    {
+      "cx": 345.7,
+      "cy": 215.1,
+      "id": "D",
+    },
+    {
+      "cx": 445.5,
+      "cy": 326.6,
+      "id": "E",
+    },
+    {
+      "cx": 545.3,
+      "cy": 466,
+      "id": "F",
+    },
+    {
+      "cx": 245.8,
+      "cy": 326.6,
+      "id": "G",
+    },
+    {
+      "cx": 345.7,
+      "cy": 159.4,
+      "id": "H",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+  ],
+  "ticksY": [
+    "0",
+    "3",
+    "6",
+    "9",
+    "12",
+    "15",
+  ],
+  "viewBox": {
+    "h": 500,
+    "w": 640,
+  },
+}
+`;
+
+exports[`all Economics charts > ppc-shifts: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "ppc-growth",
+      "points": 75,
+      "segments": 1,
+    },
+    {
+      "id": "ppc-base",
+      "points": 75,
+      "segments": 1,
+    },
+    {
+      "id": "ppc-decline",
+      "points": 75,
+      "segments": 1,
+    },
+  ],
+  "labels": 18,
+  "points": [],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "20",
+    "40",
+    "60",
+    "80",
+    "100",
+    "120",
+  ],
+  "ticksY": [
+    "0",
+    "40",
+    "80",
+    "120",
+    "160",
+    "200",
+  ],
+  "viewBox": {
+    "h": 500,
+    "w": 640,
+  },
+}
+`;
+
+exports[`all Economics charts > price-ceiling: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 28,
+  "points": [
+    {
+      "cx": 298.7,
+      "cy": 230.5,
+      "id": "E",
+    },
+    {
+      "cx": 250.8,
+      "cy": 265.6,
+      "id": "Qs",
+    },
+    {
+      "cx": 346.5,
+      "cy": 265.6,
+      "id": "Qd",
+    },
+    {
+      "cx": 250.8,
+      "cy": 195.5,
+      "id": "Black market",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "20",
+    "80",
+    "100",
+  ],
+  "ticksY": [
+    "0",
+    "5",
+    "15",
+    "20",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > price-floor: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "D",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "S",
+      "points": 2,
+      "segments": 1,
+    },
+  ],
+  "labels": 25,
+  "points": [
+    {
+      "cx": 290.2,
+      "cy": 230.5,
+      "id": "E",
+    },
+    {
+      "cx": 241.5,
+      "cy": 195.5,
+      "id": "Qd",
+    },
+    {
+      "cx": 338.8,
+      "cy": 195.5,
+      "id": "Qs",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "20",
+    "80",
+    "100",
+  ],
+  "ticksY": [
+    "0",
+    "5",
+    "15",
+    "20",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > total-costs: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "TFC",
+      "points": 2,
+      "segments": 1,
+    },
+    {
+      "id": "TVC",
+      "points": 900,
+      "segments": 1,
+    },
+    {
+      "id": "TC",
+      "points": 900,
+      "segments": 1,
+    },
+  ],
+  "labels": 23,
+  "points": [
+    {
+      "cx": 416.6,
+      "cy": 217.3,
+      "id": "TC(4)",
+    },
+    {
+      "cx": 416.6,
+      "cy": 303.1,
+      "id": "TVC(4)",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "5",
+    "6",
+  ],
+  "ticksY": [
+    "0",
+    "40",
+    "80",
+    "120",
+    "160",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > total-product: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "TP",
+      "points": 135,
+      "segments": 1,
+    },
+  ],
+  "labels": 23,
+  "points": [
+    {
+      "cx": 227.8,
+      "cy": 219.9,
+      "id": "MP peak",
+    },
+    {
+      "cx": 435.3,
+      "cy": 58.6,
+      "id": "TP max",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "0",
+    "2",
+    "4",
+    "6",
+    "8",
+    "10",
+  ],
+  "ticksY": [
+    "0",
+    "100",
+    "200",
+    "300",
+    "400",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > tu-mu: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "TU",
+      "points": 90,
+      "segments": 1,
+    },
+  ],
+  "labels": 27,
+  "points": [
+    {
+      "cx": 500.2,
+      "cy": 56.8,
+      "id": "TU max",
+    },
+    {
+      "cx": 500.2,
+      "cy": 332.5,
+      "id": "MU = 0",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+  ],
+  "ticksY": [
+    "-5",
+    "0",
+    "10",
+    "20",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;
+
+exports[`all Economics charts > unit-costs: structural snapshot 1`] = `
+{
+  "curves": [
+    {
+      "id": "AFC",
+      "points": 61,
+      "segments": 1,
+    },
+    {
+      "id": "AVC",
+      "points": 61,
+      "segments": 1,
+    },
+    {
+      "id": "ATC",
+      "points": 61,
+      "segments": 1,
+    },
+    {
+      "id": "MC",
+      "points": 61,
+      "segments": 1,
+    },
+  ],
+  "labels": 25,
+  "points": [
+    {
+      "cx": 288.5,
+      "cy": 337.5,
+      "id": "AVC min",
+    },
+    {
+      "cx": 410.1,
+      "cy": 269.3,
+      "id": "ATC min",
+    },
+  ],
+  "regions": [],
+  "ticksX": [
+    "1",
+    "2",
+    "5",
+    "6",
+  ],
+  "ticksY": [
+    "0",
+    "30",
+    "40",
+    "50",
+    "60",
+  ],
+  "viewBox": {
+    "h": 470,
+    "w": 680,
+  },
+}
+`;

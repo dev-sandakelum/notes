@@ -9,6 +9,7 @@ import { Flashcards } from "@/components/book/flashcards";
 import { Reveal } from "@/components/book/reveal";
 import { LazyViz } from "@/components/viz/lazy";
 import { TreeDiagram } from "@/components/book/tree-diagram";
+import { EconChart } from "@/components/econ/econ-chart";
 import { normalizeSvg } from "@/components/book/normalize-svg";
 import {
   AlertTriangle,
@@ -490,6 +491,8 @@ export function BlockRenderer({
             );
           case "accordion":
             return <AccordionView key={i} items={b.items} />;
+          case "econChart":
+            return <EconChart key={i} spec={b.spec} />;
           case "figure":
             return (
               <FigureView

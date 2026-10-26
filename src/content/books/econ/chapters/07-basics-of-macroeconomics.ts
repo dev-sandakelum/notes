@@ -1,4 +1,7 @@
 import type { ChapterData } from "@/content/types";
+import {
+  BUSINESS_CYCLE_CHART,
+} from "../charts";
 
 const chapter: ChapterData = {
   "meta": {
@@ -229,11 +232,9 @@ const chapter: ChapterData = {
         ]
       ]
     },
-    {
-      "type": "figure",
-      "svg": "<svg class=\"fig\" viewBox=\"0 0 640 320\" role=\"img\" aria-label=\"Business cycle phases around long run trend\">\n    <line class=\"axisln\" x1=\"60\" y1=\"280\" x2=\"600\" y2=\"280\"></line>\n    <line class=\"axisln\" x1=\"60\" y1=\"280\" x2=\"60\" y2=\"40\"></line>\n    <text class=\"lbl\" x=\"330\" y=\"308\" text-anchor=\"middle\">Time</text>\n    <text class=\"lbl\" x=\"36\" y=\"160\" text-anchor=\"middle\" transform=\"rotate(-90 36 160)\">Real GDP</text>\n    <!-- trend -->\n    <path class=\"curve\" stroke=\"var(--muted)\" stroke-dasharray=\"7 6\" d=\"M 80 240 L 580 90\"></path>\n    <text class=\"lbl-sm\" x=\"560\" y=\"78\" fill=\"var(--muted)\">long-term growth trend</text>\n    <!-- cycle -->\n    <path class=\"curve\" stroke=\"var(--primary)\" stroke-width=\"3\" d=\"M 80 240 C 120 200, 150 150, 190 130 C 230 112, 260 130, 300 170 C 340 210, 370 245, 410 250 C 450 255, 490 215, 530 160 C 555 122, 570 100, 580 92\"></path>\n    <circle cx=\"190\" cy=\"130\" r=\"6\" fill=\"var(--success)\"></circle><text class=\"lbl-tag\" x=\"175\" y=\"112\" fill=\"var(--success)\">Peak / Boom</text>\n    <circle cx=\"410\" cy=\"250\" r=\"6\" fill=\"var(--danger)\"></circle><text class=\"lbl-tag\" x=\"360\" y=\"272\" fill=\"var(--danger)\">Trough / Recession</text>\n    <text class=\"lbl-sm\" x=\"270\" y=\"152\" fill=\"var(--primary)\">Expansion</text>\n    <text class=\"lbl-sm\" x=\"480\" y=\"235\" fill=\"var(--primary)\">Recovery</text>\n    <text class=\"lbl-sm\" x=\"240\" y=\"222\" fill=\"var(--danger)\">Contraction</text>\n  </svg>",
-      "alt": "Business cycle phases around long run trend",
-      "caption": "The business cycle: aggregate output fluctuates around its long-term trend through booms and recessions."
+        {
+      "type": "econChart",
+      "spec": BUSINESS_CYCLE_CHART
     },
     {
       "type": "heading",

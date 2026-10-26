@@ -131,10 +131,10 @@ const quiz: QuizData = {
         "X = 3, Y = 5 (TU = 54)",
         "X = 5, Y = 2 (TU = 46)",
         "X = 1, Y = 8 (TU = 42)",
-        "X = 4, Y = 4 (TU = 50)"
+        "X = 5, Y = 1 (TU = 39)"
       ],
       "answer": 0,
-      "explanation": "Ranking MU/rupee: Y₁, Y₂, Y₃, X₁, Y₄, X₂, Y₅, X₃ → 3X + 5Y = Rs. 11, TU 54."
+      "explanation": "Ranking MU/rupee: Y₁, Y₂, Y₃, X₁, Y₄, X₂, Y₅, X₃ → 3X + 5Y = Rs. 11, TU 54 (the full-budget bundle X = 4, Y = 4 also reaches TU 54)."
     },
     {
       "prompt": "13. Rapid, runaway price increases that destroy confidence in the currency are:",
