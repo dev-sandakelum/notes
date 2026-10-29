@@ -2,7 +2,7 @@
 
 An "Ultra-Stable Digital Book" web app built from the interactive HTML lecture
 notes in [dev-sandakelum/trash](https://github.com/dev-sandakelum/trash).
-Six complete course books — 75 chapters, 594 quiz questions, 169 flashcards,
+Seven complete course books — 86 chapters, 686 quiz questions, 194 flashcards,
 8 interactive visualizations — statically generated and rendered in a flat,
 hairline, editorial paper aesthetic.
 
@@ -10,6 +10,7 @@ hairline, editorial paper aesthetic.
 |---|---|---|
 | ICT2113 | Data Structures & Algorithms | DICT |
 | ICT2122 | Object Oriented Programming | DICT |
+| ICT2142 | E-Business Systems | DICT |
 | ICT2152 | Object Oriented Analysis & Design | DICT |
 | ICT2162 | Management Information Systems | DICT |
 | TCS2112 | Business Economics | DMS |
@@ -33,7 +34,7 @@ is stored per browser in `localStorage`.
 |---|---|
 | `/` | Gallery: book cards, search (`/` focuses), subject + tag filters |
 | `/notes/[book]` | Book landing: description, stats, chapter index |
-| `/notes/[book]/[chapter]` | Reading page (75 pages, `generateStaticParams`, `force-static`) |
+| `/notes/[book]/[chapter]` | Reading page (86 pages, `generateStaticParams`, `force-static`) |
 
 ## Architecture
 

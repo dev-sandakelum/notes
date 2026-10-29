@@ -4,6 +4,7 @@ import oodBook from "./books/ood/book";
 import misBook from "./books/mis/book";
 import econBook from "./books/econ/book";
 import mathsBook from "./books/maths/book";
+import ebizBook from "./books/ebiz/book";
 import dsa_ch_01_introduction from "./books/dsa/chapters/01-introduction";
 import dsa_ch_02_introduction_to_dsa from "./books/dsa/chapters/02-introduction-to-dsa";
 import dsa_ch_03_algorithms_and_complexity from "./books/dsa/chapters/03-algorithms-and-complexity";
@@ -79,6 +80,17 @@ import maths_ch_12_trigonometry from "./books/maths/chapters/12-trigonometry";
 import maths_ch_13_vectors from "./books/maths/chapters/13-vectors";
 import maths_ch_14_master_formula_sheet from "./books/maths/chapters/14-master-formula-sheet";
 import maths_ch_15_final_practice_exam from "./books/maths/chapters/15-final-practice-exam";
+import ebiz_ch_01_introduction_to_e_business from "./books/ebiz/chapters/01-introduction-to-e-business";
+import ebiz_ch_02_ebusiness_models_and_digital_value from "./books/ebiz/chapters/02-ebusiness-models-and-digital-value";
+import ebiz_ch_03_ecommerce_infrastructure_and_technologies from "./books/ebiz/chapters/03-ecommerce-infrastructure-and-technologies";
+import ebiz_ch_04_designing_and_developing_ecommerce_websites from "./books/ebiz/chapters/04-designing-and-developing-ecommerce-websites";
+import ebiz_ch_05_ecommerce_platforms_and_tools from "./books/ebiz/chapters/05-ecommerce-platforms-and-tools";
+import ebiz_ch_06_digital_marketing_for_ebusiness from "./books/ebiz/chapters/06-digital-marketing-for-ebusiness";
+import ebiz_ch_07_logistics_fulfilment_and_supply_chain from "./books/ebiz/chapters/07-logistics-fulfilment-and-supply-chain";
+import ebiz_ch_08_ebusiness_security_and_legal_aspects from "./books/ebiz/chapters/08-ebusiness-security-and-legal-aspects";
+import ebiz_ch_09_emerging_trends_in_ebusiness from "./books/ebiz/chapters/09-emerging-trends-in-ebusiness";
+import ebiz_ch_10_master_cheat_sheet from "./books/ebiz/chapters/10-master-cheat-sheet";
+import ebiz_ch_11_final_practice_exam from "./books/ebiz/chapters/11-final-practice-exam";
 import dsa_q_02_introduction_to_dsa from "./books/dsa/quizzes/02-introduction-to-dsa";
 import dsa_q_03_algorithms_and_complexity from "./books/dsa/quizzes/03-algorithms-and-complexity";
 import dsa_q_04_stacks from "./books/dsa/quizzes/04-stacks";
@@ -146,6 +158,16 @@ import maths_q_11_inverse_of_a_matrix from "./books/maths/quizzes/11-inverse-of-
 import maths_q_12_trigonometry from "./books/maths/quizzes/12-trigonometry";
 import maths_q_13_vectors from "./books/maths/quizzes/13-vectors";
 import maths_q_15_final_practice_exam from "./books/maths/quizzes/15-final-practice-exam";
+import ebiz_q_01_introduction_to_e_business from "./books/ebiz/quizzes/01-introduction-to-e-business";
+import ebiz_q_02_ebusiness_models_and_digital_value from "./books/ebiz/quizzes/02-ebusiness-models-and-digital-value";
+import ebiz_q_03_ecommerce_infrastructure_and_technologies from "./books/ebiz/quizzes/03-ecommerce-infrastructure-and-technologies";
+import ebiz_q_04_designing_and_developing_ecommerce_websites from "./books/ebiz/quizzes/04-designing-and-developing-ecommerce-websites";
+import ebiz_q_05_ecommerce_platforms_and_tools from "./books/ebiz/quizzes/05-ecommerce-platforms-and-tools";
+import ebiz_q_06_digital_marketing_for_ebusiness from "./books/ebiz/quizzes/06-digital-marketing-for-ebusiness";
+import ebiz_q_07_logistics_fulfilment_and_supply_chain from "./books/ebiz/quizzes/07-logistics-fulfilment-and-supply-chain";
+import ebiz_q_08_ebusiness_security_and_legal_aspects from "./books/ebiz/quizzes/08-ebusiness-security-and-legal-aspects";
+import ebiz_q_09_emerging_trends_in_ebusiness from "./books/ebiz/quizzes/09-emerging-trends-in-ebusiness";
+import ebiz_q_11_final_practice_exam from "./books/ebiz/quizzes/11-final-practice-exam";
 import type { BookMeta, ChapterData, QuizData } from "./types";
 
 export const books: BookMeta[] = [
@@ -154,7 +176,8 @@ export const books: BookMeta[] = [
   oodBook,
   misBook,
   econBook,
-  mathsBook
+  mathsBook,
+  ebizBook
 ];
 
 const chapterRegistry = new Map<string, ChapterData>([
@@ -233,6 +256,17 @@ const chapterRegistry = new Map<string, ChapterData>([
   ["/maths/13-vectors", maths_ch_13_vectors],
   ["/maths/14-master-formula-sheet", maths_ch_14_master_formula_sheet],
   ["/maths/15-final-practice-exam", maths_ch_15_final_practice_exam],
+  ["/ebiz/01-introduction-to-e-business", ebiz_ch_01_introduction_to_e_business],
+  ["/ebiz/02-ebusiness-models-and-digital-value", ebiz_ch_02_ebusiness_models_and_digital_value],
+  ["/ebiz/03-ecommerce-infrastructure-and-technologies", ebiz_ch_03_ecommerce_infrastructure_and_technologies],
+  ["/ebiz/04-designing-and-developing-ecommerce-websites", ebiz_ch_04_designing_and_developing_ecommerce_websites],
+  ["/ebiz/05-ecommerce-platforms-and-tools", ebiz_ch_05_ecommerce_platforms_and_tools],
+  ["/ebiz/06-digital-marketing-for-ebusiness", ebiz_ch_06_digital_marketing_for_ebusiness],
+  ["/ebiz/07-logistics-fulfilment-and-supply-chain", ebiz_ch_07_logistics_fulfilment_and_supply_chain],
+  ["/ebiz/08-ebusiness-security-and-legal-aspects", ebiz_ch_08_ebusiness_security_and_legal_aspects],
+  ["/ebiz/09-emerging-trends-in-ebusiness", ebiz_ch_09_emerging_trends_in_ebusiness],
+  ["/ebiz/10-master-cheat-sheet", ebiz_ch_10_master_cheat_sheet],
+  ["/ebiz/11-final-practice-exam", ebiz_ch_11_final_practice_exam],
 ]);
 
 const quizRegistry = new Map<string, QuizData>([
@@ -303,6 +337,16 @@ const quizRegistry = new Map<string, QuizData>([
   ["/maths/12-trigonometry", maths_q_12_trigonometry],
   ["/maths/13-vectors", maths_q_13_vectors],
   ["/maths/15-final-practice-exam", maths_q_15_final_practice_exam],
+  ["/ebiz/01-introduction-to-e-business", ebiz_q_01_introduction_to_e_business],
+  ["/ebiz/02-ebusiness-models-and-digital-value", ebiz_q_02_ebusiness_models_and_digital_value],
+  ["/ebiz/03-ecommerce-infrastructure-and-technologies", ebiz_q_03_ecommerce_infrastructure_and_technologies],
+  ["/ebiz/04-designing-and-developing-ecommerce-websites", ebiz_q_04_designing_and_developing_ecommerce_websites],
+  ["/ebiz/05-ecommerce-platforms-and-tools", ebiz_q_05_ecommerce_platforms_and_tools],
+  ["/ebiz/06-digital-marketing-for-ebusiness", ebiz_q_06_digital_marketing_for_ebusiness],
+  ["/ebiz/07-logistics-fulfilment-and-supply-chain", ebiz_q_07_logistics_fulfilment_and_supply_chain],
+  ["/ebiz/08-ebusiness-security-and-legal-aspects", ebiz_q_08_ebusiness_security_and_legal_aspects],
+  ["/ebiz/09-emerging-trends-in-ebusiness", ebiz_q_09_emerging_trends_in_ebusiness],
+  ["/ebiz/11-final-practice-exam", ebiz_q_11_final_practice_exam],
 ]);
 
 export function getBook(slug: string): BookMeta | undefined {

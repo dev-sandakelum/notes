@@ -252,3 +252,21 @@ Work Log:
 
 Stage Summary:
 - Econ charts are now 100% data-driven: 17 specs → <EconChart/>, geometry/labels/captions/tables all computed from equations; 176 tests + layout checker guard correctness; 8 numeric content errors fixed; missing solutions completed; verification report at repo root. Single patch file generated for the last commit (685192b).
+---
+Task ID: 11
+Agent: main (Z.ai)
+Task: Add the ICT2142 E-Business Systems book from trash/2142 lecture PDFs (user spec: use trash main branch 2142 folder, update the notes project, produce git.patch based on the last commit).
+
+Work Log:
+- Source: dev-sandakelum/trash (main) 2142/ folder, 9 lecture PDFs (Lectures 01, 02, 03, 04, 06, 07, 08, 09, 10). Lecture 05 (E-Commerce Payment Systems, listed in the course outline) is not present in the folder. Text extracted with pdftotext -layout and distilled chapter by chapter.
+- Subject: ICT2142 E-Business Systems (Dept. of ICT, Faculty of Technology, University of Ruhuna; 2 credits, 45h = 15h theory + 30h practical; exam 70% + CA 30%).
+- NEW src/content/books/ebiz/ (7th book): book.ts + 11 chapters + 10 quiz files. Chapters 01-09 map to Lectures 01-10 in order (source lecture number preserved in each subtitle, e.g. "Lecture 06 · E-Commerce Platforms & Tools", because Lecture 05 is absent); 10 = master cheat sheet (25 flip cards, categories follow lecture order); 11 = final practice exam (20 mixed questions). 92 quiz questions total (8 per topic + 20 exam).
+- Blocks used: heading / paragraph / list / callout(info|tip|warn|exam) / table / example(with solution) / accordion drills / htmlFigure (house legacy .flow/.fstep/.farrow/.fgrid/.fcard classes) / flashcards / quiz — same patterns as the six existing books; figures cover the digital value chain, affiliate flow, SEO/social/personalization/CRM cycles, NIST CSF 2.0 chain, fulfilment + end-to-end logistics flows, blockchain blocks, SWOT grid, platform-selection grid.
+- Registry: src/content/index.ts += 1 book + 11 chapter + 10 quiz imports and entries (explicit per-file imports, bundler-safe). README updated: seven books, 86 chapters, 686 questions, 194 flashcards; ICT2142 row added to the course table; reading-page count 75 -> 86. No JSX touched anywhere (gallery, sidebar, TOC, prev/next, progress all derive from the data).
+- Style gate: lint:copy bans em-dashes. Authored content initially used them; fixed via scripted transform (paired parentheticals -> parentheses, separators -> colons/commas with targeted comma overrides). The pairing regex over-matched across sentence/list boundaries (17 false pairs, e.g. list items joined into one parenthetical); wrote a second audit+reversal script (detects spans containing </li>, ". Capital", ". <b>", "; <b>") that reversed every false pair back and re-applied the colon rule; hand-fixed BOPIS nesting and two comma cases. ebiz files now pass lint:copy with zero violations. The 28 remaining em-dash violations are pre-existing in econ files from PR #1 (untouched by this task).
+- Verification: custom integrity script (chapters/quiz/registry/answer-index/flashcardCount/questionCount/internal-link checks) ALL PASS; bunx tsc --noEmit clean; eslint clean on new files; bun run build green, 118 static pages generated including all 11 /notes/ebiz/* pages; quiz counts (8/8/.../20 = 92) verified against quiz blocks.
+- git.patch generated from the staged diff (repo convention: the patch covers every change except itself and is committed alongside, like econ-charts-overhaul.patch in PR #1).
+
+Stage Summary:
+- 7th book "ebiz" (ICT2142 E-Business Systems): 11 chapters, 92 quiz questions, 25 flashcards, ~30 comparison tables / flow figures, worked examples and drill accordions per chapter. Total gallery: 7 books, 86 chapters, 686 questions, 194 flashcards.
+- Known gap: Lecture 05 (E-Commerce Payment Systems) PDF is absent from trash/2142, so the book has 9 topic chapters; when the PDF lands in trash it can be slotted in as a new chapter 05 (shift cheat sheet/exam numbering) with no other changes needed.
